@@ -118,7 +118,7 @@ nav.mdl-navigation a:hover {
 @include mq-max(1024px) {
 	.mobile-header {
 		position: fixed;
-		height: 56px;
+		height: 64px;
 		background-color: white;
 		width: 100%;
 		z-index: 2;
@@ -129,8 +129,9 @@ nav.mdl-navigation a:hover {
 /* Landing Page Style */
 .landing-container {
 
+	// Header Fix
 	@include mq-max(1024px) {
-		margin-top: 45px;
+		margin-top: 64px;
 	}
 
 	a,
@@ -338,7 +339,7 @@ nav.mdl-navigation a:hover {
 
 	// Header Fix
 	@include mq-max(1024px) {
-		margin-top: 66px;
+		margin-top: 64px;
 	}
 
 	h3 {
@@ -401,9 +402,9 @@ nav.mdl-navigation a:hover {
 	justify-content: center;
 	text-align: center;
 
-	/* Header adjustment */
+	/* Header Fix */
 	@include mq-max(1024px) {
-		margin-top: 56px;
+		margin-top: 64px;
 	}
 
 	.contact-grid {
@@ -516,7 +517,7 @@ nav.mdl-navigation a:hover {
 
 .projects-page {
 
-	/* Header adjustment */
+	/* Header Fix */
 	@include mq-max(1024px) {
 		margin-top: 64px;
 	}
@@ -556,7 +557,7 @@ nav.mdl-navigation a:hover {
 .resume-page {
 	// Header Fix
 	@include mq-max(1024px) {
-		margin-top: 66px;
+		margin-top: 64px;
 	}
 
 	.mdl-grid {
@@ -765,7 +766,7 @@ nav.mdl-navigation a:hover {
 .not-found {
 	// Header Fix
 	@include mq-max(1024px) {
-		margin-top: 66px;
+		margin-top: 64px;
 	}
 
 	p {
