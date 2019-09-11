@@ -514,23 +514,39 @@ nav.mdl-navigation a:hover {
 
 /* Projects Page Styles */
 
-.projects {
+.projects-page {
 
-	h1 {
-		text-align: center;
+	/* Header adjustment */
+	@include mq-max(1024px) {
+		margin-top: 64px;
 	}
 
-	.projects-grid {
-		display: flex;
+	p {
+			font-size: 20px;
+			text-align: center;
+	}
 
-		.project-cards {
-			min-width: 200px;
-			margin: auto;
+	.projects {
 
-			.project-cards-title {
-				color: #000;
-				height: 200px;
-				background: url(http://via.placeholder.com/640x360) center / cover;
+		h1 {
+			text-align: center;
+			font-size: 48px;
+			margin: 20px 0;
+		}
+
+		.projects-grid {
+			display: flex;
+			flex-flow: row wrap;
+
+			.project-cards {
+				min-width: 200px;
+				margin: 10px;
+
+				.project-cards-title {
+					color: #000;
+					height: 200px;
+					background: url(http://via.placeholder.com/640x360) center / cover;
+				}
 			}
 		}
 	}
