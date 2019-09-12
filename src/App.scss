@@ -183,6 +183,10 @@ nav.mdl-navigation a:hover {
 				padding-bottom: 0;
 			}
 
+			@include mq-max(500px) {
+				padding: 0;
+			}
+
 			h1,
 			div p {
 				margin: 0;
@@ -199,6 +203,10 @@ nav.mdl-navigation a:hover {
 
 				@include mq-max(900px) {
 					font-size: 36px;
+				}
+
+				@include mq-max(500px) {
+					margin-top: 20px;
 				}
 			}
 
@@ -228,6 +236,10 @@ nav.mdl-navigation a:hover {
 					@include mq-max(500px) {
 						font-size: 24px;
 					}
+
+					@include mq-max(400px) {
+						font-size: 18px;
+					}
 				}
 
 				.bar {
@@ -237,6 +249,10 @@ nav.mdl-navigation a:hover {
 
 					@include mq-max(900px) {
 						font-size: 48px;
+					}
+
+					@include mq-max(500px) {
+						padding: 0 5px;
 					}
 				}
 			}
