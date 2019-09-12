@@ -429,7 +429,8 @@ nav.mdl-navigation a:hover {
 		width: 80%;
 		background: white;
 		color: black;
-		margin-bottom: 20px;
+		padding: 0;
+		margin: 20px auto 0;
 
 		@include mq-max(1000px) {
 			width: 100%;
@@ -439,7 +440,7 @@ nav.mdl-navigation a:hover {
 			margin: 20px auto 10px;
 
 			@include mq-max(1024px) {
-				margin: 0 auto 20px;
+				margin: 20px auto;
 			}
 		}
 
@@ -455,14 +456,33 @@ nav.mdl-navigation a:hover {
 
 		.image-container {
 
-			.jbp-image {
-				width: 400px;
-				border-radius: 20px;
-			}
+			figure {
 
-			figcaption {
-				margin-top: 10px;
-				font-size: 20px;
+				@include mq-max(550px) {
+					margin-block-start: 0;
+					margin-block-end: 0;
+					margin-inline-start: 0;
+					margin-inline-end: 0;
+				}
+
+				.jbp-image {
+					width: 400px;
+					border-radius: 20px;
+
+					@include mq-max(550px) {
+						width: 90%;
+						border-radius: 10px;
+					}
+				}
+
+				figcaption {
+					margin-top: 10px;
+					font-size: 20px;
+
+					@include mq-max(550px) {
+						margin: 10px;
+					}
+				}
 			}
 		}
 
@@ -518,11 +538,23 @@ nav.mdl-navigation a:hover {
 
 			.mdl-cell--6-col,
 			.mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
-				width: calc(90%);
+				width: 90%;
 
 				.mdl-list__item .mdl-list__item-primary-content {
 					display: block;
 				}
+			}
+		}
+	}
+
+	@include mq-max(550px) {
+
+		.mdl-grid {
+
+			.mdl-cell--6-col,
+			.mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
+				width: 100%;
+				margin: 0;
 			}
 		}
 	}
