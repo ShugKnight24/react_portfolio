@@ -224,9 +224,15 @@ nav.mdl-navigation a:hover {
 					@include mq-max(950px) {
 						margin-bottom: 20px;
 					}
+
+					@include mq-max(400px) {
+						font-size: 24px;
+					}
 				}
 
 				.bar {
+					font-size: inherit;
+					color: $main-accent-color;
 					padding: 0 20px;
 
 					@include mq-max(900px) {
@@ -236,33 +242,29 @@ nav.mdl-navigation a:hover {
 			}
 		}
 
-		.bar {
-			font-size: inherit;
-			color: $main-accent-color;
-			padding: 0 10px;
-
-			@include mq-max(900px) {
-				font-size: 24px;
-			}
-
-			@include mq-max(850px) {
-				font-size: 40px;
-			}
-		}
-
 		.splash-img {
 			width: 80%;
 			display: block;
 			margin: auto;
 			border-radius: 20px;
+
+			@include mq-max(400px) {
+				width: 100%;
+				border-radius: 0;
+			}
 		}
 
 		.banner-text {
 			background-color: black;
 			opacity: 0.7;
 			width: 80%;
-			margin: 20px auto;
+			margin: 20px auto 0;
 			border-radius: 20px;
+
+			@include mq-max(400px) {
+				width: 90%;
+				border-radius: 10px;
+			}
 
 			h2 {
 				margin: 0;
@@ -286,6 +288,20 @@ nav.mdl-navigation a:hover {
 				margin: 10px 0;
 				padding: 10px;
 				font-size: 36px;
+
+				.bar {
+					font-size: inherit;
+					color: $main-accent-color;
+					padding: 0 10px;
+
+					@include mq-max(900px) {
+						font-size: 24px;
+					}
+
+					@include mq-max(850px) {
+						font-size: 40px;
+					}
+				}
 
 				p {
 					color: #FFF;
