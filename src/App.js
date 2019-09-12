@@ -6,6 +6,10 @@ import { NavLink } from 'react-router-dom';
 import Main from './components/Main';
 import Footer from './components/Footer';
 
+function hideDrawer() {
+	var drawer = document.querySelector('.mdl-layout');
+	drawer.MaterialLayout.toggleDrawer();
+}
 
 function App(){
 	return (
@@ -22,11 +26,11 @@ function App(){
 			<div className="mobile-header"></div>
 			<Drawer title="Navigation">
 				<Navigation>
-					<NavLink to="/" exact activeClassName="active">Home</NavLink>
-					<NavLink to="/about" activeClassName="active">About</NavLink>
-					<NavLink to="/contact" activeClassName="active">Contact</NavLink>
-					<NavLink to="/projects" activeClassName="active">Projects</NavLink>
-					<NavLink to="/resume" activeClassName="active">Resume</NavLink>
+					<NavLink to="/" exact activeClassName="active" onClick={() => hideDrawer()}>Home</NavLink>
+					<NavLink to="/about" activeClassName="active" onClick={() => hideDrawer()}>About</NavLink>
+					<NavLink to="/contact" activeClassName="active" onClick={() => hideDrawer()}>Contact</NavLink>
+					<NavLink to="/projects" activeClassName="active" onClick={() => hideDrawer()}>Projects</NavLink>
+					<NavLink to="/resume" activeClassName="active" onClick={() => hideDrawer()}>Resume</NavLink>
 				</Navigation>
 			</Drawer>
 			<Content>
