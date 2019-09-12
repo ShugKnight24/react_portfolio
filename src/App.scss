@@ -225,7 +225,7 @@ nav.mdl-navigation a:hover {
 						margin-bottom: 20px;
 					}
 
-					@include mq-max(400px) {
+					@include mq-max(500px) {
 						font-size: 24px;
 					}
 				}
@@ -248,7 +248,7 @@ nav.mdl-navigation a:hover {
 			margin: auto;
 			border-radius: 20px;
 
-			@include mq-max(400px) {
+			@include mq-max(500px) {
 				width: 100%;
 				border-radius: 0;
 			}
@@ -261,7 +261,7 @@ nav.mdl-navigation a:hover {
 			margin: 20px auto 0;
 			border-radius: 20px;
 
-			@include mq-max(400px) {
+			@include mq-max(500px) {
 				width: 90%;
 				border-radius: 10px;
 			}
