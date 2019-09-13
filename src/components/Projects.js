@@ -179,11 +179,11 @@ class Projects extends Component {
 	render() {
 		return(
 			<div className="projects-page">
-				<Tabs activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId}) } ripple>
-					<Tab>Personal Projects</Tab>
-					<Tab>GTB</Tab>
-					<Tab>LoveBook</Tab>
-					<Tab>Progressive Solutions</Tab>
+				<Tabs className="projects-tabs" activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId}) } ripple>
+					<Tab className="tab-name">Personal Projects</Tab>
+					<Tab className="tab-name">GTB</Tab>
+					<Tab className="tab-name">LoveBook</Tab>
+					<Tab className="tab-name">Progressive Solutions</Tab>
 				</Tabs>
 				<Grid>
 					<Cell col={ 12 }>

@@ -580,6 +580,33 @@ nav.mdl-navigation a:hover {
 
 .projects-page {
 
+	.projects-tabs {
+
+		div {
+
+			@include mq-max(640px) {
+				height: 100px;
+			}
+
+			.tab-name {
+				@include mq-max(640px) {
+					height: 100px;
+					padding-top: 25px;
+					line-height: 25px;
+					border-right: 1px solid rgb(224, 224, 224);
+
+					&:last-of-type {
+						border-right: none;
+					}
+				}
+
+				@include mq-max(500px) {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+
 	/* Header Fix */
 	@include mq-max(1024px) {
 		margin-top: 64px;
