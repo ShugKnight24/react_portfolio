@@ -47,9 +47,11 @@ class Resume extends Component {
 							jobDescription={ 'Developer responsible for updating Shopify store themes' }
 							jobResponsibilities={
 								[
-									'Develop and maintain <a href="https://www.stationeryhq.com" rel="noopener noreferrer" target="_blank">StationeryHQ</a> and <a href="https://www.frecklebox.com" rel="noopener noreferrer" target="_blank">FreckleBox</a> Shopify stores using jQuery, SCSS, & Liquid. Update themes, build and update features, and resolve bugs.',
-									'Building a JavaScript video recorder for FreckleBox',
-									'Working on site and storefront overhaul utilizing XMPie'
+									'Develop and maintain <a class="bold-text" href="https://www.stationeryhq.com" rel="noopener noreferrer" target="_blank">StationeryHQ</a> and <a class="bold-text" href="https://www.frecklebox.com" rel="noopener noreferrer" target="_blank">FreckleBox</a> Shopify stores using <span class="bold-text">jQuery</span>, <span class="bold-text">SCSS</span>, & <span class="bold-text">Liquid</span>. Update themes, build and update features, and resolve bugs',
+									'Building a <span class="bold-text">JavaScript</span> video recorder for FreckleBox',
+									'Working on site and storefront overhaul utilizing <span class="bold-text">XMPie',
+									'Version control systems - <span class="bold-text">GIT</span> via <span class="bold-text">BitBucket</span> for websites and <span class="bold-text">Mercurial</span> for web servers',
+									'Use <span class="bold-text">BaseCamp 3</span> for ticketing and issue resolution'
 								]
 							}
 						/>
@@ -66,10 +68,11 @@ class Resume extends Component {
 							jobDescription={ 'Developer responsible for building in house back-end GUI systems and transforming PSDs concepts to reality' }
 							jobResponsibilities={
 								[
-									'Part of team responsible for redesigning <a href="https://lovecoups.com" rel="noopener noreferrer" target="_blank">LoveCoups</a>. Primarily worked on adding new features with jQuery, building site according to PSD designs using CSS, using php to display dynamic content, and writing queries in mySQL',
-									'Built a GUI for LoveCoups and Frecklebox that allows graphics team to update and create new products. Built with jQuery, php, and mySQL',
-									'Created two backend GUIs for <a href="https://www.lovebookonline.com" rel="noopener noreferrer" target="_blank">LoveBookOnline</a> that allows graphics team members to easily update book pages and book covers for the website. Built using jQuery, php, and mySQl',
-									'Redevelop <a href="https://www.mylovebook.com" rel="noopener noreferrer" target="_blank">MyLoveBook</a>, which serves as a redirect page for both LoveBookOnline.com and LoveCoups.com'
+									'Part of team responsible for redesigning <a class="bold-text" href="https://lovecoups.com" rel="noopener noreferrer" target="_blank">LoveCoups</a>. Primarily worked on adding new features with <span class="bold-text">jQuery</span>, building site according to PSD designs using <span class="bold-text">CSS</span>, using <span class="bold-text">php</span> to display dynamic content, and writing queries in <span class="bold-text">mySQL</span>',
+									'Built a GUI for LoveCoups and Frecklebox that allows graphics team to update and create new products. Built with <span class="bold-text">jQuery</span>, <span class="bold-text">php</span>, and <span class="bold-text">mySQL</span>',
+									'Created two backend GUIs for <a class="bold-text" href="https://www.lovebookonline.com" rel="noopener noreferrer" target="_blank">LoveBookOnline</a> that allows graphics team members to easily update book pages and book covers for the website. Built using <span class="bold-text">jQuery</span>, <span class="bold-text">php</span>, and <span class="bold-text">mySQl</span>',
+									'Redevelop <a class="bold-text" href="https://www.mylovebook.com" rel="noopener noreferrer" target="_blank">MyLoveBook</a>, which serves as a redirect page for LoveBookOnline and LoveCoups',
+									'Used <span class="bold-text">GIT</span> via <span class="bold-text">GitHub</span> as version control system'
 								]
 							}
 						/>
@@ -86,9 +89,9 @@ class Resume extends Component {
 							jobDescription={ 'Web developer on GTB’s diversified accounts team responsible for redesigning 12 websites for Johnson Controls subsidiaries' }
 							jobResponsibilities={
 								[
-									'Develop websites and AMP pages with HTML, jQuery, Sass, php, and SVN',
-									'Update content of websites using the Concrete5',
-									'Troubleshoot and resolve issues using JIRA'
+									'Develop websites and AMP pages with <span class="bold-text">HTML</span>, <span class="bold-text">jQuery</span>, <span class="bold-text">SASS</span>, <span class="bold-text">php</span>, and <span class="bold-text">SVN</span>',
+									'Update content of websites using the <span class="bold-text">Concrete5',
+									'Troubleshoot and resolve issues using <span class="bold-text">JIRA</span>'
 								]
 							}
 						/>
@@ -103,9 +106,9 @@ class Resume extends Component {
 							jobDescription={ 'Intern on GTB’s diversified accounts team responsible for redesigning 12 websites for Johnson Controls subsidiaries. In addition to our team responsibilities, interns were tasked with shadowing different departments to understand how GTB operated as a whole.' }
 							jobResponsibilities={
 								[
-									'Develop websites using jQuery, Sass, php, and SVN.',
-									'Update content of websites using the Concrete5 CMS.',
-									'Troubleshoot and resolve issues using JIRA',
+									'Develop websites using <span class="bold-text">jQuery</span>, <span class="bold-text">SASS</span>, <span class="bold-text">php</span>, and <span class="bold-text">SVN</span>.',
+									'Update content of websites using the <span class="bold-text">Concrete5 CMS.',
+									'Troubleshoot and resolve issues using <span class="bold-text">JIRA</span>',
 									'Redesigned GTB’s community outreach program to entice employees to volunteer with local nonprofits by creating a community fair with other interns'
 								]
 							}
