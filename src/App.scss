@@ -630,8 +630,12 @@ nav.mdl-navigation a:hover {
 			flex-flow: row wrap;
 
 			.project-cards {
-				min-width: 200px;
-				margin: 10px;
+				width: 300px;
+				margin: 10px auto;
+
+				@include mq-max(631px) {
+					width: 90%;
+				}
 
 				.project-cards-title {
 					color: #000;
