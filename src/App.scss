@@ -638,9 +638,72 @@ nav.mdl-navigation a:hover {
 				}
 
 				.project-cards-title {
-					color: #000;
+					position: relative;
+					color: #FFF;
 					height: 200px;
-					background: url(http://via.placeholder.com/640x360) center / cover;
+
+					.title-background {
+						position: absolute;
+						top: 0;
+						left: 0;
+						font-size: 24px;
+						text-shadow: 1px 1px 5px #000;
+						padding: 10px;
+						background-color: $main-accent-color;
+					}
+
+					/* Personal Projects */
+					&.tetris {
+						background: url(/img/projects/tetris.png) center / cover;
+					}
+
+					&.flappy-bird {
+						background: url(/img/projects/flappy_bird.png) center / cover;
+					}
+
+					/* GTB Projects */
+					&.optima {
+						background: url(/img/projects/optima.png) center / cover;
+					}
+
+					&.varta {
+						background: url(/img/projects/varta.png) center / cover;
+					}
+
+					&.varta-china {
+						background: url(/img/projects/varta_china.png) center / cover;
+					}
+
+					&.delkor {
+						background: url(/img/projects/delkor.png) center / cover;
+					}
+
+					&.delkor-korea {
+						background: url(/img/projects/delkor_korea.png) center / cover;
+					}
+
+					/* LoveBook Projects */
+					&.mylovebook {
+						background: url(/img/projects/mylovebook.png) center / cover;
+					}
+
+					&.lovecoups {
+						background: url(/img/projects/lovecoups.png) center / cover;
+					}
+
+					/* Progressive Solutions Projects */
+					&.stationeryhq {
+						background: url(/img/projects/stationeryhq.png) center / cover;
+					}
+
+					&.frecklebox {
+						background: url(/img/projects/frecklebox.png) center / cover;
+					}
+				}
+
+				.project-description {
+					width: 100%;
+					border-top: 1px solid rgba(0, 0, 0, 0.1);
 				}
 			}
 		}

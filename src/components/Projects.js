@@ -11,13 +11,14 @@ class Projects extends Component {
 		if (this.state.activeTab === 0){
 			return(
 				<div className="projects">
-					<h1>Personal Projects</h1>
 					<div className="projects-grid">
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">JavaScript Tetris Clone</CardTitle>
-							<CardText>
-								Rebuilt Tetris with JavaScript and HTML5 Canvas
-							</CardText>
+							<CardTitle className="project-cards-title  tetris" role="img" aria-label="Image of JavaScript Tetris clone built by Shugmi Shumunov">
+								<span className="title-background">
+									JavaScript Tetris Clone
+								</span>
+							</CardTitle>
+							<CardText className="project-description">Rebuilt Tetris with JavaScript and HTML5 Canvas</CardText>
 							<CardActions border>
 								<Button colored>
 									<a href="https://github.com/ShugKnight24/js_tetris/" rel="noopener noreferrer" target="_blank">GitHub Repository</a>
@@ -28,8 +29,10 @@ class Projects extends Component {
 							</CardActions>
 						</Card>
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">Flappy Bird Clone</CardTitle>
-							<CardText>
+							<CardTitle className="project-cards-title flappy-bird" role="img" aria-label="Image of JavaScript Flappy Bird clone built by Shugmi Shumunov">
+								<span className="title-background">Flappy Bird Clone</span>
+							</CardTitle>
+							<CardText className="project-description">
 								Rebuilt Flappy Bird with JavaScript and HTML5 Canvas
 							</CardText>
 							<CardActions border>
@@ -49,12 +52,15 @@ class Projects extends Component {
 		if (this.state.activeTab === 1){
 			return(
 				<div className="projects">
-					<h1>GTB</h1>
 					<div className="projects-grid">
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">Optima Batteries</CardTitle>
+							<CardTitle className="project-cards-title optima" role="img" aria-label="Image of Optima Batteries website homepage">
+								<span className="title-background">
+									Optima Batteries
+								</span>
+								</CardTitle>
 							<CardText>
-								Website built for Optima Batteries using Concrete5 CMS
+								Website built for Optima Batteries using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 							</CardText>
 							<CardActions border>
 								<Button colored>
@@ -63,9 +69,13 @@ class Projects extends Component {
 							</CardActions>
 						</Card>
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">Varta Europe</CardTitle>
-							<CardText>
-								Website built for Varta Europe using Concrete5 CMS
+							<CardTitle className="project-cards-title varta" role="img" aria-label="Image of Varta Europe website homepage">
+								<span className="title-background">
+									Varta Europe
+								</span>
+								</CardTitle>
+							<CardText className="project-description">
+								Website built for Varta Europe using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 							</CardText>
 							<CardActions border>
 								<Button colored>
@@ -74,9 +84,13 @@ class Projects extends Component {
 							</CardActions>
 						</Card>
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">Varta China</CardTitle>
-							<CardText>
-								Website built for Varta China using Concrete5 CMS. Needed their own site due to Chinese regulations
+							<CardTitle className="project-cards-title varta-china" role="img" aria-label="Image of Varta China website homepage">
+								<span className="title-background">
+									Varta China
+								</span>
+								</CardTitle>
+							<CardText className="project-description">
+								Website built for Varta China using Concrete5 CMS. Needed their own site due to Chinese regulations. Updated content, built features, and wrote styles as needed.
 							</CardText>
 							<CardActions border>
 								<Button colored>
@@ -85,9 +99,13 @@ class Projects extends Component {
 							</CardActions>
 						</Card>
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">Delkor Austrailia</CardTitle>
-							<CardText>
-								Website built for Delkor Austrailia using Concrete5 CMS
+							<CardTitle className="project-cards-title delkor" role="img" aria-label="Image of Delkor Austrailia website homepage">
+								<span className="title-background">
+									Delkor Austrailia
+								</span>
+								</CardTitle>
+							<CardText className="project-description">
+								Website built for Delkor Austrailia using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 							</CardText>
 							<CardActions border>
 								<Button colored>
@@ -96,9 +114,13 @@ class Projects extends Component {
 							</CardActions>
 						</Card>
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">Delkor Korea</CardTitle>
-							<CardText>
-								Website built for Delkor Korea using Concrete5 CMS
+							<CardTitle className="project-cards-title delkor-korea" role="img" aria-label="Image of Delkor Korea website homepage">
+								<span className="title-background">
+									Delkor Korea
+								</span>
+								</CardTitle>
+							<CardText className="project-description">
+								Website built for Delkor Korea using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 							</CardText>
 							<CardActions border>
 								<Button colored>
@@ -114,11 +136,14 @@ class Projects extends Component {
 		if (this.state.activeTab === 2){
 			return(
 				<div className="projects">
-					<h1>LoveBook</h1>
 					<div className="projects-grid">
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">MyLoveBook.com</CardTitle>
-							<CardText>
+							<CardTitle className="project-cards-title mylovebook" role="img" aria-label="Image of MyLoveBook website">
+								<span className="title-background">
+									MyLoveBook
+								</span>
+							</CardTitle>
+							<CardText className="project-description">
 								Redirect site for LoveBookOnline.com and LoveCoups.com
 							</CardText>
 							<CardActions border>
@@ -128,8 +153,12 @@ class Projects extends Component {
 							</CardActions>
 						</Card>
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">LoveCoups.com</CardTitle>
-							<CardText>
+							<CardTitle className="project-cards-title lovecoups" role="img" aria-label="Image of LoveCoups website homepage">
+								<span className="title-background">
+									LoveCoups
+								</span>
+							</CardTitle>
+							<CardText className="project-description">
 								Build personalized coupon books for those you love
 							</CardText>
 							<CardActions border>
@@ -146,11 +175,14 @@ class Projects extends Component {
 		if (this.state.activeTab === 3){
 			return(
 				<div className="projects">
-					<h1>Progressive Solutions</h1>
 					<div className="projects-grid">
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">StationeryHQ</CardTitle>
-							<CardText>
+							<CardTitle className="project-cards-title stationeryhq" role="img" aria-label="Image of StationeryHQ website homepage">
+								<span className="title-background">
+									StationeryHQ
+								</span>
+							</CardTitle>
+							<CardText className="project-description">
 								Customized stationery made easy
 							</CardText>
 							<CardActions border>
@@ -160,8 +192,12 @@ class Projects extends Component {
 							</CardActions>
 						</Card>
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title">FreckleBox</CardTitle>
-							<CardText>
+							<CardTitle className="project-cards-title frecklebox" role="img" aria-label="Image of FreckleBox website homepage">
+								<span className="title-background">
+									FreckleBox
+								</span>
+							</CardTitle>
+							<CardText className="project-description">
 								Personalized gifts for kids
 							</CardText>
 							<CardActions border>
@@ -187,7 +223,6 @@ class Projects extends Component {
 				</Tabs>
 				<Grid>
 					<Cell col={ 12 }>
-						<p>Pardon the dust, the projects section is currently under construction</p>
 						<div className="content">
 							{ this.toggleCategories() }
 						</div>
