@@ -7,6 +7,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 function hideDrawer() {
+	document.querySelector('.mdl-layout__content').scrollTop = 0;
 	var drawer = document.querySelector('.mdl-layout');
 	drawer.MaterialLayout.toggleDrawer();
 }
