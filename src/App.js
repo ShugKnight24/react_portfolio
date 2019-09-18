@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { Router, NavLink } from 'react-router-dom';
 import Main from './components/Main';
 import Footer from './components/Footer';
 
@@ -14,7 +14,7 @@ function hideDrawer() {
 class App extends Component {
 	render(){
 		return (
-			<BrowserRouter>
+			<Router>
 				<Layout>
 					<Header className="header-color" title="Shugmi's Portfolio" scroll>
 						<Navigation>
@@ -40,7 +40,7 @@ class App extends Component {
 						<Footer />
 					</Content>
 				</Layout>
-			</BrowserRouter>
+			</Router>
 		);
 	};
 }
