@@ -12,7 +12,7 @@ console.log(
 	'Welcome to my portfolio!'
 );
 
-console.log(	
+console.log(
 	'%cYou\'re pretty advanced to have come here. Perhaps snooping for some cheeky errors 😝 or looking for some %cquality %ccode to copy! In any regard, feel free to reach out with any feedback or if you\'d like to chat about working together.',
 	'color: black; font-family: system-ui; font-size: 1rem;',
 	'font-weight: bold; text-transform: uppercase; font-size: 2rem;',
