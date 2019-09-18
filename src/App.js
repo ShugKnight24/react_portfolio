@@ -4,6 +4,8 @@ import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
 import { Router, NavLink } from 'react-router-dom';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 
 function hideDrawer() {
 	document.querySelector('.mdl-layout__content').scrollTop = 0;
@@ -11,10 +13,20 @@ function hideDrawer() {
 	drawer.MaterialLayout.toggleDrawer();
 }
 
+const history = createBrowserHistory();
+history.listen(location => {
+	ReactGA.set({ page: location.pathname })
+	ReactGA.pageview(location.pathname)
+});
+
 class App extends Component {
+	componentDidMount() {
+		ReactGA.pageview(window.location.pathname);
+	};
+
 	render(){
 		return (
-			<Router>
+			<Router history={ history }>
 				<Layout>
 					<Header className="header-color" title="Shugmi's Portfolio" scroll>
 						<Navigation>

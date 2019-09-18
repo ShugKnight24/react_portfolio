@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
+import ReactGA from 'react-ga';
 
 console.log(
 	'%c%s',
@@ -17,6 +18,9 @@ console.log(
 	'font-weight: bold; text-transform: uppercase; font-size: 2rem;',
 	'color: black; font-family: system-ui; font-size: 1rem;'
 );
+
+const trackingId = 'UA-147974881-1';
+ReactGA.initialize(trackingId);
 
 ReactDOM.render(
 	<App />,
