@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
-import { BrowserRouter } from 'react-router-dom';
 
 console.log(
 	'%c%s',
@@ -20,8 +19,6 @@ console.log(
 );
 
 ReactDOM.render(
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>,
+	<App />,
 	document.getElementById('root')
 );
