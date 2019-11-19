@@ -654,6 +654,10 @@ nav.mdl-navigation a:hover {
 					}
 
 					/* Personal Projects */
+					&.pomodoro {
+						background: url(/img/projects/pomodoro.png) center / cover;
+					}
+
 					&.tetris {
 						background: url(/img/projects/tetris.png) center / cover;
 					}

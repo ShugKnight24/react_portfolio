@@ -13,6 +13,22 @@ class Projects extends Component {
 				<div className="projects">
 					<div className="projects-grid">
 						<Card shadow={ 5 } className="project-cards">
+							<CardTitle className="project-cards-title  pomodoro" role="img" aria-label="Image of JavaScript Pomodoro clock built by Shugmi Shumunov">
+								<span className="title-background">
+									Pomodoro Clock
+								</span>
+							</CardTitle>
+							<CardText className="project-description">Built a Pomodoro clock in JavaScript that uses the pomodoro system and includes todo list functionality</CardText>
+							<CardActions border>
+								<Button colored>
+									<a href="https://github.com/ShugKnight24/pomodoro" rel="noopener noreferrer" target="_blank">GitHub Repository</a>
+								</Button>
+								<Button colored>
+									<a href="https://shugknight24.github.io/pomodoro" rel="noopener noreferrer" target="_blank">Live Demo</a>
+								</Button>
+							</CardActions>
+						</Card>
+						<Card shadow={ 5 } className="project-cards">
 							<CardTitle className="project-cards-title  tetris" role="img" aria-label="Image of JavaScript Tetris clone built by Shugmi Shumunov">
 								<span className="title-background">
 									JavaScript Tetris Clone
