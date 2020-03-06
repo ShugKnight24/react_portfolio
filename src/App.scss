@@ -408,11 +408,6 @@ nav.mdl-navigation a:hover {
 		}
 	}
 
-	.book-list {
-		padding-left: 40px;
-		margin-bottom: 0;
-	}
-
 	/* About Grid Corrections */
 	@include mq-max(900px) {
 		.mdl-grid {
@@ -426,6 +421,36 @@ nav.mdl-navigation a:hover {
 		}
 	}
 }
+
+/* Books Page Styles */
+.books-page {
+	.reading-list {
+		text-align: center;
+
+		h3,
+		h4 {
+			margin: 10px 0;
+		}
+
+		.book-container {
+			.book-name,
+			.book-author {
+				margin: 5px 0;
+			}
+		}
+	}
+
+	.book-list {
+		padding-left: 40px;
+		margin-bottom: 0;
+	
+		.book-title-author {
+			display: block;
+			width: 100%;
+			margin-top: 10px;
+		}
+	}
+} 
 
 /* Contact Page Styles */
 .contact-body {
