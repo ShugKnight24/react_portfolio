@@ -38,6 +38,49 @@ class Resume extends Component {
 						</div>
 
 						<Experience
+							startMonth={ 'October' }
+							startYear={ 2019 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'Shumunov Solutions' }
+							jobPosition={ 'Owner / Developer' }
+							jobDescription={ 'Providing website development services to businesses in Southeast Michigan and around the globe' }
+							jobResponsibilities={
+								[
+									`Providing web development solutions using HTML, CSS / SASS, JavaScript, & php`,
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
+							startMonth={ 'February' }
+							startYear={ 2020 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'Neuron Publishing' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={ [] }
+						/>
+
+						<hr />
+
+						<Experience
+							startMonth={ 'December' }
+							startYear={ 2019 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'LoveBook Online' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={ [] }
+						/>
+
+						<hr />
+
+						<Experience
 							startMonth={ 'February' }
 							startYear={ 2019 }
 							endMonth={ 'Present' }
