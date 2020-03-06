@@ -20,20 +20,20 @@ class Contact extends Component {
 								</figcaption>
 							</figure>
 						</div>
-						<p>
+						<p className="tab">
 							I enjoy telling stories through code.
 						</p>
-						<p>
-							Whether you're exploring new opportunities or if you've found your development needs coming up just a little short, I can step in with insights to deliver a creative solution that will bridge that gap.
+						<p className="tab">
+							Whether you're exploring new opportunities or found your development needs coming up a little short, I can step in with insights to deliver a creative solution that will bridge that gap.
 						</p>
-						<p>
+						<p className="tab">
 							I provide development, management, and consulting services.
 						</p>
-						<p>
+						<p className="tab">
 							I pride myself on providing honest, insightful, and thoughtful guidance to my customers.
 						</p>
-						<p>
-							Feel free to reach out if you'd like to work with me.
+						<p className="tab">
+							Reach out if you'd like to work with me.
 						</p>
 					</Cell>
 					<Cell col={ 6 }>
