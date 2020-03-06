@@ -32,6 +32,7 @@ class App extends Component {
 						<Navigation>
 							<NavLink to="/" exact activeClassName="active">Home</NavLink>
 							<NavLink to="/about" activeClassName="active">About</NavLink>
+							<NavLink to="/books" activeClassName="active">Books</NavLink>
 							<NavLink to="/contact" activeClassName="active">Contact</NavLink>
 							<NavLink to="/projects" activeClassName="active">Projects</NavLink>
 							<NavLink to="/resume" activeClassName="active">Resume</NavLink>
@@ -42,6 +43,7 @@ class App extends Component {
 						<Navigation>
 							<NavLink to="/" exact activeClassName="active" onClick={() => hideDrawer()}>Home</NavLink>
 							<NavLink to="/about" activeClassName="active" onClick={() => hideDrawer()}>About</NavLink>
+							<NavLink to="/books" activeClassName="active" onClick={() => hideDrawer()}>Books</NavLink>
 							<NavLink to="/contact" activeClassName="active" onClick={() => hideDrawer()}>Contact</NavLink>
 							<NavLink to="/projects" activeClassName="active" onClick={() => hideDrawer()}>Projects</NavLink>
 							<NavLink to="/resume" activeClassName="active" onClick={() => hideDrawer()}>Resume</NavLink>
