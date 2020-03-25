@@ -8,6 +8,11 @@ class Books extends Component {
 				<Cell col={12}>
 					<h5 className="book-name">{ this.props.bookName }</h5>
 					<h6 className="book-author">By: { this.props.authorName }</h6>
+					<img
+						className="book-cover"
+						src={this.props.bookImageSource }
+						alt={ this.props.bookImageAltText }
+					/>
 				</Cell>
 			</Grid>
 		)
