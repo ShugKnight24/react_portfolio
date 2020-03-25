@@ -8,23 +8,28 @@ class Books extends Component {
 		return(
 			<div className="books-page">
 				<Grid>
-					<Cell col={ 6 } className="reading-list">
+					<Cell col={ 3 } className="reading-list">
 						<h3>Currently Reading</h3>
 						<Book
 							bookName={ 'The 15 Laws of Invaluable Growth' }
-							authorName={ 'John C. Maxwell'}
+							authorName={ 'John C. Maxwell' }
+							bookImageSource = { './img/books/15_laws.jpg' }
+							bookImageAltText={ 'The 15 Laws of Invaluable Growth by John C. Maxwell' }
 						/>
-						
+
 						<h3>Previous Reads</h3>
 						<h4>2020</h4>
 						<Book
 							bookName={ 'The Entrepreneur Mind' }
-							authorName={ 'Kevin D. Johnson'}
+							authorName={ 'Kevin D. Johnson' }
+							bookImageSource={ './img/books/entrepreneur_mind.jpg' }
+							bookImageAltText={ 'The Entrepreneur Mind by Kevin D. Johnson' }
 						/>
 					</Cell>
-					<Cell col={ 6 }>
+					<Cell col={ 1 }></Cell>
+					<Cell col={ 8 }>
 						<List className="book-list">
-							Some of my favorite books include:
+							<h2>Favorites</h2>
 							<ListItem>
 								<ListItemContent>
 									<img
@@ -79,7 +84,7 @@ class Books extends Component {
 					</Cell>
 				</Grid>
 			</div>
-			
+
 		)
 	}
 }
