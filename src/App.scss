@@ -424,6 +424,9 @@ nav.mdl-navigation a:hover {
 
 /* Books Page Styles */
 .books-page {
+	max-width: 1440px;
+	margin: 0 auto;
+
 	.reading-list {
 		text-align: center;
 
@@ -441,16 +444,23 @@ nav.mdl-navigation a:hover {
 	}
 
 	.book-list {
-		padding-left: 40px;
 		margin-bottom: 0;
-	
+
+		h2 {
+			margin: 10px 0;
+		}
+
+		.mdl-list__item {
+			display: inline-block;
+		}
+
 		.book-title-author {
 			display: block;
 			width: 100%;
 			margin-top: 10px;
 		}
 	}
-} 
+}
 
 /* Contact Page Styles */
 .contact-body {
