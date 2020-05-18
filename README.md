@@ -1,11 +1,12 @@
 # Shumunov Portfolio
 
-The code of my [portfolio site](ShugKnight24.github.io), which is built in React
+The React code of my [portfolio site](ShugKnight24.github.io)
 
 ### To-Do
-- [ ] Optimize images to improve performance
+- [ ] Build books page dynamically
 - [ ] Add a blog
 - [ ] Move away from using `dangerouslySetInnerHTML`
 
 ### Done
 - [X] Add separate Books page
+- [X] Optimized images using [ImageOptim](https://imageoptim.com/)
