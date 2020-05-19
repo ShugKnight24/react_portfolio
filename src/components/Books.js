@@ -11,20 +11,19 @@ class Books extends Component {
 					<Cell col={ 3 } className="reading-list">
 						<h3>Currently Reading</h3>
 						<Book
-							bookName={ 'Crime and Punishment' }
-							authorName={ 'Fyodor Dostoevsky' }
-							bookImageSource = { './img/books/crime_and_punishment.jpg' }
-							bookImageAltText={ 'Crime and Punishment By Fyodor Dostoevsky' }
-						/>
-						<Book
 							bookName={ 'Think and Grow Rich' }
 							authorName={ 'Napoleon Hill' }
 							bookImageSource = { './img/books/think_grow_rich.jpg' }
 							bookImageAltText={ 'Think and Grow Rich by Napoleon Hill' }
 						/>
-
 						<h3>Previous Reads</h3>
 						<h4>2020</h4>
+						<Book
+							bookName={ 'Crime and Punishment' }
+							authorName={ 'Fyodor Dostoevsky' }
+							bookImageSource = { './img/books/crime_and_punishment.jpg' }
+							bookImageAltText={ 'Crime and Punishment By Fyodor Dostoevsky' }
+						/>
 						<Book
 							bookName={ 'The 15 Laws of Invaluable Growth' }
 							authorName={ 'John C. Maxwell' }
