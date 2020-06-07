@@ -5,98 +5,127 @@ import Book from './Book';
 
 class Books extends Component {
 	render() {
+		const favoriteBooksArray = [
+			{
+				name: 'The Alchemist',
+				author: 'Paulo Coelho',
+				imgSrc: './img/books/alchemist.jpg'
+			},
+			{
+				name: 'The Little Prince',
+				author: 'Antoine de Saint-Exupery',
+				imgSrc: './img/books/little_prince.jpg'
+			},
+			{
+				name: 'Meditations',
+				author: 'Marcus Aurelius',
+				imgSrc: './img/books/meditations.jpg'
+			},
+			{
+				name: 'The Daily Stoic',
+				author: 'Ryan Holiday',
+				imgSrc: './img/books/daily_stoic.jpg'
+			},
+			{
+				name: 'As a Man Thinketh',
+				author: 'James Allen',
+				imgSrc: './img/books/as_a_man_thinketh.jpg'
+			}
+		];
+
+		const favoriteBooks = favoriteBooksArray.map((book, index) => {
+			const altText = book.name + ' by ' + book.author;
+			return (
+				<ListItem key={ index }>
+					<ListItemContent>
+						<img
+							className="book-cover"
+							src={ book.imgSrc }
+							alt={ altText }
+						/>
+						<span className="book-title-author">
+							<span className="italic-text">{ book.name }</span> by { book.author }
+						</span>
+					</ListItemContent>
+				</ListItem>
+			);
+		});
+
+		const currentlyReading = [
+			{
+				name: 'The 4 Hour Workweek',
+				author: 'Tim Ferriss',
+				imgSrc: './img/books/4_hour_week.jpg'
+			}
+		];
+
+		const currentReads = currentlyReading.map((book, index) => {
+			return buildBooks(book, index);
+		});
+
+		const previouslyRead = [
+			{
+				name: 'Think and Grow Rich',
+				author: 'Napoleon Hill',
+				imgSrc: './img/books/think_grow_rich.jpg'
+			},
+			{
+				name: 'Crime and Punishment',
+				author: 'Fyodor Dostoevsky',
+				imgSrc: './img/books/crime_and_punishment.jpg'
+			},
+			{
+				name: 'The 15 Laws of Invaluable Growth',
+				author: 'John C. Maxwell',
+				imgSrc: './img/books/15_laws.jpg'
+			},
+			{
+				name: 'The Entrepreneur Mind',
+				author: 'Kevin D. Johnson',
+				imgSrc: './img/books/entrepreneur_mind.jpg'
+			}
+		];
+
+		const previousReads = previouslyRead.map((book, index) => {
+			return buildBooks(book, index);
+		});
+
+		function buildBooks(book, index){
+			const altText = book.name + ' by ' + book.author;
+			return (
+				<Book
+					key={ index }
+					bookName={ book.name }
+					authorName={ book.author }
+					bookImageSource ={ book.imgSrc }
+					bookImageAltText={ altText }
+				/>
+			);
+		};
+
 		return(
 			<div className="books-page">
 				<Grid>
 					<Cell col={ 3 } className="reading-list">
 						<h3>Currently Reading</h3>
-						<Book
-							bookName={ 'Think and Grow Rich' }
-							authorName={ 'Napoleon Hill' }
-							bookImageSource = { './img/books/think_grow_rich.jpg' }
-							bookImageAltText={ 'Think and Grow Rich by Napoleon Hill' }
-						/>
+						{ currentReads }
+
 						<h3>Previous Reads</h3>
 						<h4>2020</h4>
-						<Book
-							bookName={ 'Crime and Punishment' }
-							authorName={ 'Fyodor Dostoevsky' }
-							bookImageSource = { './img/books/crime_and_punishment.jpg' }
-							bookImageAltText={ 'Crime and Punishment By Fyodor Dostoevsky' }
-						/>
-						<Book
-							bookName={ 'The 15 Laws of Invaluable Growth' }
-							authorName={ 'John C. Maxwell' }
-							bookImageSource = { './img/books/15_laws.jpg' }
-							bookImageAltText={ 'The 15 Laws of Invaluable Growth by John C. Maxwell' }
-						/>
-						<Book
-							bookName={ 'The Entrepreneur Mind' }
-							authorName={ 'Kevin D. Johnson' }
-							bookImageSource={ './img/books/entrepreneur_mind.jpg' }
-							bookImageAltText={ 'The Entrepreneur Mind by Kevin D. Johnson' }
-						/>
+						{ previousReads }
+
 					</Cell>
 					<Cell col={ 1 }></Cell>
 					<Cell col={ 8 }>
 						<List className="book-list">
 							<h2>Favorites</h2>
-							<ListItem>
-								<ListItemContent>
-									<img
-										src="./img/books/alchemist.jpg"
-										alt="The Alchemist by Paulo Coelho"
-										className="book-cover"
-									/>
-									<span className="book-title-author"><span className="italic-text">The Alchemist</span> by Paulo Coelho</span>
-								</ListItemContent>
-							</ListItem>
-							<ListItem>
-								<ListItemContent>
-									<img
-										src="./img/books/little_prince.jpg"
-										alt="The Little Prince by Antoine de Saint-Exupery"
-										className="book-cover"
-									/>
-									<span className="book-title-author"><span className="italic-text">The Little Prince</span> by Antoine de Saint-Exupery</span>
-								</ListItemContent>
-							</ListItem>
-							<ListItem>
-								<ListItemContent>
-									<img
-										src="./img/books/meditations.jpg"
-										alt="Meditations by Marcus Aurelius"
-										className="book-cover"
-									/>
-									<span className="book-title-author"><span className="italic-text">Meditations</span> by Marcus Aurelius</span>
-								</ListItemContent>
-							</ListItem>
-							<ListItem>
-								<ListItemContent>
-									<img
-										src="./img/books/daily_stoic.jpg"
-										alt="The Daily Stoic by Ryan Holiday"
-										className="book-cover"
-									/>
-									<span className="book-title-author"><span className="italic-text">The Daily Stoic</span> by Ryan Holiday</span>
-								</ListItemContent>
-							</ListItem>
-							<ListItem>
-								<ListItemContent>
-									<img
-										src="./img/books/as_a_man_thinketh.jpg"
-										alt="As a Man Thinketh by James Allen"
-										className="book-cover"
-									/>
-									<span className="book-title-author"><span className="italic-text">As a Man Thinketh</span> by James Allen</span>
-								</ListItemContent>
-							</ListItem>
+							{ favoriteBooks }
 						</List>
 					</Cell>
 				</Grid>
 			</div>
 
-		)
+		);
 	}
 }
 
