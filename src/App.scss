@@ -440,6 +440,10 @@ nav.mdl-navigation a:hover {
 			.book-author {
 				margin: 5px 0;
 			}
+
+			.book-cover {
+				border: 3px double black;
+			}
 		}
 	}
 
@@ -458,6 +462,10 @@ nav.mdl-navigation a:hover {
 			display: block;
 			width: 100%;
 			margin-top: 10px;
+		}
+
+		.book-cover {
+			border: 3px double black;
 		}
 	}
 }
