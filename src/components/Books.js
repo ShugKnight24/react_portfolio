@@ -53,6 +53,11 @@ class Books extends Component {
 
 		const currentlyReading = [
 			{
+				name: 'Jack Reacher - Killing Floor',
+				author: 'Lee Child',
+				imgSrc: './img/books/killing_floor.jpg'
+			},
+			{
 				name: 'The 4 Hour Workweek',
 				author: 'Tim Ferriss',
 				imgSrc: './img/books/4_hour_week.jpg'
