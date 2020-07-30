@@ -65,7 +65,9 @@ class Books extends Component {
 			{
 				name: 'The 4 Hour Workweek',
 				author: 'Tim Ferriss',
-				imgSrc: './img/books/4_hour_week.jpg'
+				imgSrc: './img/books/4_hour_week.jpg',
+				additionalInfo: 'Reading and implementing ideas'
+
 			}
 		];
 
@@ -111,6 +113,13 @@ class Books extends Component {
 		});
 
 		function buildBooks(book, index){
+
+			let additionalInfo;
+
+			if (book.additionalInfo !== undefined){
+				additionalInfo = book.additionalInfo;
+			}
+
 			const altText = book.name + ' by ' + book.author;
 			return (
 				<Book
@@ -119,6 +128,7 @@ class Books extends Component {
 					authorName={ book.author }
 					bookImageSource ={ book.imgSrc }
 					bookImageAltText={ altText }
+					bookAdditionalInfo={ additionalInfo }
 				/>
 			);
 		};
