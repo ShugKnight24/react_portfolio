@@ -53,6 +53,11 @@ class Books extends Component {
 
 		const currentlyReading = [
 			{
+				name: 'The Book of Five Rings',
+				author: 'Miyamoto Musashi',
+				imgSrc: './img/books/5_rings.jpg'
+			},
+			{
 				name: 'Jack Reacher - Killing Floor',
 				author: 'Lee Child',
 				imgSrc: './img/books/killing_floor.jpg'
@@ -69,6 +74,16 @@ class Books extends Component {
 		});
 
 		const previouslyRead = [
+			{
+				name: 'The Greatest Salesman in the World. Part II: The End of the Story',
+				author: 'Og Mandino',
+				imgSrc: './img/books/greatest_salesman_2.jpg'
+			},
+			{
+				name: 'The Greatest Salesman in the World',
+				author: 'Og Mandino',
+				imgSrc: './img/books/greatest_salesman.jpg'
+			},
 			{
 				name: 'Think and Grow Rich',
 				author: 'Napoleon Hill',
