@@ -13,6 +13,7 @@ class Books extends Component {
 						src={ this.props.bookImageSource }
 						alt={ this.props.bookImageAltText }
 					/>
+					<span>{ this.props.bookAdditionalInfo }</span>
 				</Cell>
 			</Grid>
 		)

@@ -111,6 +111,13 @@ class Books extends Component {
 		});
 
 		function buildBooks(book, index){
+
+			let additionalInfo;
+
+			if (book.additionalInfo !== undefined){
+				additionalInfo = book.additionalInfo;
+			}
+
 			const altText = book.name + ' by ' + book.author;
 			return (
 				<Book
@@ -119,6 +126,7 @@ class Books extends Component {
 					authorName={ book.author }
 					bookImageSource ={ book.imgSrc }
 					bookImageAltText={ altText }
+					bookAdditionalInfo={ additionalInfo }
 				/>
 			);
 		};
