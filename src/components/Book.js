@@ -10,7 +10,7 @@ class Books extends Component {
 					<h6 className="book-author">By: { this.props.authorName }</h6>
 					<img
 						className="book-cover"
-						src={this.props.bookImageSource }
+						src={ this.props.bookImageSource }
 						alt={ this.props.bookImageAltText }
 					/>
 				</Cell>
