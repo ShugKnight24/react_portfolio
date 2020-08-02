@@ -48,6 +48,8 @@ class Resume extends Component {
 							jobResponsibilities={
 								[
 									`Providing web development solutions using HTML, CSS / SASS, JavaScript, & php`,
+									`Providing project management / task management services`,
+									`Providing management services`
 								]
 							}
 						/>
@@ -57,12 +59,20 @@ class Resume extends Component {
 						<Experience
 							startMonth={ 'February' }
 							startYear={ 2020 }
-							endMonth={ 'Present' }
-							endYear={ null }
+							endMonth={ 'June' }
+							endYear={ 2020 }
 							jobName={ 'Neuron Publishing' }
 							jobPosition={ 'Consultant / Developer' }
 							jobDescription={ null }
-							jobResponsibilities={ [] }
+							jobResponsibilities={
+								[
+									'Updated and maintained StationeryHQ.com and Frecklebox.com',
+									'Maintained codebases via Git, Bitbucket, Github, and shopify ThemeKit',
+									'Provided development and project management consulting to ensure tasks were completed in a timely manner via Monday and Slack',
+									'Acted as a liaison between tech, graphics, and marketing teams located in San Jose, CA and Detroit, MI',
+									'Built the new responsive customization preview engine for Frecklebox'
+								]
+							}
 						/>
 
 						<hr />
@@ -70,12 +80,16 @@ class Resume extends Component {
 						<Experience
 							startMonth={ 'December' }
 							startYear={ 2019 }
-							endMonth={ 'Present' }
-							endYear={ null }
+							endMonth={ 'June' }
+							endYear={ 2020 }
 							jobName={ 'LoveBook Online' }
 							jobPosition={ 'Consultant / Developer' }
 							jobDescription={ null }
-							jobResponsibilities={ [] }
+							jobResponsibilities={
+								[
+									'Same as above *'
+								]
+							}
 						/>
 
 						<hr />
@@ -83,8 +97,8 @@ class Resume extends Component {
 						<Experience
 							startMonth={ 'February' }
 							startYear={ 2019 }
-							endMonth={ 'Present' }
-							endYear={ null }
+							endMonth={ 'June' }
+							endYear={ 2020 }
 							jobName={ 'Progressive Solutions' }
 							jobPosition={ 'Consultant / Developer' }
 							jobDescription={ 'Developer responsible for updating Shopify store themes' }
