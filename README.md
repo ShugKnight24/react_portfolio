@@ -10,3 +10,4 @@ The React code of my [portfolio site](ShugKnight24.github.io)
 - [X] Add separate Books page
   - [X] Build books page dynamically
 - [X] Optimized images using [ImageOptim](https://imageoptim.com/)
+- [X] Update Resume section w/ content new from LinkedIn - 8/1
