@@ -5,15 +5,15 @@ class Books extends Component {
 	render(){
 		return(
 			<Grid className="book-container">
-				<Cell col={12}>
-					<h5 className="book-name">{ this.props.bookName }</h5>
-					<h6 className="book-author">By: { this.props.authorName }</h6>
+				<Cell col={12}
+					data-book-index={ this.props.bookIndex }
+				>
+					{/* // <h6 className="book-bar-name-author">{ this.props.bookNameAndAuthor }</h6>*/}
 					<img
-						className="book-cover"
-						src={ this.props.bookImageSource }
-						alt={ this.props.bookImageAltText }
+						className="book-bar-book-image"
+						src={ this.props.imgSrc }
+						alt={ this.props.bookNameAndAuthor }
 					/>
-					<span>{ this.props.bookAdditionalInfo }</span>
 				</Cell>
 			</Grid>
 		)
