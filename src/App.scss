@@ -427,7 +427,16 @@ nav.mdl-navigation a:hover {
 	max-width: 1440px;
 	margin: 0 auto;
 
-	.reading-list {
+	& div {
+		margin: 0;
+		padding: 0;
+	}
+
+	.category-drawer-container {
+		border: 3px double black;
+		border-top: none;
+		height: 100%;
+		padding-top: 10px;
 		text-align: center;
 
 		h3,
@@ -435,39 +444,76 @@ nav.mdl-navigation a:hover {
 			margin: 10px 0;
 		}
 
-		.book-container {
-			.book-name,
-			.book-author {
-				margin: 5px 0;
-			}
+		.category-drawer {
+			height: 100%;
+			// overflow-y: scroll;
+			min-width: 250px;
 
-			.book-cover {
+			.category-cover {
 				border: 3px double black;
-				min-width: 300px;
-				height: 400px;
+				min-width: 200px;
+				height: 300px;
+
+				&:hover {
+					opacity: 0.5;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	.book-bar-and-book-content {
+		.book-bar-container {
+			padding-left: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px double black;
+
+			.book-bar {
+				overflow-x: scroll;
+				width: 100%;
+				white-space: nowrap;
+
+				.book-container {
+					display: inline-flex;
+					border: 1px double black;
+					margin-right: 10px;
+
+					&:hover {
+						opacity: 0.5;
+						cursor: pointer;
+					}
+
+					.book-bar-book-image {
+						max-width: 150px;
+						max-height: 200px;
+					}
+				}
 			}
 		}
 	}
 
 	.book-list {
+		padding-left: 20px;
 		margin-bottom: 0;
 
 		h2 {
 			margin: 10px 0;
 		}
 
-		.mdl-list__item {
-			display: inline-block;
-		}
+		.book-container {
+			text-align: center;
 
-		.book-title-author {
-			display: block;
-			width: 100%;
-			margin-top: 10px;
-		}
+			// .book-title-author {
+			// 	display: block;
+			// 	width: 100%;
+			// 	margin-top: 10px;
+			// }
 
-		.book-cover {
-			border: 3px double black;
+			.book-cover {
+				border: 3px double black;
+				min-width: 300px;
+				height: 450px;
+			}
 		}
 	}
 }
