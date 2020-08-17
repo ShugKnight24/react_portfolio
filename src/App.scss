@@ -500,20 +500,20 @@ nav.mdl-navigation a:hover {
 			margin: 10px 0;
 		}
 
-		.mdl-list__item {
-			display: inline-block;
-		}
+		.book-container {
+			text-align: center;
 
-		.book-title-author {
-			display: block;
-			width: 100%;
-			margin-top: 10px;
-		}
+			// .book-title-author {
+			// 	display: block;
+			// 	width: 100%;
+			// 	margin-top: 10px;
+			// }
 
-		.book-cover {
-			border: 3px double black;
-			min-width: 300px;
-			height: 450px;
+			.book-cover {
+				border: 3px double black;
+				min-width: 300px;
+				height: 450px;
+			}
 		}
 	}
 }
