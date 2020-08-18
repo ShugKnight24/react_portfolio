@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Cell } from 'react-mdl';
+import { Cell } from 'react-mdl';
 
 class Category extends Component {
 	render(){
