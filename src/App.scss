@@ -559,7 +559,7 @@ nav.mdl-navigation a:hover {
 	.contact-grid {
 		text-align: center;
 		justify-content: center;
-		width: 80%;
+		width: 90%;
 		background: white;
 		color: black;
 		padding: 0;
@@ -569,12 +569,22 @@ nav.mdl-navigation a:hover {
 			width: 100%;
 		}
 
-		h2 {
+		h3 {
 			margin: 20px auto 10px;
 
 			@include mq-max(1024px) {
 				margin: 20px auto;
 			}
+
+			&.centered {
+				text-align: center;
+			}
+		}
+
+		h3,
+		h6 {
+			text-align: left;
+			font-weight: bold;
 		}
 
 		hr {
