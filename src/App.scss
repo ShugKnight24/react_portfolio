@@ -427,6 +427,10 @@ nav.mdl-navigation a:hover {
 	max-width: 1440px;
 	margin: 0 auto;
 
+	@include mq-max(1024px){
+		margin-top: 60px;
+	}
+
 	& div {
 		margin: 0;
 		padding: 0;
@@ -449,14 +453,26 @@ nav.mdl-navigation a:hover {
 			// overflow-y: scroll;
 			min-width: 250px;
 
-			.category-cover {
-				border: 3px double black;
-				min-width: 200px;
-				height: 300px;
+			.category {
+				&.active {
+					opacity: 0.5;
+
+					.category-cover {
+						border: 3px double black;
+					}
+				}
 
 				&:hover {
-					opacity: 0.5;
 					cursor: pointer;
+				}
+
+				.category-cover {
+					min-width: 200px;
+					height: 300px;
+
+					&:hover {
+						opacity: 0.5;
+					}
 				}
 			}
 		}
@@ -477,6 +493,16 @@ nav.mdl-navigation a:hover {
 					display: inline-flex;
 					border: 1px double black;
 					margin-right: 10px;
+
+					.book-bar-book {
+						&.active {
+							opacity: 0.5;
+
+							.book-bar-book-image {
+								border: 3px double black;
+							}
+						}
+					}
 
 					&:hover {
 						opacity: 0.5;
@@ -533,7 +559,7 @@ nav.mdl-navigation a:hover {
 	.contact-grid {
 		text-align: center;
 		justify-content: center;
-		width: 80%;
+		width: 90%;
 		background: white;
 		color: black;
 		padding: 0;
@@ -543,12 +569,22 @@ nav.mdl-navigation a:hover {
 			width: 100%;
 		}
 
-		h2 {
+		h3 {
 			margin: 20px auto 10px;
 
 			@include mq-max(1024px) {
 				margin: 20px auto;
 			}
+
+			&.centered {
+				text-align: center;
+			}
+		}
+
+		h3,
+		h6 {
+			text-align: left;
+			font-weight: bold;
 		}
 
 		hr {

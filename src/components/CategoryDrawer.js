@@ -4,11 +4,6 @@ import { Grid, Cell } from 'react-mdl';
 import Category from './Category';
 
 class CategoryDrawer extends Component {
-	constructor(props){
-		super(props);
-		this.state = { activeCategory: 0 };
-	}
-
 	buildCategories(category, index){
 		const altText = category.bookList[0].name + ' by ' + category.bookList[0].author;
 
@@ -20,6 +15,7 @@ class CategoryDrawer extends Component {
 				categoryImgSRC={ category.bookList[0].imgSrc }
 				categoryImgAltText={ altText }
 				updateCategoryState={ this.props.updateCategoryState }
+				currentCategory={ this.props.currentCategory }
 			/>
 		);
 	}

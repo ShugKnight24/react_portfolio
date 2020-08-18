@@ -39,9 +39,14 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: 'The Book of Five Rings',
-			author: 'Miyamoto Musashi',
-			imgSrc: './img/books/5_rings.jpg'
+			name: 'Cryptonomicon',
+			author: 'Neal Stephenson',
+			imgSrc: './img/books/cryptonomicon.jpg'
+		},
+		{
+			name: 'The Game: Penetrating the Secret Society of Pickup Artists',
+			author: 'Neil Strauss',
+			imgSrc: './img/books/the_game.jpg'
 		},
 		{
 			name: 'Jack Reacher - Killing Floor',
@@ -64,6 +69,11 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'The Book of Five Rings',
+			author: 'Miyamoto Musashi',
+			imgSrc: './img/books/5_rings.jpg'
+		},
 		{
 			name: 'The Greatest Salesman in the World. Part II: The End of the Story',
 			author: 'Og Mandino',

@@ -49,7 +49,7 @@ class Resume extends Component {
 								[
 									`Providing web development solutions using HTML, CSS / SASS, JavaScript, & php`,
 									`Providing project management / task management services`,
-									`Providing management services`
+									`Providing devloper management and mentorship services`
 								]
 							}
 						/>
@@ -70,7 +70,8 @@ class Resume extends Component {
 									'Maintained codebases via Git, Bitbucket, Github, and shopify ThemeKit',
 									'Provided development and project management consulting to ensure tasks were completed in a timely manner via Monday and Slack',
 									'Acted as a liaison between tech, graphics, and marketing teams located in San Jose, CA and Detroit, MI',
-									'Built the new responsive customization preview engine for Frecklebox'
+									'Built the new responsive customization preview engine for Frecklebox',
+									'Monitored installation and accuracy of results from Google AdWords, Google Analytics, and Facebook Marketing accounts'
 								]
 							}
 						/>
@@ -87,7 +88,7 @@ class Resume extends Component {
 							jobDescription={ null }
 							jobResponsibilities={
 								[
-									'Same as above *'
+									'Same as above'
 								]
 							}
 						/>

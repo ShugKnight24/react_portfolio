@@ -7,7 +7,6 @@ class Contact extends Component {
 			<div className="contact-body">
 				<Grid className="contact-grid">
 					<Cell col={ 6 }>
-						<h2>Shugmi Shumunov</h2>
 						<div className="image-container">
 							<figure>
 								<img
@@ -20,24 +19,30 @@ class Contact extends Component {
 								</figcaption>
 							</figure>
 						</div>
+						<h3>Shugmi Shumunov</h3>
+						<h6>
+							Storytelling through code
+						</h6>
 						<p className="tab">
-							I enjoy telling stories through code.
+							Whether you're exploring new opportunities in this expanding digital marketplace or your development needs have fallen short, I'll step in to provide insights and deliver a creative solution that bridges the gap between  concept and reality.
 						</p>
 						<p className="tab">
-							Whether you're exploring new opportunities or found your development needs coming up a little short, I can step in with insights to deliver a creative solution that will bridge that gap.
+							I provide consulting, development, development mentorship, management, and project management services.
 						</p>
 						<p className="tab">
-							I provide development, management, and consulting services.
-						</p>
-						<p className="tab">
-							I pride myself on providing honest, insightful, and thoughtful guidance to my customers.
+							I pride myself on providing honest, insightful, and thoughtful guidance to my clients
 						</p>
 						<p className="tab">
 							Reach out if you'd like to work with me.
 						</p>
 					</Cell>
 					<Cell col={ 6 }>
-						<h2>Contact Info</h2>
+						<h3 className="centered">COVID19 Update</h3>
+						<hr />
+						<div className="covid-info">
+							<p>If you or someone you know lost work due to the coronavirus pandemic and would benefit from having an online site or portfolio to display your skills and get back on your feet, please reach out and I'll see how I can help.</p>
+						</div>
+						<h3 className="centered">Contact Info</h3>
 						<hr />
 						<div className="contact-list">
 							<List>
