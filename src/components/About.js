@@ -23,11 +23,17 @@ class About extends Component {
 					<Cell col={ 6 }>
 						<h3>About Me</h3>
 
-						<p className="tab">The startup environment is one that is most enjoyable for myself. I enjoy variety. This space allows me to wear different hats and tackle different problems simulataneously. I started my own development company to create things, help people, and solve problems that are meaningful to me.</p>
+						<p className="tab">The startup environment is the one I enjoy most. Novelty is my lifeblood. I find myself performing best when solving multiple problems at the same time. I get to wear many different hats and tackle multiple problems.</p>
 
-						<p className="tab">Reach out if you'd like to talk about how I can help your business grow or a personal project you'd like me to build or complete.</p>
+						<p className="tab">I started my own development company to exercise my creativity by building things, helping people, and solving problems that are meaningful to me.</p>
 
-						<p className="tab">When I'm not programming you'll find me working out, shooting hoops, reading, or jamming to music. I'm a passionate person. I know what I like and tend to dive down the rabbit hole with those things that resonate with me.</p>
+						<p className="tab">Reach out if you'd like to talk about how I can help your business grow or if you have a personal project that needs completing.</p>
+
+						<p className="tab">Aside from building my business, you'll find me working out, shooting hoops, reading, jamming to music.</p>
+
+						<h3>Corona Help</h3>
+
+						<p className="tab">If you've lost your job due to Corona and would like a portfolio to display your work and skills in order to get back on your feet, reach out and we'll set something up</p>
 					</Cell>
 				</Grid>
 			</div>
