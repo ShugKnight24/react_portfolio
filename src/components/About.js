@@ -31,9 +31,10 @@ class About extends Component {
 
 						<p className="tab">Aside from building my business, you'll find me working out, shooting hoops, reading, jamming to music.</p>
 
-						<h3>Corona Help</h3>
-
-						<p className="tab">If you've lost your job due to Corona and would like a portfolio to display your work and skills in order to get back on your feet, reach out and we'll set something up</p>
+						<h3>COVID19 Update</h3>
+						<div className="covid-info">
+							<p>If you or someone you know lost work due to the coronavirus pandemic and would benefit from having an online site or portfolio to display your skills and get back on your feet, please reach out and I'll see how I can help.</p>
+						</div>
 					</Cell>
 				</Grid>
 			</div>
