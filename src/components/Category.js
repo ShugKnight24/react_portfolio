@@ -12,6 +12,7 @@ class Category extends Component {
 			<Cell col={12}
 				data-category-index={ this.props.categoryIndex }
 				onClick={ this.props.updateCategoryState }
+				className="category" 
 			>
 				<h4>{ this.props.categoryName }</h4>
 				<img

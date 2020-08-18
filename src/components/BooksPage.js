@@ -28,21 +28,24 @@ class BooksPage extends Component {
 	}
 
 	updateCategoryState(e){
+		if (e.target.parentNode.classList.contains('category')){
+			let categoryIndex = e.target.parentNode.dataset.categoryIndex;
 
-		let categoryIndex = e.target.parentNode.dataset.categoryIndex;
-
-		this.setState({
-			activeCategory: categoryIndex,
-			activeBook: 0
-		})
+			this.setState({
+				activeCategory: categoryIndex,
+				activeBook: 0
+			})
+		}
 	}
 
 	updateBookState(e){
-		let bookIndex = e.target.parentNode.dataset.bookIndex;
+		if ( e.target.parentNode.classList.contains('book-bar-book')){
+			let bookIndex = e.target.parentNode.dataset.bookIndex;
 
-		this.setState({
-			activeBook: bookIndex
-		})
+			this.setState({
+				activeBook: bookIndex
+			})
+		}
 	}
 
 	render() {
