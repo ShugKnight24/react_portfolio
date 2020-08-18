@@ -6,9 +6,6 @@ import BookContent from './BookContent';
 import CategoryDrawer from './CategoryDrawer';
 
 import {
-	favoriteBooksArray,
-	currentlyReading,
-	previouslyRead,
 	allCategoriesArray
 } from '../data/bookData.js'
 
