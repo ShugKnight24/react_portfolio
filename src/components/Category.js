@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
 
 class Category extends Component {
-	constructor(props){
-		super(props);
-		this.state = { activeCategory: 0 }
-	}
 	render(){
 
 		let isActive = this.props.categoryIndex === this.props.currentCategory;

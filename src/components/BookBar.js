@@ -4,14 +4,6 @@ import { Grid, Cell } from 'react-mdl';
 import Book from './Book'
 
 class BookBar extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			activeCategory: 0,
-			activeBook: 0
-		}
-	}
-
 	buildBooksInCat(bookInCat, index){
 		const altText = bookInCat.name + ' by ' + bookInCat.author;
 
