@@ -23,6 +23,7 @@ class BookBar extends Component {
 				key={ index }
 				bookIndex={ index }
 				updateBookState={ this.props.updateBookState }
+				currentlySelectedBook={ this.props.currentlySelectedBook }
 			/>
 		);
 	}

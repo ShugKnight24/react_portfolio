@@ -449,14 +449,26 @@ nav.mdl-navigation a:hover {
 			// overflow-y: scroll;
 			min-width: 250px;
 
-			.category-cover {
-				border: 3px double black;
-				min-width: 200px;
-				height: 300px;
+			.category {
+				&.active {
+					opacity: 0.5;
+
+					.category-cover {
+						border: 3px double black;
+					}
+				}
 
 				&:hover {
-					opacity: 0.5;
 					cursor: pointer;
+				}
+
+				.category-cover {
+					min-width: 200px;
+					height: 300px;
+
+					&:hover {
+						opacity: 0.5;
+					}
 				}
 			}
 		}
@@ -477,6 +489,16 @@ nav.mdl-navigation a:hover {
 					display: inline-flex;
 					border: 1px double black;
 					margin-right: 10px;
+
+					.book-bar-book {
+						&.active {
+							opacity: 0.5;
+
+							.book-bar-book-image {
+								border: 3px double black;
+							}
+						}
+					}
 
 					&:hover {
 						opacity: 0.5;

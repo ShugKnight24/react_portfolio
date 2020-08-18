@@ -29,7 +29,7 @@ class BooksPage extends Component {
 
 	updateCategoryState(e){
 		if (e.target.parentNode.classList.contains('category')){
-			let categoryIndex = e.target.parentNode.dataset.categoryIndex;
+			let categoryIndex = Number(e.target.parentNode.dataset.categoryIndex);
 
 			this.setState({
 				activeCategory: categoryIndex,
@@ -40,7 +40,7 @@ class BooksPage extends Component {
 
 	updateBookState(e){
 		if ( e.target.parentNode.classList.contains('book-bar-book')){
-			let bookIndex = e.target.parentNode.dataset.bookIndex;
+			let bookIndex = Number(e.target.parentNode.dataset.bookIndex);
 
 			this.setState({
 				activeBook: bookIndex
@@ -59,6 +59,7 @@ class BooksPage extends Component {
 						<CategoryDrawer
 							allCategories={ allCategoriesArray }
 							updateCategoryState={ this.updateCategoryState }
+							currentCategory={ this.state.activeCategory }
 						/>
 					</Cell>
 					<Cell col={ 9 }

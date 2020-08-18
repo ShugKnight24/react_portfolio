@@ -20,6 +20,7 @@ class CategoryDrawer extends Component {
 				categoryImgSRC={ category.bookList[0].imgSrc }
 				categoryImgAltText={ altText }
 				updateCategoryState={ this.props.updateCategoryState }
+				currentCategory={ this.props.currentCategory }
 			/>
 		);
 	}
