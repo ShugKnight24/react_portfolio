@@ -427,6 +427,10 @@ nav.mdl-navigation a:hover {
 	max-width: 1440px;
 	margin: 0 auto;
 
+	@include mq-max(1024px){
+		margin-top: 60px;
+	}
+
 	& div {
 		margin: 0;
 		padding: 0;
