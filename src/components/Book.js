@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
 
-class Books extends Component {
+export default class Books extends Component {
 	render(){
 
 		let isActive = this.props.bookIndex === this.props.currentlySelectedBook;
@@ -23,5 +23,3 @@ class Books extends Component {
 		)
 	}
 }
-
-export default Books;

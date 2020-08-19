@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Cell } from 'react-mdl';
 
-class Category extends Component {
+export default class Category extends Component {
 	render(){
 
 		let isActive = this.props.categoryIndex === this.props.currentCategory;
 
 		return(
-			// {/* each has an activecategory state --> update on click of category  */}
 			<Cell col={12}
 				data-category-index={ this.props.categoryIndex }
 				onClick={ this.props.updateCategoryState }
@@ -23,5 +22,3 @@ class Category extends Component {
 		)
 	}
 }
-
-export default Category;

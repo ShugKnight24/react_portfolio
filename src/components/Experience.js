@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Cell, List, ListItem } from 'react-mdl';
 
-class Experience extends Component {
+export default class Experience extends Component {
 	render(){
 
 		this.jobResponsibilities = this.props.jobResponsibilities;
@@ -27,5 +27,3 @@ class Experience extends Component {
 		)
 	}
 }
-
-export default Experience;

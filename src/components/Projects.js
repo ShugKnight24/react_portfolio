@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Tab, Grid, Cell, Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
 
-class Projects extends Component {
+export default class Projects extends Component {
 	constructor(props){
 		super(props);
 		this.state = { activeTab: 0 }
@@ -248,5 +248,3 @@ class Projects extends Component {
 		);
 	}
 }
-
-export default Projects;

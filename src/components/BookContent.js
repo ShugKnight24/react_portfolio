@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
 
-class BookContent extends Component {
+export default class BookContent extends Component {
 	render(){
 		let currentCategory = this.props.currentCategory;
 		let currentlySelectedBook = this.props.currentlySelectedBook;
@@ -41,5 +41,3 @@ class BookContent extends Component {
 		)
 	}
 }
-
-export default BookContent;

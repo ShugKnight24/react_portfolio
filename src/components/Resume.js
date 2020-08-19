@@ -5,7 +5,7 @@ import Education from './Education';
 import Experience from './Experience';
 import Skills from './Skills';
 
-class Resume extends Component {
+export default class Resume extends Component {
 	render() {
 		return(
 			<div className="resume-page">
@@ -308,5 +308,3 @@ class Resume extends Component {
 		);
 	}
 }
-
-export default Resume;
