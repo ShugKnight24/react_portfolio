@@ -12,7 +12,7 @@ import {
 // set activeCat = 0
 // set activeBook = 0
 
-class BooksPage extends Component {
+export default class BooksPage extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -89,5 +89,3 @@ class BooksPage extends Component {
 		);
 	}
 }
-
-export default BooksPage;

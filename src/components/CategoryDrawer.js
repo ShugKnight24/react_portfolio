@@ -3,7 +3,7 @@ import { Grid } from 'react-mdl';
 
 import Category from './Category';
 
-class CategoryDrawer extends Component {
+export default class CategoryDrawer extends Component {
 	buildCategories(category, index){
 		const altText = category.bookList[0].name + ' by ' + category.bookList[0].author;
 
@@ -35,5 +35,3 @@ class CategoryDrawer extends Component {
 		)
 	}
 }
-
-export default CategoryDrawer;

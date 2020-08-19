@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-class NotFound extends Component {
+export default class NotFound extends Component {
 	render(){
 		return(
 			<div className="not-found">
@@ -13,5 +13,3 @@ class NotFound extends Component {
 		)
 	}
 }
-
-export default NotFound;

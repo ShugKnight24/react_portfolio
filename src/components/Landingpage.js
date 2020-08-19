@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
 
-class Landing extends Component {
+export default class Landing extends Component {
 	render() {
 		return(
 			<div className="landing-container">
@@ -111,5 +111,3 @@ class Landing extends Component {
 		);
 	}
 }
-
-export default Landing;

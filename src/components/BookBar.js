@@ -3,7 +3,7 @@ import { Cell } from 'react-mdl';
 
 import Book from './Book'
 
-class BookBar extends Component {
+export default class BookBar extends Component {
 	buildBooksInCat(bookInCat, index){
 		const altText = bookInCat.name + ' by ' + bookInCat.author;
 
@@ -48,5 +48,3 @@ class BookBar extends Component {
 		)
 	}
 }
-
-export default BookBar;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Cell } from 'react-mdl';
 
-class Category extends Component {
+export default class Category extends Component {
 	render(){
 
 		let isActive = this.props.categoryIndex === this.props.currentCategory;
@@ -23,5 +23,3 @@ class Category extends Component {
 		)
 	}
 }
-
-export default Category;
