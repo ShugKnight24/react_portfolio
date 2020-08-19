@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
+import { Grid, Cell, List } from 'react-mdl';
 
 import BookBar from './BookBar';
 import BookContent from './BookContent';
 import CategoryDrawer from './CategoryDrawer';
 
 import {
-	favoriteBooksArray,
-	currentlyReading,
-	previouslyRead,
 	allCategoriesArray
 } from '../data/bookData.js'
 

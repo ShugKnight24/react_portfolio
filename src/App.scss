@@ -443,6 +443,10 @@ nav.mdl-navigation a:hover {
 		padding-top: 10px;
 		text-align: center;
 
+		@include mq-max(950px){
+			width: 100%;
+		}
+
 		h3,
 		h4 {
 			margin: 10px 0;
@@ -453,7 +457,17 @@ nav.mdl-navigation a:hover {
 			// overflow-y: scroll;
 			min-width: 250px;
 
+			@include mq-max(950px){
+				flex-flow: row;
+				overflow-x: scroll;
+			}
+
 			.category {
+
+				@include mq-max(950px){
+					margin: 0 10px;
+				}
+
 				&.active {
 					opacity: 0.5;
 
@@ -470,6 +484,11 @@ nav.mdl-navigation a:hover {
 					min-width: 200px;
 					height: 300px;
 
+					@include mq-max(950px){
+						min-width: 150px;
+						height: 200px;
+					}
+
 					&:hover {
 						opacity: 0.5;
 					}
@@ -479,9 +498,14 @@ nav.mdl-navigation a:hover {
 	}
 
 	.book-bar-and-book-content {
+		@include mq-max(950px){
+			width: 100%;
+		}
+
 		.book-bar-container {
 			padding-left: 20px;
 			padding-bottom: 20px;
+			border-right: 1px double black;
 			border-bottom: 1px double black;
 
 			.book-bar {
