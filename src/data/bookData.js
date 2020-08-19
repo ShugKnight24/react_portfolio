@@ -44,11 +44,6 @@ export const currentlyReading = {
 			imgSrc: './img/books/cryptonomicon.jpg'
 		},
 		{
-			name: 'The Game: Penetrating the Secret Society of Pickup Artists',
-			author: 'Neil Strauss',
-			imgSrc: './img/books/the_game.jpg'
-		},
-		{
 			name: 'Jack Reacher - Killing Floor',
 			author: 'Lee Child',
 			imgSrc: './img/books/killing_floor.jpg'
@@ -69,6 +64,11 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'The Game: Penetrating the Secret Society of Pickup Artists',
+			author: 'Neil Strauss',
+			imgSrc: './img/books/the_game.jpg'
+		},
 		{
 			name: 'The Book of Five Rings',
 			author: 'Miyamoto Musashi',
