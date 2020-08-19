@@ -9,9 +9,6 @@ import {
 	allCategoriesArray
 } from '../data/bookData.js'
 
-// set activeCat = 0
-// set activeBook = 0
-
 export default class BooksPage extends Component {
 	constructor(props){
 		super(props);
@@ -51,8 +48,6 @@ export default class BooksPage extends Component {
 				<Grid>
 					<Cell col={ 3 }
 						className="category-drawer-container">
-						{/* // category drawer */}
-						{/* // Add active category state as props */}
 						<CategoryDrawer
 							allCategories={ allCategoriesArray }
 							updateCategoryState={ this.updateCategoryState }
@@ -62,10 +57,7 @@ export default class BooksPage extends Component {
 					<Cell col={ 9 }
 						className="book-bar-and-book-content"
 					>
-						{/* // full width book bar */}
 						<Grid className="book-bar-container">
-							{/* // Add active category state */}
-							{/* // Add active book state */}
 							<BookBar
 								allCategories={ allCategoriesArray }
 								currentCategory={ this.state.activeCategory }
@@ -73,8 +65,6 @@ export default class BooksPage extends Component {
 								updateBookState={ this.updateBookState }
 							/>
 						</Grid>
-
-						{/*  selected book content */}
 						<List className="book-list">
 							<BookContent
 								allCategories={ allCategoriesArray }

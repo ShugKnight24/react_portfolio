@@ -7,7 +7,6 @@ export default class Category extends Component {
 		let isActive = this.props.categoryIndex === this.props.currentCategory;
 
 		return(
-			// {/* each has an activecategory state --> update on click of category  */}
 			<Cell col={12}
 				data-category-index={ this.props.categoryIndex }
 				onClick={ this.props.updateCategoryState }

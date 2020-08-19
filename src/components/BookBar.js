@@ -33,17 +33,13 @@ export default class BookBar extends Component {
 			return this.buildBooksInCat(bookInCat, index);
 		});
 
-// // TODO: Add active / closed state to drawer
 		return(
 			<Cell col={12}
 				className="book-bar"
 				onClick={ this.props.updateBookState }
 			>
 				<h4>{ currentCatName }</h4>
-				{/* Select proper category */}
 				{ allBooksInCat }
-				{/* Add hover state */}
-				{/* Add active state to selected book */}
 			</Cell>
 		)
 	}
