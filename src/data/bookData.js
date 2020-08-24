@@ -39,6 +39,16 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
+			name: '1984',
+			author: 'George Orwell',
+			imgSrc: './img/books/1984.jpg'
+		},
+		{
+			name: 'Power of Habit: Why We Do What We Do In Life And Business',
+			author: 'Charles Duhigg',
+			imgSrc: './img/books/power_of_habit.jpg'
+		},
+		{
 			name: 'Cryptonomicon',
 			author: 'Neal Stephenson',
 			imgSrc: './img/books/cryptonomicon.jpg'
