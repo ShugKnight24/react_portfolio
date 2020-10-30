@@ -75,6 +75,11 @@ export const previouslyRead = {
 	index: 2,
 	bookList: [
 		{
+			name: 'Dune',
+			author: 'Frank Herbert',
+			imgSrc: './img/books/dune.jpg'
+		},
+		{
 			name: 'The Game: Penetrating the Secret Society of Pickup Artists',
 			author: 'Neil Strauss',
 			imgSrc: './img/books/the_game.jpg'
