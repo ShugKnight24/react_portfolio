@@ -57,6 +57,41 @@ export default class Resume extends Component {
 						<hr />
 
 						<Experience
+							startMonth={ 'July' }
+							startYear={ 2020 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'Paper Goods Warehouse' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									'Built <a href="https://www.papergoodswarehouse.com/" rel="noopener noreferrer" target="_blank">Paper Goods Warehouse</a> website',
+								]
+							}
+						/>
+
+
+						<hr />
+
+						<Experience
+							startMonth={ 'October' }
+							startYear={ 2020 }
+							endMonth={ 'October' }
+							endYear={ 2020 }
+							jobName={ 'Link Magnet' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									'Updated design via <span class="bold-text">CSS</span> on a few <span class="bold-text">WordPress</span> pages on <a href="https://freedomforfamilies.com/" rel="noopener noreferrer" target="_blank">Freedom For Families</a> website',
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
 							startMonth={ 'February' }
 							startYear={ 2020 }
 							endMonth={ 'June' }
