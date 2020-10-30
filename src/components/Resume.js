@@ -57,6 +57,41 @@ export default class Resume extends Component {
 						<hr />
 
 						<Experience
+							startMonth={ 'July' }
+							startYear={ 2020 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'Paper Goods Warehouse' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									'Built <a href="https://www.papergoodswarehouse.com/" rel="noopener noreferrer" target="_blank">Paper Goods Warehouse</a> website',
+								]
+							}
+						/>
+
+
+						<hr />
+
+						<Experience
+							startMonth={ 'October' }
+							startYear={ 2020 }
+							endMonth={ 'October' }
+							endYear={ 2020 }
+							jobName={ 'Link Magnet' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									'Updated design via <span class="bold-text">CSS</span> on a few <span class="bold-text">WordPress</span> pages on <a href="https://freedomforfamilies.com/" rel="noopener noreferrer" target="_blank">Freedom For Families</a> website',
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
 							startMonth={ 'February' }
 							startYear={ 2020 }
 							endMonth={ 'June' }
@@ -66,12 +101,12 @@ export default class Resume extends Component {
 							jobDescription={ null }
 							jobResponsibilities={
 								[
-									'Updated and maintained StationeryHQ.com and Frecklebox.com',
-									'Maintained codebases via Git, Bitbucket, Github, and shopify ThemeKit',
-									'Provided development and project management consulting to ensure tasks were completed in a timely manner via Monday and Slack',
+									'Updated and maintained <a class="bold-text" href="https://www.stationeryhq.com" rel="noopener noreferrer" target="_blank">StationeryHQ</a> and <a class="bold-text" href="https://www.frecklebox.com" rel="noopener noreferrer" target="_blank">FreckleBox</a>',
+									'Maintained codebases via <span class="bold-text">Git, <span class="bold-text">Bitbucket</span>, <span class="bold-text">Github</span>, and <span class="bold-text">Shopify ThemeKit</span>',
+									'Provided development and project management consulting to ensure tasks were completed in a timely manner via <span class="bold-text">Monday</span> and <span class="bold-text">Slack</span>',
 									'Acted as a liaison between tech, graphics, and marketing teams located in San Jose, CA and Detroit, MI',
 									'Built the new responsive customization preview engine for Frecklebox',
-									'Monitored installation and accuracy of results from Google AdWords, Google Analytics, and Facebook Marketing accounts'
+									'Monitored installation and accuracy of results from <span class="bold-text">Google AdWords</span>, <span class="bold-text">Google Analytics</span>, and <span class="bold-text">Facebook Marketing</span> accounts'
 								]
 							}
 						/>
