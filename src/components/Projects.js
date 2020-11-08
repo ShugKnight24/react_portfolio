@@ -226,6 +226,45 @@ export default class Projects extends Component {
 				</div>
 			)
 		}
+
+		if (this.state.activeTab === 4){
+			return(
+				<div className="projects">
+					<div className="projects-grid">
+						<Card shadow={ 5 } className="project-cards">
+							<CardTitle className="project-cards-title shumunov-solutions" role="img" aria-label="Image of StationeryHQ website homepage">
+								<span className="title-background">
+									Shumunov Solutions
+								</span>
+							</CardTitle>
+							<CardText className="project-description">
+								Providing technology solutions to South East Michigan businesses
+							</CardText>
+							<CardActions border>
+								<Button colored>
+									<a href="https://www.stationeryhq.com" rel="noopener noreferrer" target="_blank">Live Site</a>
+								</Button>
+							</CardActions>
+						</Card>
+						<Card shadow={ 5 } className="project-cards">
+							<CardTitle className="project-cards-title paper-goods-warehouse" role="img" aria-label="Image of FreckleBox website homepage">
+								<span className="title-background">
+									Paper Goods Warehouse
+								</span>
+							</CardTitle>
+							<CardText className="project-description">
+								Website for Oak Park, MI Paper Goods Store
+							</CardText>
+							<CardActions border>
+								<Button colored>
+									<a href="https://www.papergoodswarehouse.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
+								</Button>
+							</CardActions>
+						</Card>
+					</div>
+				</div>
+			)
+		}
 	}
 
 	render() {
@@ -236,6 +275,7 @@ export default class Projects extends Component {
 					<Tab className="tab-name">GTB</Tab>
 					<Tab className="tab-name">LoveBook</Tab>
 					<Tab className="tab-name">Progressive Solutions</Tab>
+					<Tab className="tab-name">Shumunov Solutions</Tab>
 				</Tabs>
 				<Grid>
 					<Cell col={ 12 }>

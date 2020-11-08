@@ -807,54 +807,91 @@ nav.mdl-navigation a:hover {
 
 					/* Personal Projects */
 					&.pomodoro {
-						background: url(/img/projects/pomodoro.png) center / cover;
+						background: url(/img/projects/pomodoro.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					&.tetris {
-						background: url(/img/projects/tetris.png) center / cover;
+						background: url(/img/projects/tetris.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					&.flappy-bird {
-						background: url(/img/projects/flappy_bird.png) center / cover;
+						background: url(/img/projects/flappy_bird.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					/* GTB Projects */
 					&.optima {
-						background: url(/img/projects/optima.png) center / cover;
+						background: url(/img/projects/optima.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					&.varta {
-						background: url(/img/projects/varta.png) center / cover;
+						background: url(/img/projects/varta.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					&.varta-china {
-						background: url(/img/projects/varta_china.png) center / cover;
+						background: url(/img/projects/varta_china.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					&.delkor {
-						background: url(/img/projects/delkor.png) center / cover;
+						background: url(/img/projects/delkor.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					&.delkor-korea {
-						background: url(/img/projects/delkor_korea.png) center / cover;
+						background: url(/img/projects/delkor_korea.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					/* LoveBook Projects */
 					&.mylovebook {
-						background: url(/img/projects/mylovebook.png) center / cover;
+						background: url(/img/projects/mylovebook.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					&.lovecoups {
-						background: url(/img/projects/lovecoups.png) center / cover;
+						background: url(/img/projects/lovecoups.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					/* Progressive Solutions Projects */
 					&.stationeryhq {
-						background: url(/img/projects/stationeryhq.png) center / cover;
+						background: url(/img/projects/stationeryhq.png);
+						background-position: center;
+						background-size: cover;
 					}
 
 					&.frecklebox {
-						background: url(/img/projects/frecklebox.png) center / cover;
+						background: url(/img/projects/frecklebox.png);
+						background-position: center;
+						background-size: cover;
+					}
+
+					/* Shumunov Solutions Projects */
+					&.shumunov-solutions {
+						background: url(/img/projects/shumunov_solutions.png);
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.paper-goods-warehouse {
+						background: url(/img/projects/papergoodswarehouse_website.png);
+						background-position: center;
+						background-size: cover;
 					}
 				}
 
