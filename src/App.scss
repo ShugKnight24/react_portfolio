@@ -880,6 +880,19 @@ nav.mdl-navigation a:hover {
 						background-position: center;
 						background-size: cover;
 					}
+
+					/* Shumunov Solutions Projects */
+					&.shumunov-solutions {
+						background: url(/img/projects/shumunov_solutions.png);
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.paper-goods-warehouse {
+						background: url(/img/projects/papergoodswarehouse_website.png);
+						background-position: center;
+						background-size: cover;
+					}
 				}
 
 				.project-description {
