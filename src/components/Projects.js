@@ -28,6 +28,15 @@ export default class Projects extends Component {
 								</Button>
 							</CardActions>
 						</Card>
+					</div>
+				</div>
+			)
+		}
+
+		if (this.state.activeTab === 1){
+			return(
+				<div className="projects">
+					<div className="projects-grid">
 						<Card shadow={ 5 } className="project-cards">
 							<CardTitle className="project-cards-title  tetris" role="img" aria-label="Image of JavaScript Tetris clone built by Shugmi Shumunov">
 								<span className="title-background">
@@ -65,7 +74,7 @@ export default class Projects extends Component {
 			)
 		}
 
-		if (this.state.activeTab === 1){
+		if (this.state.activeTab === 2){
 			return(
 				<div className="projects">
 					<div className="projects-grid">
@@ -149,7 +158,7 @@ export default class Projects extends Component {
 			)
 		}
 
-		if (this.state.activeTab === 2){
+		if (this.state.activeTab === 3){
 			return(
 				<div className="projects">
 					<div className="projects-grid">
@@ -188,7 +197,7 @@ export default class Projects extends Component {
 			)
 		}
 
-		if (this.state.activeTab === 3){
+		if (this.state.activeTab === 4){
 			return(
 				<div className="projects">
 					<div className="projects-grid">
@@ -227,7 +236,7 @@ export default class Projects extends Component {
 			)
 		}
 
-		if (this.state.activeTab === 4){
+		if (this.state.activeTab === 5){
 			return(
 				<div className="projects">
 					<div className="projects-grid">
@@ -272,6 +281,7 @@ export default class Projects extends Component {
 			<div className="projects-page">
 				<Tabs className="projects-tabs" activeTab={ this.state.activeTab } onChange={ (tabId) => this.setState({ activeTab: tabId}) } ripple>
 					<Tab className="tab-name">Personal Projects</Tab>
+					<Tab className="tab-name">Games</Tab>
 					<Tab className="tab-name">GTB</Tab>
 					<Tab className="tab-name">LoveBook</Tab>
 					<Tab className="tab-name">Progressive Solutions</Tab>
