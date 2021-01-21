@@ -69,6 +69,22 @@ export default class Projects extends Component {
 								</Button>
 							</CardActions>
 						</Card>
+						<Card shadow={ 5 } className="project-cards">
+							<CardTitle className="project-cards-title trex-runner" role="img" aria-label="Image of T-Rex Runner Clone built by Shugmi Shumunov">
+								<span className="title-background">T-Rex Runner</span>
+							</CardTitle>
+							<CardText className="project-description">
+								Rebuilt Google Chrome Dino runner game w/ HTML, CSS, & Javascript
+							</CardText>
+							<CardActions border>
+								<Button colored>
+									<a href="https://github.com/ShugKnight24/dino_jump" rel="noopener noreferrer" target="_blank">GitHub Repository</a>
+								</Button>
+								<Button colored>
+									<a href="https://shugknight24.github.io/dino_jump" rel="noopener noreferrer" target="_blank">Live Demo</a>
+								</Button>
+							</CardActions>
+						</Card>
 					</div>
 				</div>
 			)

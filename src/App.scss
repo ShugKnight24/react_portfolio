@@ -824,6 +824,13 @@ nav.mdl-navigation a:hover {
 						background-size: cover;
 					}
 
+					&.trex-runner {
+						background: url(/img/projects/trex_runner.png);
+						background-position: center;
+						background-size: contain;
+						background-repeat: no-repeat;
+					}
+
 					/* GTB Projects */
 					&.optima {
 						background: url(/img/projects/optima.png);
