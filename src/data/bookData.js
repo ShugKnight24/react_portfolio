@@ -39,31 +39,16 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: '1984',
-			author: 'George Orwell',
-			imgSrc: './img/books/1984.jpg'
+			name: 'Rich Dad Poor Dad',
+			author: 'Robert T. Kiyosaki',
+			imgSrc: './img/books/rich_dad_poor_dad.jpg',
+			readNo: 1
 		},
 		{
-			name: 'Power of Habit: Why We Do What We Do In Life And Business',
-			author: 'Charles Duhigg',
-			imgSrc: './img/books/power_of_habit.jpg'
-		},
-		{
-			name: 'Cryptonomicon',
-			author: 'Neal Stephenson',
-			imgSrc: './img/books/cryptonomicon.jpg'
-		},
-		{
-			name: 'Jack Reacher - Killing Floor',
-			author: 'Lee Child',
-			imgSrc: './img/books/killing_floor.jpg'
-		},
-		{
-			name: 'The 4 Hour Workweek',
-			author: 'Tim Ferriss',
-			imgSrc: './img/books/4_hour_week.jpg',
-			additionalInfo: 'Reading and implementing ideas'
-
+			name: 'The Daily Stoic',
+			author: 'Ryan Holiday',
+			imgSrc: './img/books/daily_stoic.jpg',
+			readNo: 1
 		}
 	]
 };
@@ -74,6 +59,11 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'This Book Will Teach You How To Write Better',
+			author: 'Neville Medhora',
+			imgSrc: './img/books/this_book_will_teach.jpg'
+		},
 		{
 			name: 'Dune',
 			author: 'Frank Herbert',
