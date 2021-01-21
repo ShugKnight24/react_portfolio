@@ -257,7 +257,7 @@ export default class Projects extends Component {
 				<div className="projects">
 					<div className="projects-grid">
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title shumunov-solutions" role="img" aria-label="Image of StationeryHQ website homepage">
+							<CardTitle className="project-cards-title shumunov-solutions" role="img" aria-label="Image of Shumunov Solutions website homepage">
 								<span className="title-background">
 									Shumunov Solutions
 								</span>
@@ -272,7 +272,22 @@ export default class Projects extends Component {
 							</CardActions>
 						</Card>
 						<Card shadow={ 5 } className="project-cards">
-							<CardTitle className="project-cards-title paper-goods-warehouse" role="img" aria-label="Image of FreckleBox website homepage">
+							<CardTitle className="project-cards-title jk-unlimited-services" role="img" aria-label="Image of JK Unlimited Services website homepage">
+								<span className="title-background">
+									JK Unlimited Services
+								</span>
+							</CardTitle>
+							<CardText className="project-description">
+								Website for West Bloomfield, MI general contractor
+							</CardText>
+							<CardActions border>
+								<Button colored>
+									<a href="https://www.jkunlimitedservices.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
+								</Button>
+							</CardActions>
+						</Card>
+						<Card shadow={ 5 } className="project-cards">
+							<CardTitle className="project-cards-title paper-goods-warehouse" role="img" aria-label="Image of Paper Goods Warehouse website homepage">
 								<span className="title-background">
 									Paper Goods Warehouse
 								</span>
