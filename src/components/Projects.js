@@ -267,7 +267,7 @@ export default class Projects extends Component {
 							</CardText>
 							<CardActions border>
 								<Button colored>
-									<a href="https://www.stationeryhq.com" rel="noopener noreferrer" target="_blank">Live Site</a>
+									<a href="https://www.shumunovsolutions.com" rel="noopener noreferrer" target="_blank">Live Site</a>
 								</Button>
 							</CardActions>
 						</Card>
