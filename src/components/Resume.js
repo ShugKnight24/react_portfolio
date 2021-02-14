@@ -272,7 +272,7 @@ export default class Resume extends Component {
 
 							<Skills
 								skill={ 'PHP' }
-								progress={ 40 }
+								progress={ 50 }
 							/>
 
 							<h3>Front-End Frameworks & Libraries</h3>
@@ -284,12 +284,12 @@ export default class Resume extends Component {
 
 							<Skills
 								skill={ 'React' }
-								progress={ 60 }
+								progress={ 70 }
 							/>
 
 							<Skills
 								skill={ 'React Native' }
-								progress={ 50 }
+								progress={ 60 }
 							/>
 
 							<h3>Back-End Frameworks & Libraries</h3>
@@ -311,11 +311,11 @@ export default class Resume extends Component {
 								progress={ 30 }
 							/>
 
-							<h3>Additional Tools</h3>
+							<h3>Programming Tools</h3>
 
 							<Skills
 								skill={ 'GIT / GitHub' }
-								progress={ 60 }
+								progress={ 75 }
 							/>
 
 							<Skills
@@ -327,6 +327,53 @@ export default class Resume extends Component {
 								skill={ 'Liquid' }
 								progress={ 90 }
 							/>
+
+							<h3>Design Tools</h3>
+
+							<h4>Adobe Creative Cloud</h4>
+							<Skills
+								skill={ 'Photoshop' }
+								progress={ 45 }
+							/>
+
+							<Skills
+								skill={ 'Illustrator' }
+								progress={ 45 }
+							/>
+
+							<Skills
+								skill={ 'XD' }
+								progress={ 30 }
+							/>
+
+							<h4>Additional Design Tools</h4>
+							<Skills
+								skill={ 'Figma' }
+								progress={ 30 }
+							/>
+
+							<h3>Project Management Tools</h3>
+
+							<Skills
+								skill={ 'Monday' }
+								progress={ 75 }
+							/>
+
+							<Skills
+								skill={ 'Trello' }
+								progress={ 60 }
+							/>
+
+							<Skills
+								skill={ 'Asana' }
+								progress={ 45 }
+							/>
+
+							<Skills
+								skill={ 'Basecamp' }
+								progress={ 45 }
+							/>
+
 						</div>
 
 						<hr />
