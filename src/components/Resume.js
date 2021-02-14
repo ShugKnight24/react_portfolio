@@ -57,6 +57,41 @@ export default class Resume extends Component {
 						<hr />
 
 						<Experience
+							startMonth={ 'February' }
+							startYear={ 2021 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'Serendip' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									`Providing React Native consulting and development to startups in the Ann Arbor tech community`,
+									`More TBA soon 😁😏`
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
+							startMonth={ 'December' }
+							startYear={ 2020 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'JK Unlimited Services' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									`Built <a href="https://www.jkunlimitedservices.com/" rel="noopener noreferrer" target="_blank">JK Unlimited Services</a> website`,
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
 							startMonth={ 'July' }
 							startYear={ 2020 }
 							endMonth={ 'Present' }
@@ -111,8 +146,6 @@ export default class Resume extends Component {
 							}
 						/>
 
-						<hr />
-
 						<Experience
 							startMonth={ 'December' }
 							startYear={ 2019 }
@@ -127,8 +160,6 @@ export default class Resume extends Component {
 								]
 							}
 						/>
-
-						<hr />
 
 						<Experience
 							startMonth={ 'February' }
@@ -194,7 +225,7 @@ export default class Resume extends Component {
 							startYear={ 2016 }
 							endMonth={ 'December' }
 							endYear={ 2016 }
-							jobName={ 'GTB (Formerly Team Detroit)' }
+							jobName={ null }
 							jobPosition={ 'Technology Intern' }
 							jobDescription={ 'Intern on GTB’s diversified accounts team responsible for redesigning 12 websites for Johnson Controls subsidiaries. In addition to our team responsibilities, interns were tasked with shadowing different departments to understand how GTB operated as a whole.' }
 							jobResponsibilities={
