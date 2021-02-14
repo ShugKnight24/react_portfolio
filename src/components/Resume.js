@@ -374,6 +374,21 @@ export default class Resume extends Component {
 								progress={ 45 }
 							/>
 
+							<h3>Communication Tools</h3>
+
+							<Skills
+								skill={ 'Google Meet' }
+								progress={ null }
+							/>
+							<Skills
+								skill={ 'Slack' }
+								progress={ null }
+							/>
+							<Skills
+								skill={ 'Zoom' }
+								progress={ null }
+							/>
+
 						</div>
 
 						<hr />
