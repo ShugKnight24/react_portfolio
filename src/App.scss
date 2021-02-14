@@ -1092,15 +1092,27 @@ nav.mdl-navigation a:hover {
 
 			.progress-container {
 				display: flex;
+				margin-bottom: 10px;
 
 				span {
 					width: 150px;
-					font-size: 16px;
+					font-size: 24px;
+
+					&.skill-name-centered {
+						width: 100%;
+						text-align: center;
+						font-size: 21px;
+						margin-bottom: 20px;
+					}
 				}
 
 				.skill-progress {
 					margin: auto;
 					width: 75%;
+
+					&.mdl-progress {
+						height: 8px;
+					}
 				}
 			}
 		}

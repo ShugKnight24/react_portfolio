@@ -57,6 +57,41 @@ export default class Resume extends Component {
 						<hr />
 
 						<Experience
+							startMonth={ 'February' }
+							startYear={ 2021 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'Serendip' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									`Providing React Native consulting and development to startups in the Ann Arbor tech community`,
+									`More TBA soon 😁😏`
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
+							startMonth={ 'December' }
+							startYear={ 2020 }
+							endMonth={ 'Present' }
+							endYear={ null }
+							jobName={ 'JK Unlimited Services' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									`Built <a href="https://www.jkunlimitedservices.com/" rel="noopener noreferrer" target="_blank">JK Unlimited Services</a> website`,
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
 							startMonth={ 'July' }
 							startYear={ 2020 }
 							endMonth={ 'Present' }
@@ -111,8 +146,6 @@ export default class Resume extends Component {
 							}
 						/>
 
-						<hr />
-
 						<Experience
 							startMonth={ 'December' }
 							startYear={ 2019 }
@@ -127,8 +160,6 @@ export default class Resume extends Component {
 								]
 							}
 						/>
-
-						<hr />
 
 						<Experience
 							startMonth={ 'February' }
@@ -194,7 +225,7 @@ export default class Resume extends Component {
 							startYear={ 2016 }
 							endMonth={ 'December' }
 							endYear={ 2016 }
-							jobName={ 'GTB (Formerly Team Detroit)' }
+							jobName={ null }
 							jobPosition={ 'Technology Intern' }
 							jobDescription={ 'Intern on GTB’s diversified accounts team responsible for redesigning 12 websites for Johnson Controls subsidiaries. In addition to our team responsibilities, interns were tasked with shadowing different departments to understand how GTB operated as a whole.' }
 							jobResponsibilities={
@@ -241,7 +272,7 @@ export default class Resume extends Component {
 
 							<Skills
 								skill={ 'PHP' }
-								progress={ 40 }
+								progress={ 50 }
 							/>
 
 							<h3>Front-End Frameworks & Libraries</h3>
@@ -253,12 +284,12 @@ export default class Resume extends Component {
 
 							<Skills
 								skill={ 'React' }
-								progress={ 60 }
+								progress={ 70 }
 							/>
 
 							<Skills
 								skill={ 'React Native' }
-								progress={ 50 }
+								progress={ 60 }
 							/>
 
 							<h3>Back-End Frameworks & Libraries</h3>
@@ -280,11 +311,11 @@ export default class Resume extends Component {
 								progress={ 30 }
 							/>
 
-							<h3>Additional Tools</h3>
+							<h3>Programming Tools</h3>
 
 							<Skills
 								skill={ 'GIT / GitHub' }
-								progress={ 60 }
+								progress={ 75 }
 							/>
 
 							<Skills
@@ -296,6 +327,68 @@ export default class Resume extends Component {
 								skill={ 'Liquid' }
 								progress={ 90 }
 							/>
+
+							<h3>Design Tools</h3>
+
+							<h4>Adobe Creative Cloud</h4>
+							<Skills
+								skill={ 'Photoshop' }
+								progress={ 45 }
+							/>
+
+							<Skills
+								skill={ 'Illustrator' }
+								progress={ 45 }
+							/>
+
+							<Skills
+								skill={ 'XD' }
+								progress={ 30 }
+							/>
+
+							<h4>Additional Design Tools</h4>
+							<Skills
+								skill={ 'Figma' }
+								progress={ 30 }
+							/>
+
+							<h3>Project Management Tools</h3>
+
+							<Skills
+								skill={ 'Monday' }
+								progress={ 75 }
+							/>
+
+							<Skills
+								skill={ 'Trello' }
+								progress={ 60 }
+							/>
+
+							<Skills
+								skill={ 'Asana' }
+								progress={ 45 }
+							/>
+
+							<Skills
+								skill={ 'Basecamp' }
+								progress={ 45 }
+							/>
+
+							<h3>Communication Tools</h3>
+
+							<Skills
+								skill={ 'Google Meet' }
+								progress={ null }
+							/>
+							<Skills
+								skill={ 'Slack' }
+								progress={ null }
+							/>
+							<Skills
+								skill={ 'Zoom' }
+								progress={ null }
+							/>
+
 						</div>
 
 						<hr />
