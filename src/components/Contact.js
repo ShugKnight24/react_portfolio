@@ -37,11 +37,6 @@ export default class Contact extends Component {
 						</p>
 					</Cell>
 					<Cell col={ 6 }>
-						<h3 className="centered">COVID19 Update</h3>
-						<hr />
-						<div className="covid-info">
-							<p>If you or someone you know lost work due to the coronavirus pandemic and would benefit from having an online site or portfolio to display your skills and get back on your feet, please reach out and I'll see how I can help.</p>
-						</div>
 						<h3 className="centered">Contact Info</h3>
 						<hr />
 						<div className="contact-list">
