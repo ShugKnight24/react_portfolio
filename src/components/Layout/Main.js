@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import LandingPage from '../Landingpage';
+import LandingPage from '../Pages/Landingpage';
 import About from '../About';
 import BooksPage from '../BooksPage';
 import Contact from '../Contact';

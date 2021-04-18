@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
 
+import { techIcons } from '../../data/techIcons';
+import TechIcon from '../TechIcon';
+
 export default class Landing extends Component {
 	render() {
 		return(
@@ -37,62 +40,15 @@ export default class Landing extends Component {
 							<hr />
 							<div>
 								<span className="bar">|</span>
-								<p>
-									HTML
-								</p>
-								<span className="bar">|</span>
-								<p>
-									CSS
-								</p>
-								<span className="bar">|</span>
-								<p>
-									SASS / LESS
-								</p>
-								<span className="bar">|</span>
-								<p>
-									BEM
-								</p>
-								<span className="bar">|</span>
-								<p>
-									BootStrap
-								</p>
-								<span className="bar">|</span>
-								<p>
-									JavaScript
-								</p>
-								<span className="bar">|</span>
-								<p>
-									jQuery
-								</p>
-								<span className="bar">|</span>
-								<p>
-									React
-								</p>
-								<span className="bar">|</span>
-								<p>
-									React Native
-								</p>
-								<span className="bar">|</span>
-								<p>
-									Node.js
-								</p>
-								<span className="bar">|</span>
-								<p>
-									PHP
-								</p>
-								<span className="bar">|</span>
-								<p>
-									MySQL
-								</p>
-								<span className="bar">|</span>
-								<p>
-									Shopify
-								</p>
-								<span className="bar">|</span>
-								<p>
-									Liquid
-								</p>
-								<span className="bar">|</span>
+								{
+									techIcons.map(({iconName, iconURL}, index) => (
+										<TechIcon
+											key={ `${ iconName }-${ index }` } 
+											iconName={ iconName }
+											iconURL={ iconURL }
+										/>
+									))
+								}
 							</div>
 							<div className="social-links">
 								{ /* GitHub Link */ }
