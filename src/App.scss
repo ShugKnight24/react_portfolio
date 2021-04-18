@@ -301,14 +301,64 @@ nav.mdl-navigation a:hover {
 			}
 
 			div {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
 				margin: 10px 0;
 				padding: 10px;
 				font-size: 36px;
 
+				.tech-skill {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					
+					img {
+						height: 75px;
+						max-height: 75px;
+						width: 75px;
+						max-width: 75px;
+
+						&.jquery {
+							width: 250px;
+							max-width: 250px;
+						}
+
+						&.react {
+							width: 100px;
+							max-width: 100px;
+						}
+
+						&.node,
+						&.mysql {
+							width: 150px;
+							max-width: 150px;
+						}
+					}
+
+					p {
+						color: #FFF;
+						font-size: 20px;
+						font-weight: bold;
+						padding: 9px 0;
+						margin-bottom: 0;
+	
+						@include mq-max(900px) {
+							font-size: 16px;
+						}
+	
+						@include mq-max(850px) {
+							margin-bottom: 5px;
+						}
+					}
+				}
+
 				.bar {
-					font-size: inherit;
+					font-size: 90px;
 					color: $main-accent-color;
-					padding: 0 10px;
+					padding: 0 9px;
 
 					@include mq-max(900px) {
 						font-size: 24px;
@@ -316,23 +366,6 @@ nav.mdl-navigation a:hover {
 
 					@include mq-max(850px) {
 						font-size: 40px;
-					}
-				}
-
-				p {
-					color: #FFF;
-					font-size: 20px;
-					display: inline-block;
-					padding: 5px;
-					vertical-align: middle;
-					margin-bottom: 0;
-
-					@include mq-max(900px) {
-						font-size: 16px;
-					}
-
-					@include mq-max(850px) {
-						margin-bottom: 5px;
 					}
 				}
 			}
