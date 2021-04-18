@@ -40,6 +40,10 @@ export const techIcons = [
 		iconURL: '../img/tech_icons/nodejs.svg'
 	},
 	{
+		iconName: 'D3',
+		iconURL: '../img/tech_icons/d3.svg'
+	},
+	{
 		iconName: 'PHP',
 		iconURL: '../img/tech_icons/php.svg'
 	},
