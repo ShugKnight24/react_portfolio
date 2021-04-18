@@ -1,5 +1,3 @@
-export let allCategoriesArray = [];
-
 export const favoriteBooksArray = {
 	categoryName: 'Favorite Books',
 	index: 0,
@@ -32,17 +30,20 @@ export const favoriteBooksArray = {
 	]
 };
 
-allCategoriesArray.push(favoriteBooksArray);
-
 export const currentlyReading = {
 	categoryName: 'Currently Reading',
 	index: 1,
 	bookList: [
 		{
-			name: 'Rich Dad Poor Dad',
-			author: 'Robert T. Kiyosaki',
-			imgSrc: './img/books/rich_dad_poor_dad.jpg',
+			name: 'Ego Is The Enemy',
+			author: 'Ryan Holiday',
+			imgSrc: './img/books/ego_is_the_enemy.jpg',
 			readNo: 1
+		},
+		{
+			name: 'Ogilvy on Advertising',
+			author: 'David Ogilvy',
+			imgSrc: './img/books/ogilvy.jpeg',
 		},
 		{
 			name: 'The Daily Stoic',
@@ -53,12 +54,32 @@ export const currentlyReading = {
 	]
 };
 
-allCategoriesArray.push(currentlyReading);
-
 export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'Turning Pro',
+			author: 'Steven Pressfield',
+			imgSrc: './img/books/turning_pro.jpeg',
+		},
+		{
+			name: 'Gorilla Mindset',
+			author: 'Mike Cernovich',
+			imgSrc: './img/books/gorilla_mindset.jpeg',
+			readNo: 2
+		},
+		{
+			name: 'Deep Work: Rules for Focused Success in a Distracted World',
+			author: 'Cal Newport',
+			imgSrc: './img/books/deep_work.jpg',
+		},
+		{
+			name: 'Rich Dad Poor Dad',
+			author: 'Robert T. Kiyosaki',
+			imgSrc: './img/books/rich_dad_poor_dad.jpg',
+			readNo: 1
+		},
 		{
 			name: 'This Book Will Teach You How To Write Better',
 			author: 'Neville Medhora',
@@ -112,4 +133,5 @@ export const previouslyRead = {
 	]
 };
 
-allCategoriesArray.push(previouslyRead);
+export const allCategoriesArray = [];
+allCategoriesArray.push(favoriteBooksArray, currentlyReading, previouslyRead);
