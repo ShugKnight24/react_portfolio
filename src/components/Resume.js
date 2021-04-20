@@ -61,13 +61,48 @@ export default class Resume extends Component {
 							startYear={ 2021 }
 							endMonth={ 'Present' }
 							endYear={ null }
+							jobName={ 'BoozApp' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									`Built My Bar Feature`,
+									`Refactored UI`,
+									`Refactored project architecture. Seperation of concerns, implemented service layer, and updated API calls`
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
+							startMonth={ 'February' }
+							startYear={ 2021 }
+							endMonth={ 'March' }
+							endYear={ 2021 }
+							jobName={ 'YourCheck' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									`Refactored YourCheck's React Native App's UI`
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
+							startMonth={ 'February' }
+							startYear={ 2021 }
+							endMonth={ 'Present' }
+							endYear={ null }
 							jobName={ 'Serendip' }
 							jobPosition={ 'Consultant / Developer' }
 							jobDescription={ null }
 							jobResponsibilities={
 								[
 									`Providing React Native consulting and development to startups in the Ann Arbor tech community`,
-									`More TBA soon 😁😏`
 								]
 							}
 						/>
