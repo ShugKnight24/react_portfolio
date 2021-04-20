@@ -61,13 +61,48 @@ export default class Resume extends Component {
 							startYear={ 2021 }
 							endMonth={ 'Present' }
 							endYear={ null }
+							jobName={ 'BoozApp' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									`Built My Bar Feature`,
+									`Refactored UI`,
+									`Refactored project architecture. Seperation of concerns, implemented service layer, and updated API calls`
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
+							startMonth={ 'February' }
+							startYear={ 2021 }
+							endMonth={ 'March' }
+							endYear={ 2021 }
+							jobName={ 'YourCheck' }
+							jobPosition={ 'Consultant / Developer' }
+							jobDescription={ null }
+							jobResponsibilities={
+								[
+									`Refactored YourCheck's React Native App's UI`
+								]
+							}
+						/>
+
+						<hr />
+
+						<Experience
+							startMonth={ 'February' }
+							startYear={ 2021 }
+							endMonth={ 'Present' }
+							endYear={ null }
 							jobName={ 'Serendip' }
 							jobPosition={ 'Consultant / Developer' }
 							jobDescription={ null }
 							jobResponsibilities={
 								[
 									`Providing React Native consulting and development to startups in the Ann Arbor tech community`,
-									`More TBA soon 😁😏`
 								]
 							}
 						/>
@@ -256,47 +291,47 @@ export default class Resume extends Component {
 							/>
 
 							<Skills
-								skill={ 'CSS / SASS / LESS' }
+								skill={ 'CSS / SASS' }
 								progress={ 85 }
 							/>
 
 							<Skills
 								skill={ 'JavaScript' }
-								progress={ 80 }
+								progress={ 85 }
 							/>
 
 							<Skills
 								skill={ 'TypeScript' }
-								progress={ 50 }
+								progress={ 75 }
 							/>
 
 							<Skills
 								skill={ 'PHP' }
-								progress={ 50 }
+								progress={ 75 }
 							/>
 
 							<h3>Front-End Frameworks & Libraries</h3>
 
 							<Skills
 								skill={ 'jQuery' }
-								progress={ 75 }
+								progress={ 80 }
 							/>
 
 							<Skills
 								skill={ 'React' }
-								progress={ 70 }
+								progress={ 80 }
 							/>
 
 							<Skills
 								skill={ 'React Native' }
-								progress={ 60 }
+								progress={ 70 }
 							/>
 
 							<h3>Back-End Frameworks & Libraries</h3>
 
 							<Skills
 								skill={ 'Node.js' }
-								progress={ 50 }
+								progress={ 65 }
 							/>
 
 							<h3>Databases</h3>
@@ -315,7 +350,7 @@ export default class Resume extends Component {
 
 							<Skills
 								skill={ 'GIT / GitHub' }
-								progress={ 75 }
+								progress={ 90 }
 							/>
 
 							<Skills
@@ -376,6 +411,10 @@ export default class Resume extends Component {
 
 							<h3>Communication Tools</h3>
 
+							<Skills
+								skill={ 'Discord' }
+								progress={ null }
+							/>
 							<Skills
 								skill={ 'Google Meet' }
 								progress={ null }
