@@ -21,10 +21,10 @@ export default class Contact extends Component {
 						</div>
 						<h3>Shugmi Shumunov</h3>
 						<h6>
-							Storytelling through code
+							Telling stories through code
 						</h6>
 						<p className="tab">
-							Whether you're exploring new opportunities in this expanding digital marketplace or your development needs have fallen short, I'll step in to provide insights and deliver a creative solution that bridges the gap between  concept and reality.
+							Whether you're exploring new opportunities in the expanding digital marketplace or your development needs have fallen short, I step in to provide insights and deliver a creative solutions that bridge the gap between concept and reality.
 						</p>
 						<p className="tab">
 							I provide consulting, development, development mentorship, management, and project management services.
