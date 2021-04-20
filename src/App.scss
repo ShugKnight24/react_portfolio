@@ -789,6 +789,167 @@ nav.mdl-navigation a:hover {
 	}
 }
 
+/* Photo Gallery */
+.gallery-container {
+	margin: auto;
+	width: 100%;
+	justify-content: center;
+	text-align: center;
+
+	.gallery {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		padding-top: 25px;
+
+		@include mq-max(1024px) {
+			padding-top: 90px;
+		}
+
+		.column {
+			width: 18vw;
+			
+			@include mq-max(1600px) {
+				width: 24vw;
+			}
+
+			@include mq-max(1200px) {
+				width: 32vw;
+			}
+
+			@include mq-max(800px) {
+				width: 48vw;
+			}
+
+			.image-frame-container:first-of-type {
+				.image-frame {
+					border-radius: 0 0 10px 10px;
+				}
+			}
+
+			.image-overlay {
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 1;
+				background-color: black;
+			}
+
+			.image-frame {
+				overflow: hidden;
+				position: relative;
+				margin-bottom: 5px;
+				border-radius: 10px;
+				box-shadow: 0px 1px 3px 0px #00000070;
+
+				&.open {
+					height: 90vh;
+					position: fixed;
+					top: 50%;
+					left: 50%;
+					width: 80vw;
+					z-index: 2;
+					background: white;
+					transform: translate(-50%, -50%);
+					padding: 25px 0;
+
+					.actions {
+						flex-direction: row;
+					}
+				}
+
+				.main-image {
+					position: absolute;
+					left: -50%;
+
+					&:hover {
+						cursor: pointer;
+					}
+				}
+
+				.main-image-open {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+
+					&:hover {
+						cursor: pointer;
+					}
+				}
+
+				.actions {
+					position: absolute;
+					bottom: 0px;
+					width: 100%;
+					padding: 20px;
+					background: white;
+					display: flex;
+					justify-content: space-between;
+					font-family: 'montserrat';
+
+					@include mq-max(550px) {
+						flex-direction: column;
+					}
+
+					button {
+						background: white;
+						border: none;
+						font-family: 'montserrat';
+
+						&.hide {
+							display: none;
+						}
+
+						&:hover {
+							cursor: pointer;
+						}
+
+						@include mq-max(550px) {
+							&.info {
+								align-self: flex-start;
+							}
+
+							&.download{
+								align-self: flex-end;
+							}
+						}
+					}
+				}
+
+				.show {
+					display: block;
+					position: absolute;
+					right: 0;
+					top: 0;
+					background: white;
+					padding: 10px;
+					border-radius: 0px 10px 0px 10px;
+					box-shadow: 0 0 3px 0 #000000a1;
+
+					&.close-button {
+						i {
+							font-size: 24px;
+							color: #DC3545;
+						}
+					}
+
+					&:hover {
+						cursor: pointer;
+
+						&.close-button{
+							i {
+								color: #C82333
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 /* Projects Page Styles */
 
 .projects-page {
