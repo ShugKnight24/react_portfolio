@@ -8,14 +8,38 @@ export function ProjectsPage(){
 
 	return(
 		<div className="projects-page">
-			<Tabs className="projects-tabs" activeTab={ activeTab } onChange={ (tabId) => setActiveTab({ activeTab: tabId}) } ripple>
-				<Tab className="tab-name">Personal Projects</Tab>
-				<Tab className="tab-name">JS30</Tab>
-				<Tab className="tab-name">Games</Tab>
-				<Tab className="tab-name">GTB</Tab>
-				<Tab className="tab-name">LoveBook</Tab>
-				<Tab className="tab-name">Progressive Solutions</Tab>
-				<Tab className="tab-name">Shumunov Solutions</Tab>
+			<Tabs
+				className="projects-tabs"
+				ripple
+			>
+				<Tab
+					className="tab-name"
+					onClick={ () => setActiveTab( 0 ) }
+				>Personal Projects</Tab>
+				<Tab
+					className="tab-name"
+					onClick={ () => setActiveTab( 1 ) }
+				>JS30</Tab>
+				<Tab
+					className="tab-name"
+					onClick={ () => setActiveTab( 2 ) }
+				>Games</Tab>
+				<Tab
+					className="tab-name"
+					onClick={ () => setActiveTab( 3 ) }
+				>GTB</Tab>
+				<Tab
+					className="tab-name"
+					onClick={ () => setActiveTab( 4 ) }
+				>LoveBook</Tab>
+				<Tab
+					className="tab-name"
+					onClick={ () => setActiveTab( 5 ) }
+				>Progressive Solutions</Tab>
+				<Tab
+					className="tab-name"
+					onClick={ () => setActiveTab( 6 ) }
+				>Shumunov Solutions</Tab>
 			</Tabs>
 			<Grid>
 				<Cell col={ 12 }>
