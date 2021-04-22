@@ -6,7 +6,7 @@ import About from '../About';
 import BooksPage from '../BooksPage';
 import Contact from '../Contact';
 import PhotoGal from '../Pages/PhotoGal';
-import Projects from '../Projects';
+import { ProjectsPage } from '../Pages/ProjectsPage';
 import Resume from '../Resume';
 import NotFound from '../NotFound';
 
@@ -17,7 +17,7 @@ const Main = () => (
 		<Route path="/books" component={ BooksPage } />
 		<Route path="/contact" component={ Contact } />
 		<Route path="/photos" component={ PhotoGal } />
-		<Route path="/projects" component={ Projects } />
+		<Route path="/projects" component={ ProjectsPage } />
 		<Route path="/resume" component={ Resume } />
 		<Route path="*" component={ NotFound } />
 	</Switch>
