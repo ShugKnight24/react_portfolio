@@ -53,7 +53,7 @@ export default class Landing extends Component {
 							<div className="social-links">
 								{ /* GitHub Link */ }
 								<a href="https://github.com/ShugKnight24" rel="noopener noreferrer" target="_blank">
-									<i class="fab fa-github" aria-hidden="true" ></i>
+									<i className="fab fa-github" aria-hidden="true" ></i>
 								</a>
 								{ /* LinkedIn Link */ }
 								<a href="https://www.linkedin.com/in/shugmishumunov/" rel="noopener noreferrer" target="_blank">
