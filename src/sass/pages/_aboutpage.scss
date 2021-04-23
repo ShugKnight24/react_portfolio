@@ -1,0 +1,57 @@
+/* About Page Styles */
+.about-page {
+	text-align: center;
+
+	// Header Fix
+	@include mq-max(1024px) {
+		margin-top: 64px;
+	}
+
+	h3 {
+		margin: 0;
+	}
+
+	figcaption {
+		margin-top: 10px;
+		font-size: 20px;
+	}
+
+	p {
+		width: 80%;
+		margin: 10px auto;
+		text-align: left;
+	}
+
+	figure {
+		@include mq-max(600px) {
+			margin: auto;
+			margin-block-start: 0;
+			margin-block-end: 0;
+			margin-inline-start: 0;
+			margin-inline-end: 0;
+		}
+	}
+
+	.bpak-image,
+	.luna {
+		width: 400px;
+		border-radius: 20px;
+
+		@include mq-max(600px) {
+			width: 300px;
+		}
+	}
+
+	/* About Grid Corrections */
+	@include mq-max(900px) {
+		.mdl-grid {
+			justify-content: center;
+			margin: auto;
+
+			.mdl-cell--6-col,
+			.mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
+				width: calc(90%);
+			}
+		}
+	}
+}
