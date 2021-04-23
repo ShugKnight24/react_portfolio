@@ -7,7 +7,7 @@ import BooksPage from '../BooksPage';
 import { ContactPage } from '../Pages/ContactPage';
 import PhotoGal from '../Pages/PhotoGal';
 import { ProjectsPage } from '../Pages/ProjectsPage';
-import Resume from '../Resume';
+import { ResumePage } from '../Pages/ResumePage';
 import NotFound from '../NotFound';
 
 const Main = () => (
@@ -18,7 +18,7 @@ const Main = () => (
 		<Route path="/contact" component={ ContactPage } />
 		<Route path="/photos" component={ PhotoGal } />
 		<Route path="/projects" component={ ProjectsPage } />
-		<Route path="/resume" component={ Resume } />
+		<Route path="/resume" component={ ResumePage } />
 		<Route path="*" component={ NotFound } />
 	</Switch>
 );
