@@ -1,0 +1,186 @@
+/* Books Page Styles */
+.books-page {
+	max-width: 1440px;
+	margin: 0 auto;
+
+	@include mq-max(1024px){
+		margin-top: 60px;
+	}
+
+	.mdl-grid {
+
+		@include mq-min(840px){
+			.mdl-cell--3-col,
+			.mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
+				width: calc(25%);
+			}
+
+			.mdl-cell--9-col,
+			.mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
+				width: calc(75%);
+			}
+		}
+		@include mq-max(950px){
+			.mdl-cell--3-col,
+			.mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
+				width: calc(100%);
+			}
+
+			.mdl-cell--9-col,
+			.mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
+				width: calc(100%);
+			}
+		}
+	}
+
+	& div {
+		margin: 0;
+		padding: 0;
+	}
+
+	.category-drawer-container {
+		border: 3px double black;
+		border-top: none;
+		height: 100%;
+		padding-top: 10px;
+		text-align: center;
+
+		@include mq-max(950px){
+			width: 100%;
+		}
+
+		h3,
+		h4 {
+			margin: 10px 0;
+		}
+
+		.category-drawer {
+			height: 100%;
+			// overflow-y: scroll;
+			min-width: 250px;
+
+			@include mq-max(950px){
+				flex-flow: row;
+				overflow-x: scroll;
+			}
+
+			.category {
+
+				@include mq-max(950px){
+					margin: 0 10px;
+				}
+
+				&.active {
+					opacity: 0.5;
+
+					.category-cover {
+						border: 3px double black;
+					}
+				}
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				.category-cover {
+					min-width: 200px;
+					height: 300px;
+
+					@include mq-max(950px){
+						min-width: 150px;
+						height: 200px;
+					}
+
+					@include mq-max(600px){
+						min-width: 100px;
+						height: 150px;
+					}
+
+					&:hover {
+						opacity: 0.5;
+					}
+				}
+			}
+		}
+	}
+
+	.book-bar-and-book-content {
+		@include mq-max(950px){
+			width: 100%;
+		}
+
+		.book-bar-container {
+			padding-left: 20px;
+			padding-bottom: 20px;
+			border-right: 1px double black;
+			border-bottom: 1px double black;
+
+			.book-bar {
+				overflow-x: scroll;
+				width: 100%;
+				white-space: nowrap;
+
+				.book-container {
+					display: inline-flex;
+					border: 1px double black;
+					margin-right: 10px;
+
+					.book-bar-book {
+						&.active {
+							opacity: 0.5;
+
+							.book-bar-book-image {
+								border: 3px double black;
+							}
+						}
+					}
+
+					&:hover {
+						opacity: 0.5;
+						cursor: pointer;
+					}
+
+					.book-bar-book-image {
+						max-width: 150px;
+						max-height: 200px;
+
+						@include mq-max(600px){
+							min-width: 100px;
+							height: 150px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.book-list {
+		padding-left: 20px;
+		margin-bottom: 0;
+
+		h2 {
+			margin: 10px 0;
+		}
+
+		.book-container {
+			text-align: center;
+
+			// .book-title-author {
+			// 	display: block;
+			// 	width: 100%;
+			// 	margin-top: 10px;
+			// }
+
+			.book-cover {
+				border: 3px double black;
+				min-width: 300px;
+				height: 450px;
+
+				@include mq-max(600px){
+					min-width: 200px;
+					height: 300px;
+				}
+			}
+		}
+	}
+}

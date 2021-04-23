@@ -1,0 +1,393 @@
+/* Projects Page Styles */
+.projects-page {
+
+	.projects-tabs {
+
+		div {
+
+			@include mq-max(640px) {
+				height: 100px;
+			}
+
+			.tab-name {
+				@include mq-max(640px) {
+					height: 100px;
+					padding-top: 25px;
+					line-height: 25px;
+					border-right: 1px solid rgb(224, 224, 224);
+
+					&:last-of-type {
+						border-right: none;
+					}
+				}
+
+				@include mq-max(500px) {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+
+	/* Header Fix */
+	@include mq-max(1024px) {
+		margin-top: 64px;
+	}
+
+	p {
+			font-size: 20px;
+			text-align: center;
+	}
+
+	.projects {
+
+		h1 {
+			text-align: center;
+			font-size: 48px;
+			margin: 20px 0;
+		}
+
+		.projects-grid {
+			display: flex;
+			flex-flow: row wrap;
+
+			.project-cards {
+				width: 45%;
+				min-width: 300px;
+				margin: 10px auto;
+
+				@include mq-max(631px) {
+					width: 90%;
+				}
+
+				.project-cards-title {
+					position: relative;
+					color: #FFF;
+					height: 200px;
+
+					.title-background {
+						position: absolute;
+						top: 0;
+						left: 0;
+						font-size: 24px;
+						text-shadow: 1px 1px 5px #000;
+						padding: 10px;
+						background-color: $main-accent-color;
+					}
+
+					/* Personal Projects */
+					&.pomodoro {
+						background: url('../../static/img/projects/pomodoro.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.mappr {
+						background: url('../../static/img/projects/mappr.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.quizzlr {
+						background: url('../../static/img/projects/quizzlr.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.dooer {
+						background: url('../../static/img/projects/dooer.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					/* JavaScript30 */
+					&.drum-kit {
+						background: url('../../static/img/projects/js30/drum_kit.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.css-js-clock {
+						background: url('../../static/img/projects/js30/css_js_clock.png');
+						background-position: top;
+						background-size: cover;
+					}
+
+					&.css-js-vars {
+						background: url('../../static/img/projects/js30/css_js_vars.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.array-cardio-1 {
+						background: url('../../static/img/projects/js30/array_cardio_1.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.flex-panels {
+						background: url('../../static/img/projects/js30/flex_panels.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.ajax-map {
+						background: url('../../static/img/projects/js30/ajax_map.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.array-cardio-2 {
+						background: url('../../static/img/projects/js30/array_cardio_2.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.canvas-drawing {
+						background: url('../../static/img/projects/js30/canvas_drawing.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.dev-tool-tricks {
+						background: url('../../static/img/projects/js30/dev_tool_tricks.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.multiple-checkboxes {
+						background: url('../../static/img/projects/js30/multiple_checkboxes.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.html5-video {
+						background: url('../../static/img/projects/js30/html5_video.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.key-sequence-detection {
+						background: url('../../static/img/projects/js30/key_sequence_detection.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.slide-image-on-scroll {
+						background: url('../../static/img/projects/js30/slide_image_on_scroll.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.references-vs-copying {
+						background: url('../../static/img/projects/js30/references_vs_copying.png');
+						background-position: top;
+						background-size: cover;
+					}
+
+					&.local-storage {
+						background: url('../../static/img/projects/js30/local_storage.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.css-text-shadow {
+						background: url('../../static/img/projects/js30/css_text_shadow.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.sorting-data {
+						background: url('../../static/img/projects/js30/sorting_data.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.tally-times{
+						background: url('../../static/img/projects/js30/tally_times.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.webcam-fun {
+						background: url('../../static/img/projects/js30/webcam_fun.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.speech-recognition {
+						background: url('../../static/img/projects/js30/speech_recognition.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.geolocation {
+						background: url('../../static/img/projects/js30/geolocation.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.follow-along-links {
+						background: url('../../static/img/projects/js30/follow_along_links.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.speech-synthesis {
+						background: url('../../static/img/projects/js30/speech_synthesis.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.ajax-map {
+						background: url('../../static/img/projects/js30/ajax_map.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.sticky-nav {
+						background: url('../../static/img/projects/js30/sticky_nav.png');
+						background-position: center;
+						background-size: cover;
+					}
+					
+					&.event-capture {
+						background: url('../../static/img/projects/js30/event_capture.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.follow-dropdowns {
+						background: url('../../static/img/projects/js30/follow_dropdowns.png');
+						background-position: center;
+						background-size: cover;
+					}	
+
+					&.click-drag-scroll {
+						background: url('../../static/img/projects/js30/click_drag_scroll.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.video-speed {
+						background: url('../../static/img/projects/js30/video_speed.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.countdown-timer {
+						background: url('../../static/img/projects/js30/countdown_timer.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.whack-a-mole {
+						background: url('../../static/img/projects/js30/whack_a_mole.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					/* Games */ 
+					&.tetris {
+						background: url('../../static/img/projects/tetris.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.flappy-bird {
+						background: url('../../static/img/projects/flappy_bird.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.trex-runner {
+						background: url('../../static/img/projects/trex_runner.png');
+						background-position: center;
+						background-size: contain;
+						background-repeat: no-repeat;
+					}
+
+					/* GTB Projects */
+					&.optima {
+						background: url('../../static/img/projects/optima.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.varta {
+						background: url('../../static/img/projects/varta.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.varta-china {
+						background: url('../../static/img/projects/varta_china.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.delkor {
+						background: url('../../static/img/projects/delkor.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.delkor-korea {
+						background: url('../../static/img/projects/delkor_korea.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					/* LoveBook Projects */
+					&.mylovebook {
+						background: url('../../static/img/projects/mylovebook.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.lovecoups {
+						background: url('../../static/img/projects/lovecoups.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					/* Progressive Solutions Projects */
+					&.stationeryhq {
+						background: url('../../static/img/projects/stationeryhq.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.frecklebox {
+						background: url('../../static/img/projects/frecklebox.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					/* Shumunov Solutions Projects */
+					&.shumunov-solutions {
+						background: url('../../static/img/projects/shumunov_solutions.png');
+						background-position: center;
+						background-size: cover;
+					}
+
+					&.jk-unlimited-services {
+						background: url('../../static/img/projects/jk_unlimited.png');
+						background-position: top;
+						background-size: cover;
+					}
+
+					&.paper-goods-warehouse {
+						background: url('../../static/img/projects/papergoodswarehouse_website.png');
+						background-position: center;
+						background-size: cover;
+					}
+				}
+
+				.project-description {
+					width: 100%;
+					border-top: 1px solid rgba(0, 0, 0, 0.1);
+				}
+			}
+		}
+	}
+}
