@@ -34,7 +34,7 @@ export default function ImageFrame({ artist, src, height, description }) {
 					<div>{ artist }</div>
 					<button
 						className="download"
-						onClick={ () => window.location = src }
+						onClick={ () => window.open(`${ src }`, '_blank')}
 					>Fullsize / Download</button>
 				</div>
 			</div>
