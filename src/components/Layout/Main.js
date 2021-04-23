@@ -8,7 +8,7 @@ import { ContactPage } from '../Pages/ContactPage';
 import PhotoGal from '../Pages/PhotoGal';
 import { ProjectsPage } from '../Pages/ProjectsPage';
 import { ResumePage } from '../Pages/ResumePage';
-import NotFound from '../NotFound';
+import { NotFoundPage } from '../Pages/NotFoundPage';
 
 const Main = () => (
 	<Switch>
@@ -19,7 +19,7 @@ const Main = () => (
 		<Route path="/photos" component={ PhotoGal } />
 		<Route path="/projects" component={ ProjectsPage } />
 		<Route path="/resume" component={ ResumePage } />
-		<Route path="*" component={ NotFound } />
+		<Route path="*" component={ NotFoundPage } />
 	</Switch>
 );
 
