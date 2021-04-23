@@ -1,46 +1,41 @@
-import React, { Component } from 'react';
+import { Book } from './Book'
 import { Cell } from 'react-mdl';
 
-import Book from './Book'
+export function BookBar({
+	allCategories,
+	currentCategory,
+	currentlySelectedBook,
+	updateBookState
+}){
+	// more long term / not immediate
+	// consider how to split current / previous reads per year */
 
-export default class BookBar extends Component {
-	buildBooksInCat(bookInCat, index){
-		const altText = bookInCat.name + ' by ' + bookInCat.author;
+	let currentCatIndex = currentCategory;
+	let currentlySelectedCategory = allCategories[currentCatIndex];
+	let currentCatName = currentCategory.categoryName;
 
-		return (
+	return(
+		<Cell col={12}
+			className="book-bar"
+			onClick={ updateBookState }
+		>
+			<h4>{ currentCatName }</h4>
+			{ 
+				currentlySelectedCategory.bookList.map((bookInCat, index) => {
+					const altText = bookInCat.name + ' by ' + bookInCat.author;
 
-			<Book
-				bookNameAndAuthor={ altText }
-				imgSrc={ bookInCat.imgSrc }
-				key={ index }
-				bookIndex={ index }
-				updateBookState={ this.props.updateBookState }
-				currentlySelectedBook={ this.props.currentlySelectedBook }
-			/>
-		);
-	}
-
-	render(){
-
-		// more long term / not immediate
-		// consider how to split current / previous reads per year */
-
-		let currentCatIndex = this.props.currentCategory;
-		let currentCategory = this.props.allCategories[currentCatIndex];
-		let currentCatName = currentCategory.categoryName;
-
-		const allBooksInCat = currentCategory.bookList.map((bookInCat, index) => {
-			return this.buildBooksInCat(bookInCat, index);
-		});
-
-		return(
-			<Cell col={12}
-				className="book-bar"
-				onClick={ this.props.updateBookState }
-			>
-				<h4>{ currentCatName }</h4>
-				{ allBooksInCat }
-			</Cell>
-		)
-	}
+					return (
+						<Book
+							bookNameAndAuthor={ altText }
+							imgSrc={ bookInCat.imgSrc }
+							key={ index }
+							bookIndex={ index }
+							updateBookState={ updateBookState }
+							currentlySelectedBook={ currentlySelectedBook }
+						/>
+					);
+				})
+			}
+		</Cell>
+	)
 }

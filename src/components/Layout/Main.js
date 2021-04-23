@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import LandingPage from '../Pages/Landingpage';
 import { AboutPage } from '../Pages/AboutPage';
-import BooksPage from '../Pages/BooksPage';
+import { BooksPage } from '../Pages/BooksPage';
 import { ContactPage } from '../Pages/ContactPage';
 import PhotoGal from '../Pages/PhotoGal';
 import { ProjectsPage } from '../Pages/ProjectsPage';
