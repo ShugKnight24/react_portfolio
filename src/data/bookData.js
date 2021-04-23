@@ -35,9 +35,9 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: 'Ego Is The Enemy',
-			author: 'Ryan Holiday',
-			imgSrc: './img/books/ego_is_the_enemy.jpg',
+			name: 'Do The Work',
+			author: 'Steven Pressfield',
+			imgSrc: './img/books/do_the_work.jpeg',
 			readNo: 1
 		},
 		{
@@ -59,6 +59,12 @@ export const previouslyRead = {
 	index: 2,
 	bookList: [
 		{
+			name: 'Ego Is The Enemy',
+			author: 'Ryan Holiday',
+			imgSrc: './img/books/ego_is_the_enemy.jpg',
+			readNo: 1
+		},
+		{
 			name: 'The War of Art: Break Through the Blocks and Win Your Inner Creative Battles',
 			author: 'Steven Pressfield',
 			imgSrc: './img/books/war_of_art.jpeg',
@@ -70,7 +76,7 @@ export const previouslyRead = {
 			imgSrc: './img/books/turning_pro.jpeg',
 		},
 		{
-			name: 'Gorilla Mindset',
+			name: 'Gorilla Mindset: How to Control Your Thought and Emotions, Improve Your Health and Fitness, Make More Money, and Live Life On Your Terms',
 			author: 'Mike Cernovich',
 			imgSrc: './img/books/gorilla_mindset.jpeg',
 			readNo: 2
