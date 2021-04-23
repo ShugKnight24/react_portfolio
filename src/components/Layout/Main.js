@@ -2,24 +2,24 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import LandingPage from '../Pages/Landingpage';
-import About from '../About';
-import BooksPage from '../BooksPage';
-import Contact from '../Contact';
+import { AboutPage } from '../Pages/AboutPage';
+import BooksPage from '../Pages/BooksPage';
+import { ContactPage } from '../Pages/ContactPage';
 import PhotoGal from '../Pages/PhotoGal';
 import { ProjectsPage } from '../Pages/ProjectsPage';
-import Resume from '../Resume';
-import NotFound from '../NotFound';
+import { ResumePage } from '../Pages/ResumePage';
+import { NotFoundPage } from '../Pages/NotFoundPage';
 
 const Main = () => (
 	<Switch>
 		<Route exact path="/" component={ LandingPage } />
-		<Route path="/about" component={ About } />
+		<Route path="/about" component={ AboutPage } />
 		<Route path="/books" component={ BooksPage } />
-		<Route path="/contact" component={ Contact } />
+		<Route path="/contact" component={ ContactPage } />
 		<Route path="/photos" component={ PhotoGal } />
 		<Route path="/projects" component={ ProjectsPage } />
-		<Route path="/resume" component={ Resume } />
-		<Route path="*" component={ NotFound } />
+		<Route path="/resume" component={ ResumePage } />
+		<Route path="*" component={ NotFoundPage } />
 	</Switch>
 );
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Grid, Cell, List } from 'react-mdl';
 
-import BookBar from './BookBar';
-import BookContent from './BookContent';
-import CategoryDrawer from './CategoryDrawer';
+import BookBar from '../Books/BookBar';
+import BookContent from '../Books/BookContent';
+import CategoryDrawer from '../Books/CategoryDrawer';
 
 import {
 	allCategoriesArray
-} from '../data/bookData.js'
+} from '../../data/bookData.js'
 
 export default class BooksPage extends Component {
 	constructor(props){
