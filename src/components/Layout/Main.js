@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import LandingPage from '../Pages/Landingpage';
-import About from '../About';
+import { AboutPage } from '../Pages/AboutPage';
 import BooksPage from '../BooksPage';
 import Contact from '../Contact';
 import PhotoGal from '../Pages/PhotoGal';
@@ -13,7 +13,7 @@ import NotFound from '../NotFound';
 const Main = () => (
 	<Switch>
 		<Route exact path="/" component={ LandingPage } />
-		<Route path="/about" component={ About } />
+		<Route path="/about" component={ AboutPage } />
 		<Route path="/books" component={ BooksPage } />
 		<Route path="/contact" component={ Contact } />
 		<Route path="/photos" component={ PhotoGal } />
