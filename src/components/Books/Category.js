@@ -1,24 +1,27 @@
-import React, { Component } from 'react';
 import { Cell } from 'react-mdl';
 
-export default class Category extends Component {
-	render(){
+export function Category({ 
+	categoryName,
+	categoryIndex,
+	categoryImgSRC,
+	categoryImgAltText,
+	updateCategoryState,
+	currentCategory
+}){
+	let isActive = categoryIndex === currentCategory;
 
-		let isActive = this.props.categoryIndex === this.props.currentCategory;
-
-		return(
-			<Cell col={12}
-				data-category-index={ this.props.categoryIndex }
-				onClick={ this.props.updateCategoryState }
-				className={`category ${isActive ? 'active' : ''}`}
-			>
-				<h4>{ this.props.categoryName }</h4>
-				<img
-					className="category-cover"
-					src={ this.props.categoryImgSRC }
-					alt={ this.props.categoryImgAltText }
-				/>
-			</Cell>
-		)
-	}
+	return(
+		<Cell col={12}
+			data-category-index={ categoryIndex }
+			onClick={ updateCategoryState }
+			className={`category ${isActive ? 'active' : ''}`}
+		>
+			<h4>{ categoryName }</h4>
+			<img
+				className="category-cover"
+				src={ categoryImgSRC }
+				alt={ categoryImgAltText }
+			/>
+		</Cell>
+	);
 }

@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
 
-export default class Books extends Component {
-	render(){
+export function Book({ 
+	bookIndex,
+	bookNameAndAuthor,
+	currentlySelectedBook,
+	imgSrc
+}){
+	let isActive = bookIndex === currentlySelectedBook;
 
-		let isActive = this.props.bookIndex === this.props.currentlySelectedBook;
-
-		return(
-			<Grid className="book-container">
-				<Cell col={12}
-					data-book-index={ this.props.bookIndex }
-					className={`book-bar-book ${isActive ? 'active' : ''}`}
-				>
-					{/* // <h6 className="book-bar-name-author">{ this.props.bookNameAndAuthor }</h6>*/}
-					<img
-						className="book-bar-book-image"
-						src={ this.props.imgSrc }
-						alt={ this.props.bookNameAndAuthor }
-					/>
-				</Cell>
-			</Grid>
-		)
-	}
+	return(
+		<Grid className="book-container">
+			<Cell col={12}
+				data-book-index={ bookIndex }
+				className={`book-bar-book ${isActive ? 'active' : ''}`}
+			>
+				{/* // <h6 className="book-bar-name-author">{ bookNameAndAuthor }</h6>*/}
+				<img
+					className="book-bar-book-image"
+					src={ imgSrc }
+					alt={ bookNameAndAuthor }
+				/>
+			</Cell>
+		</Grid>
+	)
 }
