@@ -3,14 +3,25 @@
 
 	.projects-tabs {
 
+		&.mdl-tabs {
+			@include mq-max(850px) {
+				overflow-x: scroll;
+			}
+		}
+
 		div {
 
-			@include mq-max(640px) {
+			@include mq-max(1000px) {
 				height: 100px;
 			}
 
+			@include mq-max(850px) {
+				flex-wrap: nowrap;
+				width: max-content;
+			}
+
 			.tab-name {
-				@include mq-max(640px) {
+				@include mq-max(1000px) {
 					height: 100px;
 					padding-top: 25px;
 					line-height: 25px;
@@ -19,6 +30,13 @@
 					&:last-of-type {
 						border-right: none;
 					}
+				}
+
+				@include mq-max(850px) {
+					padding-top: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
 				}
 
 				@include mq-max(500px) {

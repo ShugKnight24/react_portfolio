@@ -34,6 +34,7 @@ The React code of my [portfolio site](ShugKnight24.github.io)
   - [X] Fix responsiveness of layout
 - [X] Fix console text if in Dark Mode - 8/19/20
 - [X] Add a photo gallery - 4/19/2021
+- [X] Improve Project Tab Responsiveness - 5/1/21
 
 ## Resolved Bugs
 - [X] Clicking on blank space in category drawer and book bar causes error - 8/18/20
