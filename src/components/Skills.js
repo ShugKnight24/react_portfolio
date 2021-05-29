@@ -1,20 +1,27 @@
-import React, { Component } from 'react';
+import TechIcon from './TechIcon';
 import { Grid, Cell, ProgressBar } from 'react-mdl';
 
-export default class Skills extends Component {
-	render(){
-		return(
-			<Grid>
-				<Cell col={ 12 }>
-					<div className="progress-container">
-						<span className={`bold-text ${ this.props.progress === null && 'skill-name-centered'}`}>{ this.props.skill }</span>
-						{
-							this.props.progress !== null &&
-							<ProgressBar className="skill-progress" progress={ this.props.progress }/>
-						}
-					</div>
-				</Cell>
-			</Grid>
-		)
+export function Skills({ iconName, iconURL, index, progress, skillType }){
+	//  different arrays for different 
+	if (skillType  === ''){
+		let headerTitle = '';
 	}
+	return(
+		<Grid>
+			<Cell col={ 12 }>
+				<div className="progress-container">
+				{/* <TechIcon
+					key={ `${ iconName }-${ index }` }
+					iconName={ iconName }
+					iconURL={ iconURL }
+				/> */}
+				<span className={`bold-text ${ progress !== null && 'skill-name-centered'}`}>{ iconName }</span>
+					{
+						progress !== null &&
+						<ProgressBar className="skill-progress" progress={ progress }/>
+					}
+				</div>
+			</Cell>
+		</Grid>
+	);
 }
