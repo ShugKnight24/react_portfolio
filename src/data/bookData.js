@@ -35,10 +35,14 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: 'Do The Work',
-			author: 'Steven Pressfield',
-			imgSrc: './img/books/do_the_work.jpeg',
-			readNo: 1
+			name: 'Siddhartha',
+			author: 'Hermann Hesse',
+			imgSrc: './img/books/siddhartha.jpeg',
+		},
+		{
+			name: 'Sapiens: A Brief History of Humanking',
+			author: 'Yuval Noah Harrari',
+			imgSrc: './img/books/sapiens.jpeg',
 		},
 		{
 			name: 'Ogilvy on Advertising',
@@ -58,6 +62,12 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'Do The Work',
+			author: 'Steven Pressfield',
+			imgSrc: './img/books/do_the_work.jpeg',
+			readNo: 1
+		},
 		{
 			name: 'Ego Is The Enemy',
 			author: 'Ryan Holiday',
