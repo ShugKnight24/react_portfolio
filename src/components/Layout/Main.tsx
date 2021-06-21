@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import LandingPage from '../Pages/Landingpage';
@@ -10,7 +10,7 @@ import { ProjectsPage } from '../Pages/ProjectsPage';
 import { ResumePage } from '../Pages/ResumePage';
 import { NotFoundPage } from '../Pages/NotFoundPage';
 
-const Main = () => (
+export const Main : FC = () => (
 	<Switch>
 		<Route exact path="/" component={ LandingPage } />
 		<Route path="/about" component={ AboutPage } />
@@ -22,5 +22,3 @@ const Main = () => (
 		<Route path="*" component={ NotFoundPage } />
 	</Switch>
 );
-
-export default Main;
