@@ -1,6 +1,16 @@
+import { FC } from 'react';
 import { Grid, Cell } from 'react-mdl';
+import { EducationInterface } from '../types/education';
 
-export function Education({ startMonth, startYear, endMonth, endYear, schoolName, degreeName, majorName }) {
+export const Education : FC<EducationInterface> = ({
+	startMonth, 
+	startYear, 
+	endMonth, 
+	endYear, 
+	schoolName, 
+	degreeName, 
+	majorName
+}) => {
 	return(
 		<Grid className="education-container">
 			<Cell col={ 4 }>
