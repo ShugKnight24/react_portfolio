@@ -28,3 +28,9 @@ export interface BookBarInterface {
 	currentlySelectedBook : number,
 	updateBookState : (event : React.MouseEvent<HTMLElement>) => number
 }
+
+export interface BookContentInterface {
+	allCategories : bookData[],
+	currentCategory : number,
+	currentlySelectedBook : number
+}

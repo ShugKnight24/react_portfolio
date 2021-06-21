@@ -1,10 +1,12 @@
+import { FC } from 'react';
 import { Grid, Cell } from 'react-mdl';
+import { BookContentInterface } from '../../types/books';
 
-export function BookContent({
+export const BookContent : FC<BookContentInterface> = ({
 	allCategories,
 	currentCategory,
 	currentlySelectedBook
-}){
+}) => {
 	const currentBook = allCategories[currentCategory].bookList[currentlySelectedBook];
 	const altText = currentBook.name + ' by ' + currentBook.author;
 
