@@ -4,13 +4,13 @@ import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
 import { Router, NavLink } from 'react-router-dom';
 import Main from './components/Layout/Main';
 import Footer from './components/Layout/Footer';
-import ReactGA from 'react-ga';
+import * as ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 
 function hideDrawer() {
-	document.querySelector('.mdl-layout__content').scrollTop = 0;
-	var drawer = document.querySelector('.mdl-layout');
-	drawer.MaterialLayout.toggleDrawer();
+	// document.querySelector('.mdl-layout__content')!.scrollTop = 0;
+	// const drawer = document.querySelector('.mdl-layout');
+	// drawer.MaterialLayout.toggleDrawer();
 }
 
 const history = createBrowserHistory();
