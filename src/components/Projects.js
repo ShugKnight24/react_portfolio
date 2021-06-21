@@ -7,59 +7,35 @@ import { Progressive } from './Projects/Progressive';
 import { ShumunovSolutions } from './Projects/ShumunovSolutions';
 
 export function Projects({ activeTab }){
-	if (activeTab === 0){
-		return(
-			<div className="projects">
+	return(
+		<div className="projects">
+			if (activeTab === 0){
 				<PersonalProjects />
-			</div>
-		)
-	}
+			}
 
-	if (activeTab === 1){
-		return(
-			<div className="projects">
+			if (activeTab === 1){
 				<JavaScript30 />
-			</div>
-		)
-	}
+			}
 
-	if (activeTab === 2){
-		return(
-			<div className="projects">
+			if (activeTab === 2){
 				<Games />
-			</div>
-		)
-	}
+			}
 
-	if (activeTab === 3){
-		return(
-			<div className="projects">
+			if (activeTab === 3){
 				<GTB />
-			</div>
-		)
-	}
+			}
 
-	if (activeTab === 4){
-		return(
-			<div className="projects">
+			if (activeTab === 4){
 				<LoveBook />
-			</div>
-		)
-	}
+			}
 
-	if (activeTab === 5){
-		return(
-			<div className="projects">
+			if (activeTab === 5){
 				<Progressive />
-			</div>
-		)
-	}
+			}
 
-	if (activeTab === 6){
-		return(
-			<div className="projects">
+			if (activeTab === 6){
 				<ShumunovSolutions />
-			</div>
-		)
-	}
+			}
+		</div>
+	);
 }
