@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
+import { ImageList } from '../../types/photos';
 
-export default function ImageFrame({ artist, src, height, description }) {
+export const ImageFrame : FC<ImageList> = ({
+	artist,
+	src,
+	height,
+	description
+}) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	return (

@@ -1,7 +1,8 @@
-import React from 'react';
-import ImageFrame from './ImageFrame';
+import { FC } from 'react';
+import { ImageFrame } from './ImageFrame';
+import { ColumnInterface } from '../../types/photos';
 
-export default function Column({ images }) {
+export const Column : FC<ColumnInterface> = ({ images }) => {
 	return (
 		<div className="column">
 			{

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Column from './Column';
+import { FC, useState, useEffect } from 'react';
+import { Column } from './Column';
 
 // getColumns Hook
 import { getColumns } from './GetColumnsHook';
 
-export default function Gallery({ imageArray }) {
+import { ImageData } from '../../types/photos';
+
+export const Gallery : FC<ImageData> = ({ imageArray }) => {
 	const [columns, setColumns] = useState([]);
 	
 	useEffect(() => {
