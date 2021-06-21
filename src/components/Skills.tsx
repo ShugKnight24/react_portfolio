@@ -7,7 +7,6 @@ import { Grid, Cell, ProgressBar } from 'react-mdl';
 import { SkillsInterface } from '../types/skills';
 
 export const Skills : FC<SkillsInterface> = ({
-	key,
 	iconName,
 	iconURL,
 	index,
