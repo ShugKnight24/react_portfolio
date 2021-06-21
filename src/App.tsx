@@ -3,7 +3,7 @@ import './App.scss';
 import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
 import { Router, NavLink } from 'react-router-dom';
 import Main from './components/Layout/Main';
-import Footer from './components/Layout/Footer';
+import { Footer } from './components/Layout/Footer';
 import * as ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 
