@@ -1,11 +1,20 @@
-import TechIcon from './TechIcon';
+//TODO:// Refactor Skills & TechIcons
+
+import { FC } from 'react';
+// import TechIcon from './TechIcon';
 import { Grid, Cell, ProgressBar } from 'react-mdl';
 
-export function Skills({ iconName, iconURL, index, progress, skillType }){
-	//  different arrays for different 
-	if (skillType  === ''){
-		let headerTitle = '';
-	}
+import { SkillsInterface } from '../types/skills';
+
+export const Skills : FC<SkillsInterface> = ({
+	key,
+	iconName,
+	iconURL,
+	index,
+	progress,
+	skillType,
+	skill
+}) => {
 	return(
 		<Grid>
 			<Cell col={ 12 }>
@@ -15,7 +24,7 @@ export function Skills({ iconName, iconURL, index, progress, skillType }){
 					iconName={ iconName }
 					iconURL={ iconURL }
 				/> */}
-				<span className={`bold-text ${ progress !== null && 'skill-name-centered'}`}>{ iconName }</span>
+				<span className={`bold-text ${ progress !== null && 'skill-name-centered'}`}>{ skill }</span>
 					{
 						progress !== null &&
 						<ProgressBar className="skill-progress" progress={ progress }/>

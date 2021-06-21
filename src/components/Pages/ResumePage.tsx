@@ -1,11 +1,13 @@
+import { FC } from 'react';
 import { Grid, Cell } from 'react-mdl';
 
 import { Education } from '../Education';
 import { Experience } from '../Experience';
+import { techIcons } from '../../data/techIcons';
 import { Skills } from '../Skills';
 
-export function ResumePage(){
-	return(
+export const ResumePage : FC = () =>{
+	return (
 		<div className="resume-page">
 			<Grid>
 				<Cell className="resume-left-column" col={ 4 }>
@@ -281,6 +283,25 @@ export function ResumePage(){
 					<p className="tab">I consider myself a lifelong learner. Someone who is committed to mastering their craft to become the best developer they can be. I enjoy the challenge of picking up additional languages and skills to expand my knowledge and abilities. It allows me to approach and solve the problems I encounter in a nuanced way. The more I learn, the more I realize I don't know.</p>
 
 					<div className="skills-container">
+						{
+							techIcons.map(({
+								iconName,
+								iconURL,
+								progress,
+								skillType
+							}, index) => {
+								return(
+									<Skills
+										key={ `${ iconName }-${ index }` }
+										iconName={ iconName }
+										iconURL={ iconURL }
+										index={ index }
+										progress={ progress }
+										skillType={ skillType }
+									/>
+								);
+							})
+						}
 						<h3>Languages</h3>
 
 						<Skills
@@ -289,9 +310,15 @@ export function ResumePage(){
 						/>
 
 						<Skills
-							skill={ 'CSS / SASS' }
+							skill={ 'CSS' }
 							progress={ 85 }
 						/>
+
+						<Skills
+							skill={ 'SASS' }
+							progress={ 85 }
+						/>
+						
 
 						<Skills
 							skill={ 'JavaScript' }
@@ -307,8 +334,23 @@ export function ResumePage(){
 							skill={ 'PHP' }
 							progress={ 75 }
 						/>
+						
+						<Skills
+							skill={ 'Python' }
+							progress={ 45 }
+						/>
+						
+						<Skills
+							skill={ 'Rust' }
+							progress={ 30 }
+						/>
 
 						<h3>Front-End Frameworks & Libraries</h3>
+
+						<Skills
+							skill={ 'BootStap' }
+							progress={ 75 }
+						/>
 
 						<Skills
 							skill={ 'jQuery' }
@@ -323,6 +365,11 @@ export function ResumePage(){
 						<Skills
 							skill={ 'React Native' }
 							progress={ 70 }
+						/>
+						
+						<Skills
+							skill={ 'D3' }
+							progress={ 60 }
 						/>
 
 						<h3>Back-End Frameworks & Libraries</h3>
