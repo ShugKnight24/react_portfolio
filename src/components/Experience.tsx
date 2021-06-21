@@ -1,6 +1,17 @@
+import { FC } from 'react';
 import { Grid, Cell, List, ListItem } from 'react-mdl';
+import { ExperienceInterface } from '../types/experience';
 
-export function Experience({ jobDescription, jobResponsibilities, jobName, jobPosition, startMonth, startYear, endMonth, endYear }){
+export const Experience : FC<ExperienceInterface> = ({ 
+	jobDescription,
+	jobResponsibilities,
+	jobName,
+	jobPosition,
+	startMonth,
+	startYear,
+	endMonth,
+	endYear
+}) => {
 
 	var jobResponsibilitiesList = jobResponsibilities.map(function(jobResponsibility, index){
 		return <ListItem className="job-responsibility" key={ index } dangerouslySetInnerHTML={{__html: jobResponsibility}}></ListItem>;
