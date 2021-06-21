@@ -6,7 +6,7 @@ export interface BookInterface {
 	currentlySelectedBook : number,
 	imgSrc : string,
 	key: number,
-	updateBookState: (event : React.MouseEvent<HTMLElement>) => number
+	updateBookState: (event : React.MouseEvent<HTMLElement>) => void
 }
 
 interface bookList {
@@ -26,7 +26,7 @@ export interface BookBarInterface {
 	allCategories : bookData[],
 	currentCategory : number,
 	currentlySelectedBook : number,
-	updateBookState : (event : React.MouseEvent<HTMLElement>) => number
+	updateBookState : (event : React.MouseEvent<HTMLElement>) => void
 }
 
 export interface BookContentInterface {
