@@ -1,11 +1,13 @@
+import { FC } from 'react';
 import { Category } from './Category';
 import { Grid } from 'react-mdl';
+import { CategoryDrawerInterface } from '../../types/category';
 
-export function CategoryDrawer({ 
+export const CategoryDrawer : FC<CategoryDrawerInterface> = ({ 
 	allCategories,
 	currentCategory,
 	updateCategoryState
-}){
+}) => {
 	// TODO: Add active / closed state to drawer
 	return(
 		<Grid className="category-drawer">

@@ -16,7 +16,7 @@ interface bookList {
 	readNo?: number
 }
 
-interface bookData {
+export interface bookData {
 	index: number,
 	categoryName: string,
 	bookList: bookList[]
