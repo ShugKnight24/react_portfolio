@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
 
 import { javaScript30Projects } from '../../data/javaScript30Projects';
 
-export function JavaScript30(){
-	return(
+export const JavaScript30 : FC = () => {
+	return (
 		<div className="projects-grid">
 			{
 				javaScript30Projects.map(({ title, projectDescription, githubLink, projectLink, cssClass }, index) => {

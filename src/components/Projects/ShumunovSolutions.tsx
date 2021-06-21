@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
 
-export function ShumunovSolutions(){
-	return(
+export const ShumunovSolutions : FC = () => {
+	return (
 		<div className="projects-grid">
 			<Card shadow={ 5 } className="project-cards">
 				<CardTitle className="project-cards-title shumunov-solutions" role="img" aria-label="Image of Shumunov Solutions website homepage">

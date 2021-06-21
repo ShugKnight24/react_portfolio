@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
 
-export function GTB(){
-	return(
+export const GTB : FC = () => {
+	return (
 		<div className="projects-grid">
 			<Card shadow={ 5 } className="project-cards">
 				<CardTitle className="project-cards-title optima" role="img" aria-label="Image of Optima Batteries website homepage">

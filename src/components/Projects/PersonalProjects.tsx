@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
 
-export function PersonalProjects(){
-	return(
+export const PersonalProjects : FC = () => {
+	return (
 		<div className="projects-grid">
 			<Card shadow={ 5 } className="project-cards">
 				<CardTitle className="project-cards-title  pomodoro" role="img" aria-label="Image of JavaScript Pomodoro clock built by Shugmi Shumunov">
