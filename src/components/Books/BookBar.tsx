@@ -1,18 +1,20 @@
+import { FC } from 'react';
 import { Book } from './Book'
 import { Cell } from 'react-mdl';
+import { BookBarInterface } from '../../types/books';
 
-export function BookBar({
+export const BookBar : FC<BookBarInterface> = ({
 	allCategories,
 	currentCategory,
 	currentlySelectedBook,
 	updateBookState
-}){
+}) => {
 	// more long term / not immediate
 	// consider how to split current / previous reads per year */
 
-	let currentCatIndex = currentCategory;
-	let currentlySelectedCategory = allCategories[currentCatIndex];
-	let currentCatName = currentCategory.categoryName;
+	const currentCatIndex = currentCategory;
+	const currentlySelectedCategory = allCategories[currentCatIndex];
+	const currentCatName = currentlySelectedCategory.categoryName;
 
 	return(
 		<Cell col={12}
