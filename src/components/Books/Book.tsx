@@ -1,18 +1,20 @@
+import { FC } from 'react';
 import { Grid, Cell } from 'react-mdl';
+import { BookInterface } from '../../types/books';
 
-export function Book({ 
+export const Book : FC<BookInterface> = ({
 	bookIndex,
 	bookNameAndAuthor,
 	currentlySelectedBook,
 	imgSrc
-}){
-	let isActive = bookIndex === currentlySelectedBook;
+}) => {
+	const isActive = bookIndex === currentlySelectedBook;
 
 	return(
 		<Grid className="book-container">
 			<Cell col={12}
 				data-book-index={ bookIndex }
-				className={`book-bar-book ${isActive ? 'active' : ''}`}
+				className={`book-bar-book ${ isActive ? 'active' : '' }`}
 			>
 				{/* // <h6 className="book-bar-name-author">{ bookNameAndAuthor }</h6>*/}
 				<img
