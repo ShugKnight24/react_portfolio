@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Tabs, Tab, Grid, Cell } from 'react-mdl';
 
 import { Projects } from '../Projects';
 
-export function ProjectsPage(){
+export const ProjectsPage : FC = () => {
 	const [activeTab, setActiveTab] = useState(0);
 
 	return(

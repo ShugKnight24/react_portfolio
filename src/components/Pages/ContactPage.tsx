@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
 
-export function ContactPage(){
-	return(
+export const ContactPage : FC = () => {
+	return (
 		<div className="contact-body">
 			<Grid className="contact-grid">
 				<Cell col={ 6 }>
@@ -48,7 +49,7 @@ export function ContactPage(){
 							<ListItem>
 								<ListItemContent>
 								<a className="github-icon" href="https://github.com/ShugKnight24" rel="noopener noreferrer" target="_blank">
-									<i class="fab fa-github-square" aria-hidden="true"></i>GitHub
+									<i className="fab fa-github-square" aria-hidden="true"></i>GitHub
 								</a>
 								</ListItemContent>
 							</ListItem>

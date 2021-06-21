@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { FC, MouseEvent, useState } from 'react';
 import { Grid, Cell, List } from 'react-mdl';
 
 import { BookBar } from '../Books/BookBar';
@@ -7,24 +7,30 @@ import { CategoryDrawer } from '../Books/CategoryDrawer';
 
 import { allCategoriesArray } from '../../data/bookData.js';
 
-export function BooksPage(){
+export const BooksPage : FC = () => {
 	const [activeCategory, setActiveCategory] = useState(0);
 	const [activeBook, setActiveBook] = useState(0);
 
-	function updateCategoryState(e){
-		if (e.target.parentNode.classList.contains('category')){
-			let categoryIndex = Number(e.target.parentNode.dataset.categoryIndex);
-
-			setActiveCategory(categoryIndex);
-			setActiveBook(0);
+	function updateCategoryState(event : MouseEvent<HTMLElement>){
+		const target = event.currentTarget;
+		if (target instanceof Element){
+			if (target.classList.contains('category')){
+				let categoryIndex = Number(target.dataset.categoryIndex);
+	
+				setActiveCategory(categoryIndex);
+				setActiveBook(0);
+			}
 		}
 	}
 
-	function updateBookState(e){
-		if ( e.target.parentNode.classList.contains('book-bar-book')){
-			let bookIndex = Number(e.target.parentNode.dataset.bookIndex);
+	function updateBookState(event : MouseEvent<HTMLElement>){
+		const target = event.currentTarget;
+		if (target instanceof Element){
+			if (target.classList.contains('book-bar-book')){
+				let bookIndex = Number(target.dataset.bookIndex);
 
-			setActiveBook(bookIndex);
+				setActiveBook(bookIndex);
+			}
 		}
 	}
 
