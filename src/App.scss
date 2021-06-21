@@ -5,13 +5,14 @@ $text-shadow: 1px 1px 1px #000;
 $common-margin: 20px auto 0;
 
 @import './sass/_mixins.scss';
-@import './sass/pages/_landingpage.scss';
-@import './sass/pages/_aboutpage.scss';
-@import './sass/pages/_bookspage.scss';
-@import './sass/pages/_contactpage.scss';
-@import './sass/pages/_photogallery.scss';
-@import './sass/pages/_projectspage.scss';
-@import './sass/pages/_resumepage.scss';
+@import './sass/pages/landingpage';
+@import './sass/pages/aboutpage';
+@import './sass/pages/bookspage';
+@import './sass/pages/contactpage';
+@import './sass/pages/notfound';
+@import './sass/pages/photogallery';
+@import './sass/pages/projectspage';
+@import './sass/pages/resumepage';
 
 /* General Styles / Resets */
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
