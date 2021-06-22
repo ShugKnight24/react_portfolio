@@ -7,7 +7,7 @@ export const JavaScript30 : FC = () => {
 	return (
 		<div className="projects-grid">
 			{
-				javaScript30Projects.map(({ title, projectDescription, githubLink, projectLink, cssClass }, index) => {
+				javaScript30Projects.map(({ title, projectDescription, githubLink, projectLink, cssClass }) => {
 					return(
 						<Card shadow={ 5 } className="project-cards" key={ title }>
 							<CardTitle className={`project-cards-title ${ cssClass }`} role="img" aria-label={ title }>

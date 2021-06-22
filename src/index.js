@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
-import ReactGA from 'react-ga';
+import * as ReactGA from 'react-ga';
 
 // Fix console text color in dark mode
 if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){

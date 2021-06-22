@@ -26,9 +26,9 @@ export const AboutPage : FC = () => {
 
 					<p className="tab">I started my own development company to exercise my creative muscle building solutions that allow business to have accelerated growth.</p>
 
-					<p className="tab">Contact me if you'd like to discuss how I can help your business grow or if you have a personal project that needs completing.</p>
+					<p className="tab">Contact me if you&apos;d like to discuss how I can help your business grow or if you have a personal project that needs completing.</p>
 
-					<p className="tab">Aside from building my business, you'll find me working out, shooting hoops, reading, jamming to music, photography, and spending time with my pupper Luna :)</p>
+					<p className="tab">Aside from building my business, you&apos;ll find me working out, shooting hoops, reading, jamming to music, photography, and spending time with my pupper Luna :)</p>
 
 					<img
 						className="luna"

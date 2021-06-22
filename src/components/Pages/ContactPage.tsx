@@ -23,7 +23,7 @@ export const ContactPage : FC = () => {
 						Telling stories through code
 					</h6>
 					<p className="tab">
-						Whether you're exploring new opportunities in the expanding digital marketplace or your development needs have fallen short, I step in to provide insights and deliver a creative solutions that bridge the gap between concept and reality.
+						Whether you&apos;re exploring new opportunities in the expanding digital marketplace or your development needs have fallen short, I step in to provide insights and deliver a creative solutions that bridge the gap between concept and reality.
 					</p>
 					<p className="tab">
 						I provide consulting, development, development mentorship, management, and project management services.
@@ -32,7 +32,7 @@ export const ContactPage : FC = () => {
 						I pride myself on providing honest, insightful, and thoughtful guidance to my clients
 					</p>
 					<p className="tab">
-						Reach out if you'd like to work with me.
+						Reach out if you&apos;d like to work with me.
 					</p>
 				</Cell>
 				<Cell col={ 6 }>
@@ -43,7 +43,7 @@ export const ContactPage : FC = () => {
 							<ListItem>
 								<ListItemContent>
 									<i className="fa fa-envelope-square" aria-hidden="true"/>
-									SShumunov @ Google's email
+									SShumunov @ Google&apos;s email
 								</ListItemContent>
 							</ListItem>
 							<ListItem>

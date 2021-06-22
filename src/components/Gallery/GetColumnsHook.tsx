@@ -1,8 +1,8 @@
 import { ImageList } from '../../types/photos';
 
-export const getColumns = (imageArray : ImageList[], numberOfColumns : number) => {
+export const getColumns = (imageArray : ImageList[], numberOfColumns : number) : ImageList[][] => {
 
-	let images : any = [];
+	const images : ImageList[][] = [];
 	// push empty array for each column
 	for (let i = 0; i < numberOfColumns; i++) {
 		images.push([]);
@@ -13,12 +13,12 @@ export const getColumns = (imageArray : ImageList[], numberOfColumns : number) =
 	imageArray.forEach(({ height }) => totalHeight += height);
 	
 	// calculate ~max height of a column
-	let maxColumnHeight = Math.floor(totalHeight / numberOfColumns);
+	const maxColumnHeight = Math.floor(totalHeight / numberOfColumns);
 	let currentColumnHeight = 0;
 	let currentColumn = 0;
 	
 	const shuffledImages = imageArray.sort(() => Math.random() - .5);
-	shuffledImages.forEach( image => {
+	shuffledImages.forEach(image => {
 		if ((currentColumnHeight + image.height) >= maxColumnHeight) {
 			// new column
 			if (currentColumn !== numberOfColumns - 1) { 

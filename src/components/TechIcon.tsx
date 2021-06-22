@@ -19,7 +19,7 @@ export const TechIcon : FC<SkillsInterface>= ({
 	return(
 		<>
 			<div className="tech-skill">
-				<img className={ imageClass ? imageClass : '' } src={ iconURL } alt={ `${ iconName } Icon` } />
+				<img className={ imageClass ? imageClass : '' } src={ iconURL } alt={ `${ iconName ? iconName : 'No' } Icon` } />
 				<p>{ iconName }</p>
 			</div>
 			<span className="bar">|</span>
