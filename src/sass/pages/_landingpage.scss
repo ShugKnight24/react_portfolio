@@ -215,13 +215,15 @@
 	
 						}
 
-						&.react {
+						&.react,
+						&.git {
 							width: 100px;
 							max-width: 100px;
 						}
 
 						&.nodejs,
-						&.mysql {
+						&.mysql,
+						&.mongodb {
 							width: 150px;
 							max-width: 150px;
 
