@@ -35,11 +35,6 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: 'Siddhartha',
-			author: 'Hermann Hesse',
-			imgSrc: './img/books/siddhartha.jpeg',
-		},
-		{
 			name: 'Sapiens: A Brief History of Humanking',
 			author: 'Yuval Noah Harrari',
 			imgSrc: './img/books/sapiens.jpeg',
@@ -62,6 +57,11 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'Siddhartha',
+			author: 'Hermann Hesse',
+			imgSrc: './img/books/siddhartha.jpeg',
+		},
 		{
 			name: 'Do The Work',
 			author: 'Steven Pressfield',
