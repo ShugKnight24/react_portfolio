@@ -1,6 +1,6 @@
 import { ImageList } from '../../types/photos';
 
-export const getColumns = (imageArray : ImageList[], numberOfColumns : number) => {
+export const getColumns = (imageArray : ImageList[], numberOfColumns : number) : ImageList[][] => {
 
 	const images : ImageList[][] = [];
 	// push empty array for each column
