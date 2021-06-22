@@ -10,7 +10,7 @@ export const Category : FC<CategoryInterface> = ({
 	updateCategoryState,
 	currentCategory
 }) => {
-	let isActive = categoryIndex === currentCategory;
+	const isActive = categoryIndex === currentCategory;
 
 	return(
 		<Cell col={12}

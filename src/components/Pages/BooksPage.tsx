@@ -15,7 +15,7 @@ export const BooksPage : FC = () => {
 		const target = event.currentTarget;
 		if (target instanceof Element){
 			if (target.classList.contains('category')){
-				let categoryIndex = Number(target.dataset.categoryIndex);
+				const categoryIndex = Number(target.dataset.categoryIndex);
 	
 				setActiveCategory(categoryIndex);
 				setActiveBook(0);
@@ -27,7 +27,7 @@ export const BooksPage : FC = () => {
 		const target = event.currentTarget;
 		if (target instanceof Element){
 			if (target.classList.contains('book-bar-book')){
-				let bookIndex = Number(target.dataset.bookIndex);
+				const bookIndex = Number(target.dataset.bookIndex);
 
 				setActiveBook(bookIndex);
 			}

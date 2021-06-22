@@ -13,7 +13,7 @@ export const Experience : FC<ExperienceInterface> = ({
 	endYear
 }) => {
 
-	var jobResponsibilitiesList = jobResponsibilities.map(function(jobResponsibility, index){
+	const jobResponsibilitiesList = jobResponsibilities.map(function(jobResponsibility, index){
 		return <ListItem className="job-responsibility" key={ index } dangerouslySetInnerHTML={{__html: jobResponsibility}}></ListItem>;
 	});
 

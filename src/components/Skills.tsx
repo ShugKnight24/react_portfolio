@@ -23,7 +23,7 @@ export const Skills : FC<SkillsInterface> = ({
 					iconName={ iconName }
 					iconURL={ iconURL }
 				/> */}
-				<span className={`bold-text ${ progress !== null && 'skill-name-centered'}`}>{ skill }</span>
+				<span className={`bold-text ${ progress !== null ? 'skill-name-centered' : '' }`}>{ skill }</span>
 					{
 						progress !== null &&
 						<ProgressBar className="skill-progress" progress={ progress }/>

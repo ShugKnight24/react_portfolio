@@ -26,7 +26,7 @@ export const ResumePage : FC = () =>{
 					</p>
 					<hr />
 					<h5>Email</h5>
-					<p>SShumunov @ Google's email</p>
+					<p>SShumunov @ Google&apos;s email</p>
 					<hr />
 				</Cell>
 				<Cell className="resume-right-column" col={ 8 }>
@@ -280,7 +280,7 @@ export const ResumePage : FC = () =>{
 						<h2>Skills</h2>
 					</div>
 
-					<p className="tab">I consider myself a lifelong learner. Someone who is committed to mastering their craft to become the best developer they can be. I enjoy the challenge of picking up additional languages and skills to expand my knowledge and abilities. It allows me to approach and solve the problems I encounter in a nuanced way. The more I learn, the more I realize I don't know.</p>
+					<p className="tab">I consider myself a lifelong learner. Someone who is committed to mastering their craft to become the best developer they can be. I enjoy the challenge of picking up additional languages and skills to expand my knowledge and abilities. It allows me to approach and solve the problems I encounter in a nuanced way. The more I learn, the more I realize I don&apos;t know.</p>
 
 					<div className="skills-container">
 						{

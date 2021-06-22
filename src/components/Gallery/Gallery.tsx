@@ -4,10 +4,10 @@ import { Column } from './Column';
 // getColumns Hook
 import { getColumns } from './GetColumnsHook';
 
-import { ImageData } from '../../types/photos';
+import { ImageData, ImageList } from '../../types/photos';
 
 export const Gallery : FC<ImageData> = ({ imageArray }) => {
-	const [columns, setColumns] = useState([]);
+	const [columns, setColumns] = useState<ImageList[][]>([]);
 	
 	useEffect(() => {
 		const smallScreen = window.matchMedia('all and (max-width: 800px)');
