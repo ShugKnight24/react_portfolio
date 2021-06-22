@@ -171,6 +171,58 @@
 				text-decoration: underline;
 			}
 
+			.tech-skill {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				
+				img {
+					height: 75px;
+					max-height: 75px;
+					width: 75px;
+					max-width: 75px;
+
+					@include mq-max(600px) {
+						height: 50px;
+						max-height: 50px;
+						width: 50px;
+						max-width: 50px;
+					}
+
+					&.jquery {
+						width: 250px;
+						max-width: 250px;
+
+						@include mq-max(600px) {
+							width: 150px;
+							max-width: 150px;
+						}
+
+					}
+
+					&.react,
+					&.git {
+						width: 100px;
+						max-width: 100px;
+					}
+
+					&.nodejs,
+					&.mysql,
+					&.mongodb {
+						width: 150px;
+						max-width: 150px;
+
+						@include mq-max(600px) {
+							height: 75px;
+							max-height: 75px;
+							width: 75px;
+							max-width: 75px;
+						}
+					}
+				}
+			}
+
 			.progress-container {
 				display: flex;
 				margin-bottom: 10px;
