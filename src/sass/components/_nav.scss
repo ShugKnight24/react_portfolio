@@ -1,0 +1,47 @@
+/* Navigation Styles */
+.header-color {
+	background: $secondary-accent-color; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, $secondary-accent-color, $main-accent-color);	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, $secondary-accent-color, $main-accent-color); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+}
+
+nav a,
+nav a:link {
+	display: block;
+	color: #FFF;
+	line-height: 64px;
+	padding: 0 24px;
+	border-bottom: none;
+}
+
+nav a.active {
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: $text-shadow;
+}
+
+.mdl-layout__drawer nav a.active {
+	text-shadow: none;
+}
+
+nav a:hover {
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: $text-shadow;
+}
+
+@include mq-max(1024px) {
+	.mobile-header {
+		position: fixed;
+		height: 64px;
+		background-color: white;
+		width: 100%;
+		z-index: 2;
+		border-bottom: 1px solid $main-accent-color;
+	}
+}

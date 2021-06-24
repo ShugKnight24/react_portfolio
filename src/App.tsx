@@ -1,17 +1,10 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, KeyboardEvent, useEffect, RefObject, useRef, useState } from 'react';
 import './App.scss';
-import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
-import { Router, NavLink } from 'react-router-dom';
-import { Main } from './components/Layout/Main';
-import { Footer } from './components/Layout/Footer';
+import { Layout, Header, Content } from 'react-mdl';
+import { Router } from 'react-router-dom';
+import { Drawer, Footer, Main, Nav } from './components/Layout';
 import * as ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
-
-function hideDrawer() {
-	// document.querySelector('.mdl-layout__content')!.scrollTop = 0;
-	// const drawer = document.querySelector('.mdl-layout');
-	// drawer.MaterialLayout.toggleDrawer();
-}
 
 const history = createBrowserHistory();
 history.listen(location => {
@@ -20,36 +13,80 @@ history.listen(location => {
 });
 
 export const App : FC = () => {
+	const [isVisble, setIsVisible] = useState(false);
+
 	useEffect(() => {
 		ReactGA.pageview(window.location.pathname);
-	}, [])
+	}, []);
+
+	const drawerRef = useRef() as RefObject<HTMLDivElement>;
+	
+	function closeDrawer (){
+		if (drawerRef.current !== null){
+			drawerRef.current.classList.remove('active');
+			setIsVisible(false);
+		}
+	}
+	
+	function closeDrawerWithKey (event : KeyboardEvent<HTMLDivElement>){
+		if (drawerRef.current !== null){
+			if (event.key === '13'){
+				drawerRef.current.classList.remove('active');
+				setIsVisible(false);
+			}
+		}
+	}
+	
+	function openDrawer (){
+		if (drawerRef.current !== null){
+			drawerRef.current.classList.add('active');
+			setIsVisible(true);
+		}
+	}
+	
+	function openDrawerWithKey (event : KeyboardEvent<HTMLDivElement>){
+		if (drawerRef.current !== null){
+			if (event.key === '13'){
+				drawerRef.current.classList.add('active');
+				setIsVisible(true);
+			}
+		}
+	}
+
+	const navRoutes = (
+		<Nav drawerClose={ closeDrawer } />
+	);
 
 	return (
 		<Router history={ history }>
 			<Layout>
 				<Header className="header-color" title="Shugmi's Portfolio" scroll>
-					<Navigation>
-						<NavLink to="/" exact activeClassName="active">Home</NavLink>
-						<NavLink to="/about" activeClassName="active">About</NavLink>
-						<NavLink to="/books" activeClassName="active">Books</NavLink>
-						<NavLink to="/contact" activeClassName="active">Contact</NavLink>
-						<NavLink to="/photos" activeClassName="active">Photos</NavLink>
-						<NavLink to="/projects" activeClassName="active">Projects</NavLink>
-						<NavLink to="/resume" activeClassName="active">Resume</NavLink>
-					</Navigation>
+					{ navRoutes }
 				</Header>
+				<div
+					aria-expanded="false"
+					role="button"
+					tabIndex={ 0 }
+					className="drawer-button"
+					onClick={ () => openDrawer() }
+					onKeyDown={ (event) => openDrawerWithKey(event) }
+				>
+					<i className="material-icons"></i>
+				</div>
 				<div className="mobile-header"></div>
-				<Drawer title="Navigation">
-					<Navigation>
-						<NavLink to="/" exact activeClassName="active" onClick={() => hideDrawer()}>Home</NavLink>
-						<NavLink to="/about" activeClassName="active" onClick={() => hideDrawer()}>About</NavLink>
-						<NavLink to="/books" activeClassName="active" onClick={() => hideDrawer()}>Books</NavLink>
-						<NavLink to="/contact" activeClassName="active" onClick={() => hideDrawer()}>Contact</NavLink>
-						<NavLink to="/photos" activeClassName="active" onClick={() => hideDrawer()}>Photos</NavLink>
-						<NavLink to="/projects" activeClassName="active" onClick={() => hideDrawer()}>Projects</NavLink>
-						<NavLink to="/resume" activeClassName="active" onClick={() => hideDrawer()}>Resume</NavLink>
-					</Navigation>
+				<Drawer
+					title="Nav"
+					reference={ drawerRef }
+				>
+					{ navRoutes }
 				</Drawer>
+				<div
+					className={`drawer-overlay ${ isVisble ? 'active' : '' }`}
+					onClick={ () => closeDrawer() }
+					onKeyDown={ (event) => closeDrawerWithKey(event) }
+					role="button"
+					tabIndex={ -1 }
+				></div>
 				<Content>
 					<Main />
 					<Footer />
