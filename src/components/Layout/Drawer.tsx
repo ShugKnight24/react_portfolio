@@ -1,16 +1,15 @@
-import { FC, ReactNode, RefObject } from 'react';
+import { FC, ReactNode } from 'react';
 
 interface DrawerInterface {
 	children : ReactNode,
-	title : string,
-	reference: RefObject<HTMLDivElement>
+	isVisible : boolean,
+	title : string
 }
 
-export const Drawer : FC<DrawerInterface> = ({ children, reference, title }) => {
+export const Drawer : FC<DrawerInterface> = ({ children, isVisible, title }) => {
 	return(
 		<div
-			className="drawer"
-			ref={ reference }
+			className={`drawer ${ isVisible ? 'active' : '' }`}
 		>
 			<span className="drawer-title">{ title }</span>
 			{ children }

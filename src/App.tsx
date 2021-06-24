@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEvent, useEffect, RefObject, useRef, useState } from 'react';
+import React, { FC, KeyboardEvent, useEffect, useState } from 'react';
 import './App.scss';
 import { Layout, Header, Content } from 'react-mdl';
 import { Router } from 'react-router-dom';
@@ -13,43 +13,33 @@ history.listen(location => {
 });
 
 export const App : FC = () => {
-	const [isVisble, setIsVisible] = useState(false);
+	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
 		ReactGA.pageview(window.location.pathname);
 	}, []);
-
-	const drawerRef = useRef() as RefObject<HTMLDivElement>;
 	
-	function closeDrawer (){
-		if (drawerRef.current !== null){
-			drawerRef.current.classList.remove('active');
+	function closeDrawer (event? : KeyboardEvent<HTMLDivElement>){
+		if (event){
+			if (event.key === 'Enter'){
+				setIsVisible(false);
+			} else {
+				return;
+			}
+		} else {
 			setIsVisible(false);
 		}
 	}
 	
-	function closeDrawerWithKey (event : KeyboardEvent<HTMLDivElement>){
-		if (drawerRef.current !== null){
-			if (event.key === '13'){
-				drawerRef.current.classList.remove('active');
-				setIsVisible(false);
-			}
-		}
-	}
-	
-	function openDrawer (){
-		if (drawerRef.current !== null){
-			drawerRef.current.classList.add('active');
-			setIsVisible(true);
-		}
-	}
-	
-	function openDrawerWithKey (event : KeyboardEvent<HTMLDivElement>){
-		if (drawerRef.current !== null){
-			if (event.key === '13'){
-				drawerRef.current.classList.add('active');
+	function openDrawer (event? : KeyboardEvent<HTMLDivElement>){
+		if (event){
+			if (event.key === 'Enter'){
 				setIsVisible(true);
+			} else {
+				return;
 			}
+		} else {
+			setIsVisible(true);
 		}
 	}
 
@@ -69,21 +59,21 @@ export const App : FC = () => {
 					tabIndex={ 0 }
 					className="drawer-button"
 					onClick={ () => openDrawer() }
-					onKeyDown={ (event) => openDrawerWithKey(event) }
+					onKeyDown={ (event) => openDrawer(event) }
 				>
 					<i className="material-icons"></i>
 				</div>
 				<div className="mobile-header"></div>
 				<Drawer
 					title="Nav"
-					reference={ drawerRef }
+					isVisible={ isVisible }
 				>
 					{ navRoutes }
 				</Drawer>
 				<div
-					className={`drawer-overlay ${ isVisble ? 'active' : '' }`}
+					className={`drawer-overlay ${ isVisible ? 'active' : '' }`}
 					onClick={ () => closeDrawer() }
-					onKeyDown={ (event) => closeDrawerWithKey(event) }
+					onKeyDown={ (event) => closeDrawer(event) }
 					role="button"
 					tabIndex={ -1 }
 				></div>
