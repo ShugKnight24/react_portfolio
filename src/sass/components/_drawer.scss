@@ -89,8 +89,16 @@
 	color: #FFF;
 	z-index: 4;
 
+	&:hover {
+		color: $main-accent-color;
+	}
+
 	@include mq-max(1024px) {
 		color: $main-accent-color;
+
+		&:hover {
+			color: $secondary-accent-color;
+		}
 	}
 
 	.material-icons {
