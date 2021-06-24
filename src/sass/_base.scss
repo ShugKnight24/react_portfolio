@@ -1,0 +1,38 @@
+/* General Styles / Resets */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	font-family: 'Roboto', sans-serif;
+}
+
+a,
+a:link {
+	text-decoration: none;
+	color: #51483D;
+	border-bottom: 1px solid #ccc;
+	padding: 0 0 1px 0;
+	cursor: pointer;
+}
+
+a:hover {
+	font-weight: bold;
+	color: $main-accent-color;
+	border-bottom: 1px solid #999;
+}
+
+a:visited {
+	color: #551A8B;
+}
