@@ -1,8 +1,8 @@
-import React, { FC, KeyboardEvent, useEffect, useState } from 'react';
+import { FC, KeyboardEvent, useEffect, useState } from 'react';
 import './App.scss';
-import { Layout, Header, Content } from 'react-mdl';
+import { Header, Content } from 'react-mdl';
 import { Router } from 'react-router-dom';
-import { Drawer, Footer, Main, Nav } from './components/Layout';
+import { Drawer, Footer, Layout, Main, Nav } from './components/Layout';
 import * as ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 
