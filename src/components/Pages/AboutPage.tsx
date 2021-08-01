@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Grid, Cell } from 'react-mdl';
 
-export const AboutPage : FC = () => {
+export const AboutPage: FC = () => {
 	return (
 		<div className="about-page">
 			<Grid>

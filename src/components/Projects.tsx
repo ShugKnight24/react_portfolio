@@ -5,7 +5,7 @@ type ActiveTab = {
 	activeTab: number
 }
 
-export const Projects : FC<ActiveTab> = ({ activeTab }) => {
+export const Projects: FC<ActiveTab> = ({ activeTab }) => {
 	const currentProject = () => {
 		if (activeTab === 0) {
 			return <PersonalProjects />;

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
 
-export const PersonalProjects : FC = () => {
+export const PersonalProjects: FC = () => {
 	return (
 		<div className="projects-grid">
 			<Card shadow={ 5 } className="project-cards">

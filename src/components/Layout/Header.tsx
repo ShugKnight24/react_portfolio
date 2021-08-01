@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 
 interface HeaderInterface {
-	children : ReactNode;
+	children: ReactNode;
 	title: string;
 }
 

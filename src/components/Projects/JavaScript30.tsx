@@ -3,7 +3,7 @@ import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
 
 import { javaScript30Projects } from '../../data/javaScript30Projects';
 
-export const JavaScript30 : FC = () => {
+export const JavaScript30: FC = () => {
 	return (
 		<div className="projects-grid">
 			{

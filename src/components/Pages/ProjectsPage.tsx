@@ -3,7 +3,7 @@ import { Tabs, Tab, Grid, Cell } from 'react-mdl';
 
 import { Projects } from '../Projects';
 
-export const ProjectsPage : FC = () => {
+export const ProjectsPage: FC = () => {
 	const [activeTab, setActiveTab] = useState(0);
 
 	return(

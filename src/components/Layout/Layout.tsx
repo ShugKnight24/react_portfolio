@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 
 interface LayoutInterface {
-	children : ReactNode;
+	children: ReactNode;
 }
 
 export const Layout: FC<LayoutInterface> = ({ children }) => (

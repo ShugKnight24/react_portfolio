@@ -7,7 +7,7 @@ import { CategoryDrawer } from '../Books/CategoryDrawer';
 
 import { allCategoriesArray } from '../../data/bookData.js';
 
-export const BooksPage : FC = () => {
+export const BooksPage: FC = () => {
 	const [activeCategory, setActiveCategory] = useState(0);
 	const [activeBook, setActiveBook] = useState(0);
 

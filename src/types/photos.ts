@@ -1,15 +1,15 @@
 export interface ImageList {
-	src : string,
-	height : number,
-	artist : string,
-	description : string
+	src: string;
+	height: number;
+	artist: string;
+	description: string;
 }
 
 export interface ImageData {
-	imageArray : ImageList[]
+	imageArray: ImageList[];
 }
 
 export interface ColumnInterface {
-	key : number,
-	images : ImageList[]
+	key: number;
+	images: ImageList[];
 }

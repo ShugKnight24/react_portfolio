@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Grid, Cell, List, ListItem } from 'react-mdl';
 import { ExperienceInterface } from '../types/experience';
 
-export const Experience : FC<ExperienceInterface> = ({ 
+export const Experience: FC<ExperienceInterface> = ({ 
 	jobDescription,
 	jobResponsibilities,
 	jobName,

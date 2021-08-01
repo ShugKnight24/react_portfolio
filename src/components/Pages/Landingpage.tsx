@@ -4,7 +4,7 @@ import { Grid, Cell } from 'react-mdl';
 import { techIcons } from '../../data/techIcons';
 import { TechIcon } from '../TechIcon';
 
-export const LandingPage : FC = () => {
+export const LandingPage: FC = () => {
 	return(
 		<div className="landing-container">
 			<Grid className="landing-grid">
