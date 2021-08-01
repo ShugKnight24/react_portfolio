@@ -6,7 +6,7 @@
 	max-width: 300px;
 	height: 100%;
 	max-height: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15),
@@ -30,6 +30,7 @@
 	}
 
 	.drawer-title {
+		color: #757575;
 		font-size: 2em;
 		font-weight: bold;
 		line-height: 64px;
@@ -48,18 +49,17 @@
 		a {
 			margin-bottom: 0.9em;
 			font-size: 1.25em;
-			padding: 9px 42px;
+			padding: 18px 42px;
 			margin: 0;
 			color: #757575;
-
-			&.active {
-				text-shadow: none;
-			}
-
+			border-bottom: none;
+		
+			&.active,
 			&:hover {
-				background-color: $main-accent-color;
-				color: #FFF;
-				text-shadow: $text-shadow;
+				font-weight: bold;
+				background-color: #e0e0e0;
+				text-shadow: none;
+				font-size: 1.5em;
 			}
 
 			@include mq-max(1024px) {
@@ -71,7 +71,7 @@
 
 .drawer-button {
 	display: block;
-	position: absolute;
+	position: fixed;
 	height: 48px;
 	width: 48px;
 	border: 0;
@@ -97,7 +97,7 @@
 		color: $main-accent-color;
 
 		&:hover {
-			color: $secondary-accent-color;
+			color: $main-accent-darken;
 		}
 	}
 
