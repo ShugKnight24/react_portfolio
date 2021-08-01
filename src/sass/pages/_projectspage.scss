@@ -46,11 +46,6 @@
 		}
 	}
 
-	/* Header Fix */
-	@include mq-max(1024px) {
-		margin-top: 64px;
-	}
-
 	p {
 			font-size: 20px;
 			text-align: center;

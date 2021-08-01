@@ -1,9 +1,5 @@
 /* Resume Page Styles */
 .resume-page {
-	// Header Fix
-	@include mq-max(1024px) {
-		margin-top: 64px;
-	}
 
 	.mdl-grid {
 		padding: 0;

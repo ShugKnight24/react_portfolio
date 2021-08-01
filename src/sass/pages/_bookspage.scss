@@ -3,10 +3,6 @@
 	max-width: 1440px;
 	margin: 0 auto;
 
-	@include mq-max(1024px){
-		margin-top: 60px;
-	}
-
 	.mdl-grid {
 
 		@include mq-min(840px){

@@ -1,8 +1,7 @@
 import { FC, KeyboardEvent, useEffect, useState } from 'react';
 import './App.scss';
-import { Content } from 'react-mdl';
 import { Router } from 'react-router-dom';
-import { Drawer, Footer, Header, Layout, Main, Nav } from './components/Layout';
+import { Content, Drawer, Footer, Header, Layout, Main, Nav } from './components/Layout';
 import * as ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 

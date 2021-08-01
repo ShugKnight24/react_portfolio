@@ -2,11 +2,6 @@
 .about-page {
 	text-align: center;
 
-	// Header Fix
-	@include mq-max(1024px) {
-		margin-top: 64px;
-	}
-
 	h3 {
 		margin: 0;
 	}

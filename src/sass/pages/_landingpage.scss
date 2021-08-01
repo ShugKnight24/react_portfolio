@@ -1,11 +1,6 @@
 /* Landing Page Style */
 .landing-container {
 
-	// Header Fix
-	@include mq-max(1024px) {
-		margin-top: 64px;
-	}
-
 	a,
 	a:link {
 		border-bottom: none;

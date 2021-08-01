@@ -2,11 +2,6 @@
 .not-found {
 	text-align: center;
 
-	// Header Fix
-	@include mq-max(1024px) {
-		margin-top: 64px;
-	}
-
 	p {
 		margin-top: 20px;
 		font-size: 20px;
