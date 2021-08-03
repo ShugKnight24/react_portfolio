@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
+import { Cell, List, ListItem, ListItemContent } from 'react-mdl';
+import { Grid } from '../Grid'
 
 export const ContactPage: FC = () => {
 	return (

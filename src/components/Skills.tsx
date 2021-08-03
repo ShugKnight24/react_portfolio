@@ -2,7 +2,8 @@
 
 import { FC } from 'react';
 // import TechIcon from './TechIcon';
-import { Grid, Cell, ProgressBar } from 'react-mdl';
+import { Cell, ProgressBar } from 'react-mdl';
+import { Grid } from './Grid'
 
 import { SkillsInterface } from '../types/skills';
 

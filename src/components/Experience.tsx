@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Grid, Cell, List, ListItem } from 'react-mdl';
+import { Cell, List, ListItem } from 'react-mdl';
+import { Grid } from './Grid'
 import { ExperienceInterface } from '../types/experience';
 
 export const Experience: FC<ExperienceInterface> = ({ 

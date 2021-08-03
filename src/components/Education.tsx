@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Grid, Cell } from 'react-mdl';
+import { Cell } from 'react-mdl';
+import { Grid } from './Grid'
 import { EducationInterface } from '../types/education';
 
 export const Education: FC<EducationInterface> = ({

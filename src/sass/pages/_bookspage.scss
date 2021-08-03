@@ -3,7 +3,7 @@
 	max-width: 1440px;
 	margin: 0 auto;
 
-	.mdl-grid {
+	.grid {
 
 		@include mq-min(840px){
 			.mdl-cell--3-col,

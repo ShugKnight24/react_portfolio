@@ -125,7 +125,7 @@
 
 	@include mq-max(1000px) {
 		/* Contact Grid Corrections */
-		.mdl-grid {
+		.grid {
 			justify-content: center;
 			margin: auto;
 
@@ -141,9 +141,7 @@
 	}
 
 	@include mq-max(550px) {
-
-		.mdl-grid {
-
+		.grid {
 			.mdl-cell--6-col,
 			.mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
 				width: 100%;
