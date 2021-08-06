@@ -2,8 +2,8 @@
 
 import { FC } from 'react';
 // import TechIcon from './TechIcon';
-import { Cell, ProgressBar } from 'react-mdl';
-import { Grid } from './Grid';
+import { ProgressBar } from 'react-mdl';
+import { Cell, Grid } from './Grid';
 
 import { SkillsInterface } from '../types/skills';
 
@@ -17,7 +17,7 @@ export const Skills : FC<SkillsInterface> = ({
 }) => {
 	return(
 		<Grid>
-			<Cell col={ 12 }>
+			<Cell columns={ 12 }>
 				<div className="progress-container">
 				{/* <TechIcon
 					key={ `${ iconName }-${ index }` }

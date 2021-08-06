@@ -129,8 +129,7 @@
 			justify-content: center;
 			margin: auto;
 
-			.mdl-cell--6-col,
-			.mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
+			.cell.6{
 				width: 90%;
 
 				.mdl-list__item .mdl-list__item-primary-content {
@@ -142,8 +141,7 @@
 
 	@include mq-max(550px) {
 		.grid {
-			.mdl-cell--6-col,
-			.mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
+			.cell.6 {
 				width: 100%;
 				margin: 0;
 			}

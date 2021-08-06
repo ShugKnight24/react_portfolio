@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Cell, List, ListItem } from 'react-mdl';
-import { Grid } from './Grid';
+import { List, ListItem } from 'react-mdl';
+import { Cell, Grid } from './Grid';
 import { ExperienceInterface } from '../types/experience';
 
 export const Experience: FC<ExperienceInterface> = ({ 
@@ -20,7 +20,7 @@ export const Experience: FC<ExperienceInterface> = ({
 
 	return(
 		<Grid extraClass="experience-container">
-			<Cell col={12}>
+			<Cell columns={12}>
 				<h3>{ jobName }</h3>
 				<h4>{ jobPosition }</h4>
 				<span className="date-of-employment">

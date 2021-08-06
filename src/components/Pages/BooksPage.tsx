@@ -1,6 +1,6 @@
 import { FC, MouseEvent, useState } from 'react';
-import { Cell, List } from 'react-mdl';
-import { Grid } from '../Grid';
+import { List } from 'react-mdl';
+import { Cell, Grid } from '../Grid';
 
 import { BookBar } from '../Books/BookBar';
 import { BookContent } from '../Books/BookContent';
@@ -38,16 +38,18 @@ export const BooksPage: FC = () => {
 	return(
 		<div className="books-page">
 			<Grid>
-				<Cell col={ 3 }
-					className="category-drawer-container">
+				<Cell
+					columns={ 3 }
+					extraClass="category-drawer-container">
 					<CategoryDrawer
 						allCategories={ allCategoriesArray }
 						updateCategoryState={ updateCategoryState }
 						currentCategory={ activeCategory }
 					/>
 				</Cell>
-				<Cell col={ 9 }
-					className="book-bar-and-book-content"
+				<Cell
+					columns={ 9 }
+					extraClass="book-bar-and-book-content"
 				>
 					<Grid extraClass="book-bar-container" >
 						<BookBar

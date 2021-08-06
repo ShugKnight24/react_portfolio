@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Cell } from 'react-mdl';
+import { Cell } from '../Grid';
 import { CategoryInterface } from '../../types/category';
 
 export const Category : FC<CategoryInterface> = ({ 
@@ -13,10 +13,11 @@ export const Category : FC<CategoryInterface> = ({
 	const isActive = categoryIndex === currentCategory;
 
 	return(
-		<Cell col={12}
+		<Cell
+			columns={12}
 			data-category-index={ categoryIndex }
+			extraClass={`category ${ isActive ? 'active' : '' }`}
 			onClick={ updateCategoryState }
-			className={`category ${ isActive ? 'active' : '' }`}
 		>
 			<h4>{ categoryName }</h4>
 			<img

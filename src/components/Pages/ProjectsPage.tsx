@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { Tabs, Tab } from 'react-mdl';
-import { Grid, Cell } from '../Grid';
+import { Cell, Grid } from '../Grid';
 
 import { Projects } from '../Projects';
 
@@ -43,7 +43,7 @@ export const ProjectsPage: FC = () => {
 				>Shumunov Solutions</Tab>
 			</Tabs>
 			<Grid>
-				<Cell col={ 12 }>
+				<Cell columns={ 12 }>
 					<div className="content">
 						<Projects 
 							activeTab={ activeTab }

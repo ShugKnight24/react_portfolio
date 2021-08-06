@@ -9,37 +9,31 @@
 		}
 	}
 
-	.mdl-cell {
+	.cell {
 		margin: 0;
 	}
 
 	@include mq-min(950px){
 		/* Account for removal of material padding */
-		.mdl-cell--4-col,
-		.mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
+		.cell.4 {
 			width: 33.3333333333%;
 		}
 
-		.mdl-cell--8-col,
-		.mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
+		.cell.8 {
 			width: 66.6666666667%;
 		}
 	}
 
 	@include mq-between(480px, 950px) {
-		.mdl-cell--4-col,
-		.mdl-cell--4-col-tablet.mdl-cell--4-col-tablet,
-		.mdl-cell--8-col,
-		.mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
+		.cell.4
+		.cell.8 {
 			width: 100%;
 		}
 	}
 
 	@include mq-max(479px) {
-		.mdl-cell--4-col,
-		.mdl-cell--4-col-tablet.mdl-cell--4-col-tablet,
-		.mdl-cell--8-col,
-		.mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
+		.cell.4
+		.cell.8 {
 			width: 100%;
 		}
 	}

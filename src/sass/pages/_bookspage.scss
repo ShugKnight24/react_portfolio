@@ -6,25 +6,21 @@
 	.grid {
 
 		@include mq-min(840px){
-			.mdl-cell--3-col,
-			.mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
-				width: calc(25%);
+			.cell.3 {
+				width: 25%;
 			}
 
-			.mdl-cell--9-col,
-			.mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
-				width: calc(75%);
+			.cell.9 {
+				width: 75%;
 			}
 		}
 		@include mq-max(950px){
-			.mdl-cell--3-col,
-			.mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
-				width: calc(100%);
+			.cell.3 {
+				width: 100%;
 			}
 
-			.mdl-cell--9-col,
-			.mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
-				width: calc(100%);
+			.cell.9 {
+				width: 100%;
 			}
 		}
 	}

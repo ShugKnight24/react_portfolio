@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Grid, Cell } from 'react-mdl';
+import { Cell, Grid } from '../Grid';
 
 import { Education } from '../Education';
 import { Experience } from '../Experience';
@@ -10,7 +10,10 @@ export const ResumePage : FC = () =>{
 	return (
 		<div className="resume-page">
 			<Grid>
-				<Cell className="resume-left-column" col={ 4 }>
+				<Cell 
+					columns={ 4 }
+					extraClass="resume-left-column"
+				>
 					<img
 						className="resume-avatar"
 						src="./img/shumunov_avatar.jpg"
@@ -29,7 +32,10 @@ export const ResumePage : FC = () =>{
 					<p>SShumunov @ Google&apos;s email</p>
 					<hr />
 				</Cell>
-				<Cell className="resume-right-column" col={ 8 }>
+				<Cell 
+					columns={ 8 }
+					extraClass="resume-right-column"
+				>
 					<div className="resume-heading">
 						<span>
 							<i className="fa fa-briefcase" aria-hidden="true"></i>
@@ -287,8 +293,7 @@ export const ResumePage : FC = () =>{
 							techIcons.map(({
 								iconName,
 								iconURL,
-								progress,
-								skillType
+								progress
 							}, index) => {
 								return(
 									<Skills
@@ -297,7 +302,6 @@ export const ResumePage : FC = () =>{
 										iconURL={ iconURL }
 										index={ index }
 										progress={ progress }
-										skillType={ skillType }
 									/>
 								);
 							})

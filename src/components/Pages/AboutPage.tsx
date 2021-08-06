@@ -1,12 +1,11 @@
 import { FC } from 'react';
-import { Cell } from 'react-mdl';
-import { Grid } from '../Grid'
+import { Cell, Grid } from '../Grid';
 
 export const AboutPage: FC = () => {
 	return (
 		<div className="about-page">
 			<Grid>
-				<Cell col={ 6 }>
+				<Cell columns={ 6 }>
 					<div className="image-container">
 						<figure>
 							<img
@@ -20,7 +19,7 @@ export const AboutPage: FC = () => {
 						</figure>
 					</div>
 				</Cell>
-				<Cell col={ 6 }>
+				<Cell columns={ 6 }>
 					<h3>About Me</h3>
 
 					<p className="tab">The startup environment is one I enjoy most. Novelty is my lifeblood. I perform best when having to solve multiple technical problems in a creative and elegant manner. I get to touch different aspects of a business and have a large impact.</p>
