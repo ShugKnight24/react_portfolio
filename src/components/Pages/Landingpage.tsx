@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Cell } from 'react-mdl';
-import { Grid } from '../Grid'
+import { Grid } from '../Grid';
 
 import { techIcons } from '../../data/techIcons';
 import { TechIcon } from '../TechIcon';
@@ -8,7 +8,7 @@ import { TechIcon } from '../TechIcon';
 export const LandingPage: FC = () => {
 	return(
 		<div className="landing-container">
-			<Grid className="landing-grid">
+			<Grid extraClass="landing-grid">
 				<Cell col={ 12 }>
 					<div className="home-feature">
 						<div className="feature-text">

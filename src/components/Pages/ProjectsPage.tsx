@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import { Tabs, Tab, Cell } from 'react-mdl';
-import { Grid } from '../Grid'
+import { Tabs, Tab } from 'react-mdl';
+import { Grid, Cell } from '../Grid';
 
 import { Projects } from '../Projects';
 

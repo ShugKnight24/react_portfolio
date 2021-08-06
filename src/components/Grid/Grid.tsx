@@ -2,14 +2,13 @@ import { FC, ReactNode } from 'react';
 
 interface GridInterface {
 	children: ReactNode;
-	className?: string;
+	extraClass?: string;
 }
 
-export const Grid: FC<GridInterface> = ({ children, className }) => {
-	const additionalStyleClassName = className ? className : '';
+export const Grid: FC<GridInterface> = ({ children, extraClass }) => {
 	return (
-		<div className={`grid ${additionalStyleClassName}`}>
-			{children}
+		<div className={`grid ${ extraClass ? extraClass : '' }`}>
+			{children}+
 		</div>
 	);
 };

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Cell, List, ListItem, ListItemContent } from 'react-mdl';
-import { Grid } from '../Grid'
+import { Grid } from '../Grid';
 
 export const ContactPage: FC = () => {
 	return (
 		<div className="contact-body">
-			<Grid className="contact-grid">
+			<Grid extraClass="contact-grid">
 				<Cell col={ 6 }>
 					<div className="image-container">
 						<figure>

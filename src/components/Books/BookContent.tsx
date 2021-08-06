@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Grid, Cell } from 'react-mdl';
+import { Cell } from 'react-mdl';
+import { Grid } from '../Grid';
 import { BookContentInterface } from '../../types/books';
 
 export const BookContent : FC<BookContentInterface> = ({
@@ -17,7 +18,7 @@ export const BookContent : FC<BookContentInterface> = ({
 	// 	additionalInfo = currentBook.additionalInfo;
 	// }
 	return(
-		<Grid className="book-container">
+		<Grid extraClass="book-container">
 			<Cell col={12}>
 				<h5 className="book-name">{ currentBook.name }</h5>
 				<h6 className="book-author">By: { currentBook.author }</h6>

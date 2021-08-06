@@ -3,7 +3,7 @@
 import { FC } from 'react';
 // import TechIcon from './TechIcon';
 import { Cell, ProgressBar } from 'react-mdl';
-import { Grid } from './Grid'
+import { Grid } from './Grid';
 
 import { SkillsInterface } from '../types/skills';
 
