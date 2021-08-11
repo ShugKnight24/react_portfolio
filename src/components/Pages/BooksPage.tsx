@@ -56,7 +56,7 @@ export const BooksPage: FC = () => {
 							allCategories={ allCategoriesArray }
 							currentCategory={ activeCategory }
 							currentlySelectedBook={ activeBook }
-							updateBookState ={ updateBookState }
+							updateBookState={ updateBookState }
 						/>
 					</Grid>
 					<List className="book-list">

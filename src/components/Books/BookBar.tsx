@@ -16,7 +16,7 @@ export const BookBar : FC<BookBarInterface> = ({
 	const currentlySelectedCategory = allCategories[currentCatIndex];
 	const currentCatName = currentlySelectedCategory.categoryName;
 
-	return(
+	return (
 		<Cell
 			columns={'full'}
 			extraClass="book-bar"
