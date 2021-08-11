@@ -18,7 +18,7 @@ export const BookContent : FC<BookContentInterface> = ({
 	// }
 	return(
 		<Grid extraClass="book-container">
-			<Cell columns={12}>
+			<Cell columns={'full'}>
 				<h5 className="book-name">{ currentBook.name }</h5>
 				<h6 className="book-author">By: { currentBook.author }</h6>
 				<img

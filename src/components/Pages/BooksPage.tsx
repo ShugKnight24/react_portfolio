@@ -39,7 +39,7 @@ export const BooksPage: FC = () => {
 		<div className="books-page">
 			<Grid>
 				<Cell
-					columns={ 3 }
+					columns={ 'quarter' }
 					extraClass="category-drawer-container">
 					<CategoryDrawer
 						allCategories={ allCategoriesArray }
@@ -48,7 +48,7 @@ export const BooksPage: FC = () => {
 					/>
 				</Cell>
 				<Cell
-					columns={ 9 }
+					columns={ 'three-quarters' }
 					extraClass="book-bar-and-book-content"
 				>
 					<Grid extraClass="book-bar-container" >

@@ -18,7 +18,7 @@ export const BookBar : FC<BookBarInterface> = ({
 
 	return(
 		<Cell
-			columns={12}
+			columns={'full'}
 			extraClass="book-bar"
 			onClick={ updateBookState }
 		>

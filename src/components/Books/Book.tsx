@@ -13,7 +13,7 @@ export const Book : FC<BookInterface> = ({
 	return(
 		<Grid extraClass="book-container">
 			<Cell
-				columns={12}
+				columns={'full'}
 				data-book-index={ bookIndex }
 				extraClass={`book-bar-book ${ isActive ? 'active' : '' }`}
 			>

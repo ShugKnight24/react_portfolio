@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react';
 
 interface CellInterface {
 	children: ReactNode;
-	columns: number;
+	columns: string;
 	extraClass?: string;
 	// TODO - Refactor OnClick interface
 	onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
