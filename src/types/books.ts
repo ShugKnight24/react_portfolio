@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEventHandler } from './events';
 
 export interface BookInterface {
 	bookIndex: number;
@@ -6,7 +6,7 @@ export interface BookInterface {
 	currentlySelectedBook: number;
 	imgSrc: string;
 	key: number;
-	updateBookState: (event: React.MouseEvent<HTMLElement>) => void;
+	updateBookState: MouseEventHandler;
 }
 
 interface bookList {
@@ -26,7 +26,7 @@ export interface BookBarInterface {
 	allCategories: bookData[];
 	currentCategory: number;
 	currentlySelectedBook: number;
-	updateBookState: (event: React.MouseEvent<HTMLElement>) => void;
+	updateBookState: MouseEventHandler;
 }
 
 export interface BookContentInterface {

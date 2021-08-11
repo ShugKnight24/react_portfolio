@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEventHandler } from './events';
 import { bookData } from './books';
 
 export interface CategoryInterface {
@@ -8,11 +8,11 @@ export interface CategoryInterface {
 	categoryImgAltText: string;
 	currentCategory: number;
 	key: number;
-	updateCategoryState: (event: React.MouseEvent<HTMLElement>) => void;
+	updateCategoryState: MouseEventHandler;
 }
 
 export interface CategoryDrawerInterface {
 	allCategories: bookData[];
 	currentCategory: number;
-	updateCategoryState: (event: React.MouseEvent<HTMLElement>) => void;
+	updateCategoryState: MouseEventHandler;
 }

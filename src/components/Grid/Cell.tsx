@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, MouseEvent, ReactNode } from 'react';
+import { MouseEventHandler  } from '../../types/events';
 
 interface CellInterface {
 	children: ReactNode;
@@ -6,8 +7,7 @@ interface CellInterface {
 	dataBookIndex?: number;
 	dataCategoryIndex?: number;
 	extraClass?: string;
-	// TODO - Refactor OnClick interface
-	onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+	onClick?: MouseEventHandler;
 }
 
 export const Cell: FC<CellInterface> = ({ 
@@ -20,9 +20,13 @@ export const Cell: FC<CellInterface> = ({
 }) => (
 	<div
 		className={`cell ${ columns } ${ extraClass ? extraClass : '' }`}
-		onClick={ onClick }
 		data-book-index={ dataBookIndex }
 		data-category-index={ dataCategoryIndex }
+		onClick={(event: MouseEvent<HTMLElement>) => {
+			if (onClick) {
+				onClick(event);
+			}
+		}}
 	>
 		{children}
 	</div>
