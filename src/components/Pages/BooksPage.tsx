@@ -12,23 +12,23 @@ export const BooksPage: FC = () => {
 	const [activeCategory, setActiveCategory] = useState(0);
 	const [activeBook, setActiveBook] = useState(0);
 
-	function updateCategoryState(event : MouseEvent<HTMLElement>){
+	const updateCategoryState = (event: MouseEvent<HTMLElement>): void => {
 		const target = event.currentTarget;
 		if (target instanceof Element){
 			if (target.classList.contains('category')){
 				const categoryIndex = Number(target.dataset.categoryIndex);
-	
+
 				setActiveCategory(categoryIndex);
 				setActiveBook(0);
 			}
 		}
 	}
 
-	function updateBookState(event : MouseEvent<HTMLElement>){
-		const target = event.currentTarget;
-		if (target instanceof Element){
-			if (target.classList.contains('book-bar-book')){
-				const bookIndex = Number(target.dataset.bookIndex);
+	const updateBookState = (event: MouseEvent<HTMLElement>): void => {
+		const target = event.target as HTMLElement;
+		if (target.parentNode instanceof HTMLElement){
+			if (target.classList.contains('book-bar-book-image')){
+				const bookIndex = Number(target.parentNode.dataset.bookIndex);
 
 				setActiveBook(bookIndex);
 			}
