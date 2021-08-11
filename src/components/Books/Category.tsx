@@ -15,7 +15,7 @@ export const Category : FC<CategoryInterface> = ({
 	return(
 		<Cell
 			columns={'full'}
-			data-category-index={ categoryIndex }
+			dataCategoryIndex={ categoryIndex }
 			extraClass={`category ${ isActive ? 'active' : '' }`}
 			onClick={ updateCategoryState }
 		>

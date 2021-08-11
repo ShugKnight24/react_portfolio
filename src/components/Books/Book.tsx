@@ -14,7 +14,7 @@ export const Book : FC<BookInterface> = ({
 		<Grid extraClass="book-container">
 			<Cell
 				columns={'full'}
-				data-book-index={ bookIndex }
+				dataBookIndex={ bookIndex }
 				extraClass={`book-bar-book ${ isActive ? 'active' : '' }`}
 			>
 				{/* // <h6 className="book-bar-name-author">{ bookNameAndAuthor }</h6>*/}
