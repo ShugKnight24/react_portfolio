@@ -1,16 +1,24 @@
 import { FC } from 'react';
-import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
+import { Button } from 'react-mdl';
+import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 export const LoveBook: FC = () => {
 	return(
 		<div className="projects-grid">
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title mylovebook" role="img" aria-label="Image of MyLoveBook website">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					ariaLabel="Image of MyLoveBook website"
+					extraClass="project-cards-title mylovebook" 
+					role="img"
+				>
 					<span className="title-background">
 						MyLoveBook
 					</span>
 				</CardTitle>
-				<CardText className="project-description">
+				<CardText extraClass="project-description">
 					Redirect site for LoveBookOnline.com and LoveCoups.com
 				</CardText>
 				<CardActions border>
@@ -19,13 +27,20 @@ export const LoveBook: FC = () => {
 					</Button>
 				</CardActions>
 			</Card>
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title lovecoups" role="img" aria-label="Image of LoveCoups website homepage">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					aria-label="Image of LoveCoups website homepage"
+					extraClass="project-cards-title lovecoups" 
+					role="img"
+				>
 					<span className="title-background">
 						LoveCoups
 					</span>
 				</CardTitle>
-				<CardText className="project-description">
+				<CardText extraClass="project-description">
 					Build personalized coupon books for those you love
 				</CardText>
 				<CardActions border>

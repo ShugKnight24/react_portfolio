@@ -1,15 +1,23 @@
 import { FC } from 'react';
-import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
+import { Button } from 'react-mdl';
+import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 export const GTB: FC = () => {
 	return (
 		<div className="projects-grid">
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title optima" role="img" aria-label="Image of Optima Batteries website homepage">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle 
+					ariaLabel="Image of Optima Batteries website homepage"
+					extraClass="project-cards-title optima"
+					role="img"
+				>
 					<span className="title-background">
 						Optima Batteries
 					</span>
-					</CardTitle>
+				</CardTitle>
 				<CardText>
 					Website built for Optima Batteries using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 				</CardText>
@@ -19,13 +27,20 @@ export const GTB: FC = () => {
 					</Button>
 				</CardActions>
 			</Card>
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title varta" role="img" aria-label="Image of Varta Europe website homepage">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					ariaLabel="Image of Varta Europe website homepage"
+					extraClass="project-cards-title varta"
+					role="img"
+				>
 					<span className="title-background">
 						Varta Europe
 					</span>
-					</CardTitle>
-				<CardText className="project-description">
+				</CardTitle>
+				<CardText extraClass="project-description">
 					Website built for Varta Europe using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>
@@ -34,13 +49,20 @@ export const GTB: FC = () => {
 					</Button>
 				</CardActions>
 			</Card>
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title varta-china" role="img" aria-label="Image of Varta China website homepage">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					aria-label="Image of Varta China website homepage"
+					extraClass="project-cards-title varta-china" 
+					role="img"
+				>
 					<span className="title-background">
 						Varta China
 					</span>
-					</CardTitle>
-				<CardText className="project-description">
+				</CardTitle>
+				<CardText extraClass="project-description">
 					Website built for Varta China using Concrete5 CMS. Needed their own site due to Chinese regulations. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>
@@ -49,13 +71,20 @@ export const GTB: FC = () => {
 					</Button>
 				</CardActions>
 			</Card>
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title delkor" role="img" aria-label="Image of Delkor Austrailia website homepage">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					ariaLabel="Image of Delkor Austrailia website homepage"
+					extraClass="project-cards-title delkor"
+					role="img" 
+				>
 					<span className="title-background">
 						Delkor Austrailia
 					</span>
-					</CardTitle>
-				<CardText className="project-description">
+				</CardTitle>
+				<CardText extraClass="project-description">
 					Website built for Delkor Austrailia using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>
@@ -64,13 +93,20 @@ export const GTB: FC = () => {
 					</Button>
 				</CardActions>
 			</Card>
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title delkor-korea" role="img" aria-label="Image of Delkor Korea website homepage">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					ariaLabel="Image of Delkor Korea website homepage"
+					extraClass="project-cards-title delkor-korea"
+					role="img"
+				>
 					<span className="title-background">
 						Delkor Korea
 					</span>
-					</CardTitle>
-				<CardText className="project-description">
+				</CardTitle>
+				<CardText extraClass="project-description">
 					Website built for Delkor Korea using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>

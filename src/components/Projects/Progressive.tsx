@@ -1,16 +1,24 @@
 import { FC } from 'react';
-import { Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
+import { Button } from 'react-mdl';
+import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 export const Progressive: FC = () => {
 	return (
 		<div className="projects-grid">
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title stationeryhq" role="img" aria-label="Image of StationeryHQ website homepage">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					ariaLabel="Image of StationeryHQ website homepage"
+					extraClass="project-cards-title stationeryhq"
+					role="img" 
+				>
 					<span className="title-background">
 						StationeryHQ
 					</span>
 				</CardTitle>
-				<CardText className="project-description">
+				<CardText extraClass="project-description">
 					Customized stationery made easy
 				</CardText>
 				<CardActions border>
@@ -19,13 +27,20 @@ export const Progressive: FC = () => {
 					</Button>
 				</CardActions>
 			</Card>
-			<Card shadow={ 5 } className="project-cards">
-				<CardTitle className="project-cards-title frecklebox" role="img" aria-label="Image of FreckleBox website homepage">
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					aria-label="Image of FreckleBox website homepage"
+					extraClass="project-cards-title frecklebox"
+					role="img" 
+				>
 					<span className="title-background">
 						FreckleBox
 					</span>
 				</CardTitle>
-				<CardText className="project-description">
+				<CardText extraClass="project-description">
 					Personalized gifts for kids
 				</CardText>
 				<CardActions border>
