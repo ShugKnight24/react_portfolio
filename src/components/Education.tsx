@@ -13,10 +13,10 @@ export const Education: FC<EducationInterface> = ({
 }) => {
 	return(
 		<Grid extraClass="education-container">
-			<Cell columns={ 4 }>
+			<Cell columns={ 'third' }>
 				<p>{ startMonth } { startYear } - { endMonth } { endYear }</p>
 			</Cell>
-			<Cell columns={ 8 }>
+			<Cell columns={ 'two-thirds' }>
 				<h3>{ schoolName }</h3>
 				<h4>{ degreeName }</h4>
 				<h5>{ majorName }</h5>

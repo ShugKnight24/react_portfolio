@@ -8,7 +8,7 @@ export const LandingPage: FC = () => {
 	return(
 		<div className="landing-container">
 			<Grid extraClass="landing-grid">
-				<Cell columns={ 12 }>
+				<Cell columns={ 'full' }>
 					<div className="home-feature">
 						<div className="feature-text">
 							<h1>Shugmi Shumunov</h1>

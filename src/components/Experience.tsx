@@ -20,7 +20,7 @@ export const Experience: FC<ExperienceInterface> = ({
 
 	return(
 		<Grid extraClass="experience-container">
-			<Cell columns={12}>
+			<Cell columns={ 'full' }>
 				<h3>{ jobName }</h3>
 				<h4>{ jobPosition }</h4>
 				<span className="date-of-employment">

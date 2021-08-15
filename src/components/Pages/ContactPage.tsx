@@ -6,7 +6,7 @@ export const ContactPage: FC = () => {
 	return (
 		<div className="contact-body">
 			<Grid extraClass="contact-grid">
-				<Cell columns={ 6 }>
+				<Cell columns={ 'half' }>
 					<div className="image-container">
 						<figure>
 							<img
@@ -36,7 +36,7 @@ export const ContactPage: FC = () => {
 						Reach out if you&apos;d like to work with me.
 					</p>
 				</Cell>
-				<Cell columns={ 6 }>
+				<Cell columns={ 'half' }>
 					<h3 className="centered">Contact Info</h3>
 					<hr />
 					<div className="contact-list">

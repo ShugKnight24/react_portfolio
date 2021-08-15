@@ -11,7 +11,7 @@ export const ResumePage : FC = () =>{
 		<div className="resume-page">
 			<Grid>
 				<Cell 
-					columns={ 4 }
+					columns={ 'third' }
 					extraClass="resume-left-column"
 				>
 					<img
@@ -33,7 +33,7 @@ export const ResumePage : FC = () =>{
 					<hr />
 				</Cell>
 				<Cell 
-					columns={ 8 }
+					columns={ 'two-thirds' }
 					extraClass="resume-right-column"
 				>
 					<div className="resume-heading">

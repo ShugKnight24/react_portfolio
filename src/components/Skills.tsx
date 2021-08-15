@@ -17,7 +17,7 @@ export const Skills : FC<SkillsInterface> = ({
 }) => {
 	return(
 		<Grid>
-			<Cell columns={ 12 }>
+			<Cell columns={ 'full' }>
 				<div className="progress-container">
 				{/* <TechIcon
 					key={ `${ iconName }-${ index }` }

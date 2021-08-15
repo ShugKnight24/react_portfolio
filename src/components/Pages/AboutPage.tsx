@@ -5,7 +5,7 @@ export const AboutPage: FC = () => {
 	return (
 		<div className="about-page">
 			<Grid>
-				<Cell columns={ 6 }>
+				<Cell columns={ 'half' }>
 					<div className="image-container">
 						<figure>
 							<img
@@ -19,7 +19,7 @@ export const AboutPage: FC = () => {
 						</figure>
 					</div>
 				</Cell>
-				<Cell columns={ 6 }>
+				<Cell columns={ 'half' }>
 					<h3>About Me</h3>
 
 					<p className="tab">The startup environment is one I enjoy most. Novelty is my lifeblood. I perform best when having to solve multiple technical problems in a creative and elegant manner. I get to touch different aspects of a business and have a large impact.</p>

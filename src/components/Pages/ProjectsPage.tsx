@@ -43,7 +43,7 @@ export const ProjectsPage: FC = () => {
 				>Shumunov Solutions</Tab>
 			</Tabs>
 			<Grid>
-				<Cell columns={ 12 }>
+				<Cell columns={ 'full' }>
 					<div className="content">
 						<Projects 
 							activeTab={ activeTab }
