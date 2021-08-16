@@ -6,20 +6,20 @@
 	.grid {
 
 		@include mq-min(840px){
-			.cell.3 {
+			.cell.quarter {
 				width: 25%;
 			}
 
-			.cell.9 {
+			.cell.three-quarters {
 				width: 75%;
 			}
 		}
 		@include mq-max(950px){
-			.cell.3 {
+			.cell.quarter {
 				width: 100%;
 			}
 
-			.cell.9 {
+			.cell.three-quarters {
 				width: 100%;
 			}
 		}
@@ -39,6 +39,8 @@
 
 		@include mq-max(950px){
 			width: 100%;
+			border: none;
+			border-bottom: 1px solid black;
 		}
 
 		h3,
@@ -104,8 +106,13 @@
 		.book-bar-container {
 			padding-left: 20px;
 			padding-bottom: 20px;
-			border-right: 1px double black;
-			border-bottom: 1px double black;
+			border-right: 3px double black;
+			border-bottom: 3px double black;
+
+			@include mq-max(950px){
+				border-right: none;
+				border-bottom: 1px solid black;
+			}
 
 			.book-bar {
 				overflow-x: scroll;

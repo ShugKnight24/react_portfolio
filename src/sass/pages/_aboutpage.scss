@@ -37,13 +37,12 @@
 		}
 	}
 
-	/* About Grid Corrections */
 	@include mq-max(900px) {
 		.grid {
 			justify-content: center;
 			margin: auto;
 
-			.cell.6 {
+			.cell.half {
 				width: calc(90%);
 			}
 		}

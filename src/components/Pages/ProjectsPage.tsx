@@ -44,11 +44,9 @@ export const ProjectsPage: FC = () => {
 			</Tabs>
 			<Grid>
 				<Cell columns={ 'full' }>
-					<div className="content">
-						<Projects 
-							activeTab={ activeTab }
-						/>
-					</div>
+					<Projects 
+						activeTab={ activeTab }
+					/>
 				</Cell>
 			</Grid>
 		</div>

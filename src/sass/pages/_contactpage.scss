@@ -119,31 +119,20 @@
 			.linkedin-icon:hover {
 				color: #0A66C2;
 			}
-
 		}
 	}
 
 	@include mq-max(1000px) {
-		/* Contact Grid Corrections */
 		.grid {
 			justify-content: center;
-			margin: auto;
+			margin: 15px auto 0;
 
-			.cell.6{
+			.cell.half {
 				width: 90%;
 
 				.mdl-list__item .mdl-list__item-primary-content {
 					display: block;
 				}
-			}
-		}
-	}
-
-	@include mq-max(550px) {
-		.grid {
-			.cell.6 {
-				width: 100%;
-				margin: 0;
 			}
 		}
 	}

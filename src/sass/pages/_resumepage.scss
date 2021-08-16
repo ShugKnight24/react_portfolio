@@ -7,34 +7,16 @@
 		@include mq-max(950px) {
 			justify-content: center;
 		}
-	}
 
-	.cell {
-		margin: 0;
-	}
+		.cell {
+			margin: 0;
 
-	@include mq-min(950px){
-		/* Account for removal of material padding */
-		.cell.4 {
-			width: 33.3333333333%;
-		}
-
-		.cell.8 {
-			width: 66.6666666667%;
-		}
-	}
-
-	@include mq-between(480px, 950px) {
-		.cell.4
-		.cell.8 {
-			width: 100%;
-		}
-	}
-
-	@include mq-max(479px) {
-		.cell.4
-		.cell.8 {
-			width: 100%;
+			@include mq-max(950px) {
+				&.third,
+				&.two-thirds {
+					width: 100%;
+				}
+			}
 		}
 	}
 
