@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from 'react-mdl';
+import { Button } from '../Button/Button';
 import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 export const Progressive: FC = () => {
@@ -22,7 +22,7 @@ export const Progressive: FC = () => {
 					Customized stationery made easy
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.stationeryhq.com" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
@@ -44,7 +44,7 @@ export const Progressive: FC = () => {
 					Personalized gifts for kids
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.frecklebox.com" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from 'react-mdl';
+import { Button } from '../Button/Button';
 import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 export const Games: FC = () => {
@@ -22,10 +22,10 @@ export const Games: FC = () => {
 					Rebuilt Tetris with JavaScript and HTML5 Canvas
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://github.com/ShugKnight24/js_tetris/" rel="noopener noreferrer" target="_blank">GitHub Repository</a>
 					</Button>
-					<Button colored>
+					<Button>
 						<a href="https://shugknight24.github.io/js_tetris/" rel="noopener noreferrer" target="_blank">Live Demo</a>
 					</Button>
 				</CardActions>
@@ -45,10 +45,10 @@ export const Games: FC = () => {
 					Rebuilt Flappy Bird with JavaScript and HTML5 Canvas
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://github.com/ShugKnight24/flappy_bird" rel="noopener noreferrer" target="_blank">GitHub Repository</a>
 					</Button>
-					<Button colored>
+					<Button>
 						<a href="https://shugknight24.github.io/flappy_bird" rel="noopener noreferrer" target="_blank">Live Demo</a>
 					</Button>
 				</CardActions>
@@ -68,10 +68,10 @@ export const Games: FC = () => {
 					Rebuilt Google Chrome Dino runner game w/ HTML, CSS, & Javascript
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://github.com/ShugKnight24/dino_jump" rel="noopener noreferrer" target="_blank">GitHub Repository</a>
 					</Button>
-					<Button colored>
+					<Button>
 						<a href="https://shugknight24.github.io/dino_jump" rel="noopener noreferrer" target="_blank">Live Demo</a>
 					</Button>
 				</CardActions>

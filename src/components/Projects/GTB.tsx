@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from 'react-mdl';
+import { Button } from '../Button/Button';
 import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 export const GTB: FC = () => {
@@ -22,7 +22,7 @@ export const GTB: FC = () => {
 					Website built for Optima Batteries using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.optimabatteries.com/en-us" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
@@ -44,7 +44,7 @@ export const GTB: FC = () => {
 					Website built for Varta Europe using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.varta-automotive.com/en-gb" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
@@ -66,7 +66,7 @@ export const GTB: FC = () => {
 					Website built for Varta China using Concrete5 CMS. Needed their own site due to Chinese regulations. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.varta-automotive.cn/zh-cn" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
@@ -88,7 +88,7 @@ export const GTB: FC = () => {
 					Website built for Delkor Austrailia using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.delkor.com.au/en-au" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
@@ -110,7 +110,7 @@ export const GTB: FC = () => {
 					Website built for Delkor Korea using Concrete5 CMS. Updated content, built features, and wrote styles as needed.
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.delkor.kr/ko-kr" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>

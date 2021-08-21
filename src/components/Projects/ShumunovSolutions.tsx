@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from 'react-mdl';
+import { Button } from '../Button/Button';
 import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 export const ShumunovSolutions: FC = () => {
@@ -22,7 +22,7 @@ export const ShumunovSolutions: FC = () => {
 					Providing technology solutions to South East Michigan businesses
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.shumunovsolutions.com" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
@@ -44,7 +44,7 @@ export const ShumunovSolutions: FC = () => {
 					Website for West Bloomfield, MI general contractor
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.jkunlimitedservices.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
@@ -66,7 +66,7 @@ export const ShumunovSolutions: FC = () => {
 					Website for Oak Park, MI Paper Goods Store
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.papergoodswarehouse.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from 'react-mdl';
+import { Button } from '../Button/Button';
 import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 export const LoveBook: FC = () => {
@@ -22,7 +22,7 @@ export const LoveBook: FC = () => {
 					Redirect site for LoveBookOnline.com and LoveCoups.com
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://www.mylovebook.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
@@ -44,7 +44,7 @@ export const LoveBook: FC = () => {
 					Build personalized coupon books for those you love
 				</CardText>
 				<CardActions border>
-					<Button colored>
+					<Button>
 						<a href="https://lovecoups.com" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>

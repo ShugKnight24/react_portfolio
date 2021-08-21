@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from 'react-mdl';
+import { Button } from '../Button/Button';
 import { Card, CardActions, CardText, CardTitle } from '../Cards';
 
 import { javaScript30Projects } from '../../data/javaScript30Projects';
@@ -30,10 +30,10 @@ export const JavaScript30: FC = () => {
 							{ projectDescription }
 						</CardText>
 						<CardActions border>
-							<Button colored>
+							<Button>
 								<a href={ githubLink } rel="noopener noreferrer" target="_blank">GitHub Repository</a>
 							</Button>
-							<Button colored>
+							<Button>
 								<a href={ projectLink } rel="noopener noreferrer" target="_blank">Live Demo</a>
 							</Button>
 						</CardActions>
