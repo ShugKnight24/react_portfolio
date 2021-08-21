@@ -1,0 +1,33 @@
+.progress-bar-container {
+	display: block;
+	position: relative;
+	height: 4px;
+	width: 100%;
+	max-width: 300px; 
+
+	.bar {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 0%;
+	}
+
+	.progress-bar {
+		background-color: $main-accent-color;
+		z-index: 1;
+		left: 0;
+	}
+
+	.buffer-bar {
+		background-image: linear-gradient(to right, rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)), linear-gradient(to right, $main-accent-color, $main-accent-color);
+		z-index: 0;
+		left: 0;
+		width: 100%;
+	}
+	
+	.aux-bar {
+		right: 0;
+		width: 0%;
+	}
+}
