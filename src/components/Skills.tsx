@@ -2,8 +2,8 @@
 
 import { FC } from 'react';
 // import TechIcon from './TechIcon';
-import { ProgressBar } from 'react-mdl';
 import { Cell, Grid } from './Grid';
+import { ProgressBar } from './ProgressBar/ProgressBar';
 
 import { SkillsInterface } from '../types/skills';
 
@@ -27,7 +27,7 @@ export const Skills : FC<SkillsInterface> = ({
 				<span className={`bold-text ${ progress !== null ? 'skill-name-centered' : '' }`}>{ skill }</span>
 					{
 						progress !== null &&
-						<ProgressBar className="skill-progress" progress={ progress }/>
+						<ProgressBar progress={ progress } />
 					}
 				</div>
 			</Cell>

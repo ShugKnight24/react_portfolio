@@ -212,12 +212,10 @@
 				}
 
 				.skill-progress {
-					margin: auto;
+					flex: 50%;
+					margin: 15px auto;
 					width: 75%;
-
-					&.mdl-progress {
-						height: 8px;
-					}
+					height: 9px;
 				}
 			}
 		}
