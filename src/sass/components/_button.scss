@@ -1,0 +1,42 @@
+.button {
+	background: transparent;
+	border: none;
+	border-radius: 9px;
+	color: #000;
+	position: relative;
+	height: 36px;
+	margin: 0;
+	min-width: 36px;
+	padding: 0 16px;
+	display: inline-block;
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+	overflow: hidden;
+	will-change: all;
+	transition: box-shadow 0.9s cubic-bezier(.4, 0, 1, 1)
+		background-color 0.9s cubic-bezier(.4, 0, .2, 1),
+		color 0.9s cubic-bezier(.4, 0, .2, 1);
+	outline: none;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	line-height: 36px;
+	vertical-align: middle;
+
+	&:hover {
+		background-color: $main-accent-color;
+		color: #FFF;
+
+		a {
+			color: #FFF;
+		}
+	}
+
+	a:hover {
+		color: #FFF;
+	}
+	// TODO Sizing options
+	// TODO Color options
+}
