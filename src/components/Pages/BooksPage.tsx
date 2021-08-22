@@ -1,6 +1,6 @@
 import { FC, MouseEvent, useState } from 'react';
-import { List } from 'react-mdl';
 import { Cell, Grid } from '../Grid';
+import { List } from '../List';
 
 import { BookBar } from '../Books/BookBar';
 import { BookContent } from '../Books/BookContent';
@@ -59,7 +59,7 @@ export const BooksPage: FC = () => {
 							updateBookState={ updateBookState }
 						/>
 					</Grid>
-					<List className="book-list">
+					<List extraClass="book-list">
 						<BookContent
 							allCategories={ allCategoriesArray }
 							currentCategory={ activeCategory }

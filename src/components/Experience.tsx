@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { List, ListItem } from 'react-mdl';
 import { Cell, Grid } from './Grid';
+import { List, ListItem } from './List';
 import { ExperienceInterface } from '../types/experience';
 
 export const Experience: FC<ExperienceInterface> = ({ 
@@ -15,7 +15,13 @@ export const Experience: FC<ExperienceInterface> = ({
 }) => {
 
 	const jobResponsibilitiesList = jobResponsibilities.map(function(jobResponsibility, index){
-		return <ListItem className="job-responsibility" key={ index } dangerouslySetInnerHTML={{__html: jobResponsibility}}></ListItem>;
+		return (
+			<ListItem
+				extraClass="job-responsibility"
+				jobResponsibility={ jobResponsibility }
+				key={ index }
+			></ListItem>
+		);
 	});
 
 	return(
@@ -27,7 +33,7 @@ export const Experience: FC<ExperienceInterface> = ({
 					{ startMonth } { startYear } ➔ { endMonth } { endYear }
 				</span>
 				<p>{ jobDescription }</p>
-				<List className="job-responsibilities-list">
+				<List extraClass="job-responsibilities-list">
 					{ jobResponsibilitiesList }
 				</List>
 			</Cell>
