@@ -1,6 +1,6 @@
 .button {
 	background: transparent;
-	border: none;
+	border: 1px;
 	border-radius: 9px;
 	color: #000;
 	position: relative;
@@ -38,5 +38,63 @@
 		color: #FFF;
 	}
 	// TODO Sizing options
-	// TODO Color options
+
+	&.primary {
+		background-color: $main-accent-color;
+		border-color: $main-accent-color;
+		color: #FFF;
+		
+		&:hover {
+			background-color: #FFF;
+			color: $main-accent-color;
+	
+			a {
+				color: $main-accent-color;
+			}
+		}
+	}
+
+	&.disabled {
+		background-color: #6C757D;
+		border-color: #6C757D;
+		color: #FFF;
+		pointer-events: none;
+
+		&:hover {
+			cursor: not-allowed;
+		}
+	}
+
+	&.continue {
+		background-color: #28A745;
+		border-color: #28A745;
+		color: #FFF;
+
+		&:hover {
+			background-color: #218838;
+			border-color: #1E7E34;
+		}
+	}
+
+	&.stop {
+		background-color: #DC3545;
+		border-color: #DC3545;
+		color: #FFF;
+
+		&:hover {
+			background-color: #C82333;
+			border-color: #BD2130;
+		}
+	}
+
+	&.warning {
+		background-color: #FFC107;
+		border-color: #FFC107;
+		color: #212529;
+
+		&:hover {
+			background-color: #E0A800;
+			border-color: #D39E00;
+		}
+	}
 }

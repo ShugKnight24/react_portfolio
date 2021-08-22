@@ -3,13 +3,19 @@ import { MouseEventHandler } from '../../types/events';
 
 interface ButtonInterface {
 	children?: ReactNode;
-	extraClass?: string;
+	extraClass?: ButtonColors;
 	onClick?: MouseEventHandler;
 	text?: string;
 }
 
+type ButtonColors =
+	'continue'
+	| 'disabled'
+	| 'primary'
+	| 'stop'
+	|'warning';
+
 // TODO additional sizing options
-// TODO add color options
 // TODO robust enough for multiple events
 export const Button: FC<ButtonInterface> = ({
 	children,
