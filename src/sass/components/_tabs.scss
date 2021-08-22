@@ -1,0 +1,69 @@
+.tabs {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	
+	@include mq-max (1000px){
+		display: block;
+	}
+
+	.tab-bar {
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid rgb(224,224,224);
+
+		.tab {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0;
+			border-right: 1px solid rgb(224, 224, 224);
+			padding: 9px 24px;
+			float: left;
+			position: relative;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 15px;
+			text-transform: uppercase;
+			color: rgba(0,0,0, 0.54);
+			text-indent: 0;
+
+			@include mq-min(1000px){
+				padding: 18px 24px;
+				font-size: 12px;
+			}
+
+			&:last-of-type {
+				border-right: none;
+			}
+
+			.spacer {
+				display: block;
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				left: 0px;
+				top: 0px;
+				z-index: 1;
+				overflow: hidden;
+			}
+			
+			&.active {
+				.spacer {
+					height: 3px;
+					width: 100%;
+					display: block;
+					content: ' ';
+					top: auto;
+					bottom: 0;
+					left: 0;
+					position: absolute;
+					background: $main-accent-color;
+					-webkit-animation: border-expand .2s cubic-bezier(.4,0,.4,1) .01s alternate forwards;
+					animation: border-expand .2s cubic-bezier(.4,0,.4,1) .01s alternate forwards;
+					transition: all 1s cubic-bezier(.4,0,1,1);
+				}
+			}
+		}
+	}
+}
