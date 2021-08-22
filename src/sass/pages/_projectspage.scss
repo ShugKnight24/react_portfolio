@@ -1,31 +1,31 @@
 /* Projects Page Styles */
 .projects-page {
-
 	.projects-tabs {
-
-		&.mdl-tabs {
-			@include mq-max(850px) {
-				overflow-x: scroll;
-			}
+		&.tabs {
+			overflow-x: scroll;
 		}
 
 		div {
+			flex-wrap: nowrap;
+			width: max-content;
 
 			@include mq-max(1000px) {
-				height: 100px;
-			}
-
-			@include mq-max(850px) {
-				flex-wrap: nowrap;
-				width: max-content;
+				height: 90px;
 			}
 
 			.tab-name {
+				&.active {
+					color: $main-accent-color;
+				}
+
+				&:hover {
+					color: $main-accent-color;
+				}
+
 				@include mq-max(1000px) {
-					height: 100px;
+					height: 90px;
+					line-height: 90px;
 					padding-top: 25px;
-					line-height: 25px;
-					border-right: 1px solid rgb(224, 224, 224);
 
 					&:last-of-type {
 						border-right: none;
@@ -44,11 +44,6 @@
 				}
 			}
 		}
-	}
-
-	/* Header Fix */
-	@include mq-max(1024px) {
-		margin-top: 64px;
 	}
 
 	p {

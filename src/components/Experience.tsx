@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import { Grid, Cell, List, ListItem } from 'react-mdl';
+import { Cell, Grid } from './Grid';
+import { List, ListItem } from './List';
 import { ExperienceInterface } from '../types/experience';
 
-export const Experience : FC<ExperienceInterface> = ({ 
+export const Experience: FC<ExperienceInterface> = ({ 
 	jobDescription,
 	jobResponsibilities,
 	jobName,
@@ -14,19 +15,25 @@ export const Experience : FC<ExperienceInterface> = ({
 }) => {
 
 	const jobResponsibilitiesList = jobResponsibilities.map(function(jobResponsibility, index){
-		return <ListItem className="job-responsibility" key={ index } dangerouslySetInnerHTML={{__html: jobResponsibility}}></ListItem>;
+		return (
+			<ListItem
+				extraClass="job-responsibility"
+				jobResponsibility={ jobResponsibility }
+				key={ index }
+			></ListItem>
+		);
 	});
 
 	return(
-		<Grid className="experience-container">
-			<Cell col={12}>
+		<Grid extraClass="experience-container">
+			<Cell columns={ 'full' }>
 				<h3>{ jobName }</h3>
 				<h4>{ jobPosition }</h4>
 				<span className="date-of-employment">
 					{ startMonth } { startYear } ➔ { endMonth } { endYear }
 				</span>
 				<p>{ jobDescription }</p>
-				<List className="job-responsibilities-list">
+				<List extraClass="job-responsibilities-list">
 					{ jobResponsibilitiesList }
 				</List>
 			</Cell>

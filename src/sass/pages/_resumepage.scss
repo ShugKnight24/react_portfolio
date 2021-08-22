@@ -1,50 +1,22 @@
 /* Resume Page Styles */
 .resume-page {
-	// Header Fix
-	@include mq-max(1024px) {
-		margin-top: 64px;
-	}
 
-	.mdl-grid {
+	.grid {
 		padding: 0;
 
 		@include mq-max(950px) {
 			justify-content: center;
 		}
-	}
 
-	.mdl-cell {
-		margin: 0;
-	}
+		.cell {
+			margin: 0;
 
-	@include mq-min(950px){
-		/* Account for removal of material padding */
-		.mdl-cell--4-col,
-		.mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
-			width: 33.3333333333%;
-		}
-
-		.mdl-cell--8-col,
-		.mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
-			width: 66.6666666667%;
-		}
-	}
-
-	@include mq-between(480px, 950px) {
-		.mdl-cell--4-col,
-		.mdl-cell--4-col-tablet.mdl-cell--4-col-tablet,
-		.mdl-cell--8-col,
-		.mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
-			width: 100%;
-		}
-	}
-
-	@include mq-max(479px) {
-		.mdl-cell--4-col,
-		.mdl-cell--4-col-tablet.mdl-cell--4-col-tablet,
-		.mdl-cell--8-col,
-		.mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
-			width: 100%;
+			@include mq-max(950px) {
+				&.third,
+				&.two-thirds {
+					width: 100%;
+				}
+			}
 		}
 	}
 
@@ -240,12 +212,10 @@
 				}
 
 				.skill-progress {
-					margin: auto;
+					flex: 50%;
+					margin: 15px auto;
 					width: 75%;
-
-					&.mdl-progress {
-						height: 8px;
-					}
+					height: 9px;
 				}
 			}
 		}

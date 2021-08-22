@@ -1,11 +1,12 @@
 import { FC } from 'react';
-import { Grid, Cell, List, ListItem, ListItemContent } from 'react-mdl';
+import { Cell, Grid } from '../Grid';
+import { List, ListItem, ListItemContent } from '../List';
 
-export const ContactPage : FC = () => {
+export const ContactPage: FC = () => {
 	return (
 		<div className="contact-body">
-			<Grid className="contact-grid">
-				<Cell col={ 6 }>
+			<Grid extraClass="contact-grid">
+				<Cell columns={ 'half' }>
 					<div className="image-container">
 						<figure>
 							<img
@@ -35,7 +36,7 @@ export const ContactPage : FC = () => {
 						Reach out if you&apos;d like to work with me.
 					</p>
 				</Cell>
-				<Cell col={ 6 }>
+				<Cell columns={ 'half' }>
 					<h3 className="centered">Contact Info</h3>
 					<hr />
 					<div className="contact-list">

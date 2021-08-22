@@ -1,0 +1,69 @@
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 4;
+
+	@include mq-max(1024px) {
+		display: none;
+	}
+
+	.header-container {
+		background: $secondary-accent-color; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, $secondary-accent-color, $main-accent-color);	/* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, $secondary-accent-color, $main-accent-color); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-left: 80px;
+		padding-right: 15px;
+		
+		.title {
+			display: block;
+			color: #FFF;
+			font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+			font-size: 24px;
+			font-weight: 500;
+			line-height: 1;
+			letter-spacing: 0.03em;
+		}
+		
+		/* Navigation Styles */
+		nav {
+			display: flex;
+			flex-direction: row;
+	
+			a,
+			a:link {
+				display: block;
+				color: #FFF;
+				line-height: 64px;
+				padding: 0 24px;
+				border-bottom: none;
+			}
+			
+			a.active {
+				font-size: 20px;
+				font-weight: bold;
+				text-shadow: $text-shadow;
+			}
+			
+			a:hover {
+				font-size: 20px;
+				font-weight: bold;
+				text-shadow: $text-shadow;
+			}
+		}
+	}
+}
+
+
+@include mq-max(1024px) {
+	.mobile-header {
+		position: fixed;
+		height: 64px;
+		background-color: white;
+		width: 100%;
+		z-index: 2;
+		border-bottom: 1px solid $main-accent-color;
+	}
+}

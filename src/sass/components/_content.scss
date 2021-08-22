@@ -1,0 +1,6 @@
+.content {
+	// Header Fix
+	@include mq-max(1024px) {
+		padding-top: 64px;
+	}
+}

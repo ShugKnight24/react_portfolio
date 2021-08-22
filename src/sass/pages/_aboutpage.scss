@@ -2,11 +2,6 @@
 .about-page {
 	text-align: center;
 
-	// Header Fix
-	@include mq-max(1024px) {
-		margin-top: 64px;
-	}
-
 	h3 {
 		margin: 0;
 	}
@@ -42,14 +37,12 @@
 		}
 	}
 
-	/* About Grid Corrections */
 	@include mq-max(900px) {
-		.mdl-grid {
+		.grid {
 			justify-content: center;
 			margin: auto;
 
-			.mdl-cell--6-col,
-			.mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
+			.cell.half {
 				width: calc(90%);
 			}
 		}

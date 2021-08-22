@@ -3,13 +3,13 @@
 import { FC } from 'react';
 import { SkillsInterface } from '../types/skills';
 
-export const TechIcon : FC<SkillsInterface>= ({
+export const TechIcon: FC<SkillsInterface>= ({
 	iconName,
 	iconURL
 }) => {
-	let imageClass : string | null = null;
+	let imageClass: string | null = null;
 
-	if (iconName === 'React' || iconName === 'MySQL' || iconName === 'NodeJS' || iconName ===  'jQuery' || iconName ===  'Git' || iconName ===  'MongoDB'){
+	if (iconName === 'React' || iconName === 'MySQL' || iconName === 'NodeJS' || iconName === 'jQuery' || iconName ===  'Git' || iconName ===  'MongoDB'){
 		imageClass = iconName.toLowerCase();
 	}
 	if (iconName === 'React Native'){

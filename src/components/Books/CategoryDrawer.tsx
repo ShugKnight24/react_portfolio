@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Category } from './Category';
-import { Grid } from 'react-mdl';
+import { Grid } from '../Grid';
 import { CategoryDrawerInterface } from '../../types/category';
 
 export const CategoryDrawer : FC<CategoryDrawerInterface> = ({ 
@@ -10,7 +10,7 @@ export const CategoryDrawer : FC<CategoryDrawerInterface> = ({
 }) => {
 	// TODO: Add active / closed state to drawer
 	return(
-		<Grid className="category-drawer">
+		<Grid extraClass="category-drawer">
 			{ 
 				allCategories.map((category, index) => {
 					const altText = category.bookList[0].name + ' by ' + category.bookList[0].author;

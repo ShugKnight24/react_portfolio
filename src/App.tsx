@@ -1,8 +1,15 @@
-import React, { FC, KeyboardEvent, useEffect, useState } from 'react';
+import { FC, KeyboardEvent, useEffect, useState } from 'react';
 import './App.scss';
-import { Layout, Header, Content } from 'react-mdl';
 import { Router } from 'react-router-dom';
-import { Drawer, Footer, Main, Nav } from './components/Layout';
+import {
+	Content,
+	Drawer,
+	Footer,
+	Header,
+	Layout,
+	Main,
+	Nav
+} from './components/Layout';
 import * as ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 
@@ -50,7 +57,9 @@ export const App : FC = () => {
 	return (
 		<Router history={ history }>
 			<Layout>
-				<Header className="header-color" title="Shugmi's Portfolio" scroll>
+				<Header 
+					title={'Shugmi\'s Portfolio'}
+				>
 					{ navRoutes }
 				</Header>
 				<div

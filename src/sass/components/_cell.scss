@@ -1,0 +1,20 @@
+.cell {
+	&.quarter {
+		width: 25%;
+	}
+	&.third {
+		width: 33.33%;
+	}
+	&.half {
+		width: 50%;
+	}
+	&.two-thirds {
+		width: 66.67%;
+	}
+	&.three-quarters {
+		width: 75%;
+	}
+	&.full {
+		width: 100%;
+	}
+}

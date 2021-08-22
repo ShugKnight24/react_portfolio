@@ -3,32 +3,24 @@
 	max-width: 1440px;
 	margin: 0 auto;
 
-	@include mq-max(1024px){
-		margin-top: 60px;
-	}
-
-	.mdl-grid {
+	.grid {
 
 		@include mq-min(840px){
-			.mdl-cell--3-col,
-			.mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
-				width: calc(25%);
+			.cell.quarter {
+				width: 25%;
 			}
 
-			.mdl-cell--9-col,
-			.mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
-				width: calc(75%);
+			.cell.three-quarters {
+				width: 75%;
 			}
 		}
 		@include mq-max(950px){
-			.mdl-cell--3-col,
-			.mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
-				width: calc(100%);
+			.cell.quarter {
+				width: 100%;
 			}
 
-			.mdl-cell--9-col,
-			.mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
-				width: calc(100%);
+			.cell.three-quarters {
+				width: 100%;
 			}
 		}
 	}
@@ -47,6 +39,8 @@
 
 		@include mq-max(950px){
 			width: 100%;
+			border: none;
+			border-bottom: 1px solid black;
 		}
 
 		h3,
@@ -112,8 +106,13 @@
 		.book-bar-container {
 			padding-left: 20px;
 			padding-bottom: 20px;
-			border-right: 1px double black;
-			border-bottom: 1px double black;
+			border-right: 3px double black;
+			border-bottom: 3px double black;
+
+			@include mq-max(950px){
+				border-right: none;
+				border-bottom: 1px solid black;
+			}
 
 			.book-bar {
 				overflow-x: scroll;

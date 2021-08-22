@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Book } from './Book'
-import { Cell } from 'react-mdl';
+import { Cell } from '../Grid';
+import { Book } from './Book';
 import { BookBarInterface } from '../../types/books';
 
 export const BookBar : FC<BookBarInterface> = ({
@@ -16,9 +16,10 @@ export const BookBar : FC<BookBarInterface> = ({
 	const currentlySelectedCategory = allCategories[currentCatIndex];
 	const currentCatName = currentlySelectedCategory.categoryName;
 
-	return(
-		<Cell col={12}
-			className="book-bar"
+	return (
+		<Cell
+			columns={'full'}
+			extraClass="book-bar"
 			onClick={ updateBookState }
 		>
 			<h4>{ currentCatName }</h4>

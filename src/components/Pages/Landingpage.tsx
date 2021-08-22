@@ -1,14 +1,14 @@
 import { FC } from 'react';
-import { Grid, Cell } from 'react-mdl';
+import { Cell, Grid } from '../Grid';
 
 import { techIcons } from '../../data/techIcons';
 import { TechIcon } from '../TechIcon';
 
-export const LandingPage : FC = () => {
+export const LandingPage: FC = () => {
 	return(
 		<div className="landing-container">
-			<Grid className="landing-grid">
-				<Cell col={ 12 }>
+			<Grid extraClass="landing-grid">
+				<Cell columns={ 'full' }>
 					<div className="home-feature">
 						<div className="feature-text">
 							<h1>Shugmi Shumunov</h1>

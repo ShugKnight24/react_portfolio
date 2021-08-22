@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 interface NavProps {
-	drawerClose: () => void
+	drawerClose: () => void;
 }
 
-export const Nav : FC<NavProps> = ({ drawerClose }) => {
+export const Nav: FC<NavProps> = ({ drawerClose }) => {
 	return (
 		<nav className="nav">
 			<NavLink

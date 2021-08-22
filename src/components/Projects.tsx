@@ -1,11 +1,19 @@
 import { FC } from 'react';
-import { Games, GTB, JavaScript30, LoveBook, PersonalProjects, Progressive, ShumunovSolutions } from './Projects/index';
+import {
+	Games,
+	GTB,
+	JavaScript30,
+	LoveBook,
+	PersonalProjects,
+	Progressive,
+	ShumunovSolutions
+} from './Projects/index';
 
 type ActiveTab = {
 	activeTab: number
 }
 
-export const Projects : FC<ActiveTab> = ({ activeTab }) => {
+export const Projects: FC<ActiveTab> = ({ activeTab }) => {
 	const currentProject = () => {
 		if (activeTab === 0) {
 			return <PersonalProjects />;
