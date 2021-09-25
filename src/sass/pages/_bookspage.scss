@@ -78,6 +78,7 @@
 
 				.category-cover {
 					min-width: 200px;
+					max-width: 200px;
 					height: 300px;
 
 					@include mq-max(950px){
@@ -172,11 +173,18 @@
 
 			.book-cover {
 				border: 3px double black;
-				min-width: 300px;
-				height: 450px;
+				min-width: 450px;
+				height: 600px;
+				
+				@include mq-max(950px){
+					min-width: 300px;
+					max-width: 300px;
+					height: 450px;
+				}
 
 				@include mq-max(600px){
 					min-width: 200px;
+					max-width: 200px;
 					height: 300px;
 				}
 			}
