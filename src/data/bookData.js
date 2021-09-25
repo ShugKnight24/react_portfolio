@@ -58,6 +58,21 @@ export const previouslyRead = {
 	index: 2,
 	bookList: [
 		{
+			name: 'The Giver',
+			author: 'Lois Lowry',
+			imgSrc: './img/books/the_giver.jpeg'
+		},
+		{
+			name: 'The Alchemist',
+			author: 'Paulo Coelho',
+			imgSrc: './img/books/alchemist.jpg'
+		},
+		{
+			name: 'The Power of Now',
+			author: 'Eckhart Tolle',
+			imgSrc: './img/books/power_of_now.jpeg',
+		},
+		{
 			name: 'Siddhartha',
 			author: 'Hermann Hesse',
 			imgSrc: './img/books/siddhartha.jpeg',
