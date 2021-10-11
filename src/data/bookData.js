@@ -35,6 +35,11 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
+			name: 'The Four Agreements: A Toltec Wisdom Book',
+			author: 'Don Miguel Ruiz',
+			imgSrc: './img/books/four_agreements.jpeg'
+		},
+		{
 			name: 'Sapiens: A Brief History of Humanking',
 			author: 'Yuval Noah Harrari',
 			imgSrc: './img/books/sapiens.jpeg',
@@ -57,6 +62,11 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'Remember, Be Here Now',
+			author: 'Ram Dass',
+			imgSrc: './img/books/be_here_now.jpeg'
+		},
 		{
 			name: 'The Giver',
 			author: 'Lois Lowry',
