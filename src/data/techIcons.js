@@ -50,7 +50,7 @@ export const techIcons = [
 	{
 		iconName: 'React Native',
 		iconURL: '../img/tech_icons/react.svg',
-		progress: 75,
+		progress: 80,
 		skillType: 'Front-End Framework / Library'
 	},
 	{
@@ -68,7 +68,7 @@ export const techIcons = [
 	{
 		iconName: 'PHP',
 		iconURL: '../img/tech_icons/php.svg',
-		progress: 75,
+		progress: 60,
 		skillType: 'Language'
 	},
 	{
@@ -98,13 +98,13 @@ export const techIcons = [
 	{
 		iconName: 'Rust',
 		iconURL: '../img/tech_icons/rust.svg',
-		progress: 95,
+		progress: 30,
 		skillType: 'Language'
 	},
 	{
 		iconName: 'Python',
 		iconURL: '../img/tech_icons/python.svg',
-		progress: 95,
+		progress: 60,
 		skillType: 'Language'
 	},
 	{
