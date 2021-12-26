@@ -143,12 +143,17 @@
 				text-decoration: underline;
 			}
 
+			h4 {
+				text-align: center;
+			}
+
 			.tech-skill {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				
+				flex: 50%;
+
 				img {
 					height: 75px;
 					max-height: 75px;
@@ -197,13 +202,22 @@
 
 			.progress-container {
 				display: flex;
-				margin-bottom: 10px;
+				margin: 10px 0;
+				align-items: center;
 
 				span {
-					width: 150px;
-					font-size: 24px;
+					&.bar {
+						color: $main-accent-color;
+						padding: 0 20px;
+						font-size: 48px;
+
+						@include mq-max(500px) {
+							padding: 0 5px;
+						}
+					}
 
 					&.skill-name-centered {
+						flex: 50%;
 						width: 100%;
 						text-align: center;
 						font-size: 21px;
