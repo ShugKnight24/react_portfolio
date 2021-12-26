@@ -413,13 +413,23 @@ export const ResumePage : FC = () =>{
 					/>
 
 					<Education
-						startMonth={  'July'  }
-						startYear={  2016  }
-						endMonth={  'September'  }
-						endYear={  2016  }
-						schoolName={  'Grand Circus Detroit'  }
-						degreeName={  'Front End Development Bootcamp'  }
-						majorName={  null  }
+						startMonth={ 'August' }
+						startYear={ 2021 }
+						endMonth={ 'February' }
+						endYear={ 2022 }
+						schoolName={ 'Grand Circus Detroit' }
+						degreeName={ 'Data Engineering Bootcamp' }
+						majorName={ null }
+					/>
+					
+					<Education
+						startMonth={ 'July' }
+						startYear={ 2016 }
+						endMonth={ 'September' }
+						endYear={ 2016 }
+						schoolName={ 'Grand Circus Detroit' }
+						degreeName={ 'Front End Development Bootcamp' }
+						majorName={ null }
 					/>
 
 				</Cell>
