@@ -63,6 +63,12 @@ export const previouslyRead = {
 	index: 2,
 	bookList: [
 		{
+			name: 'The War of Art: Break Through the Blocks and Win Your Inner Creative Battles',
+			author: 'Steven Pressfield',
+			imgSrc: './img/books/war_of_art.jpeg',
+			readNo: 3
+		},
+		{
 			name: 'Remember, Be Here Now',
 			author: 'Ram Dass',
 			imgSrc: './img/books/be_here_now.jpeg'
