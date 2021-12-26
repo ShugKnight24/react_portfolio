@@ -39,15 +39,14 @@ export const LandingPage: FC = () => {
 						<hr />
 						<div>
 							<span className="bar">|</span>
-							{
-								techIcons.map(({iconName, iconURL}, index) => (
-									<TechIcon
-										key={ `${ iconName }-${ index }` }
-										iconName={ iconName }
-										iconURL={ iconURL }
-									/>
-								))
-							}
+							{techIcons.map(({iconName, iconURL, nameInLogo}, index) => (
+								<TechIcon
+									key={ `${ iconName }-${ index }` }
+									iconName={ iconName }
+									iconURL={ iconURL }
+									nameInLogo={nameInLogo}
+								/>
+							))}
 						</div>
 						<div className="social-links">
 							{ /* GitHub Link */ }

@@ -1,11 +1,10 @@
-//TODO:// Refactor Skills & TechIcons
-
 import { FC } from 'react';
 import { SkillsInterface } from '../types/skills';
 
-export const TechIcon: FC<SkillsInterface>= ({
+export const TechIcon: FC<SkillsInterface> = ({
 	iconName,
-	iconURL
+	iconURL,
+	nameInLogo
 }) => {
 	let imageClass: string | null = null;
 
@@ -16,13 +15,15 @@ export const TechIcon: FC<SkillsInterface>= ({
 		imageClass = 'react';
 	}
 
-	return(
+	return (
 		<>
 			<div className="tech-skill">
 				<img className={ imageClass ? imageClass : '' } src={ iconURL } alt={ `${ iconName ? iconName : 'No' } Icon` } />
-				<p>{ iconName }</p>
+				{!nameInLogo && iconName && (
+					<p>{ iconName }</p>
+				)}
 			</div>
 			<span className="bar">|</span>
 		</>
-	)
+	);
 }
