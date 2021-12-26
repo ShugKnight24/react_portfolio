@@ -112,5 +112,11 @@ export const techIcons = [
 		iconURL: '../img/tech_icons/git.svg',
 		progress: 75,
 		skillType: 'Tool'
+	},
+	{
+		iconName: 'Java',
+		iconURL: '../img/tech_icons/java.svg',
+		progress: 30,
+		skillType: 'Language'
 	}
 ];
