@@ -35,19 +35,18 @@ export const LandingPage: FC = () => {
 						/>
 					</div>
 					<div className="banner-text">
-						<h2>Full Stack Web Developer</h2>
+						<h2>Full Stack Mobile & Web Developer</h2>
 						<hr />
 						<div>
 							<span className="bar">|</span>
-							{
-								techIcons.map(({iconName, iconURL}, index) => (
-									<TechIcon
-										key={ `${ iconName }-${ index }` }
-										iconName={ iconName }
-										iconURL={ iconURL }
-									/>
-								))
-							}
+							{techIcons.map(({iconName, iconURL, nameInLogo}, index) => (
+								<TechIcon
+									key={ `${ iconName }-${ index }` }
+									iconName={ iconName }
+									iconURL={ iconURL }
+									nameInLogo={nameInLogo}
+								/>
+							))}
 						</div>
 						<div className="social-links">
 							{ /* GitHub Link */ }

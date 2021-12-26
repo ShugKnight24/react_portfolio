@@ -289,128 +289,32 @@ export const ResumePage : FC = () =>{
 					<p className="tab">I consider myself a lifelong learner. Someone who is committed to mastering their craft to become the best developer they can be. I enjoy the challenge of picking up additional languages and skills to expand my knowledge and abilities. It allows me to approach and solve the problems I encounter in a nuanced way. The more I learn, the more I realize I don&apos;t know.</p>
 
 					<div className="skills-container">
-						{
-							techIcons.map(({
-								iconName,
-								iconURL,
-								progress
-							}, index) => {
-								return(
-									<Skills
-										key={ `${ iconName }-${ index }` }
-										iconName={ iconName }
-										iconURL={ iconURL }
-										index={ index }
-										progress={ progress }
-									/>
-								);
-							})
-						}
+						{techIcons.map(({
+							iconName,
+							iconURL,
+							nameInLogo,
+							progress
+						}, index) => {
+							return(
+								<Skills
+									key={ `${ iconName }-${ index }` }
+									iconName={ iconName }
+									iconURL={ iconURL }
+									index={ index }
+									nameInLogo={nameInLogo}
+									progress={ progress }
+								/>
+							);
+						})}
 						<h3>Languages</h3>
-
-						<Skills
-							skill={ 'HTML' }
-							progress={ 95 }
-						/>
-
-						<Skills
-							skill={ 'CSS' }
-							progress={ 85 }
-						/>
-
-						<Skills
-							skill={ 'SASS' }
-							progress={ 85 }
-						/>
-						
-
-						<Skills
-							skill={ 'JavaScript' }
-							progress={ 85 }
-						/>
-
-						<Skills
-							skill={ 'TypeScript' }
-							progress={ 75 }
-						/>
-
-						<Skills
-							skill={ 'PHP' }
-							progress={ 75 }
-						/>
-						
-						<Skills
-							skill={ 'Python' }
-							progress={ 45 }
-						/>
-						
-						<Skills
-							skill={ 'Rust' }
-							progress={ 30 }
-						/>
 
 						<h3>Front-End Frameworks & Libraries</h3>
 
-						<Skills
-							skill={ 'BootStap' }
-							progress={ 75 }
-						/>
-
-						<Skills
-							skill={ 'jQuery' }
-							progress={ 80 }
-						/>
-
-						<Skills
-							skill={ 'React' }
-							progress={ 80 }
-						/>
-
-						<Skills
-							skill={ 'React Native' }
-							progress={ 70 }
-						/>
-						
-						<Skills
-							skill={ 'D3' }
-							progress={ 60 }
-						/>
-
 						<h3>Back-End Frameworks & Libraries</h3>
-
-						<Skills
-							skill={ 'Node.js' }
-							progress={ 65 }
-						/>
 
 						<h3>Databases</h3>
 
-						<Skills
-							skill={ 'MySQL' }
-							progress={ 40 }
-						/>
-
-						<Skills
-							skill={ 'MongoDB' }
-							progress={ 30 }
-						/>
-
 						<h3>Programming Tools</h3>
-
-						<Skills
-							skill={ 'GIT / GitHub' }
-							progress={ 90 }
-						/>
-
-						<Skills
-							skill={ 'Shopify' }
-							progress={ 80 }
-						/>
-
-						<Skills
-							skill={ 'Liquid' }
-							progress={ 90 }
-						/>
 
 						<h3>Design Tools</h3>
 
@@ -509,13 +413,23 @@ export const ResumePage : FC = () =>{
 					/>
 
 					<Education
-						startMonth={  'July'  }
-						startYear={  2016  }
-						endMonth={  'September'  }
-						endYear={  2016  }
-						schoolName={  'Grand Circus Detroit'  }
-						degreeName={  'Front End Development Bootcamp'  }
-						majorName={  null  }
+						startMonth={ 'August' }
+						startYear={ 2021 }
+						endMonth={ 'February' }
+						endYear={ 2022 }
+						schoolName={ 'Grand Circus Detroit' }
+						degreeName={ 'Data Engineering Bootcamp' }
+						majorName={ null }
+					/>
+					
+					<Education
+						startMonth={ 'July' }
+						startYear={ 2016 }
+						endMonth={ 'September' }
+						endYear={ 2016 }
+						schoolName={ 'Grand Circus Detroit' }
+						degreeName={ 'Front End Development Bootcamp' }
+						majorName={ null }
 					/>
 
 				</Cell>
