@@ -63,6 +63,11 @@ export const previouslyRead = {
 	index: 2,
 	bookList: [
 		{
+			name: 'The Boy, the Mole, the Fox and the Horse',
+			author: 'Charlie Mackesy',
+			imgSrc: './img/books/boy_mole_fox_horse.jpeg',
+		},
+		{
 			name: 'The War of Art: Break Through the Blocks and Win Your Inner Creative Battles',
 			author: 'Steven Pressfield',
 			imgSrc: './img/books/war_of_art.jpeg',
