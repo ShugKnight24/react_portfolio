@@ -63,6 +63,11 @@ export const previouslyRead = {
 	index: 2,
 	bookList: [
 		{
+			name: 'Mindset: The New Psychology of Success',
+			author: 'Carol S. Dweck',
+			imgSrc: './img/books/mindset.jpeg'
+		},
+		{
 			name: 'The Boy, the Mole, the Fox and the Horse',
 			author: 'Charlie Mackesy',
 			imgSrc: './img/books/boy_mole_fox_horse.jpeg',
