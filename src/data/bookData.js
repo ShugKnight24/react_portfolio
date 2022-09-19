@@ -35,14 +35,14 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: 'The Four Agreements: A Toltec Wisdom Book',
-			author: 'Don Miguel Ruiz',
-			imgSrc: './img/books/four_agreements.jpeg'
+			name: 'Zero to One: Notes on Startups, or How To Build The Future',
+			author: 'Peter Thiel',
+			imgSrc: './img/books/zero_to_one.jpeg'
 		},
 		{
-			name: 'Sapiens: A Brief History of Humanking',
-			author: 'Yuval Noah Harrari',
-			imgSrc: './img/books/sapiens.jpeg',
+			name: 'Psycho-Cybernetics: Updated and Expanded',
+			author: 'Dr. Maxwell Maltz',
+			imgSrc: './img/books/psycho_cybernetics.jpeg',
 		},
 		{
 			name: 'Ogilvy on Advertising',
