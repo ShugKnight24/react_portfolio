@@ -24,7 +24,7 @@ export const techIcons = [
 		iconName: 'BootStrap',
 		iconURL: '../img/tech_icons/bootstrap.svg',
 		progress: 75,
-		skillType: 'Front-End Framework / Library',
+		skillType: 'Front-End Library',
 		nameInLogo: false
 	},
 	{
@@ -138,5 +138,40 @@ export const techIcons = [
 		progress: 30,
 		skillType: 'Language',
 		nameInLogo: true
+	},
+	{
+		iconName: 'Angular',
+		iconURL: '../img/tech_icons/angular.svg',
+		progress: 30,
+		skillType: 'Framework',
+		nameInLogo: false
+	},
+	{
+		iconName: 'Cypress',
+		iconURL: '../img/tech_icons/cypress.svg',
+		progress: 30,
+		skillType: 'Framework',
+		nameInLogo: false
+	},
+	{
+		iconName: 'Nest',
+		iconURL: '../img/tech_icons/nestjs.svg',
+		progress: 30,
+		skillType: 'Framework',
+		nameInLogo: false
+	},
+	{
+		iconName: 'Swift',
+		iconURL: '../img/tech_icons/swift.svg',
+		progress: 30,
+		skillType: 'Language',
+		nameInLogo: false
+	},
+	{
+		iconName: 'SwiftUI',
+		iconURL: '../img/tech_icons/swiftui.svg',
+		progress: 30,
+		skillType: 'UI Framework',
+		nameInLogo: false
 	}
 ];

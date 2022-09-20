@@ -11,8 +11,9 @@ export const ProgressBar: FC<ProgressBarInterface> = ({ progress }) => {
 				className="progress-bar bar"
 				style={{ width: `${ progress }%` }}
 			></div>
-			<div className="buffer-bar bar" ></div>
+			<div className="buffer-bar bar"></div>
 			<div className="aux-bar bar"></div>
+			<p>{ progress }%</p>
 		</div>
 	);
 }

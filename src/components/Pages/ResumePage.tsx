@@ -289,24 +289,26 @@ export const ResumePage : FC = () =>{
 					<p className="tab">I consider myself a lifelong learner. Someone who is committed to mastering their craft to become the best developer they can be. I enjoy the challenge of picking up additional languages and skills to expand my knowledge and abilities. It allows me to approach and solve the problems I encounter in a nuanced way. The more I learn, the more I realize I don&apos;t know.</p>
 
 					<div className="skills-container">
-						{techIcons.map(({
-							iconName,
-							iconURL,
-							nameInLogo,
-							progress
-						}, index) => {
-							return(
-								<Skills
-									key={ `${ iconName }-${ index }` }
-									iconName={ iconName }
-									iconURL={ iconURL }
-									index={ index }
-									nameInLogo={nameInLogo}
-									progress={ progress }
-								/>
-							);
-						})}
-						<h3>Languages</h3>
+						<div className="tech-icon-container">
+							{techIcons.map(({
+								iconName,
+								iconURL,
+								nameInLogo,
+								progress
+							}, index) => {
+								return(
+									<Skills
+										key={ `${ iconName }-${ index }` }
+										iconName={ iconName }
+										iconURL={ iconURL }
+										index={ index }
+										nameInLogo={nameInLogo}
+										progress={ progress }
+									/>
+								);
+							})}
+						</div>
+						{/* <h3>Languages</h3>
 
 						<h3>Front-End Frameworks & Libraries</h3>
 
@@ -316,9 +318,10 @@ export const ResumePage : FC = () =>{
 
 						<h3>Programming Tools</h3>
 
-						<h3>Design Tools</h3>
+						*/}
 
-						<h4>Adobe Creative Cloud</h4>
+{/* TODO: Find SVG Icons for these skills */}
+					<h3>Design Tools</h3>
 						<Skills
 							skill={ 'Photoshop' }
 							progress={ 45 }
@@ -334,7 +337,6 @@ export const ResumePage : FC = () =>{
 							progress={ 30 }
 						/>
 
-						<h4>Additional Design Tools</h4>
 						<Skills
 							skill={ 'Figma' }
 							progress={ 30 }
@@ -393,6 +395,26 @@ export const ResumePage : FC = () =>{
 					</div>
 
 					<Education
+						startMonth={ 'August' }
+						startYear={ 2021 }
+						endMonth={ 'February' }
+						endYear={ 2022 }
+						schoolName={ 'Grand Circus Detroit' }
+						degreeName={ 'Data Engineering Bootcamp' }
+						majorName={ null }
+					/>
+
+					<Education
+						startMonth={ 'July' }
+						startYear={ 2016 }
+						endMonth={ 'September' }
+						endYear={ 2016 }
+						schoolName={ 'Grand Circus Detroit' }
+						degreeName={ 'Front End Development Bootcamp' }
+						majorName={ null }
+					/>
+
+					<Education
 						startMonth={ 'July' }
 						startYear={ 2008 }
 						endMonth={ 'May' }
@@ -410,26 +432,6 @@ export const ResumePage : FC = () =>{
 						schoolName={ 'Wayne State University' }
 						degreeName={ 'Bachelors of Arts in Slavic Studies' }
 						majorName={ 'Honors Slavic Studies' }
-					/>
-
-					<Education
-						startMonth={ 'August' }
-						startYear={ 2021 }
-						endMonth={ 'February' }
-						endYear={ 2022 }
-						schoolName={ 'Grand Circus Detroit' }
-						degreeName={ 'Data Engineering Bootcamp' }
-						majorName={ null }
-					/>
-					
-					<Education
-						startMonth={ 'July' }
-						startYear={ 2016 }
-						endMonth={ 'September' }
-						endYear={ 2016 }
-						schoolName={ 'Grand Circus Detroit' }
-						degreeName={ 'Front End Development Bootcamp' }
-						majorName={ null }
 					/>
 
 				</Cell>

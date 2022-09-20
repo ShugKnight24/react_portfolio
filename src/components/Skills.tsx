@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { TechIcon } from './TechIcon';
 import { Cell, Grid } from './Grid';
-import { ProgressBar } from './ProgressBar/ProgressBar';
 
 import { SkillsInterface } from '../types/skills';
 
@@ -25,10 +24,8 @@ export const Skills : FC<SkillsInterface> = ({
 							iconName={ iconName }
 							iconURL={ iconURL }
 							nameInLogo={ nameInLogo }
+							progress={ progress }
 						/>
-					)}
-					{progress !== null && (
-						<ProgressBar progress={ progress } />
 					)}
 				</div>
 			</Cell>
