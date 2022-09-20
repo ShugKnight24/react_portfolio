@@ -137,6 +137,16 @@
 
 		.skills-container {
 
+			.tech-icon-container {
+				display: flex;
+				flex-wrap: wrap;
+				padding: 15px;
+
+				> div {
+					width: 33%;
+				}
+			}
+
 			h3 {
 				text-align: center;
 				font-size: 24px;
@@ -154,6 +164,14 @@
 				justify-content: center;
 				flex: 50%;
 
+				.image {
+					text-align: center;
+				}
+
+				span.bar {
+					display: none;
+				}
+
 				img {
 					height: 75px;
 					max-height: 75px;
@@ -167,6 +185,13 @@
 						max-width: 50px;
 					}
 
+					&.cypress,
+					&.git {
+						background-color: #FFF;
+						padding: 3px;
+						border-radius: 50%;
+					}
+
 					&.jquery {
 						width: 250px;
 						max-width: 250px;
@@ -175,7 +200,6 @@
 							width: 150px;
 							max-width: 150px;
 						}
-
 					}
 
 					&.react,
@@ -226,10 +250,16 @@
 				}
 
 				.skill-progress {
-					flex: 50%;
 					margin: 15px auto;
 					width: 75%;
 					height: 9px;
+					display: flex;
+					flex-direction: row-reverse;
+
+					p {
+						font-weight: bold;
+						font-size: 1.25rem;
+					}
 				}
 			}
 		}
