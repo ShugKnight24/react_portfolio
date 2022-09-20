@@ -318,10 +318,10 @@ export const ResumePage : FC = () =>{
 
 						<h3>Programming Tools</h3>
 
-						<h3>Design Tools</h3> */}
+						*/}
 
 {/* TODO: Find SVG Icons for these skills */}
-						<h4>Adobe Creative Cloud</h4>
+					<h3>Design Tools</h3>
 						<Skills
 							skill={ 'Photoshop' }
 							progress={ 45 }
@@ -337,7 +337,6 @@ export const ResumePage : FC = () =>{
 							progress={ 30 }
 						/>
 
-						<h4>Additional Design Tools</h4>
 						<Skills
 							skill={ 'Figma' }
 							progress={ 30 }
