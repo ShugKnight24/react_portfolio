@@ -63,10 +63,46 @@ export const ResumePage : FC = () =>{
 					<hr />
 
 					<Experience
+						startMonth={ null }
+						startYear={ null }
+						endMonth={ null }
+						endYear={ null }
+						jobName={ 'Olive' }
+						jobPosition={ 'Software Engineer' }
+						jobDescription={ null }
+						jobResponsibilities={
+							[
+								`Healthcare Automations`,
+								`AppliedML Team`,
+								`Olive Analytics Suite`
+							]
+						}
+					/>
+
+					<hr />
+
+					<Experience
+						startMonth={ null }
+						startYear={ null }
+						endMonth={ null }
+						endYear={ null }
+						jobName={ 'Nexient' }
+						jobPosition={ 'Senior Software Engineer' }
+						jobDescription={ null }
+						jobResponsibilities={
+							[
+								`Levis Mobile App`,
+							]
+						}
+					/>
+
+					<hr />
+
+					<Experience
 						startMonth={ 'February' }
 						startYear={ 2021 }
-						endMonth={ 'Present' }
-						endYear={ null }
+						endMonth={ 'April' }
+						endYear={ 2021 }
 						jobName={ 'BoozApp' }
 						jobPosition={ 'Consultant / Developer' }
 						jobDescription={ null }
