@@ -29,7 +29,7 @@ export const Experience: FC<ExperienceInterface> = ({
 			<Cell columns={ 'full' }>
 				<h3>{ jobName }</h3>
 				<h4>{ jobPosition }</h4>
-				<span className="date-of-employment">
+				<span className={`date-of-employment ${ startMonth === null ? 'hidden' : ''}`}>
 					{ startMonth } { startYear } ➔ { endMonth } { endYear }
 				</span>
 				<p>{ jobDescription }</p>
