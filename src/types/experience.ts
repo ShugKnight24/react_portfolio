@@ -3,8 +3,8 @@ export interface ExperienceInterface {
 	jobResponsibilities: Array<string>;
 	jobName: string | null;
 	jobPosition: string;
-	startMonth: string;
-	startYear: number;
+	startMonth: string | null;
+	startYear: number| null;
 	endMonth: string | null;
 	endYear: number | null;
 }

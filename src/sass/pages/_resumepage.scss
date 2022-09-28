@@ -112,6 +112,12 @@
 
 		.experience-container {
 
+			.date-of-employment {
+				&.hidden {
+					display: none;
+				}
+			}
+
 			.job-responsibilities-list {
 				margin: 0;
 				padding-top: 0;
