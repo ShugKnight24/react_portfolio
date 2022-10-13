@@ -63,6 +63,16 @@ export const previouslyRead = {
 	index: 2,
 	bookList: [
 		{
+			name: 'Relationships 101: What Every Leader Needs To Know',
+			author: 'John C. Maxwell',
+			imgSrc: './img/books/relationships_101.jpg'
+		},
+		{
+			name: 'Success Through A Positive Mental Attitude',
+			author: 'Napoleon Hill, W. Clement Stone',
+			imgSrc: './img/books/success_through_positive_mental_attitude.jpg'
+		},
+		{
 			name: 'Mindset: The New Psychology of Success',
 			author: 'Carol S. Dweck',
 			imgSrc: './img/books/mindset.jpeg'
