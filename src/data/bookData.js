@@ -63,6 +63,30 @@ export const previouslyRead = {
 	index: 2,
 	bookList: [
 		{
+			name: 'Do The Work',
+			author: 'Steven Pressfield',
+			imgSrc: './img/books/do_the_work.jpeg',
+			readNo: 1,
+			audioBook: true,
+			listenNo: 1
+		},
+		{
+			name: 'Turning Pro',
+			author: 'Steven Pressfield',
+			imgSrc: './img/books/turning_pro.jpeg',
+			readNo: 1,
+			audioBook: true,
+			listenNo: 1
+		},
+		{
+			name: 'The War of Art: Break Through the Blocks and Win Your Inner Creative Battles',
+			author: 'Steven Pressfield',
+			imgSrc: './img/books/war_of_art.jpeg',
+			readNo: 3,
+			audioBook: true,
+			listenNo: 1
+		},
+		{
 			name: 'Relationships 101: What Every Leader Needs To Know',
 			author: 'John C. Maxwell',
 			imgSrc: './img/books/relationships_101.jpg'
@@ -135,6 +159,7 @@ export const previouslyRead = {
 			name: 'Turning Pro',
 			author: 'Steven Pressfield',
 			imgSrc: './img/books/turning_pro.jpeg',
+			readNo: 1
 		},
 		{
 			name: 'Gorilla Mindset: How to Control Your Thought and Emotions, Improve Your Health and Fitness, Make More Money, and Live Life On Your Terms',
