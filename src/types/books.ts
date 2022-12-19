@@ -14,6 +14,8 @@ interface bookList {
 	author: string;
 	imgSrc: string;
 	readNo?: number;
+	audioBook?: boolean;
+	listenNo?: number;
 }
 
 export interface bookData {
