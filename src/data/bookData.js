@@ -35,6 +35,31 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
+			name: 'Clean Code: A Handbook of Agile Software Craftsmanship',
+			author: 'Robert C. Martin',
+			imgSrc: './img/books/clean_code.jpg'
+		},
+		{
+			name: 'The Idiot',
+			author: 'Fyodor Dostoyevsky',
+			imgSrc: './img/books/the_idiot.jpg'
+		},
+		{
+			name: 'The Brothers Karamazov',
+			author: 'Fyodor Dostoyevsky',
+			imgSrc: './img/books/brothers_karamazov.jpg'
+		},
+		{
+			name: 'The Alchemist',
+			author: 'Paulo Coelho',
+			imgSrc: './img/books/alchemist.jpg'
+		},
+		{
+			name: 'Ugly Love',
+			author: 'Colleen Hoover',
+			imgSrc: './img/books/ugly_love.jpg'
+		},
+		{
 			name: 'Zero to One: Notes on Startups, or How To Build The Future',
 			author: 'Peter Thiel',
 			imgSrc: './img/books/zero_to_one.jpeg'
