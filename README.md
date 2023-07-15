@@ -2,7 +2,18 @@
 
 The React code of my [portfolio site](ShugKnight24.github.io)
 
+## Review
+
+Improve site as it has become old & stale...
+Update design
+  - integrate new layouts
+    - Especially on projects
+Update content & copy
+See how easy to simplify build process (remove webpack etc...)
+
 ## To-Do
+- Automate workflows
+- Add way to differentiate audio books in UI
 - Improve use of Typescript
 - Move away from GetColumnsHook
   - Pass in images and use a flex grid
