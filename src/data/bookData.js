@@ -39,16 +39,19 @@ export const currentlyReading = {
 			author: 'Robert C. Martin',
 			imgSrc: './img/books/clean_code.jpg'
 		},
-		{
-			name: 'The Idiot',
-			author: 'Fyodor Dostoyevsky',
-			imgSrc: './img/books/the_idiot.jpg'
-		},
-		{
-			name: 'The Brothers Karamazov',
-			author: 'Fyodor Dostoyevsky',
-			imgSrc: './img/books/brothers_karamazov.jpg'
-		},
+		// TODO: //
+		// Figure out system for books you stopped
+		// add a restart queue???
+		// {
+		// 	name: 'The Idiot',
+		// 	author: 'Fyodor Dostoyevsky',
+		// 	imgSrc: './img/books/the_idiot.jpg'
+		// },
+		// {
+		// 	name: 'The Brothers Karamazov',
+		// 	author: 'Fyodor Dostoyevsky',
+		// 	imgSrc: './img/books/brothers_karamazov.jpg'
+		// },
 		{
 			name: 'The Alchemist',
 			author: 'Paulo Coelho',
@@ -87,6 +90,62 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'The Way of The Monkey Book',
+			author: 'T.F. Monkey',
+			imgSrc: './img/books/way_of_monkey.jpg',
+			readNo: 1
+		},
+		// TODO: //
+		// Figure out cleaner system for repeat reads / listens -> doesn't look good in the UI
+		{
+			name: 'As a Man Thinketh',
+			author: 'James Allen',
+			imgSrc: './img/books/as_a_man_thinketh.jpg',
+			audioBook: false,
+			readNo: 6
+		},
+		{
+			name: 'As a Man Thinketh',
+			author: 'James Allen',
+			imgSrc: './img/books/as_a_man_thinketh.jpg',
+			audioBook: true,
+			readNo: 5
+		},
+		{
+			name: 'As a Man Thinketh',
+			author: 'James Allen',
+			imgSrc: './img/books/as_a_man_thinketh.jpg',
+			audioBook: true,
+			readNo: 4
+		},
+		{
+			name: 'As a Man Thinketh',
+			author: 'James Allen',
+			imgSrc: './img/books/as_a_man_thinketh.jpg',
+			audioBook: true,
+			readNo: 3
+		},
+		{
+			name: 'As a Man Thinketh',
+			author: 'James Allen',
+			imgSrc: './img/books/as_a_man_thinketh.jpg',
+			audioBook: true,
+			readNo: 2
+		},
+		{
+			name: 'As a Man Thinketh',
+			author: 'James Allen',
+			imgSrc: './img/books/as_a_man_thinketh.jpg',
+			readNo: 1
+		},
+		{
+			name: 'The Power of Your Subconscious Mind',
+			author: 'Joseph Murphy',
+			imgSrc: './img/books/power_of_your_subconscious_mind.jpg',
+			audioBook: true,
+			readNo: 1
+		},
 		{
 			name: 'Do The Work',
 			author: 'Steven Pressfield',
