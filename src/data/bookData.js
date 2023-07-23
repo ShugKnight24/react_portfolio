@@ -26,6 +26,11 @@ export const favoriteBooksArray = {
 			name: 'As a Man Thinketh',
 			author: 'James Allen',
 			imgSrc: './img/books/as_a_man_thinketh.jpg'
+		},
+		{
+			name: 'The Metamorphosis of Prime Intellect',
+			author: 'Roger Williams',
+			imgSrc: './img/books/metamorphosis_of_prime_intellect.jpg'
 		}
 	]
 };
@@ -39,9 +44,6 @@ export const currentlyReading = {
 			author: 'Robert C. Martin',
 			imgSrc: './img/books/clean_code.jpg'
 		},
-		// TODO: //
-		// Figure out system for books you stopped
-		// add a restart queue???
 		// {
 		// 	name: 'The Idiot',
 		// 	author: 'Fyodor Dostoyevsky',
@@ -52,11 +54,6 @@ export const currentlyReading = {
 		// 	author: 'Fyodor Dostoyevsky',
 		// 	imgSrc: './img/books/brothers_karamazov.jpg'
 		// },
-		{
-			name: 'The Alchemist',
-			author: 'Paulo Coelho',
-			imgSrc: './img/books/alchemist.jpg'
-		},
 		{
 			name: 'Ugly Love',
 			author: 'Colleen Hoover',
@@ -90,6 +87,24 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'Managing Oneself',
+			author: 'Peter F. Drucker',
+			imgSrc: './img/books/managing_oneself.jpg',
+			readNo: 1
+		},
+		{
+			name: 'The Metamorphosis of Prime Intellect',
+			author: 'Roger Williams',
+			imgSrc: './img/books/metamorphosis_of_prime_intellect.jpg',
+			readNo: 1
+		},
+		{
+			name: 'The Alchemist',
+			author: 'Paulo Coelho',
+			imgSrc: './img/books/alchemist.jpg',
+			readNo: 2
+		},
 		{
 			name: 'The Way of The Monkey Book',
 			author: 'T.F. Monkey',
