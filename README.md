@@ -12,6 +12,7 @@ Update content & copy
 See how easy to simplify build process (remove webpack etc...)
 
 ## To-Do
+- convert JS files to TS for typesafety
 - Automate workflows
 - Add way to differentiate audio books in UI
 - Improve use of Typescript
@@ -38,6 +39,10 @@ See how easy to simplify build process (remove webpack etc...)
     - Map from dataset
 - [ ] Move to functional components
 - [ ] Add content to Books page
+  - alternate covers
+  - Figure out system for books you stopped
+  - how to handle multiple successive reads
+  - audio vs physical
   - [ ] Amazon link
   - [ ] GoodReads link
   - [ ] GoodReads Rating
