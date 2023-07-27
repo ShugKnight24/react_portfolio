@@ -16,19 +16,13 @@ export const LandingPage: FC = () => {
 								<TypeWriter />
 							</h1>
 							<div>
+								<p>Consultant</p>
 								<span className="bar">|</span>
-								<p>
-									Consultant
-								</p>
+								<p>Developer</p>
 								<span className="bar">|</span>
-								<p>
-									Developer
-								</p>
+								<p>Learner</p>
 								<span className="bar">|</span>
-								<p>
-									Learner
-								</p>
-								<span className="bar">|</span>
+								<p>Researcher</p>
 							</div>
 						</div>
 						<img
