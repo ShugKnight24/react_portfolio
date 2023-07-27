@@ -3,6 +3,7 @@ import { Cell, Grid } from '../Grid';
 
 import { techIcons } from '../../data/techIcons';
 import { TechIcon } from '../TechIcon';
+import { TypeWriter } from '../TypeWriter';
 
 export const LandingPage: FC = () => {
 	return(
@@ -11,7 +12,9 @@ export const LandingPage: FC = () => {
 				<Cell columns={ 'full' }>
 					<div className="home-feature">
 						<div className="feature-text">
-							<h1>Shugmi Shumunov</h1>
+							<h1>
+								<TypeWriter />
+							</h1>
 							<div>
 								<span className="bar">|</span>
 								<p>
