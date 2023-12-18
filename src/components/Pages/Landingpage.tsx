@@ -3,7 +3,7 @@ import { Cell, Grid } from '../Grid';
 
 import { techIcons } from '../../data/techIcons';
 import { TechIcon } from '../TechIcon';
-import { TypeWriter } from '../TypeWriter';
+import { Typewriter } from '../Typewriter';
 
 export const LandingPage: FC = () => {
 	return(
@@ -13,9 +13,11 @@ export const LandingPage: FC = () => {
 					<div className="home-feature">
 						<div className="feature-text">
 							<h1>
-								<TypeWriter />
+								<Typewriter />
 							</h1>
 							<div>
+								<p>Autodidact</p>
+								<span className="bar">|</span>
 								<p>Consultant</p>
 								<span className="bar">|</span>
 								<p>Developer</p>

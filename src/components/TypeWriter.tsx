@@ -1,41 +1,52 @@
-import { useCallback, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 
-// TODO: Improve Display
-const namesList = `
-	Shugmi Shumunov
-	<span class="bar">|</span>
-	шумун шумунов
-	<span class="bar">|</span>
-	שמעון שומונוב
-`;
-
-// TODO: Add a way to change the speed of the typewriter
-// TODO: Replicate backspace and delete characters as opposed to just adding them
-export function TypeWriter (){
-	const [names, setNames] = useState({ characters: '', charCounter: 0 });
-
-	const { characters, charCounter } = names;
-
-	const updateNames = useCallback(() => {
-		const updatedNames = {
-			...names,
-			charCounter: charCounter + 1,
-			characters: characters + namesList[charCounter]
-		}
-		setNames(updatedNames);
-	}, [charCounter, characters, names]);
-	
-	const isNamesCompleted = namesList.length === characters.length;
-	
-	useEffect(() => {
-		const timer = setInterval(() => !isNamesCompleted && updateNames(), 50)
-		return () => clearInterval(timer);
-	}, [isNamesCompleted, names, updateNames]);
-
-	return (
-		<span
-			className="typewriter"
-			dangerouslySetInnerHTML={{__html: characters}}
-		></span>
-	);
+type TypewriterProps = {
+  namesList?: string[];
+  typingSpeed?: number;
+  deletingSpeed?: number;
 }
+
+const names = [
+  'Shugmi Shumunov',
+  'шумун шумунов',
+  'שמעון שומונוב',
+  'I am who I am'
+];
+
+export const Typewriter: FC<TypewriterProps> = ({
+  namesList = names,
+  typingSpeed = 100,
+  deletingSpeed = 50
+}) => {
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [text, setText] = useState('');
+  const [typingSpeedState, setTypingSpeedState] = useState(typingSpeed);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const i = loopNum % namesList.length;
+      const fullText = namesList[i];
+
+      setText(
+        isDeleting
+          ? fullText.substring(0, text.length - 1)
+          : fullText.substring(0, text.length + 1)
+      );
+
+      setTypingSpeedState(isDeleting ? deletingSpeed : typingSpeed);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), 500);
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeedState);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, typingSpeedState]);
+
+  return <span>{text}</span>;
+};
