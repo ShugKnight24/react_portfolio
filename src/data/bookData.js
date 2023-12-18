@@ -44,41 +44,10 @@ export const currentlyReading = {
 			author: 'Robert C. Martin',
 			imgSrc: './img/books/clean_code.jpg'
 		},
-		// {
-		// 	name: 'The Idiot',
-		// 	author: 'Fyodor Dostoyevsky',
-		// 	imgSrc: './img/books/the_idiot.jpg'
-		// },
-		// {
-		// 	name: 'The Brothers Karamazov',
-		// 	author: 'Fyodor Dostoyevsky',
-		// 	imgSrc: './img/books/brothers_karamazov.jpg'
-		// },
 		{
-			name: 'Ugly Love',
-			author: 'Colleen Hoover',
-			imgSrc: './img/books/ugly_love.jpg'
-		},
-		{
-			name: 'Zero to One: Notes on Startups, or How To Build The Future',
-			author: 'Peter Thiel',
-			imgSrc: './img/books/zero_to_one.jpeg'
-		},
-		{
-			name: 'Psycho-Cybernetics: Updated and Expanded',
-			author: 'Dr. Maxwell Maltz',
-			imgSrc: './img/books/psycho_cybernetics.jpeg',
-		},
-		{
-			name: 'Ogilvy on Advertising',
-			author: 'David Ogilvy',
-			imgSrc: './img/books/ogilvy.jpeg',
-		},
-		{
-			name: 'The Daily Stoic',
-			author: 'Ryan Holiday',
-			imgSrc: './img/books/daily_stoic.jpg',
-			readNo: 1
+			name: 'Switch: How to Change Things When Change is Hard',
+			author: 'Chip Heath, Dan Heath',
+			imgSrc: './img/books/switch.jpg'
 		}
 	]
 };
@@ -87,6 +56,55 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'Feeling is the Secret: 1944 Edition',
+			author: 'Neville Goddard',
+			imgSrc: './img/books/feeling_is_the_secret_1944.jpg',
+			audioBook: false,
+			readNo: 4
+		},
+		{
+			name: 'Feeling is the Secret',
+			author: 'Neville Goddard',
+			imgSrc: './img/books/feeling_is_the_secret.jpg',
+			audioBook: true,
+			readNo: 3
+		},
+		{
+			name: 'Feeling is the Secret',
+			author: 'Neville Goddard',
+			imgSrc: './img/books/feeling_is_the_secret.jpg',
+			audioBook: true,
+			readNo: 2
+		},
+		{
+			name: 'Feeling is the Secret',
+			author: 'Neville Goddard',
+			imgSrc: './img/books/feeling_is_the_secret.jpg',
+			audioBook: true,
+			readNo: 1
+		},
+		{
+			name: 'Where the Wild Things Are',
+			author: 'Maurice Sendak',
+			imgSrc: './img/books/where_the_wild_things_are.jpg',
+			readNo: 1
+		},
+		{
+			name: 'The Book of Job',
+		},
+		{
+			name: 'The Alchemist: A Graphic Novel',
+			author: 'Paulo Coelho, Daniel Sampere, Derek Ruiz',
+			imgSrc: './img/books/alchemist_graphic_novel.jpg',
+			readNo: 1
+		},
+		{
+			name: 'Miss Rumphius',
+			author: 'Barbara Cooney',
+			imgSrc: './img/books/miss_rumphius.jpg',
+			readNo: 1
+		},
 		{
 			name: 'Managing Oneself',
 			author: 'Peter F. Drucker',
