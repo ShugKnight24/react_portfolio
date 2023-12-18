@@ -9,11 +9,20 @@ Update design
   - integrate new layouts
     - Especially on projects
 Update content & copy
+
+- Update UI
+  - Move to new style system - tailwind, chakra, emotion etc
+  - Simplify and update content
+
 See how easy to simplify build process (remove webpack etc...)
+  - Vite?
 
 ## To-Do
 - convert JS files to TS for typesafety
+  - mostly done, data files?
 - Automate workflows
+  - Add ci / cd
+  - husky / linting / prettier / etc...
 - Add way to differentiate audio books in UI
 - Improve use of Typescript
 - Move away from GetColumnsHook
@@ -31,7 +40,6 @@ See how easy to simplify build process (remove webpack etc...)
     - Add tech stack to positions
     - build from dataset
 - [ ] Add a blog
-- [ ] Move away from using `dangerouslySetInnerHTML`
 - [ ] Create Media Section (Movies & TV)
   - [ ] Completed ... Started... Improved version of books
 - [ ] Update Experience section
@@ -50,8 +58,10 @@ See how easy to simplify build process (remove webpack etc...)
 - [X] Add JS30 Section
   - [ ] Add project descriptions
 - [ ] Button Sizing
+- fix layout shift on hover in nav
 
 ## Done
+- [X] Refactor Typewriter - 12/18/23
 - [X] Remove react-mdl - 8/1 -> 8/22/21
 - [X] Add Custom Drawer - 6/23/21
 - [X] Converted to Typescript - 6/20 - 6/22/21
