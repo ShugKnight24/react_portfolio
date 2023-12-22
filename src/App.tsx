@@ -1,6 +1,6 @@
-import { FC, KeyboardEvent, useEffect, useState } from 'react';
+import { FC, KeyboardEvent, Suspense, useEffect, useState } from 'react';
 import './App.scss';
-import { Router } from 'react-router-dom';
+import { Router, useLocation } from 'react-router-dom';
 import {
 	Content,
 	Drawer,
@@ -18,6 +18,8 @@ history.listen(location => {
 	ReactGA.set({ page: location.pathname })
 	ReactGA.pageview(location.pathname)
 });
+
+const location = useLocation();
 
 export const App : FC = () => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -55,7 +57,7 @@ export const App : FC = () => {
 	);
 
 	return (
-		<Router history={ history }>
+		<Router navigator={history} location={location}>
 			<Layout>
 				<Header 
 					title={'Shugmi\'s Portfolio'}
@@ -87,7 +89,9 @@ export const App : FC = () => {
 					tabIndex={ -1 }
 				></div>
 				<Content>
-					<Main />
+					<Suspense fallback={ <div>Loading...</div> } >
+						<Main />
+					</ Suspense>
 					<Footer />
 				</Content>
 			</Layout>
