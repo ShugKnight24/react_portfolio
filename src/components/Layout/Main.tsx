@@ -1,5 +1,5 @@
 import { FC, lazy } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 const AboutPage = lazy(() => import('../Pages').then(module => ({ default: module.AboutPage })));
 const BooksPage = lazy(() => import('../Pages').then(module => ({ default: module.BooksPage })));
@@ -11,16 +11,14 @@ const ProjectsPage = lazy(() => import('../Pages').then(module => ({ default: mo
 const ResumePage = lazy(() => import('../Pages').then(module => ({ default: module.ResumePage })));
 
 export const Main: FC = () => (
-	<BrowserRouter>
-		<Routes>
-			<Route path="/" element={ <LandingPage /> } />
-			<Route path="/about" element={ <AboutPage /> } />
-			<Route path="/books" element={ <BooksPage /> } />
-			<Route path="/contact" element={ <ContactPage /> } />
-			<Route path="/photos" element={ <PhotoGal /> } />
-			<Route path="/projects" element={ <ProjectsPage /> } />
-			<Route path="/resume" element={ <ResumePage /> } />
-			<Route path="*" element={ <NotFoundPage /> } />
-		</Routes>
-	</BrowserRouter>
+	<Routes>
+		<Route path="/" element={ <LandingPage /> } />
+		<Route path="/about" element={ <AboutPage /> } />
+		<Route path="/books" element={ <BooksPage /> } />
+		<Route path="/contact" element={ <ContactPage /> } />
+		<Route path="/photos" element={ <PhotoGal /> } />
+		<Route path="/projects" element={ <ProjectsPage /> } />
+		<Route path="/resume" element={ <ResumePage /> } />
+		<Route path="*" element={ <NotFoundPage /> } />
+	</Routes>
 );

@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './App';
-import * as ReactGA from 'react-ga';
+import { BrowserRouter } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 // Fix console text color in dark mode
 if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){
@@ -35,7 +36,9 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){
 const trackingId = 'UA-147974881-1';
 ReactGA.initialize(trackingId);
 
-ReactDOM.render(
-	<App />,
-	document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
