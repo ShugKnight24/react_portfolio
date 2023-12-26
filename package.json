@@ -4,8 +4,8 @@
   "private": true,
   "homepage": "https://ShugKnight24.github.io/",
   "dependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
     "gh-pages": "^6.1.0",
-    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ga": "^3.3.1",
@@ -13,16 +13,11 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.6",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/preset-env": "^7.23.6",
-    "@babel/preset-react": "^7.23.3",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "babel-plugin-react-require": "^4.0.2",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -31,11 +26,17 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.1.1",
-    "typescript": "^4.9.5"
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.3",
+    "typescript": "^4.9.5",
+    "vite": "^5.0.10",
+    "vite-plugin-checker": "^0.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -55,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "dist/index",
+  "types": "dist/index",
+  "type": "module"
 }

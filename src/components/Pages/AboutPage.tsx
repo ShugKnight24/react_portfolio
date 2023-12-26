@@ -32,7 +32,7 @@ export const AboutPage: FC = () => {
 
 					<img
 						className="luna"
-						src="./img/gallery/luna.jpg"
+						src="./img/gallery/luna.JPG"
 						alt="Luna"
 					/>
 				</Cell>
