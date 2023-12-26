@@ -14,9 +14,6 @@ Update content & copy
   - Move to new style system - tailwind, chakra, emotion etc
   - Simplify and update content
 
-See how easy to simplify build process (remove webpack etc...)
-  - Vite?
-
 ## To-Do
 - convert JS files to TS for typesafety
   - mostly done, data files?
@@ -61,6 +58,7 @@ See how easy to simplify build process (remove webpack etc...)
 - fix layout shift on hover in nav
 
 ## Done
+- [X] Use vite - 12/26/23
 - [X] Refactor Typewriter - 12/18/23
 - [X] Remove react-mdl - 8/1 -> 8/22/21
 - [X] Add Custom Drawer - 6/23/21
