@@ -55,9 +55,9 @@ Update content & copy
 - [X] Add JS30 Section
   - [ ] Add project descriptions
 - [ ] Button Sizing
-- fix layout shift on hover in nav
 
 ## Done
+- [X] Update project image pathing, update tech icons, fix layout shift in nav - 12/29/23
 - [X] Use vite - 12/26/23
 - [X] Refactor Typewriter - 12/18/23
 - [X] Remove react-mdl - 8/1 -> 8/22/21
