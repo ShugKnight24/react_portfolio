@@ -200,27 +200,27 @@
 							max-width: 50px;
 						}
 
-						&.cypress {
+						&.d3 {
 							background-color: #FFF;
-							padding: 3px;
-							border-radius: 50%;
 						}
 
 						&.jquery {
-							width: 250px;
-							max-width: 250px;
+							background-color: #FFF;
+							width: 240px;
+							max-width: 240px;
+							padding: 9px;
 
 							@include mq-max(600px) {
 								width: 150px;
 								max-width: 150px;
 							}
-	
 						}
 
 						&.react,
 						&.git {
 							width: 100px;
 							max-width: 100px;
+							background-color: #FFF;
 						}
 
 						&.nodejs,
@@ -228,6 +228,7 @@
 						&.mongodb {
 							width: 150px;
 							max-width: 150px;
+							background-color: #FFF;
 
 							@include mq-max(600px) {
 								height: 75px;
@@ -236,6 +237,23 @@
 								max-width: 75px;
 							}
 						}
+
+						&.mongodb {
+							padding: 0 10px;
+						}
+
+						&.nextjs {
+							background-color: #FFF;
+							width: 120px;
+							max-width: 120px;
+							padding: 0 10px;
+						}
+
+						&.tailwindcss {
+							background-color: #FFF;
+							width: 120px;
+							max-width: 120px;
+						}
 					}
 
 					p {
@@ -243,7 +261,7 @@
 						font-size: 20px;
 						font-weight: bold;
 						padding: 9px 0;
-						margin-bottom: 0;
+						margin: 3px 0 0;
 	
 						@include mq-max(900px) {
 							font-size: 16px;

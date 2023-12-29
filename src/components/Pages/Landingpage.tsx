@@ -38,7 +38,7 @@ export const LandingPage: FC = () => {
 						<hr />
 						<div>
 							<span className="bar">|</span>
-							{techIcons.map(({iconName, iconURL, nameInLogo}, index) => (
+							{techIcons.map(({iconName, iconURL, nameInLogo}, index: number) => (
 								<TechIcon
 									key={ `${ iconName }-${ index }` }
 									iconName={ iconName }
