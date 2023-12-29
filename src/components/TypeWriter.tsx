@@ -48,5 +48,7 @@ export const Typewriter: FC<TypewriterProps> = ({
     return () => clearTimeout(timer);
   }, [text, isDeleting, typingSpeedState]);
 
-  return <span>{text}</span>;
+  return (
+    <span>&nbsp;{text}&nbsp;</span>
+  );
 };
