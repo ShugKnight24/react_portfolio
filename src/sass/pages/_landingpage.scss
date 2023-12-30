@@ -235,6 +235,10 @@
 							background-color: #FFF;
 						}
 
+						&.git {
+							padding: 0 5px;
+						}
+
 						&.nodejs,
 						&.mysql,
 						&.mongodb {
@@ -259,6 +263,10 @@
 							width: 120px;
 							max-width: 120px;
 							padding: 0 10px;
+						}
+
+						&.nodejs {
+							padding: 5px 0;
 						}
 
 						&.tailwindcss {

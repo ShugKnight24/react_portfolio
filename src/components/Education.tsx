@@ -11,7 +11,7 @@ export const Education: FC<EducationInterface> = ({
 	degreeName, 
 	majorName
 }) => {
-	return(
+	return (
 		<Grid extraClass="education-container">
 			<Cell columns={ 'third' }>
 				<p>{ startMonth } { startYear } - { endMonth } { endYear }</p>
@@ -22,5 +22,5 @@ export const Education: FC<EducationInterface> = ({
 				<h5>{ majorName }</h5>
 			</Cell>
 		</Grid>
-	)
+	);
 }

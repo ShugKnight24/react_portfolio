@@ -133,3 +133,7 @@ export const techIcons = [
 		nameInLogo: true
 	}
 ];
+
+export const iconsWithClasses = [
+	'React & React Native', 'D3', 'MySQL', 'NodeJS', 'jQuery', 'Git', 'MongoDB', 'TailwindCSS', 'NextJS'
+];

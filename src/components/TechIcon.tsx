@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { ProgressBar } from './ProgressBar/ProgressBar';
 import { SkillsInterface } from '../types/skills';
 
-const iconsWithClasses = ['React & React Native', 'D3', 'MySQL', 'NodeJS', 'jQuery', 'Git', 'MongoDB', 'TailwindCSS', 'NextJS'];
+import { iconsWithClasses } from '../data/techIcons';
 
 export const TechIcon: FC<SkillsInterface> = ({
 	iconName,
