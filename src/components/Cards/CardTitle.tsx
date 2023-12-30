@@ -1,11 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface CardTitleInterface {
-	ariaLabel?: string;
-	children: ReactNode;
-	extraClass?: string;
-	role?: string;
-}
+import { FC } from 'react';
+import { CardTitleInterface } from '../../types/card';
 
 export const CardTitle: FC<CardTitleInterface> = ({ 
 	ariaLabel,

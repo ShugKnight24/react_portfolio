@@ -1,9 +1,5 @@
 import { FC, ReactNode } from 'react';
-
-interface ListInterface {
-	children?: ReactNode;
-	extraClass?: string;
-}
+import { ListInterface } from '../../types/list';
 
 export const List: FC<ListInterface> = ({
 	children,

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Cell, Grid } from '../Grid';
 import { List, ListItem, ListItemContent } from '../List';
+import { IndentedParagraph } from '../IndentedParagraph';
 
 export const ContactPage: FC = () => {
 	return (
@@ -23,18 +24,15 @@ export const ContactPage: FC = () => {
 					<h6>
 						Telling stories through code
 					</h6>
-					<p className="tab">
-						Whether you&apos;re exploring new opportunities in the expanding digital marketplace or your development needs have fallen short, I step in to provide insights and deliver a creative solutions that bridge the gap between concept and reality.
-					</p>
-					<p className="tab">
-						I provide consulting, development, development mentorship, management, and project management services.
-					</p>
-					<p className="tab">
-						I pride myself on providing honest, insightful, and thoughtful guidance to my clients
-					</p>
-					<p className="tab">
-						Reach out if you&apos;d like to work with me.
-					</p>
+					<IndentedParagraph
+						text={[
+							`Embark on a journey of innovation and success with my expertise in navigating the dynamic digital landscape. Whether you're venturing into new opportunities or facing development challenges, 
+							I'm here to offer invaluable insights and craft creative solutions that seamlessly bridge the gap between concept and reality.`,
+							`My comprehensive range of services includes consulting, development, mentorship, management, and project management. 
+							With a commitment to honesty, insightfulness, and thoughtful guidance, I take pride in empowering my clients to achieve their goals.`,
+							`Ready to turn your visions into tangible results? Let's collaborate! Reach out and let's create something exceptional together.`
+						]}
+					/>
 				</Cell>
 				<Cell columns={ 'half' }>
 					<h3 className="centered">Contact Info</h3>

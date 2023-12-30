@@ -1,19 +1,5 @@
-import { FC, MouseEvent, ReactNode } from 'react';
-import { MouseEventHandler } from '../../types/events';
-
-interface ButtonInterface {
-	children?: ReactNode;
-	extraClass?: ButtonColors;
-	onClick?: MouseEventHandler;
-	text?: string;
-}
-
-type ButtonColors =
-	'continue'
-	| 'disabled'
-	| 'primary'
-	| 'stop'
-	|'warning';
+import { FC, MouseEvent } from 'react';
+import { ButtonInterface } from '../../types/button';
 
 // TODO additional sizing options
 // TODO robust enough for multiple events

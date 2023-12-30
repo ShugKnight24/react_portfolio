@@ -1,8 +1,5 @@
 import { FC } from 'react';
-
-interface ProgressBarInterface {
-	progress?: number;
-}
+import { ProgressBarInterface } from '../../types/progress';
 
 export const ProgressBar: FC<ProgressBarInterface> = ({ progress }) => {
 	return (

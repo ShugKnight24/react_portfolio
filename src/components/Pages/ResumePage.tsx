@@ -5,6 +5,7 @@ import { Education } from '../Education';
 import { Experience } from '../Experience';
 import { techIcons } from '../../data/techIcons';
 import { Skills } from '../Skills';
+import { IndentedParagraph } from '../IndentedParagraph';
 
 export const ResumePage : FC = () =>{
 	return (
@@ -322,7 +323,13 @@ export const ResumePage : FC = () =>{
 						<h2>Skills</h2>
 					</div>
 
-					<p className="tab">I consider myself a lifelong learner. Someone who is committed to mastering their craft to become the best developer they can be. I enjoy the challenge of picking up additional languages and skills to expand my knowledge and abilities. It allows me to approach and solve the problems I encounter in a nuanced way. The more I learn, the more I realize I don&apos;t know.</p>
+					<IndentedParagraph
+						text={[
+							`I embody the spirit of a lifelong learner, dedicated to mastering my craft and evolving into the best developer possible. 
+							Embracing the challenge of acquiring new languages and skills is not just a pursuit; it's a passion that continually broadens my knowledge and enhances my capabilities. 
+							This commitment enables me to approach and solve problems with a nuanced perspective. The journey of learning reveals the more knowledge I acquire, the more I recognize there is still so much to explore, understand, and master.`
+						]}
+					/>
 
 					<div className="skills-container">
 						<div className="tech-icon-container">

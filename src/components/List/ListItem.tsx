@@ -1,10 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface ListItemInterface {
-	children?: ReactNode;
-	extraClass?: string;
-	jobResponsibility?: string;
-}
+import { FC } from 'react';
+import { ListItemInterface } from '../../types/list';
 
 export const ListItem: FC<ListItemInterface> = ({
 	children,

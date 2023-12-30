@@ -1,33 +1,5 @@
 export const techIcons = [
 	{
-		iconName: 'HTML',
-		iconURL: '../img/tech_icons/html.svg',
-		progress: 95,
-		skillType: 'Language',
-		nameInLogo: true
-	},
-	{
-		iconName: 'CSS',
-		iconURL: '../img/tech_icons/css.svg',
-		progress: 85,
-		skillType: 'Language',
-		nameInLogo: true
-	},
-	{
-		iconName: 'SASS',
-		iconURL: '../img/tech_icons/sass.svg',
-		progress: 85,
-		skillType: 'Language',
-		nameInLogo: true
-	},
-	{
-		iconName: 'BootStrap',
-		iconURL: '../img/tech_icons/bootstrap.svg',
-		progress: 75,
-		skillType: 'Front-End Library',
-		nameInLogo: false
-	},
-	{
 		iconName: 'JavaScript',
 		iconURL: '../img/tech_icons/javascript.svg',
 		progress: 85,
@@ -42,25 +14,18 @@ export const techIcons = [
 		nameInLogo: false
 	},
 	{
-		iconName: 'jQuery',
-		iconURL: '../img/tech_icons/jquery.svg',
-		progress: 80,
-		skillType: 'Front-End Framework / Library',
-		nameInLogo: true
-	},
-	{
-		iconName: 'React',
+		iconName: 'React & React Native',
 		iconURL: '../img/tech_icons/react.svg',
 		progress: 85,
 		skillType: 'Front-End Framework / Library',
 		nameInLogo: false
 	},
 	{
-		iconName: 'React Native',
-		iconURL: '../img/tech_icons/react.svg',
-		progress: 80,
+		iconName: 'NextJS',
+		iconURL: '../img/tech_icons/nextjs.svg',
+		progress: 75,
 		skillType: 'Front-End Framework / Library',
-		nameInLogo: false
+		nameInLogo: true
 	},
 	{
 		iconName: 'NodeJS',
@@ -70,11 +35,39 @@ export const techIcons = [
 		nameInLogo: true
 	},
 	{
+		iconName: 'HTML',
+		iconURL: '../img/tech_icons/html.svg',
+		progress: 95,
+		skillType: 'Language',
+		nameInLogo: true
+	},
+	{
+		iconName: 'CSS',
+		iconURL: '../img/tech_icons/css.svg',
+		progress: 85,
+		skillType: 'Language',
+		nameInLogo: true
+	},
+	{
+		iconName: 'TailwindCSS',
+		iconURL: '../img/tech_icons/tailwindcss.svg',
+		progress: 60,
+		skillType: 'CSS framework',
+		nameInLogo: true
+	},
+	{
+		iconName: 'SASS',
+		iconURL: '../img/tech_icons/sass.svg',
+		progress: 85,
+		skillType: 'Language',
+		nameInLogo: true
+	},
+	{
 		iconName: 'D3',
 		iconURL: '../img/tech_icons/d3.svg',
 		progress: 60,
 		skillType: 'Front-End Framework / Library',
-		nameInLogo: false
+		nameInLogo: true
 	},
 	{
 		iconName: 'PHP',
@@ -98,24 +91,10 @@ export const techIcons = [
 		nameInLogo: true
 	},
 	{
-		iconName: 'Shopify',
-		iconURL: '../img/tech_icons/shopify.svg',
-		progress: 80,
-		skillType: 'Tool',
-		nameInLogo: false
-	},
-	{
-		iconName: 'Shopify Liquid',
-		iconURL: '../img/tech_icons/shopify_liquid.svg',
-		progress: 90,
-		skillType: 'Tool',
-		nameInLogo: false
-	},
-	{
-		iconName: 'Rust',
-		iconURL: '../img/tech_icons/rust.svg',
+		iconName: 'GraphQL',
+		iconURL: '../img/tech_icons/graphql.svg',
 		progress: 30,
-		skillType: 'Language',
+		skillType: 'API',
 		nameInLogo: false
 	},
 	{
@@ -133,34 +112,6 @@ export const techIcons = [
 		nameInLogo: true
 	},
 	{
-		iconName: 'Java',
-		iconURL: '../img/tech_icons/java.svg',
-		progress: 30,
-		skillType: 'Language',
-		nameInLogo: true
-	},
-	{
-		iconName: 'Angular',
-		iconURL: '../img/tech_icons/angular.svg',
-		progress: 30,
-		skillType: 'Framework',
-		nameInLogo: false
-	},
-	{
-		iconName: 'Cypress',
-		iconURL: '../img/tech_icons/cypress.svg',
-		progress: 30,
-		skillType: 'Framework',
-		nameInLogo: false
-	},
-	{
-		iconName: 'Nest',
-		iconURL: '../img/tech_icons/nestjs.svg',
-		progress: 30,
-		skillType: 'Framework',
-		nameInLogo: false
-	},
-	{
 		iconName: 'Swift',
 		iconURL: '../img/tech_icons/swift.svg',
 		progress: 30,
@@ -173,5 +124,16 @@ export const techIcons = [
 		progress: 30,
 		skillType: 'UI Framework',
 		nameInLogo: false
+	},
+	{
+		iconName: 'jQuery',
+		iconURL: '../img/tech_icons/jquery.svg',
+		progress: 80,
+		skillType: 'Front-End Framework / Library',
+		nameInLogo: true
 	}
+];
+
+export const iconsWithClasses = [
+	'React & React Native', 'D3', 'MySQL', 'NodeJS', 'jQuery', 'Git', 'MongoDB', 'TailwindCSS', 'NextJS'
 ];

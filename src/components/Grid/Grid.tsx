@@ -1,9 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface GridInterface {
-	children: ReactNode;
-	extraClass?: string;
-}
+import { FC } from 'react';
+import { GridInterface } from '../../types/grid';
 
 export const Grid: FC<GridInterface> = ({ children, extraClass }) => {
 	return (

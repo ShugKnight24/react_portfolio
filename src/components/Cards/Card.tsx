@@ -1,12 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface CardInterface {
-	children: ReactNode;
-	extraClass?: string;
-	shadow?: ShadowTypes;
-}
-
-type ShadowTypes = 'none' | 'light' | 'medium' | 'dark';
+import { FC } from 'react';
+import { CardInterface } from '../../types/card';
 
 export const Card: FC<CardInterface> = ({
 	children,

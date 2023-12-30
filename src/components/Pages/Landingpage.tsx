@@ -5,6 +5,8 @@ import { techIcons } from '../../data/techIcons';
 import { TechIcon } from '../TechIcon';
 import { Typewriter } from '../Typewriter';
 
+import { developerQualities, names } from '../../data/typeWriterStrings';
+
 export const LandingPage: FC = () => {
 	return(
 		<div className="landing-container">
@@ -13,7 +15,9 @@ export const LandingPage: FC = () => {
 					<div className="home-feature">
 						<div className="feature-text">
 							<h1>
-								<Typewriter />
+								<Typewriter
+									textToType={names}
+								/>
 							</h1>
 							<div>
 								<p>Autodidact</p>
@@ -34,11 +38,19 @@ export const LandingPage: FC = () => {
 						/>
 					</div>
 					<div className="banner-text">
-						<h2>Full Stack Mobile & Web Developer</h2>
+						<h2>Full Stack Software Engineer</h2>
+						<hr />
+						<h3>
+							<Typewriter
+								textToType={developerQualities}
+								typingSpeed={50}
+								deletingSpeed={25}
+							/>
+						</h3>
 						<hr />
 						<div>
 							<span className="bar">|</span>
-							{techIcons.map(({iconName, iconURL, nameInLogo}, index) => (
+							{techIcons.map(({iconName, iconURL, nameInLogo}, index: number) => (
 								<TechIcon
 									key={ `${ iconName }-${ index }` }
 									iconName={ iconName }

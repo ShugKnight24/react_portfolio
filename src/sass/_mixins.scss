@@ -1,4 +1,6 @@
 /* Mixins */
+
+// Media Query Mixins
 @mixin mq-max($from) {
 	@media screen and (max-width: $from) {
 		@content;
@@ -15,4 +17,10 @@
 	@media screen and (min-width: $min) and (max-width: $max) {
 		@content;
 	}
+}
+
+// Center Project Images Mixin
+@mixin centerProjectImage() {
+	background-position: center;
+	background-size: cover;
 }

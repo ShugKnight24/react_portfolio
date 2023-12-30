@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Cell, Grid } from '../Grid';
+import { IndentedParagraph } from '../IndentedParagraph';
 
 export const AboutPage: FC = () => {
 	return (
@@ -22,18 +23,23 @@ export const AboutPage: FC = () => {
 				<Cell columns={ 'half' }>
 					<h3>About Me</h3>
 
-					<p className="tab">The startup environment is one I enjoy most. Novelty is my lifeblood. I perform best when having to solve multiple technical problems in a creative and elegant manner. I get to touch different aspects of a business and have a large impact.</p>
-
-					<p className="tab">I started my own development company to exercise my creative muscle building solutions that allow business to have accelerated growth.</p>
-
-					<p className="tab">Contact me if you&apos;d like to discuss how I can help your business grow or if you have a personal project that needs completing.</p>
-
-					<p className="tab">Aside from building my business, you&apos;ll find me working out, shooting hoops, reading, jamming to music, photography, and spending time with my pupper Luna :)</p>
+					<IndentedParagraph
+						text={[
+							`What distinguishes me is my unique ability to transform lines of code into compelling narratives. Whether it's crafting deliverables or solving complex problems, I seamlessly blend technical expertise with creativity. 
+							This fusion allows me to deeply comprehend my clients' needs, strategize effectively, and deliver high-quality, comprehensive solutions marked by craftsmanship and meticulous attention to detail.`,
+							`Driven by a passion for continuous learning, I am committed to constantly refining my skills and expanding my knowledge base.`,
+							`While I thrive in diverse team dynamics, my true joy lies in the dynamic environment of startups. Wearing multiple hats and influencing the company's trajectory is what fuels my enthusiasm.`,
+							`As the founder of my own development company, I exercise my creative muscle to build solutions that propel businesses toward accelerated growth. 
+							There's a profound sense of humility in witnessing your work come to life, especially when it contributes to the growth of small businesses.`,
+							`Feel free to reach out if you'd like to explore how I can contribute to your business growth or bring your personal project to fruition.`,
+							`Beyond coding, you'll catch me engaging in fitness routines, exploring new destinations, immersing myself in literature, grooving to music, capturing scenic moments through my lens, and cherishing quality time with Luna :)`
+						]}
+					/>
 
 					<img
 						className="luna"
 						src="./img/gallery/luna.JPG"
-						alt="Luna"
+						alt="Luna the bestest doggo"
 					/>
 				</Cell>
 			</Grid>

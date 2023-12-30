@@ -1,11 +1,6 @@
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { TabBar } from './TabBar';
-
-interface TabsInterface {
-	activeTab: number;
-	children?: ReactElement[];
-	extraClass?: string;
-}
+import { TabsInterface } from '../../types/tab';
 
 export const Tabs: FC<TabsInterface> = ({
 	activeTab,

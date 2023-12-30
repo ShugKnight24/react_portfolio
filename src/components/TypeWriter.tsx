@@ -1,20 +1,13 @@
 import { FC, useState, useEffect } from 'react';
 
 type TypewriterProps = {
-  namesList?: string[];
+  textToType: string[];
   typingSpeed?: number;
   deletingSpeed?: number;
 }
 
-const names = [
-  'Shugmi Shumunov',
-  'шумун шумунов',
-  'שמעון שומונוב',
-  'I am who I am'
-];
-
 export const Typewriter: FC<TypewriterProps> = ({
-  namesList = names,
+  textToType,
   typingSpeed = 100,
   deletingSpeed = 50
 }) => {
@@ -25,8 +18,8 @@ export const Typewriter: FC<TypewriterProps> = ({
 
   useEffect(() => {
     const handleTyping = () => {
-      const i = loopNum % namesList.length;
-      const fullText = namesList[i];
+      const i = loopNum % textToType.length;
+      const fullText = textToType[i];
 
       setText(
         isDeleting
@@ -48,5 +41,7 @@ export const Typewriter: FC<TypewriterProps> = ({
     return () => clearTimeout(timer);
   }, [text, isDeleting, typingSpeedState]);
 
-  return <span>{text}</span>;
+  return (
+    <span>&nbsp;{text}&nbsp;</span>
+  );
 };

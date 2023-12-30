@@ -2,26 +2,30 @@ import { FC } from 'react';
 import { ProgressBar } from './ProgressBar/ProgressBar';
 import { SkillsInterface } from '../types/skills';
 
+import { iconsWithClasses } from '../data/techIcons';
+
 export const TechIcon: FC<SkillsInterface> = ({
 	iconName,
 	iconURL,
 	nameInLogo,
 	progress
 }) => {
-	let imageClass: string | null = null;
 
-	// TODO: Refactor to improved function
-	if (iconName === 'React' || iconName === 'MySQL' || iconName === 'NodeJS' || iconName === 'jQuery' || iconName ===  'Git' || iconName ===  'MongoDB' || iconName === "Cypress"){
-		imageClass = iconName.toLowerCase();
-	}
-	if (iconName === 'React Native'){
-		imageClass = 'react';
+	let imageClass: string | null = null;
+	if (iconName) {
+		imageClass = iconsWithClasses.includes(iconName) ? iconName.toLowerCase() : null;
 	}
 
 	return (
 		<div className="tech-skill">
 			<div className="image-name">
-				<img className={ imageClass ? imageClass : '' } src={ iconURL } alt={ `${ iconName ? iconName : 'No' } Icon` } />
+				{iconName && (
+					<img
+						className={ imageClass || '' }
+						src={ iconURL }
+						alt={ `${ iconName } Icon` }
+					/>
+				)}
 				{!nameInLogo && iconName && (
 					<p>{ iconName }</p>
 				)}

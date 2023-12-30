@@ -1,10 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface CardTextInterface {
-	children?: ReactNode;
-	extraClass?: string;
-	text?: string;
-}
+import { FC } from 'react';
+import { CardTextInterface } from '../../types/card';
 
 export const CardText: FC<CardTextInterface> = ({
 	children,

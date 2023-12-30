@@ -89,310 +89,263 @@
 
 					/* Personal Projects */
 					&.pomodoro {
-						background: url('../../static/img/projects/pomodoro.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'pomodoro.png');
+						@include centerProjectImage();
 					}
 
 					&.mappr {
-						background: url('../../static/img/projects/mappr.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'mappr.png');
+						@include centerProjectImage();
 					}
 
 					&.quizzlr {
-						background: url('../../static/img/projects/quizzlr.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'quizzlr.png');
+						@include centerProjectImage();
 					}
 
 					&.dooer {
-						background: url('../../static/img/projects/dooer.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'dooer.png');
+						@include centerProjectImage();
 					}
 
 					/* JavaScript30 */
 					&.drum-kit {
-						background: url('../../static/img/projects/js30/drum_kit.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/drum_kit.png');
+						@include centerProjectImage();
 					}
 
 					&.css-js-clock {
-						background: url('../../static/img/projects/js30/css_js_clock.png');
+						background: url($projectImagePath + 'js30/css_js_clock.png');
 						background-position: top;
 						background-size: cover;
 					}
 
 					&.css-js-vars {
-						background: url('../../static/img/projects/js30/css_js_vars.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/css_js_vars.png');
+						@include centerProjectImage();
 					}
 					
 					&.array-cardio-1 {
-						background: url('../../static/img/projects/js30/array_cardio_1.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/array_cardio_1.png');
+						@include centerProjectImage();
 					}
 					
 					&.flex-panels {
-						background: url('../../static/img/projects/js30/flex_panels.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/flex_panels.png');
+						@include centerProjectImage();
 					}
 					
 					&.ajax-map {
-						background: url('../../static/img/projects/js30/ajax_map.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/ajax_map.png');
+						@include centerProjectImage();
 					}
 					
 					&.array-cardio-2 {
-						background: url('../../static/img/projects/js30/array_cardio_2.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/array_cardio_2.png');
+						@include centerProjectImage();
 					}
 					
 					&.canvas-drawing {
-						background: url('../../static/img/projects/js30/canvas_drawing.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/canvas_drawing.png');
+						@include centerProjectImage();
 					}
 					
 					&.dev-tool-tricks {
-						background: url('../../static/img/projects/js30/dev_tool_tricks.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/dev_tool_tricks.png');
+						@include centerProjectImage();
 					}
 
 					&.multiple-checkboxes {
-						background: url('../../static/img/projects/js30/multiple_checkboxes.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/multiple_checkboxes.png');
+						@include centerProjectImage();
 					}
 					
 					&.html5-video {
-						background: url('../../static/img/projects/js30/html5_video.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/html5_video.png');
+						@include centerProjectImage();
 					}
 					
 					&.key-sequence-detection {
-						background: url('../../static/img/projects/js30/key_sequence_detection.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/key_sequence_detection.png');
+						@include centerProjectImage();
 					}
 					
 					&.slide-image-on-scroll {
-						background: url('../../static/img/projects/js30/slide_image_on_scroll.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/slide_image_on_scroll.png');
+						@include centerProjectImage();
 					}
 
 					&.references-vs-copying {
-						background: url('../../static/img/projects/js30/references_vs_copying.png');
+						background: url($projectImagePath + 'js30/references_vs_copying.png');
 						background-position: top;
 						background-size: cover;
 					}
 
 					&.local-storage {
-						background: url('../../static/img/projects/js30/local_storage.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/local_storage.png');
+						@include centerProjectImage();
 					}
 
 					&.css-text-shadow {
-						background: url('../../static/img/projects/js30/css_text_shadow.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/css_text_shadow.png');
+						@include centerProjectImage();
 					}
 
 					&.sorting-data {
-						background: url('../../static/img/projects/js30/sorting_data.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/sorting_data.png');
+						@include centerProjectImage();
 					}
 
 					&.tally-times{
-						background: url('../../static/img/projects/js30/tally_times.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/tally_times.png');
+						@include centerProjectImage();
 					}
 
 					&.webcam-fun {
-						background: url('../../static/img/projects/js30/webcam_fun.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/webcam_fun.png');
+						@include centerProjectImage();
 					}
 
 					&.speech-recognition {
-						background: url('../../static/img/projects/js30/speech_recognition.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/speech_recognition.png');
+						@include centerProjectImage();
 					}
 
 					&.geolocation {
-						background: url('../../static/img/projects/js30/geolocation.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/geolocation.png');
+						@include centerProjectImage();
 					}
 
 					&.follow-along-links {
-						background: url('../../static/img/projects/js30/follow_along_links.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/follow_along_links.png');
+						@include centerProjectImage();
 					}
 
 					&.speech-synthesis {
-						background: url('../../static/img/projects/js30/speech_synthesis.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/speech_synthesis.png');
+						@include centerProjectImage();
 					}
 
 					&.ajax-map {
-						background: url('../../static/img/projects/js30/ajax_map.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/ajax_map.png');
+						@include centerProjectImage();
 					}
 					
 					&.sticky-nav {
-						background: url('../../static/img/projects/js30/sticky_nav.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/sticky_nav.png');
+						@include centerProjectImage();
 					}
 					
 					&.event-capture {
-						background: url('../../static/img/projects/js30/event_capture.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/event_capture.png');
+						@include centerProjectImage();
 					}
 
 					&.follow-dropdowns {
-						background: url('../../static/img/projects/js30/follow_dropdowns.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/follow_dropdowns.png');
+						@include centerProjectImage();
 					}	
 
 					&.click-drag-scroll {
-						background: url('../../static/img/projects/js30/click_drag_scroll.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/click_drag_scroll.png');
+						@include centerProjectImage();
 					}
 
 					&.video-speed {
-						background: url('../../static/img/projects/js30/video_speed.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/video_speed.png');
+						@include centerProjectImage();
 					}
 
 					&.countdown-timer {
-						background: url('../../static/img/projects/js30/countdown_timer.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/countdown_timer.png');
+						@include centerProjectImage();
 					}
 
 					&.whack-a-mole {
-						background: url('../../static/img/projects/js30/whack_a_mole.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'js30/whack_a_mole.png');
+						@include centerProjectImage();
 					}
 
 					/* Games */ 
 					&.tetris {
-						background: url('../../static/img/projects/tetris.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'tetris.png');
+						@include centerProjectImage()
 					}
 
 					&.flappy-bird {
-						background: url('../../static/img/projects/flappy_bird.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'flappy_bird.png');
+						@include centerProjectImage()
 					}
 
 					&.trex-runner {
-						background: url('../../static/img/projects/trex_runner.png');
-						background-position: center;
-						background-size: contain;
+						background: url($projectImagePath + 'trex_runner.png');
+						@include centerProjectImage();
 						background-repeat: no-repeat;
 					}
 
 					/* GTB Projects */
 					&.optima {
-						background: url('../../static/img/projects/optima.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'optima.png');
+						@include centerProjectImage()
 					}
 
 					&.varta {
-						background: url('../../static/img/projects/varta.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'varta.png');
+						@include centerProjectImage();
 					}
 
 					&.varta-china {
-						background: url('../../static/img/projects/varta_china.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'varta_china.png');
+						@include centerProjectImage();
 					}
 
 					&.delkor {
-						background: url('../../static/img/projects/delkor.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'delkor.png');
+						@include centerProjectImage();
 					}
 
 					&.delkor-korea {
-						background: url('../../static/img/projects/delkor_korea.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'delkor_korea.png');
+						@include centerProjectImage();
 					}
 
 					/* LoveBook Projects */
 					&.mylovebook {
-						background: url('../../static/img/projects/mylovebook.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'mylovebook.png');
+						@include centerProjectImage();
 					}
 
 					&.lovecoups {
-						background: url('../../static/img/projects/lovecoups.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'lovecoups.png');
+						@include centerProjectImage();
 					}
 
 					/* Progressive Solutions Projects */
 					&.stationeryhq {
-						background: url('../../static/img/projects/stationeryhq.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'stationeryhq.png');
+						@include centerProjectImage();
 					}
 
 					&.frecklebox {
-						background: url('../../static/img/projects/frecklebox.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'frecklebox.png');
+						@include centerProjectImage();
 					}
 
 					/* Shumunov Solutions Projects */
 					&.shumunov-solutions {
-						background: url('../../static/img/projects/shumunov_solutions.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'shumunov_solutions.png');
+						@include centerProjectImage();
 					}
 
 					&.jk-unlimited-services {
-						background: url('../../static/img/projects/jk_unlimited.png');
+						background: url($projectImagePath + 'jk_unlimited.png');
 						background-position: top;
 						background-size: cover;
 					}
 
 					&.paper-goods-warehouse {
-						background: url('../../static/img/projects/papergoodswarehouse_website.png');
-						background-position: center;
-						background-size: cover;
+						background: url($projectImagePath + 'papergoodswarehouse_website.png');
+						@include centerProjectImage();
 					}
 				}
 
