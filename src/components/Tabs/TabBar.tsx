@@ -1,12 +1,6 @@
 import { FC, ReactElement } from 'react';
 import { Tab } from './Tab';
-import { MouseEventHandler } from '../../types/events';
-
-interface TabBarInterface {
-	activeTab: number;
-	children?: ReactElement[];
-	onClick?: MouseEventHandler;
-}
+import { TabBarInterface } from '../../types/tab';
 
 export const TabBar: FC<TabBarInterface> = ({
 	activeTab,

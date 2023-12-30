@@ -1,10 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface CardActionsInterface {
-	children: ReactNode;
-	border?: boolean;
-	extraClass?: string;
-}
+import { FC } from 'react';
+import { CardActionsInterface } from '../../types/card';
 
 export const CardActions: FC<CardActionsInterface> = ({
 	children,

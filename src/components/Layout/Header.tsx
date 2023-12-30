@@ -1,9 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface HeaderInterface {
-	children: ReactNode;
-	title: string;
-}
+import { FC } from 'react';
+import { HeaderInterface } from '../../types/layout';
 
 export const Header: FC<HeaderInterface> = ({ children, title }) => (
 	<div className="header">
@@ -12,4 +8,4 @@ export const Header: FC<HeaderInterface> = ({ children, title }) => (
 			{children}
 		</div>
 	</div>
-)
+);

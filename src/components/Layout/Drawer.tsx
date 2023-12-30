@@ -1,10 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface DrawerInterface {
-	children : ReactNode;
-	isVisible : boolean;
-	title : string;
-}
+import { FC } from 'react';
+import { DrawerInterface } from '../../types/layout';
 
 export const Drawer : FC<DrawerInterface> = ({ children, isVisible, title }) => (
 	<div
@@ -13,4 +8,4 @@ export const Drawer : FC<DrawerInterface> = ({ children, isVisible, title }) => 
 		<span className="drawer-title">{ title }</span>
 		{ children }
 	</div>
-)
+);

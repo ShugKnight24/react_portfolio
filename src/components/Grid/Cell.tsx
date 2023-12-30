@@ -1,22 +1,5 @@
-import { FC, MouseEvent, ReactNode } from 'react';
-import { MouseEventHandler  } from '../../types/events';
-
-interface CellInterface {
-	children: ReactNode;
-	columns: ColumnTypes;
-	dataBookIndex?: number;
-	dataCategoryIndex?: number;
-	extraClass?: string;
-	onClick?: MouseEventHandler;
-}
-
-type ColumnTypes = 
-	'quarter'
-	| 'third'
-	| 'half'
-	| 'two-thirds'
-	| 'three-quarters'
-	| 'full';
+import { FC, MouseEvent } from 'react';
+import { CellInterface } from '../../types/grid';
 
 export const Cell: FC<CellInterface> = ({ 
 	children,
@@ -38,4 +21,4 @@ export const Cell: FC<CellInterface> = ({
 	>
 		{children}
 	</div>
-)
+);

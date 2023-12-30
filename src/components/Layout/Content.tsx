@@ -1,11 +1,8 @@
-import { FC, ReactNode } from 'react';
-
-interface ContentInterface {
-	children: ReactNode;
-}
+import { FC } from 'react';
+import { ContentInterface } from '../../types/layout';
 
 export const Content: FC<ContentInterface> = ({ children }) => (
 	<div className="content">
 		{children}
 	</div>
-)
+);

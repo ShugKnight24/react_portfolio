@@ -1,13 +1,5 @@
-import { FC, ReactNode } from 'react';
-import { MouseEventHandler } from '../../types/events';
-
-export interface TabInterface {
-	active?: boolean;
-	children?: ReactNode | string;
-	extraClass?: string;
-	text?: string;
-	updateActiveTab?: MouseEventHandler;
-}
+import { FC } from 'react';
+import { TabInterface } from '../../types/tab';
 
 export const Tab: FC<TabInterface> = ({
 	active,

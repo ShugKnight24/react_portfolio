@@ -1,9 +1,5 @@
-import { FC, ReactNode } from 'react';
-
-interface ListContentInterface {
-	children?: ReactNode;
-	text?: string;
-}
+import { FC } from 'react';
+import { ListContentInterface } from '../../types/list';
 
 export const ListItemContent: FC<ListContentInterface> = ({
 	children,

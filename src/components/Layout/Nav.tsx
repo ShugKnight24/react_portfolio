@@ -1,9 +1,6 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-
-interface NavProps {
-	drawerClose: () => void;
-}
+import { NavProps } from '../../types/layout';
 
 export const Nav: FC<NavProps> = ({ drawerClose }) => {
 	return (
@@ -37,5 +34,5 @@ export const Nav: FC<NavProps> = ({ drawerClose }) => {
 				onClick={() => drawerClose()}
 			>Resume</NavLink>
 		</nav>
-	)
+	);
 }
