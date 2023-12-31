@@ -14,6 +14,30 @@ Update content & copy
   - Move to new style system - tailwind, chakra, emotion etc
   - Simplify and update content
 
+- Improve Gallery / Books components
+  - Filter by category / genre - add a select dropdown?
+  - Add a search bar
+  - Convert books to "media"
+
+- Further Improve Projects
+  - Add a search bar?
+    - Filter by tech?
+  - Update out of date projects & Add most recent projects
+  - Add a "featured" section?
+  - Allow users to click into projects for more info?
+    - modal system?
+
+- Update Resume
+  - Add new content & improve old content
+  - Improve layout and display
+
+- Themeing
+  - Light / Dark / Custom modes
+  - use Context API
+  - move away from scss vars to css vars for colors
+
+- Combine About & Contact?
+
 ## To-Do
 - convert JS files to TS for typesafety
   - mostly done, data files?
@@ -57,7 +81,9 @@ Update content & copy
 - [ ] Button Sizing
 
 ## Done
-- [X] Update project image pathing, update tech icons, fix layout shift in nav - 12/29/23
+- [X] Update projects and associated components - 12/31/23
+- [X] Types Cleanup, Update TypeWriter to aceept a list of strings - 12/30/23
+- [X] Fix layout shift in hero h1, add `IndentedParagraph` component, update project image pathing, update tech icons, fix layout shift in nav - 12/29/23
 - [X] Use vite - 12/26/23
 - [X] Refactor Typewriter - 12/18/23
 - [X] Remove react-mdl - 8/1 -> 8/22/21
