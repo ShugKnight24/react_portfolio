@@ -10,6 +10,81 @@ export const ShumunovSolutions: FC = () => {
 				shadow="medium"
 			>
 				<CardTitle
+					ariaLabel="Image of RegenMedGlobal website homepage"
+					extraClass="project-cards-title regenmedglobal" 
+					role="img"
+				>
+					<span className="title-background">
+						RegenMedGlboal
+					</span>
+				</CardTitle>
+				<CardText extraClass="project-description">
+					{[
+						'Improve site UI, performance, and SEO',
+						'Update site functionality'
+					]}
+				</CardText>
+				<CardActions border>
+					<Button>
+						<a href="https://regenmedglobal.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
+					</Button>
+				</CardActions>
+			</Card>
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					ariaLabel="Image of WhosOut App Loading Screen & Additional Screens"
+					extraClass="project-cards-title whosout" 
+					role="img"
+				>
+					<span className="title-background">
+						WhosOut
+					</span>
+				</CardTitle>
+				<CardText extraClass="project-description">
+					{[
+						'Helped upgrade app for launch',
+						'Improved app architecture, functionality, and performance'
+					]}
+				</CardText>
+				<CardActions border>
+					<Button>
+						<a href="https://www.shumunovsolutions.com" rel="noopener noreferrer" target="_blank">Live Site</a>
+					</Button>
+				</CardActions>
+			</Card>
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
+					ariaLabel="Image of building directory website homepage"
+					extraClass="project-cards-title directory" 
+					role="img"
+				>
+					<span className="title-background">
+						Buidling Directory
+					</span>
+				</CardTitle>
+				<CardText extraClass="project-description">
+					{[
+						'Building directory for a local commercial office building',
+						'Built with React, TypeScript, Next.js, and Contentful CMS'
+					]}
+				</CardText>
+				<CardActions border>
+					<Button>
+						<a href="http://www.shumunovsolutions.com/dir" rel="noopener noreferrer" target="_blank">Live Site</a>
+					</Button>
+				</CardActions>
+			</Card>
+			<Card
+				extraClass="project-cards"
+				shadow="medium"
+			>
+				<CardTitle
 					ariaLabel="Image of Shumunov Solutions website homepage"
 					extraClass="project-cards-title shumunov-solutions" 
 					role="img"
@@ -23,7 +98,7 @@ export const ShumunovSolutions: FC = () => {
 				</CardText>
 				<CardActions border>
 					<Button>
-						<a href="https://www.shumunovsolutions.com" rel="noopener noreferrer" target="_blank">Live Site</a>
+						<a href="http://www.shumunovsolutions.com" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
 			</Card>
@@ -45,7 +120,7 @@ export const ShumunovSolutions: FC = () => {
 				</CardText>
 				<CardActions border>
 					<Button>
-						<a href="https://www.jkunlimitedservices.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
+						<a href="http://www.jkunlimitedservices.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
 					</Button>
 				</CardActions>
 			</Card>
@@ -63,14 +138,9 @@ export const ShumunovSolutions: FC = () => {
 					</span>
 				</CardTitle>
 				<CardText extraClass="project-description">
-					Website for Oak Park, MI Paper Goods Store
+					Website for Oak Park, MI store. Sadly, they have since closed
 				</CardText>
-				<CardActions border>
-					<Button>
-						<a href="https://www.papergoodswarehouse.com/" rel="noopener noreferrer" target="_blank">Live Site</a>
-					</Button>
-				</CardActions>
 			</Card>
 		</div>
-	)
+	);
 }

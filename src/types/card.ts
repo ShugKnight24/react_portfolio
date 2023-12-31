@@ -15,7 +15,6 @@ export interface CardInterface {
 export interface CardTextInterface {
 	children?: ReactNode;
 	extraClass?: string;
-	text?: string;
 }
 
 export interface CardTitleInterface {
