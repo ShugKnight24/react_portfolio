@@ -8,18 +8,6 @@ export const imageArray = [
 		description: 'Tommy is a goofy husky'
 	},
 	{
-		src: `${imageSourceString}jbp_rules_live.png`,
-		height: 700,
-		artist: 'Uknown',
-		description: 'JBP Words of Advice'
-	},
-	{
-		src: `${imageSourceString}life_is_a_mirror.jpeg`,
-		height: 800,
-		artist: 'Alan McFadyen',
-		description: 'Alan McFadyen captured the Kingfisher perfectly reflected in the water'
-	},
-	{
 		src: `${imageSourceString}luna_1.JPG`,
 		height: 800,
 		artist: 'Shugmi Shumunov',
@@ -80,12 +68,6 @@ export const imageArray = [
 		description: 'Memes are true'
 	},
 	{
-		src: `${imageSourceString}prog_meme.png`,
-		height: 400,
-		artist: 'Doge MeMer',
-		description: 'I am doge'
-	},
-	{
 		src: `${imageSourceString}seray.JPG`,
 		height: 800,
 		artist: 'Shugmi Shumunov',
@@ -108,18 +90,6 @@ export const imageArray = [
 		height: 800,
 		artist: 'Shugmi Shumunov',
 		description: 'Teddy is sick of your shit!'
-	},
-	{
-		src: `${imageSourceString}daniel_stein.jpg`,
-		height: 300,
-		artist: 'Daniel J Stein',
-		description: 'Daniel Stein is a G!'
-	},
-	{
-		src: `${imageSourceString}pillars_of_creation.jpeg`,
-		height: 600,
-		artist: 'Nasa',
-		description: 'Science Rules'
 	},
 	{
 		src: `./img/jbp_shug.jpg`,
