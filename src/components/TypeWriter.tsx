@@ -1,12 +1,7 @@
 import { FC, useState, useEffect } from 'react';
+import { TypewriterInterface } from '../types/typewriter';
 
-type TypewriterProps = {
-  textToType: string[];
-  typingSpeed?: number;
-  deletingSpeed?: number;
-}
-
-export const Typewriter: FC<TypewriterProps> = ({
+export const Typewriter: FC<TypewriterInterface> = ({
   textToType,
   typingSpeed = 100,
   deletingSpeed = 50

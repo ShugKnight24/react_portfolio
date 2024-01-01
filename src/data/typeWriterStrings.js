@@ -2,7 +2,8 @@ export const names = [
   'Shugmi Shumunov',
   'шумун шумунов',
   'שמעון שומונוב',
-  'I am who I am'
+  'I am who I am',
+  '👟🌕'
 ];
 
 export const developerQualities = [
