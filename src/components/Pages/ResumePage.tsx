@@ -8,6 +8,8 @@ import { Skills } from '../Skills';
 import { IndentedParagraph } from '../IndentedParagraph';
 
 export const ResumePage : FC = () =>{
+	// TODO: Refactor componenents - Exp / Skills / Education
+	// TODO: revise content & improve copy
 	return (
 		<div className="resume-page">
 			<Grid>
@@ -351,7 +353,11 @@ export const ResumePage : FC = () =>{
 								);
 							})}
 						</div>
-						{/* <h3>Languages</h3>
+
+						
+						{/* TODO: Think if you want to add these sections or keep as is
+						 
+						<h3>Languages</h3>
 
 						<h3>Front-End Frameworks & Libraries</h3>
 
@@ -363,67 +369,12 @@ export const ResumePage : FC = () =>{
 
 						*/}
 
-{/* TODO: Find SVG Icons for these skills */}
-					<h3>Design Tools</h3>
-						<Skills
-							skill={ 'Photoshop' }
-							progress={ 45 }
-						/>
-
-						<Skills
-							skill={ 'Illustrator' }
-							progress={ 45 }
-						/>
-
-						<Skills
-							skill={ 'XD' }
-							progress={ 30 }
-						/>
+						{/* TODO: consider if this and PM / Comm are valuable sections */}
+						<h3>Design Tools</h3>
 
 						<Skills
 							skill={ 'Figma' }
 							progress={ 30 }
-						/>
-
-						<h3>Project Management Tools</h3>
-
-						<Skills
-							skill={ 'Monday' }
-							progress={ 75 }
-						/>
-
-						<Skills
-							skill={ 'Trello' }
-							progress={ 60 }
-						/>
-
-						<Skills
-							skill={ 'Asana' }
-							progress={ 45 }
-						/>
-
-						<Skills
-							skill={ 'Basecamp' }
-							progress={ 45 }
-						/>
-
-						<h3>Communication Tools</h3>
-
-						<Skills
-							skill={ 'Discord' }
-							progress={ null }
-						/>
-						<Skills
-							skill={ 'Google Meet' }
-							progress={ null }
-						/>
-						<Skills
-							skill={ 'Slack' }
-							progress={ null }
-						/>
-						<Skills
-							skill={ 'Zoom' }
-							progress={ null }
 						/>
 
 					</div>

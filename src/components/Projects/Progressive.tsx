@@ -1,54 +1,27 @@
 import { FC } from 'react';
-import { Button } from '../Button/Button';
-import { Card, CardActions, CardText, CardTitle } from '../Cards';
+import { ProjectCard } from './ProjectCard';
 
 export const Progressive: FC = () => {
 	return (
 		<div className="projects-grid">
-			<Card
-				extraClass="project-cards"
-				shadow="medium"
-			>
-				<CardTitle
-					ariaLabel="Image of StationeryHQ website homepage"
-					extraClass="project-cards-title stationeryhq"
-					role="img" 
-				>
-					<span className="title-background">
-						StationeryHQ
-					</span>
-				</CardTitle>
-				<CardText extraClass="project-description">
-					Customized stationery made easy
-				</CardText>
-				<CardActions border>
-					<Button>
-						<a href="https://www.stationeryhq.com" rel="noopener noreferrer" target="_blank">Live Site</a>
-					</Button>
-				</CardActions>
-			</Card>
-			<Card
-				extraClass="project-cards"
-				shadow="medium"
-			>
-				<CardTitle
-					aria-label="Image of FreckleBox website homepage"
-					extraClass="project-cards-title frecklebox"
-					role="img" 
-				>
-					<span className="title-background">
-						FreckleBox
-					</span>
-				</CardTitle>
-				<CardText extraClass="project-description">
-					Personalized gifts for kids
-				</CardText>
-				<CardActions border>
-					<Button>
-						<a href="https://www.frecklebox.com" rel="noopener noreferrer" target="_blank">Live Site</a>
-					</Button>
-				</CardActions>
-			</Card>
+			<ProjectCard
+				titleAriaLabel="Image of StationeryHQ website homepage"
+				titleExtraClass="project-cards-title stationeryhq"
+				titleRole="img"
+				title="StationeryHQ"
+				description={["Customized stationery made easy"]}
+				buttonLinks={["https://www.stationeryhq.com"]}
+				buttonText={["Live Site"]}
+			/>
+			<ProjectCard
+				titleAriaLabel="Image of FreckleBox website homepage"
+				titleExtraClass="project-cards-title frecklebox"
+				titleRole="img"
+				title="FreckleBox"
+				description={["Personalized gifts for kids"]}
+				buttonLinks={["https://www.frecklebox.com"]}
+				buttonText={["Live Site"]}
+			/>
 		</div>
-	)
+	);
 }

@@ -2,7 +2,19 @@ import { FC, useState } from 'react';
 import { Cell, Grid } from '../Grid';
 import { Tabs, Tab } from '../Tabs';
 
-import { Projects } from '../Projects';
+import { Projects } from '../Projects/Projects';
+
+const projectNames = [
+	'Shumunov Solutions',
+	'Nexient',
+	'Olive AI',
+	'Progressive Solutions',
+	'LoveBook',
+	'Personal Projects',
+	'JS30',
+	'Games',
+	'GTB'
+];
 
 export const ProjectsPage: FC = () => {
 	const [activeTab, setActiveTab] = useState(0);
@@ -13,27 +25,14 @@ export const ProjectsPage: FC = () => {
 				extraClass="projects-tabs"
 				activeTab={activeTab}
 			>
-				<Tab
-					updateActiveTab={ () => setActiveTab(0) }
-				>Personal Projects</Tab>
-				<Tab
-					updateActiveTab={ () => setActiveTab(1) }
-				>JS30</Tab>
-				<Tab
-					updateActiveTab={ () => setActiveTab(2) }
-				>Games</Tab>
-				<Tab
-					updateActiveTab={ () => setActiveTab(3) }
-				>GTB</Tab>
-				<Tab
-					updateActiveTab={ () => setActiveTab(4) }
-				>LoveBook</Tab>
-				<Tab
-					updateActiveTab={ () => setActiveTab(5) }
-				>Progressive Solutions</Tab>
-				<Tab
-					updateActiveTab={ () => setActiveTab(6) }
-				>Shumunov Solutions</Tab>
+				{projectNames.map((name, index) => {
+					return (
+						<Tab
+							key={ index }
+							updateActiveTab={ () => setActiveTab(index) }
+						>{ name }</Tab>
+					);
+				})}
 			</Tabs>
 			<Grid>
 				<Cell columns={ 'full' }>

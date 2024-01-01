@@ -48,7 +48,8 @@
 
 	p {
 			font-size: 20px;
-			text-align: center;
+			text-align: left;
+			margin: 10px 0;
 	}
 
 	.projects {
@@ -85,6 +86,26 @@
 						text-shadow: 1px 1px 5px #000;
 						padding: 10px;
 						background-color: $main-accent-color;
+					}
+
+					/* Nexient Projects */
+					// TODO: figure out better way to display these
+					&.levis {
+						background: url($projectImagePath + 'lma_home_screen.jpeg'), url($projectImagePath + 'lma_onboarding.jpeg');
+						background-position: left top, right top;
+						background-repeat: no-repeat;
+						background-size: contain;
+					}
+
+					&.vectorform {
+						background: url($projectImagePath + 'vectorform.png');
+						@include centerProjectImage();
+					}
+
+					/* OliveAI */
+					&.olive {
+						background: url($projectImagePath + 'oliveai.png');
+						@include centerProjectImage();
 					}
 
 					/* Personal Projects */
@@ -279,8 +300,9 @@
 
 					&.trex-runner {
 						background: url($projectImagePath + 'trex_runner.png');
-						@include centerProjectImage();
+						background-position: center;
 						background-repeat: no-repeat;
+						background-size: contain;
 					}
 
 					/* GTB Projects */
@@ -332,6 +354,24 @@
 					}
 
 					/* Shumunov Solutions Projects */
+					&.regenmedglobal {
+						background: url($projectImagePath + 'regenmedglobal.png');
+						@include centerProjectImage();
+					}
+
+					// TODO: figure out better way to display these
+					&.whosout {
+						background: url($projectImagePath + 'whosout.png'), url($projectImagePath + 'whosout_loading.jpeg');
+						background-position: left top, right top;
+						background-repeat: no-repeat;
+						background-size: contain;
+					}
+
+					&.directory {
+						background: url($projectImagePath + 'directory.png');
+						@include centerProjectImage();
+					}
+
 					&.shumunov-solutions {
 						background: url($projectImagePath + 'shumunov_solutions.png');
 						@include centerProjectImage();
