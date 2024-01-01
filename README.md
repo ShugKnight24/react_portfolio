@@ -81,7 +81,8 @@ Update content & copy
 - [ ] Button Sizing
 
 ## Done
-- [X] Update projects and associated components - 12/31/23
+- [X] Begin updating Resume content, Update project display - 1/1/24
+- [X] Add `ProjectCard` Component, Update projects and associated components - 12/31/23
 - [X] Types Cleanup, Update TypeWriter to aceept a list of strings - 12/30/23
 - [X] Fix layout shift in hero h1, add `IndentedParagraph` component, update project image pathing, update tech icons, fix layout shift in nav - 12/29/23
 - [X] Use vite - 12/26/23
