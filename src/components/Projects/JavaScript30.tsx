@@ -1,46 +1,36 @@
 import { FC } from 'react';
-import { Button } from '../Button/Button';
-import { Card, CardActions, CardText, CardTitle } from '../Cards';
+import { ProjectCard } from './ProjectCard';
 
 import { javaScript30Projects } from '../../data/javaScript30Projects';
 
 export const JavaScript30: FC = () => {
 	return (
 		<div className="projects-grid">
-		{
-			javaScript30Projects.map(({
+			{javaScript30Projects.map(({
 				title,
 				projectDescription,
 				githubLink,
 				projectLink,
 				cssClass
 			}) => {
-				return(
-					<Card
-						extraClass="project-cards"
-						key={ title }
-						shadow="medium"
-					>
-						<CardTitle extraClass={`project-cards-title ${ cssClass }`} role="img" aria-label={ title }>
-							<span className="title-background">
-								{ title }
-							</span>
-						</CardTitle>
-						<CardText extraClass="project-description">
-							{ projectDescription }
-						</CardText>
-						<CardActions border>
-							<Button>
-								<a href={ githubLink } rel="noopener noreferrer" target="_blank">GitHub Repository</a>
-							</Button>
-							<Button>
-								<a href={ projectLink } rel="noopener noreferrer" target="_blank">Live Demo</a>
-							</Button>
-						</CardActions>
-					</Card>
-				)
-			})
-		}
+				return (
+					<ProjectCard
+						titleAriaLabel={ title }
+						titleExtraClass={`project-cards-title ${ cssClass }`}
+						titleRole="img"
+						title={ title }
+						description={[ projectDescription ]}
+						buttonLinks={[
+							githubLink,
+							projectLink
+						]}
+						buttonText={[
+							"GitHub Repository",
+							"Live Demo"
+						]}
+					/>
+				);
+			})}
 		</div>
-	)
+	);
 }

@@ -6,4 +6,6 @@ export { Nexient } from './Nexient';
 export { OliveAI } from './OliveAI';
 export { PersonalProjects } from './PersonalProjects';
 export { Progressive } from './Progressive';
+export { ProjectCard } from './ProjectCard';
+export { Projects } from './Projects';
 export { ShumunovSolutions } from './ShumunovSolutions';
