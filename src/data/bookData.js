@@ -40,6 +40,11 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
+			name: 'The Pragmatic Programmer: Your Journey To Mastery',
+			author: 'David Thomas and Andrew Hunt',
+			imgSrc: './img/books/pragmatic_programmer.jpg'
+		},
+		{
 			name: 'Clean Code: A Handbook of Agile Software Craftsmanship',
 			author: 'Robert C. Martin',
 			imgSrc: './img/books/clean_code.jpg'
@@ -56,6 +61,19 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: "There's NO Such Thing as a Dragon",
+			author: 'Jack Kent',
+			imgSrc: './img/books/no_dragon.jpg',
+			readNo: 2
+		},
+		{
+			name: 'Never Split the Difference: Negotiating As If Your Life Depended On It',
+			author: 'Chris Voss and Tahl Raz',
+			imgSrc: './img/books/never_split_the_difference.jpg',
+			audioBook: true,
+			readNo: 1
+		},
 		{
 			name: 'Feeling is the Secret: 1944 Edition',
 			author: 'Neville Goddard',
