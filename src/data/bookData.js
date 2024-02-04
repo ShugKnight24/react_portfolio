@@ -40,6 +40,11 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
+			name: 'Move Your Bus: An Extraordinary New Approach to Accelerating Success in Work and Life',
+			author: 'Ron Clark',
+			imgSrc: './img/books/move_your_bus.jpg'
+		},
+		{
 			name: 'The Pragmatic Programmer: Your Journey To Mastery',
 			author: 'David Thomas and Andrew Hunt',
 			imgSrc: './img/books/pragmatic_programmer.jpg'
@@ -61,6 +66,13 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'Start with Why: How Great Leaders Inspire Everyone to Take Action',
+			author: 'Simon Sinek',
+			imgSrc: './img/books/start_with_why.jpg',
+			audioBook: true,
+			readNo: 1
+		},
 		{
 			name: "There's NO Such Thing as a Dragon",
 			author: 'Jack Kent',
