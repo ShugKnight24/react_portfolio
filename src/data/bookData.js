@@ -40,11 +40,6 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: 'The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win',
-			author: 'Gene Kim, Kevin Behr, George Spafford',
-			imgSrc: './img/books/the_phoenix_project.jpg'
-		},
-		{
 			name: 'The Pragmatic Programmer: Your Journey To Mastery',
 			author: 'David Thomas and Andrew Hunt',
 			imgSrc: './img/books/pragmatic_programmer.jpg'
@@ -66,6 +61,13 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win',
+			author: 'Gene Kim, Kevin Behr, George Spafford',
+			imgSrc: './img/books/the_phoenix_project.jpg',
+			audioBook: true,
+			readNo: 1
+		},
 		{
 			name: 'Move Your Bus: An Extraordinary New Approach to Accelerating Success in Work and Life',
 			author: 'Ron Clark',
