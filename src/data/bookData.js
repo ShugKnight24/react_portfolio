@@ -40,6 +40,11 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
+			name: 'The Goal: A Process of Ongoing Improvement',
+			author: 'Eliyahu M. Goldratt',
+			imgSrc: './img/books/the_goal.jpg'
+		},
+		{
 			name: 'The Pragmatic Programmer: Your Journey To Mastery',
 			author: 'David Thomas and Andrew Hunt',
 			imgSrc: './img/books/pragmatic_programmer.jpg'
