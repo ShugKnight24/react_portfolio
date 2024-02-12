@@ -40,9 +40,9 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: 'The Goal: A Process of Ongoing Improvement',
-			author: 'Eliyahu M. Goldratt',
-			imgSrc: './img/books/the_goal.jpg'
+			name: '100M Offers: How to Make Offers So Good People Feel Stupid Saying No',
+			author: 'Alex Hormozi',
+			imgSrc: './img/books/100_mil_offers.jpg'
 		},
 		{
 			name: 'The Pragmatic Programmer: Your Journey To Mastery',
@@ -66,6 +66,13 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: 'The Goal: A Process of Ongoing Improvement',
+			author: 'Eliyahu M. Goldratt',
+			imgSrc: './img/books/the_goal.jpg',
+			audioBook: true,
+			readNo: 1
+		},
 		{
 			name: 'The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win',
 			author: 'Gene Kim, Kevin Behr, George Spafford',
@@ -110,21 +117,21 @@ export const previouslyRead = {
 		{
 			name: 'Feeling is the Secret',
 			author: 'Neville Goddard',
-			imgSrc: './img/books/feeling_is_the_secret.jpg',
+			imgSrc: './img/books/feeling_is_the_secret_audio.jpg',
 			audioBook: true,
 			readNo: 3
 		},
 		{
 			name: 'Feeling is the Secret',
 			author: 'Neville Goddard',
-			imgSrc: './img/books/feeling_is_the_secret.jpg',
+			imgSrc: './img/books/feeling_is_the_secret_audio.jpg',
 			audioBook: true,
 			readNo: 2
 		},
 		{
 			name: 'Feeling is the Secret',
 			author: 'Neville Goddard',
-			imgSrc: './img/books/feeling_is_the_secret.jpg',
+			imgSrc: './img/books/feeling_is_the_secret_audio.jpg',
 			audioBook: true,
 			readNo: 1
 		},
