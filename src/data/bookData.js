@@ -40,9 +40,9 @@ export const currentlyReading = {
 	index: 1,
 	bookList: [
 		{
-			name: '100M Offers: How to Make Offers So Good People Feel Stupid Saying No',
+			name: '$100M Leads: How to Get Strangers to Want to Buy Your Stuff',
 			author: 'Alex Hormozi',
-			imgSrc: './img/books/100_mil_offers.jpg'
+			imgSrc: './img/books/100_mil_leads.jpg'
 		},
 		{
 			name: 'The Pragmatic Programmer: Your Journey To Mastery',
@@ -66,6 +66,13 @@ export const previouslyRead = {
 	categoryName: 'Previously Read',
 	index: 2,
 	bookList: [
+		{
+			name: '$100M Offers: How to Make Offers So Good People Feel Stupid Saying No',
+			author: 'Alex Hormozi',
+			imgSrc: './img/books/100_mil_offers.jpg',
+			audioBook: true,
+			readNo: 1
+		},
 		{
 			name: 'The Goal: A Process of Ongoing Improvement',
 			author: 'Eliyahu M. Goldratt',
