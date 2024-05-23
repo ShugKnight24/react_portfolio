@@ -22,6 +22,10 @@ export const Nav: FC<NavProps> = ({ drawerClose }) => {
 				onClick={() => drawerClose()}
 			>Contact</NavLink>
 			<NavLink
+				to="/feed"
+				onClick={() => drawerClose()}
+			>Feed</NavLink>
+			<NavLink
 				to="/photos"
 				onClick={() => drawerClose()}
 			>Photos</NavLink>

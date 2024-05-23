@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 const AboutPage = lazy(() => import('../Pages').then(module => ({ default: module.AboutPage })));
 const BooksPage = lazy(() => import('../Pages').then(module => ({ default: module.BooksPage })));
 const ContactPage = lazy(() => import('../Pages').then(module => ({ default: module.ContactPage })));
+const Feed = lazy(() => import('../Feed').then(module => ({ default: module.Feed })));
 const LandingPage = lazy(() => import('../Pages').then(module => ({ default: module.LandingPage })));
 const NotFoundPage = lazy(() => import('../Pages').then(module => ({ default: module.NotFoundPage })));
 const PhotoGal = lazy(() => import('../Pages').then(module => ({ default: module.PhotoGal })));
@@ -16,6 +17,7 @@ export const Main: FC = () => (
 		<Route path="/about" element={ <AboutPage /> } />
 		<Route path="/books" element={ <BooksPage /> } />
 		<Route path="/contact" element={ <ContactPage /> } />
+		<Route path='/feed' element={ <Feed /> } />
 		<Route path="/photos" element={ <PhotoGal /> } />
 		<Route path="/projects" element={ <ProjectsPage /> } />
 		<Route path="/resume" element={ <ResumePage /> } />
