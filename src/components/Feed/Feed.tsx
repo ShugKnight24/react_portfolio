@@ -1,12 +1,6 @@
 import { useState } from 'react';
-
+import { Post } from '../../types/feed';
 import { postsArray } from '../../data/feedData';
-
-export interface Post {
-  id: number;
-  title?: string;
-  content: string;
-}
 
 // TODO: display posts differently between /feed & /landing or /
 // Based on the path, or based on a prop...

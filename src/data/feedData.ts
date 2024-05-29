@@ -1,4 +1,4 @@
-import { Post } from '../components/Feed/Feed';
+import { Post } from '../types/feed';
 
 export const postsArray: Post[] = [
   {
