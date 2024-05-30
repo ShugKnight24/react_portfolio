@@ -1,26 +1,34 @@
-import { useState } from 'react';
-import { Post } from '../../types/feed';
+import { FC, useState } from 'react';
+import { FeedProps, Post } from '../../types/feed';
 import { postsArray } from '../../data/feedData';
+import { Link } from 'react-router-dom';
 
-// TODO: display posts differently between /feed & /landing or /
-// Based on the path, or based on a prop...
+// TODO: Based off of the current implementation, consider the following:
 // Style the component differently
 // Style the posts differently
-// Truncate the number of posts in the landing page and add a "view more" button
+// Style the load more button
 
-export const Feed = () => {
+export const Feed: FC<FeedProps> = ({ truncate }) => {
   // Allow users to create their own posts for fun?
   const [posts, setPosts] = useState<Post[]>(postsArray);
 
+  const displayedPosts = truncate ? posts.slice(0, truncate) : posts;
+
   return (
     <div>
-      <h2>Feed</h2>
-      {posts.map((post) => (
+      {!posts.length && <p>No posts to display</p>}
+      {!truncate && <h1>Feed</h1>}
+      {displayedPosts.map((post) => (
         <div key={post.id}>
           <h3>{post.title}</h3>
           <p>{post.content}</p>
         </div>
       ))}
+      {truncate && posts.length > truncate && (
+        <Link to="/feed">
+          <button>Load More</button>
+        </Link>
+      )}
     </div>
   );
 }
