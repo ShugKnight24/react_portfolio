@@ -6,6 +6,7 @@ import { TechIcon } from '../TechIcon';
 import { Typewriter } from '../Typewriter';
 
 import { developerQualities, names } from '../../data/typeWriterStrings';
+import { Feed } from '../Feed';
 
 export const LandingPage: FC = () => {
 	return(
@@ -37,6 +38,9 @@ export const LandingPage: FC = () => {
 							className="splash-img"
 						/>
 					</div>
+					<Feed
+						truncate={3}
+					/>
 					<div className="banner-text">
 						<h2>Full Stack Software Engineer</h2>
 						<hr />
