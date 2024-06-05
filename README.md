@@ -39,8 +39,12 @@ Update content & copy
 - Combine About & Contact?
 
 ## To-Do
+- Fix feeling is the secret on deployed version.
+  - check to see if it's a problem in dev too
+  - correct asset if it is
+- Update to React 19
+- Reoptimize the images used throughout
 - convert JS files to TS for typesafety
-  - mostly done, data files?
 - Automate workflows
   - Add ci / cd
   - husky / linting / prettier / etc...
@@ -52,6 +56,7 @@ Update content & copy
     - responsiveness not great on resize / based off load
     - Or... add column # to columns class and improve the media queries
     - Will this even be a problem once a flex grid is used?
+  - Use similar layout for the feed
 - Refactor Skills & TechIcons
   - Clean up SkillsInterface
   - Add SVGs to tech & skills sections
@@ -81,6 +86,7 @@ Update content & copy
 - [ ] Button Sizing
 
 ## Done
+- [X] Implement basic feed - 5/24 -> 6/4
 - [X] Begin updating Resume content, Update project display - 1/1/24
 - [X] Add `ProjectCard` Component, Update projects and associated components - 12/31/23
 - [X] Types Cleanup, Update TypeWriter to aceept a list of strings - 12/30/23
