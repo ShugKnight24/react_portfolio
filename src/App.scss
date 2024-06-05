@@ -2,17 +2,22 @@
 @import './sass/base';
 @import './sass/mixins';
 @import './sass/helpers';
+
+// Component Imports
 @import './sass/components/button';
 @import './sass/components/card';
 @import './sass/components/cell';
 @import './sass/components/content';
 @import './sass/components/drawer';
+@import './sass/components/feed';
 @import './sass/components/footer';
 @import './sass/components/grid';
 @import './sass/components/header';
 @import './sass/components/list';
 @import './sass/components/progressbar';
 @import './sass/components/tabs';
+
+// Page Imports
 @import './sass/pages/landingpage';
 @import './sass/pages/aboutpage';
 @import './sass/pages/bookspage';
