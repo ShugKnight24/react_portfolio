@@ -1,6 +1,15 @@
-import { Post } from '../types/feed';
+import { FeedPost } from '../types/feed';
 
-export const postsArray: Post[] = [
+export const postsArray: FeedPost[] = [
+  {
+    id: 6,
+    title: 'The world is a mirror',
+    blockquote: `I weep for Narcissus, but I never noticed that Narcissus was beautiful.
+      I weep because, each time he knelt beside my banks, I could see, in the depths of his eyes, my own beauty reflected.
+    `,
+    author: 'Paulo Coelho',
+    book: 'The Alchemist',
+  },
   {
     id: 5,
     title: 'I call on my angels & they say...',
