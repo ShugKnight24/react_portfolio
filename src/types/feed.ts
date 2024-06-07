@@ -7,6 +7,8 @@ interface Post {
   id: number;
   title?: string;
   content?: string;
+  artist?: string;
+  youtubeLink?: string;
   // image: src string?
   // date: timestamp or formated string?
   // type: non text content? - differentially render & style content based on type...

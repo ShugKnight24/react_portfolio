@@ -16,6 +16,7 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
     <div className="feed">
       {!posts.length && <p>No posts to display</p>}
       {!truncate ? <h1>Feed</h1> : <h2>Feed</h2>}
+      <hr />
       {/* TODO: Create subcomponent that handles differential rendering */}
       {displayedPosts.map((post) => {
         if ('author' in post && 'book' in post) {
@@ -35,16 +36,35 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
               {post.artist && <p>{post.artist}</p>}
               {post.song && <p>{post.song}</p>}
               {post.albumArt && <img className="album-art" src={post.albumArt} alt={post.album} />}
+              {post.youtubeLink && (
+                <a
+                  href={post.youtubeLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch on YouTube
+                </a>
+              )}
               <hr />
             </div>
           );
         } else {
           return (
             <div key={post.id} className="post">
-              <h3>{post.title}</h3>
+              {post.title && <h3>{post.title}</h3>}
+              {post.artist && <p>{post.artist}</p>}
               {post.content && post.content.split('\n').map((line, index) => (
                 (line !== '' && line.trim() !== '') && <p key={index}>{line}</p>
               ))}
+              {post.youtubeLink && (
+                <a
+                  href={post.youtubeLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Watch on YouTube
+                </a>
+              )}
               <hr />
             </div>
           );
