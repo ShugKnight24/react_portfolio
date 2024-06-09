@@ -8,6 +8,7 @@ interface Post {
   title?: string;
   content?: string;
   artist?: string;
+  videoId?: string;
   youtubeLink?: string;
   // image: src string?
   // date: timestamp or formated string?
@@ -21,7 +22,6 @@ interface BookPost extends Post {
 }
 
 interface MusicPost extends Post {
-  artist?: string;
   album?: string;
   albumArt?: string;
   song?: string;

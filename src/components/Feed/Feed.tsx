@@ -37,13 +37,21 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
               {post.song && <p>{post.song}</p>}
               {post.albumArt && <img className="album-art" src={post.albumArt} alt={post.album} />}
               {post.youtubeLink && (
-                <a
-                  href={post.youtubeLink}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Watch on YouTube
-                </a>
+                <>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${post.videoId}`}
+                    title={post.title ? post.title : 'YouTube Video Embed'}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  /> 
+                  <a
+                    href={post.youtubeLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Watch on YouTube
+                  </a>
+                </>
               )}
               <hr />
             </div>
@@ -57,13 +65,21 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
                 (line !== '' && line.trim() !== '') && <p key={index}>{line}</p>
               ))}
               {post.youtubeLink && (
-                <a
-                  href={post.youtubeLink}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Watch on YouTube
-                </a>
+                <>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${post.videoId}`}
+                    title={post.title ? post.title : 'YouTube Video Embed'}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  /> 
+                  <a
+                    href={post.youtubeLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Watch on YouTube
+                  </a>
+                </>
               )}
               <hr />
             </div>
