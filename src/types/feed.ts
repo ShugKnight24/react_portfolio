@@ -8,8 +8,7 @@ interface Post {
   title?: string;
   content?: string;
   artist?: string;
-  videoId?: string;
-  youtubeLink?: string;
+  youtubeInfo?: YoutubeInfo;
   // image: src string?
   // date: timestamp or formated string?
   // type: non text content? - differentially render & style content based on type...
@@ -28,3 +27,14 @@ interface MusicPost extends Post {
 }
 
 export type FeedPost = Post | BookPost | MusicPost;
+
+export interface YoutubeEmbedProps {
+  title?: string;
+  videoId: string;
+  youtubeLink: string;
+}
+
+interface YoutubeInfo {
+  videoId: string;
+  videoLink: string;
+}

@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { FeedProps, FeedPost } from '../../types/feed';
 import { postsArray } from '../../data/feedData';
 import { Link } from 'react-router-dom';
+import { YoutubeEmbed } from './YoutubeEmbed';
 
 // Create a grid system that displays the posts in rows and columns that adjusts
 // the layout based on the height of the content
@@ -36,22 +37,12 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
               {post.artist && <p>{post.artist}</p>}
               {post.song && <p>{post.song}</p>}
               {post.albumArt && <img className="album-art" src={post.albumArt} alt={post.album} />}
-              {post.youtubeLink && (
-                <>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${post.videoId}`}
-                    title={post.title ? post.title : 'YouTube Video Embed'}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  /> 
-                  <a
-                    href={post.youtubeLink}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Watch on YouTube
-                  </a>
-                </>
+              {post.youtubeInfo && (
+                <YoutubeEmbed
+                  title={post.title}
+                  videoId={post.youtubeInfo.videoId}
+                  youtubeLink={post.youtubeInfo.videoLink}
+                />
               )}
               <hr />
             </div>
@@ -64,22 +55,12 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
               {post.content && post.content.split('\n').map((line, index) => (
                 (line !== '' && line.trim() !== '') && <p key={index}>{line}</p>
               ))}
-              {post.youtubeLink && (
-                <>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${post.videoId}`}
-                    title={post.title ? post.title : 'YouTube Video Embed'}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  /> 
-                  <a
-                    href={post.youtubeLink}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Watch on YouTube
-                  </a>
-                </>
+              {post.youtubeInfo && (
+                <YoutubeEmbed
+                  title={post.title}
+                  videoId={post.youtubeInfo.videoId}
+                  youtubeLink={post.youtubeInfo.videoLink}
+                />
               )}
               <hr />
             </div>
