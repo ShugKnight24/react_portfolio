@@ -86,7 +86,7 @@ Update content & copy
 - [ ] Button Sizing
 
 ## Done
-- [X] Implement basic feed - 5/24 -> 6/4
+- [X] Implement basic feed - 5/23 -> 6/4
 - [X] Begin updating Resume content, Update project display - 1/1/24
 - [X] Add `ProjectCard` Component, Update projects and associated components - 12/31/23
 - [X] Types Cleanup, Update TypeWriter to aceept a list of strings - 12/30/23

@@ -21,7 +21,10 @@ export const postsArray: FeedPost[] = [
       OoRah!
     `,
     artist: 'Syama Pedersen',
-    youtubeLink: 'https://www.youtube.com/watch?v=azVeFAETUyM'
+    youtubeInfo: {
+      videoId: 'azVeFAETUyM',
+      videoLink: 'https://www.youtube.com/watch?v=azVeFAETUyM'
+    }
   },
   {
     id: 7,
@@ -56,7 +59,10 @@ export const postsArray: FeedPost[] = [
     song: 'Rise',
     album: 'Devil in Disguise',
     albumArt: './img/feed/state_of_mine_devil_in_disguise.jpg',
-    youtubeLink: 'https://www.youtube.com/watch?v=0lNpmPRjN-0'
+    youtubeInfo: {
+      videoId: '0lNpmPRjN-0',
+      videoLink: 'https://www.youtube.com/watch?v=0lNpmPRjN-0'
+    }
   },
   {
     id: 4,
@@ -82,6 +88,9 @@ export const postsArray: FeedPost[] = [
     song: 'Light',
     album: 'Light',
     albumArt: './img/feed/san_holo_light.jpg',
-    youtubeLink: 'https://www.youtube.com/watch?v=uOFTqVi-qp4'
+    youtubeInfo: {
+      videoId: 'uOFTqVi-qp4',
+      videoLink: 'https://www.youtube.com/watch?v=uOFTqVi-qp4'
+    }
   }
 ];

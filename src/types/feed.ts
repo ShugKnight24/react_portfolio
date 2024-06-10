@@ -3,28 +3,38 @@ export interface FeedProps {
 }
 
 // TODO: Create additional posts for different content types
-interface Post {
+export interface Post {
   id: number;
   title?: string;
   content?: string;
   artist?: string;
-  youtubeLink?: string;
+  youtubeInfo?: YoutubeInfo;
   // image: src string?
   // date: timestamp or formated string?
   // type: non text content? - differentially render & style content based on type...
 }
 
-interface BookPost extends Post {
+export interface BookPost extends Post {
   author?: string;
   book?: string;
   blockquote?: string;
 }
 
-interface MusicPost extends Post {
-  artist?: string;
+export interface MusicPost extends Post {
   album?: string;
   albumArt?: string;
   song?: string;
 }
 
 export type FeedPost = Post | BookPost | MusicPost;
+
+export interface YoutubeEmbedProps {
+  title?: string;
+  videoId: string;
+  youtubeLink: string;
+}
+
+interface YoutubeInfo {
+  videoId: string;
+  videoLink: string;
+}
