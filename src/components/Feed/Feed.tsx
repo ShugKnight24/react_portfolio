@@ -2,7 +2,9 @@ import { FC, useState } from 'react';
 import { FeedProps, FeedPost } from '../../types/feed';
 import { postsArray } from '../../data/feedData';
 import { Link } from 'react-router-dom';
-import { YoutubeEmbed } from './YoutubeEmbed';
+import { BookPost } from './BookPost';
+import { MusicPost } from './MusicPost';
+import { Post } from './Post';
 
 // Create a grid system that displays the posts in rows and columns that adjusts
 // the layout based on the height of the content
@@ -22,48 +24,15 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
       {displayedPosts.map((post) => {
         if ('author' in post && 'book' in post) {
           return (
-            <div key={post.id} className="post book-post">
-              <h3>{post.title}</h3>
-              {post.blockquote && <p>{post.blockquote}</p>}
-              {post.author && <p>{post.author}</p>}
-              {post.book && <p>{post.book}</p>}
-              <hr />
-            </div>
+            <BookPost key={post.id} post={post} />
           );
         } else if ('artist' in post && 'album' in post) {
           return (
-            <div key={post.id} className="post music-post">
-              <h3>{post.title}</h3>
-              {post.artist && <p>{post.artist}</p>}
-              {post.song && <p>{post.song}</p>}
-              {post.albumArt && <img className="album-art" src={post.albumArt} alt={post.album} />}
-              {post.youtubeInfo && (
-                <YoutubeEmbed
-                  title={post.title}
-                  videoId={post.youtubeInfo.videoId}
-                  youtubeLink={post.youtubeInfo.videoLink}
-                />
-              )}
-              <hr />
-            </div>
+            <MusicPost key={post.id} post={post} />
           );
         } else {
           return (
-            <div key={post.id} className="post">
-              {post.title && <h3>{post.title}</h3>}
-              {post.artist && <p>{post.artist}</p>}
-              {post.content && post.content.split('\n').map((line, index) => (
-                (line !== '' && line.trim() !== '') && <p key={index}>{line}</p>
-              ))}
-              {post.youtubeInfo && (
-                <YoutubeEmbed
-                  title={post.title}
-                  videoId={post.youtubeInfo.videoId}
-                  youtubeLink={post.youtubeInfo.videoLink}
-                />
-              )}
-              <hr />
-            </div>
+            <Post key={post.id} post={post} />
           );
         }
       })}

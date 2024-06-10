@@ -17,7 +17,7 @@ export const Main: FC = () => (
 		<Route path="/about" element={ <AboutPage /> } />
 		<Route path="/books" element={ <BooksPage /> } />
 		<Route path="/contact" element={ <ContactPage /> } />
-		<Route path='/feed' element={ <Feed /> } />
+		<Route path='/feed' element={ <Feed /> } /> 
 		<Route path="/photos" element={ <PhotoGal /> } />
 		<Route path="/projects" element={ <ProjectsPage /> } />
 		<Route path="/resume" element={ <ResumePage /> } />

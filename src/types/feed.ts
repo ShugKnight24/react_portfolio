@@ -3,7 +3,7 @@ export interface FeedProps {
 }
 
 // TODO: Create additional posts for different content types
-interface Post {
+export interface Post {
   id: number;
   title?: string;
   content?: string;
@@ -14,13 +14,13 @@ interface Post {
   // type: non text content? - differentially render & style content based on type...
 }
 
-interface BookPost extends Post {
+export interface BookPost extends Post {
   author?: string;
   book?: string;
   blockquote?: string;
 }
 
-interface MusicPost extends Post {
+export interface MusicPost extends Post {
   album?: string;
   albumArt?: string;
   song?: string;
