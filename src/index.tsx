@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ReactGA from 'react-ga4';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
+import { GoogleAnalytics } from './components/Analytics/GoogleAnalytics';
 import './index.css';
 
 // Fix console text color in dark mode
@@ -34,12 +34,10 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
   );
 }
 
-const trackingId = 'G-G4LH4VLSV3';
-ReactGA.initialize(trackingId);
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
+      <GoogleAnalytics />
       <App />
     </BrowserRouter>
   </React.StrictMode>
