@@ -47,7 +47,7 @@ Update content & copy
 - convert JS files to TS for typesafety
 - Automate workflows
   - Add ci / cd
-  - husky / linting / prettier / etc...
+  - husky / linting / etc...
 - Add way to differentiate audio books in UI
 - Improve use of Typescript
 - Move away from GetColumnsHook
