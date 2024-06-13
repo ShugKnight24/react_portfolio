@@ -34,7 +34,7 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){
 	);
 }
 
-const trackingId = 'UA-147974881-1';
+const trackingId = 'G-G4LH4VLSV3';
 ReactGA.initialize(trackingId);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
