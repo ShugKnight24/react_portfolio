@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { App } from './App';
+import ReactGA from 'react-ga4';
 import { BrowserRouter } from 'react-router-dom';
-import ReactGA from 'react-ga';
 
 // Fix console text color in dark mode
 if (window.matchMedia('(prefers-color-scheme: dark)').matches === true){

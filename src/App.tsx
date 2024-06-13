@@ -1,4 +1,5 @@
 import { FC, KeyboardEvent, Suspense, useEffect, useState } from 'react';
+import ReactGA from 'react-ga4';
 import './App.scss';
 import {
 	Content,
@@ -10,14 +11,10 @@ import {
 	Nav
 } from './components/Layout';
 import { Loading } from './components/Loading';
-import * as ReactGA from 'react-ga';
 
 export const App : FC = () => {
 	const [isVisible, setIsVisible] = useState(false);
 
-	useEffect(() => {
-		ReactGA.pageview(window.location.pathname);
-	}, []);
 	
 	function closeDrawer (event? : KeyboardEvent<HTMLDivElement>){
 		if (event){
@@ -42,6 +39,9 @@ export const App : FC = () => {
 			setIsVisible(true);
 		}
 	}
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
+  }, []);
 
 	const navRoutes = (
 		<Nav drawerClose={ closeDrawer } />
