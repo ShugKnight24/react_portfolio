@@ -45,6 +45,7 @@ Update design
 
 ## To-Do
 
+- Optimize assets after build prior to deployment
 - Fix feeling is the secret on deployed version.
   - check to see if it's a problem in dev too
   - correct asset if it is
@@ -93,6 +94,7 @@ Update design
 
 ## Done
 
+- [x] Update Deps, Update Analytics to GA4, Fix build process - 6/13
 - [x] Implement basic feed - 5/23 -> 6/4
 - [x] Begin updating Resume content, Update project display - 1/1/24
 - [x] Add `ProjectCard` Component, Update projects and associated components - 12/31/23
