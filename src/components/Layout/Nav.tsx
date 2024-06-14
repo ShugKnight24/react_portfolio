@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavProps } from '../../types/layout';
+import { trackPageEvent } from '../Analytics/analyticsUtils';
 
 // TODO: Figure out if this would be useful elsewhere
 // Perhaps add to a config file, consolidate data, and use throughout?
@@ -22,7 +23,6 @@ export const Nav: FC<NavProps> = ({ drawerClose }) => {
 				<NavLink
 					key={index}
 					to={link.path}
-					onClick={drawerClose}
 				>
 					{link.name}
 				</NavLink>
@@ -30,3 +30,8 @@ export const Nav: FC<NavProps> = ({ drawerClose }) => {
 		</nav>
 	);
 }
+          onClick={() => {
+            drawerClose();
+            trackPageEvent('Navigation', 'User navigated to', link.path);
+          }}
+        >
