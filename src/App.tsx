@@ -35,7 +35,8 @@ export const App: FC = () => {
     }
   }
 
-  const navRoutes = <Nav drawerClose={closeDrawer} />;
+  // TODO: Fix close drawer functionality on navigation click
+  const navRoutes = <Nav drawerClose={() => closeDrawer()} />;
 
   return (
     <>
