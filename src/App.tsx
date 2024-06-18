@@ -11,32 +11,13 @@ export const App: FC = () => {
     ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
   }, []);
 
-  function closeDrawer(event?: KeyboardEvent<HTMLDivElement>) {
-    if (event) {
-      if (event.key === 'Enter') {
-        setIsVisible(false);
-      } else {
-        return;
-      }
-    } else {
-      setIsVisible(false);
+  function toggleDrawer(event?: KeyboardEvent<HTMLDivElement>) {
+    if (!event || event.key === 'Enter') {
+      setIsVisible(!isVisible);
     }
   }
 
-  function openDrawer(event?: KeyboardEvent<HTMLDivElement>) {
-    if (event) {
-      if (event.key === 'Enter') {
-        setIsVisible(true);
-      } else {
-        return;
-      }
-    } else {
-      setIsVisible(true);
-    }
-  }
-
-  // TODO: Fix close drawer functionality on navigation click
-  const navRoutes = <Nav drawerClose={() => closeDrawer()} />;
+  const navRoutes = <Nav drawerClose={() => toggleDrawer()} />;
 
   return (
     <>
@@ -47,8 +28,8 @@ export const App: FC = () => {
           role="button"
           tabIndex={0}
           className="drawer-button"
-          onClick={() => openDrawer()}
-          onKeyDown={(event) => openDrawer(event)}
+          onClick={() => toggleDrawer()}
+          onKeyDown={(event) => toggleDrawer(event)}
         >
           <i className="material-icons"></i>
         </div>
@@ -58,8 +39,8 @@ export const App: FC = () => {
         </Drawer>
         <div
           className={`drawer-overlay ${isVisible ? 'active' : ''}`}
-          onClick={() => closeDrawer()}
-          onKeyDown={(event) => closeDrawer(event)}
+          onClick={() => toggleDrawer()}
+          onKeyDown={(event) => toggleDrawer(event)}
           role="button"
           tabIndex={-1}
         ></div>
