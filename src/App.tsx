@@ -43,7 +43,7 @@ export const App: FC = () => {
           onKeyDown={(event) => toggleDrawer(event)}
           role="button"
           tabIndex={-1}
-        ></div>
+        />
         <Content>
           <Suspense fallback={<Loading />}>
             <Main />
