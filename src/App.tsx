@@ -17,7 +17,8 @@ export const App: FC = () => {
     }
   }
 
-  const navRoutes = <Nav drawerClose={() => toggleDrawer()} />;
+  const navRoutes = <Nav />;
+  const navRoutesWithToggle = <Nav drawerClose={() => toggleDrawer()} />;
 
   return (
     <>
@@ -35,7 +36,7 @@ export const App: FC = () => {
         </div>
         <div className="mobile-header"></div>
         <Drawer title="Nav" isVisible={isVisible}>
-          {navRoutes}
+          {navRoutesWithToggle}
         </Drawer>
         <div
           className={`drawer-overlay ${isVisible ? 'active' : ''}`}

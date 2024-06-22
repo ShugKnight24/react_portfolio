@@ -4,10 +4,7 @@ import { NavProps } from '../../types/layout';
 import { trackPageEvent } from '../Analytics/analyticsUtils';
 import { navLinks } from './routes';
 
-// TODO: Figure out if this would be useful elsewhere
-// Perhaps add to a config file, consolidate data, and use throughout?
-
-export const Nav: FC<NavProps> = ({ drawerClose }) => {
+export const Nav: FC<NavProps> = ({ toggleDrawer }) => {
   return (
     <nav className="nav">
       {navLinks.map((link, index) => (
@@ -15,7 +12,9 @@ export const Nav: FC<NavProps> = ({ drawerClose }) => {
           key={index}
           to={link.path}
           onClick={() => {
-            drawerClose();
+            if (toggleDrawer) {
+              toggleDrawer();
+            }
             trackPageEvent('Navigation', 'User navigated to', link.path);
           }}
         >

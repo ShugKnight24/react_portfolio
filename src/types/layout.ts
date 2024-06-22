@@ -20,5 +20,5 @@ export interface LayoutInterface {
 }
 
 export interface NavProps {
-	drawerClose: () => void;
+  drawerClose?: () => void;
 }
