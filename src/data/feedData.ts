@@ -2,6 +2,59 @@ import { FeedPost } from '../types/feed';
 
 export const postsArray: FeedPost[] = [
   {
+    id: 17,
+    title: 'Today is always day one',
+  },
+  {
+    id: 16,
+    content: `
+      Programmers are the OG keyboard 
+    `,
+  },
+  {
+    id: 15,
+    content: `
+      full moon
+      chimp energy
+      🙊🙉🙈
+      🐺🌕
+    `,
+  },
+  {
+    id: 14,
+    content: `
+      Change one thing,
+      Change everything...
+    `,
+  },
+  {
+    id: 13,
+    title: '6/19',
+    content: `
+      Sit down...
+      Be humble...
+    `,
+  },
+  {
+    id: 12,
+    title: '6/18',
+    content: `:)`,
+  },
+  {
+    id: 11,
+    title: 'The Way, the Truth, and the Life',
+    content: `
+      I am the way and the truth and the life.
+      No one comes to the Father except through me.
+      If you really know me, you will know my Father as well.
+      From now on, you do know him and have seen him.
+    `,
+  },
+  {
+    id: 10,
+    title: '6/13',
+  },
+  {
     id: 9,
     title: 'The Path',
     content: `
@@ -10,7 +63,7 @@ export const postsArray: FeedPost[] = [
       But small is the gate and narrow the road that leads to life,
       and only a few find it."
       I will find it
-    `
+    `,
   },
   {
     id: 8,
@@ -23,8 +76,8 @@ export const postsArray: FeedPost[] = [
     artist: 'Syama Pedersen',
     youtubeInfo: {
       videoId: 'azVeFAETUyM',
-      videoLink: 'https://www.youtube.com/watch?v=azVeFAETUyM'
-    }
+      videoLink: 'https://www.youtube.com/watch?v=azVeFAETUyM',
+    },
   },
   {
     id: 7,
@@ -61,8 +114,8 @@ export const postsArray: FeedPost[] = [
     albumArt: './img/feed/state_of_mine_devil_in_disguise.jpg',
     youtubeInfo: {
       videoId: '0lNpmPRjN-0',
-      videoLink: 'https://www.youtube.com/watch?v=0lNpmPRjN-0'
-    }
+      videoLink: 'https://www.youtube.com/watch?v=0lNpmPRjN-0',
+    },
   },
   {
     id: 4,
@@ -90,7 +143,7 @@ export const postsArray: FeedPost[] = [
     albumArt: './img/feed/san_holo_light.jpg',
     youtubeInfo: {
       videoId: 'uOFTqVi-qp4',
-      videoLink: 'https://www.youtube.com/watch?v=uOFTqVi-qp4'
-    }
-  }
+      videoLink: 'https://www.youtube.com/watch?v=uOFTqVi-qp4',
+    },
+  },
 ];
