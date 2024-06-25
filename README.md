@@ -45,6 +45,8 @@ Update design
 
 ## To-Do
 
+- Fix differential rendering on feed
+  - Add multimedia posts or consolidate to a single type
 - Optimize assets after build prior to deployment
 - Fix feeling is the secret on deployed version.
   - check to see if it's a problem in dev too
