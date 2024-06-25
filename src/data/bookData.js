@@ -70,6 +70,13 @@ export const previouslyRead = {
   index: 2,
   bookList: [
     {
+      name: 'Managing Oneself',
+      author: 'Peter F. Drucker',
+      imgSrc: './img/books/managing_oneself.jpg',
+      audioBook: false,
+      readNo: 2,
+    },
+    {
       name: '$100M Offers: How to Make Offers So Good People Feel Stupid Saying No',
       author: 'Alex Hormozi',
       imgSrc: './img/books/100_mil_offers.jpg',
