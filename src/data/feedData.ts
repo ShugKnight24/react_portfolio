@@ -2,13 +2,226 @@ import { FeedPost } from '../types/feed';
 
 export const postsArray: FeedPost[] = [
   {
+    id: 27,
+    content: `
+      The rule of three
+    `,
+  },
+  {
+    id: 26,
+    content: `
+      When you educate a man,
+      you LIBERATE [that] man...
+    `,
+    youtubeInfo: {
+      videoId: 'PFb6NU1giRA',
+      videoLink: 'https://www.youtube.com/watch?v=PFb6NU1giRA',
+    },
+  },
+  {
+    id: 25,
+    content: `Feel the weight of the martyr`,
+  },
+  {
+    id: 24,
+    title: 'The Black Mamba',
+    content: `
+      KB248
+      248
+      2^1, 2^2, 2^3
+      Mamba Mentality
+    `,
+    image: './img/feed/kobe.jpg',
+    youtubeInfo: {
+      videoId: 'GE0UAdxPTc0',
+      videoLink: 'https://www.youtube.com/watch?v=GE0UAdxPTc0',
+    },
+  },
+  {
+    id: 23,
+    title: 'The Black Cat',
+    content: `
+      MJ23
+      Air Jordan
+      Become the bull
+      Jumpman Jumpman Jumpman Jumpman
+      It's gotta be the shoes
+    `,
+    image: './img/feed/air_jordan.jpg',
+    album: 'Lead Sails Paper Anchor',
+    albumArt: './img/feed/atreyu_lead_sails_paper_anchor.jpg',
+    artist: 'Atreyu',
+    song: 'Becoming the Bull',
+    youtubeInfo: {
+      videoId: 'PqCt54Wx2e0',
+      videoLink: 'https://www.youtube.com/watch?v=PqCt54Wx2e0',
+    },
+  },
+  {
+    id: 22,
+    title: `if I only could, I'd make a deal with God`,
+    content: `
+      Do you want to feel how it feels?
+      Do you want to know, know that it doesn't hurt me?
+      Do you want to hear about the deal that I'm making?
+
+      ...
+      ...
+      ...
+
+      if I only could
+      I'd make a deal with God
+
+      I'd get him to swap our places
+      Be running up that road
+      Be running up that hill
+      Be running up that building
+
+      if I only could[?]
+    `,
+    artist: 'Our Last Night',
+    song: 'Running Up That Hill (A Deal With God)',
+    album: 'Kate Bush Cover',
+    youtubeInfo: {
+      videoId: 'm0zJsAFzvys',
+      videoLink: 'https://www.youtube.com/watch?v=m0zJsAFzvys',
+    },
+  },
+  {
+    id: 21,
+    content: `mood`,
+    artist: 'Timeflies',
+    song: 'All night',
+    album: 'Timeflies Tuesday',
+    youtubeInfo: {
+      videoId: '1qvJJWvE884',
+      videoLink: 'https://www.youtube.com/watch?v=1qvJJWvE884',
+    },
+  },
+  {
+    id: 20,
+    title: `Don't bury thoughts that you really want!!!`,
+    content: `
+      Come, lay me down
+      'Cause I know this
+      ... I know this sound
+      ...
+      ...
+      ...
+      In the middle of the night,
+      In the middle of the night
+      Just call my name
+      I'm yours to tame
+      In the middle of the night,
+      In the middle of the night
+      I'm wide awake
+      I crave your taste
+      All night long
+      'Til morning comes
+      I'm getting what is mine
+      You gon' get yours
+      ...
+      ...
+      ...
+      Thesе burning flames
+      These crashing wavеs
+      Wash over me
+      Like a hurricane!!!
+      I captivate,
+      You're hypnotized
+      Feel powerful,
+      But it's me again
+    `,
+    artist: 'Our Last Night',
+    song: 'Middle of the Night',
+    album: 'Elley Duhé Cover',
+    youtubeInfo: {
+      videoId: 's_1_PEQ_6qk',
+      videoLink: 'https://www.youtube.com/watch?v=s_1_PEQ_6qk',
+    },
+  },
+  {
+    id: 19,
+    title: 'I keep within, Under my skin from start to end',
+    content: `
+      [I'd like to think,]
+
+      ...
+
+      I bit my tongue for your sake
+
+      ...
+
+      Keep me strong for holding on
+      Keep us together
+      After we're gone
+
+      ...
+
+      We learnt that in the choice we made
+
+      ...
+
+      I know
+      There's people in the places I've been
+      Who I know
+      I'll never find again
+
+      ...
+
+      Until the end
+      Of me
+      [My] dying day
+      [My] place of rest in a silent grave
+
+      ...
+
+      For the ones who take our name after us
+
+      ...
+
+      And those who don't have strength to go on
+      [We'll carry you on]
+
+      ...
+
+      We keep within,
+      Under my skin from start to end
+    `,
+    artist: 'While She Sleeps',
+    song: 'Seven Hills',
+    album: 'This Is the Six',
+    albumArt: './img/feed/this_is_the_six.jpg',
+    youtubeInfo: {
+      videoId: 'ujB7wSVDV9I',
+      videoLink: 'https://www.youtube.com/watch?v=ujB7wSVDV9I',
+    },
+  },
+  {
+    id: 18,
+    title: 'I still feel ...',
+    content: `
+      Do the words still haunt you?
+      Can you secure its claim?
+      Bottled up like smoke floating over flames
+    `,
+    song: 'Istillfeelher PartIII',
+    artist: 'Jonny Craig',
+    album: "A Dream Is A Question You Don't Know How To Answer",
+    albumArt: './img/feed/a_dream_is_a_question_you_dont_know_how_to_answer.jpg',
+    youtubeInfo: {
+      videoId: 'ydMDVsC5bVI',
+      videoLink: 'https://www.youtube.com/watch?v=ydMDVsC5bVI',
+    },
+  },
+  {
     id: 17,
     title: 'Today is always day one',
   },
   {
     id: 16,
     content: `
-      Programmers are the OG keyboard 
+      Programmers are the OG keyboard warriors
     `,
   },
   {
@@ -90,8 +303,13 @@ export const postsArray: FeedPost[] = [
   {
     id: 6,
     title: 'The world is a mirror',
-    blockquote: `I weep for Narcissus, but I never noticed that Narcissus was beautiful.
-      I weep because, each time he knelt beside my banks, I could see, in the depths of his eyes, my own beauty reflected.
+    blockquote: `
+      I weep for Narcissus,
+      but I never noticed that Narcissus was beautiful.
+      I weep because,
+      each time he knelt beside my banks,
+      I could see, in the depths of his eyes, 
+      my own beauty reflected.
     `,
     author: 'Paulo Coelho',
     book: 'The Alchemist',
@@ -109,7 +327,7 @@ export const postsArray: FeedPost[] = [
       Be transformed!
     `,
     artist: 'State of Mine',
-    song: 'Rise',
+    song: 'Rise - (Katy Perry Cover)',
     album: 'Devil in Disguise',
     albumArt: './img/feed/state_of_mine_devil_in_disguise.jpg',
     youtubeInfo: {

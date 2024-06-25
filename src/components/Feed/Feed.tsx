@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
-import { FeedProps, FeedPost } from '../../types/feed';
-import { postsArray } from '../../data/feedData';
 import { Link } from 'react-router-dom';
+import { postsArray } from '../../data/feedData';
+import { FeedPost, FeedProps } from '../../types/feed';
 import { BookPost } from './BookPost';
 import { MusicPost } from './MusicPost';
 import { Post } from './Post';
@@ -23,17 +23,11 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
       {/* TODO: Create subcomponent that handles differential rendering */}
       {displayedPosts.map((post) => {
         if ('author' in post && 'book' in post) {
-          return (
-            <BookPost key={post.id} post={post} />
-          );
-        } else if ('artist' in post && 'album' in post) {
-          return (
-            <MusicPost key={post.id} post={post} />
-          );
+          return <BookPost key={post.id} post={post} />;
+        } else if ('albumart' in post && 'song' in post) {
+          return <MusicPost key={post.id} post={post} />;
         } else {
-          return (
-            <Post key={post.id} post={post} />
-          );
+          return <Post key={post.id} post={post} />;
         }
       })}
       {truncate && posts.length > truncate && (
@@ -43,4 +37,4 @@ export const Feed: FC<FeedProps> = ({ truncate }) => {
       )}
     </div>
   );
-}
+};

@@ -9,7 +9,7 @@ export interface Post {
   content?: string;
   artist?: string;
   youtubeInfo?: YoutubeInfo;
-  // image: src string?
+  image?: string;
   // date: timestamp or formated string?
   // type: non text content? - differentially render & style content based on type...
 }
