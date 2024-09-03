@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { createCanvas, drawMessage, drawRain, resizeCanvas } from './digitalRainUtils';
 
+const FONT_SIZE = 16;
+
 export const DigitalRain: FC = () => {
   const [showMessage, setShowMessage] = useState(true);
 
@@ -10,11 +12,10 @@ export const DigitalRain: FC = () => {
 
     const canvas = createCanvas(container);
 
-    const fontSize = 16;
-    resizeCanvas(canvas, container, fontSize);
+    resizeCanvas(canvas, container, FONT_SIZE);
 
     const handleResize = () => {
-      resizeCanvas(canvas, container, fontSize);
+      resizeCanvas(canvas, container, FONT_SIZE);
     };
 
     window.addEventListener('resize', handleResize);
@@ -33,17 +34,15 @@ export const DigitalRain: FC = () => {
     const ctx = canvas?.getContext('2d');
     if (!ctx) return;
 
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const fontSize = 16;
-    let drops = resizeCanvas(canvas, container, fontSize);
+    let drops = resizeCanvas(canvas, container, FONT_SIZE);
 
     if (showMessage) {
-      drawMessage(ctx, canvas, fontSize);
+      drawMessage(ctx, canvas, FONT_SIZE);
       setTimeout(() => {
         setShowMessage(false);
       }, 3000);
     } else {
-      drawRain(ctx, canvas, drops, characters, fontSize);
+      drawRain(ctx, canvas, drops, FONT_SIZE);
     }
   }, [showMessage]);
 
