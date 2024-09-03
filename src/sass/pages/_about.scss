@@ -1,0 +1,50 @@
+/* About Page Styles */
+.about-page {
+  text-align: center;
+
+  h3 {
+    margin: 0;
+  }
+
+  figcaption {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  p {
+    width: 80%;
+    margin: 10px auto;
+    text-align: left;
+  }
+
+  figure {
+    @include mq-max(600px) {
+      margin: auto;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+    }
+  }
+
+  .bpak-image,
+  .luna {
+    width: 400px;
+    border-radius: 20px;
+
+    @include mq-max(600px) {
+      width: 300px;
+    }
+  }
+
+  @include mq-max(900px) {
+    .grid {
+      justify-content: center;
+      margin: auto;
+
+      .cell.half {
+        width: calc(90%);
+      }
+    }
+  }
+}

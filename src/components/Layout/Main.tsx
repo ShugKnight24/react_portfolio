@@ -1,7 +1,8 @@
 import { FC, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-const AboutPage = lazy(() => import('../Pages').then((module) => ({ default: module.AboutPage })));
+
+const About = lazy(() => import('../Pages').then((module) => ({ default: module.About })));
 const BooksPage = lazy(() => import('../Pages').then((module) => ({ default: module.BooksPage })));
 const ContactPage = lazy(() =>
   import('../Pages').then((module) => ({ default: module.ContactPage }))
@@ -25,7 +26,7 @@ const ResumePage = lazy(() =>
 export const Main: FC = () => (
   <Routes>
     <Route path="/" element={<Landing />} />
-    <Route path="/about" element={<AboutPage />} />
+    <Route path="/about" element={<About />} />
     <Route path="/books" element={<BooksPage />} />
     <Route path="/contact" element={<ContactPage />} />
     <Route path="/feed" element={<Feed />} />
