@@ -1,7 +1,7 @@
 export { AboutPage } from './AboutPage';
 export { BooksPage } from './BooksPage';
 export { ContactPage } from './ContactPage';
-export { LandingPage } from './Landingpage';
+export { Landing } from './Landing';
 export { NotFoundPage } from './NotFoundPage';
 export { PhotoGal } from './PhotoGal';
 export { PlaygroundPage } from './PlaygroundPage';

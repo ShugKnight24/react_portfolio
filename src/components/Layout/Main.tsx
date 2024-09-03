@@ -7,9 +7,7 @@ const ContactPage = lazy(() =>
   import('../Pages').then((module) => ({ default: module.ContactPage }))
 );
 const Feed = lazy(() => import('../Feed').then((module) => ({ default: module.Feed })));
-const LandingPage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.LandingPage }))
-);
+const Landing = lazy(() => import('../Pages').then((module) => ({ default: module.Landing })));
 const NotFoundPage = lazy(() =>
   import('../Pages').then((module) => ({ default: module.NotFoundPage }))
 );
@@ -26,7 +24,7 @@ const ResumePage = lazy(() =>
 
 export const Main: FC = () => (
   <Routes>
-    <Route path="/" element={<LandingPage />} />
+    <Route path="/" element={<Landing />} />
     <Route path="/about" element={<AboutPage />} />
     <Route path="/books" element={<BooksPage />} />
     <Route path="/contact" element={<ContactPage />} />
