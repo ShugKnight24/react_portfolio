@@ -1,6 +1,6 @@
 export { About } from './About';
 export { BooksPage } from './BooksPage';
-export { ContactPage } from './ContactPage';
+export { Contact } from './Contact';
 export { Landing } from './Landing';
 export { NotFoundPage } from './NotFoundPage';
 export { PhotoGal } from './PhotoGal';

@@ -3,7 +3,7 @@ import { techIcons } from '../../data/techIcons';
 import { TechIcon } from '../TechIcon';
 import { Typewriter } from '../Typewriter';
 
-import { developerQualities, names } from '../../data/typeWriterStrings';
+import { developerQualities, names } from '../../data/portfolioStrings';
 
 // Landing Utils
 export const createBannerText = () => (
