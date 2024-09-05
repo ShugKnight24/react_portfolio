@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { AnalyticsCTA } from '../Analytics/AnalyticsCTA';
 
-export const PlaygroundPage: FC = () => {
+export const Playground: FC = () => {
   return (
     <div className="playground">
       <h1>Playground Page</h1>

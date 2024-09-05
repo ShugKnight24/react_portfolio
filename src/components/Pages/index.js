@@ -4,6 +4,6 @@ export { Contact } from './Contact';
 export { Landing } from './Landing';
 export { NotFound } from './NotFound';
 export { PhotoGal } from './PhotoGal';
-export { PlaygroundPage } from './PlaygroundPage';
+export { Playground } from './Playground';
 export { ProjectsPage } from './ProjectsPage';
 export { ResumePage } from './ResumePage';

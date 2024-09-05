@@ -9,8 +9,8 @@ const Feed = lazy(() => import('../Feed').then((module) => ({ default: module.Fe
 const Landing = lazy(() => import('../Pages').then((module) => ({ default: module.Landing })));
 const NotFound = lazy(() => import('../Pages').then((module) => ({ default: module.NotFound })));
 const PhotoGal = lazy(() => import('../Pages').then((module) => ({ default: module.PhotoGal })));
-const PlaygroundPage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.PlaygroundPage }))
+const Playground = lazy(() =>
+  import('../Pages').then((module) => ({ default: module.Playground }))
 );
 const ProjectsPage = lazy(() =>
   import('../Pages').then((module) => ({ default: module.ProjectsPage }))
@@ -27,7 +27,7 @@ export const Main: FC = () => (
     <Route path="/contact" element={<Contact />} />
     <Route path="/feed" element={<Feed />} />
     <Route path="/photos" element={<PhotoGal />} />
-    <Route path="/play" element={<PlaygroundPage />} />
+    <Route path="/play" element={<Playground />} />
     <Route path="/projects" element={<ProjectsPage />} />
     <Route path="/resume" element={<ResumePage />} />
     <Route path="*" element={<NotFound />} />
