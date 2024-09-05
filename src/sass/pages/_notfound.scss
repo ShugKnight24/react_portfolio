@@ -1,13 +1,30 @@
-/* Not Found Page Styles */
 .not-found {
-	text-align: center;
+  text-align: center;
+  padding: 50px;
 
-	p {
-		margin-top: 20px;
-		font-size: 20px;
-	}
+  h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+  }
 
-	a {
-		font-size: 20px;
-	}
+  p {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+
+  .home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
 }

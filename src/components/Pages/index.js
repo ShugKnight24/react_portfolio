@@ -2,7 +2,7 @@ export { About } from './About';
 export { BooksPage } from './BooksPage';
 export { Contact } from './Contact';
 export { Landing } from './Landing';
-export { NotFoundPage } from './NotFoundPage';
+export { NotFound } from './NotFound';
 export { PhotoGal } from './PhotoGal';
 export { PlaygroundPage } from './PlaygroundPage';
 export { ProjectsPage } from './ProjectsPage';
