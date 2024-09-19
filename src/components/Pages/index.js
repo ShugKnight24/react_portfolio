@@ -6,4 +6,4 @@ export { NotFound } from './NotFound';
 export { PhotoGal } from './PhotoGal';
 export { Playground } from './Playground';
 export { ProjectsPage } from './ProjectsPage';
-export { ResumePage } from './ResumePage';
+export { Resume } from './Resume';

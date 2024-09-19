@@ -13,6 +13,17 @@ export const aboutText = [
   `Beyond coding, you'll catch me engaging in fitness routines, exploring new destinations, immersing myself in literature, grooving to music, capturing scenic moments through my lens, and cherishing quality time with Luna :)`,
 ];
 
+export const approachText = [
+  `
+    I embody the spirit of a lifelong learner, dedicated to mastering my craft and evolving into the best developer, man, and human I possibly can.
+    While I may fail often, I embrace the challenge of learning new languages and acquiring skills.
+    For me, it's not just a pursuit; it's a passion that continually broadens my knowledge, enhances my capabilities, improves the quality of my life and the problems I'm able to tackle, and I hope I'm able to positively impact other folks. 
+    This approach enables me to both change and expand my perspective to solve problems with a nuanced perspective.
+    This learning journey reveals that with each bit knowledge I acquire, how little I actually know.
+    The more I recognize there is still so much to explore, understand, and eventually master.
+  `,
+];
+
 export const contactText = [
   `Embark on a journey of innovation and success with my expertise in navigating the dynamic digital landscape. Whether you're venturing into new opportunities or facing development challenges, 
   I'm here to offer invaluable insights and craft creative solutions that seamlessly bridge the gap between concept and reality.`,

@@ -15,9 +15,7 @@ const Playground = lazy(() =>
 const ProjectsPage = lazy(() =>
   import('../Pages').then((module) => ({ default: module.ProjectsPage }))
 );
-const ResumePage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.ResumePage }))
-);
+const Resume = lazy(() => import('../Pages').then((module) => ({ default: module.Resume })));
 
 export const Main: FC = () => (
   <Routes>
@@ -29,7 +27,7 @@ export const Main: FC = () => (
     <Route path="/photos" element={<PhotoGal />} />
     <Route path="/play" element={<Playground />} />
     <Route path="/projects" element={<ProjectsPage />} />
-    <Route path="/resume" element={<ResumePage />} />
+    <Route path="/resume" element={<Resume />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );
