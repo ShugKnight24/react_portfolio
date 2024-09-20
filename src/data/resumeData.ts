@@ -48,9 +48,9 @@ export const techExperience: ExperienceInterface[] = [
     jobDescription:
       'Empowering local businesses in Southeast Michigan and across the globe with custom software solutions',
     jobResponsibilities: [
-      'Web Dev - JK Unlimited Services, Papergoods Warehouse, RegenHealthGlorbal, C Spire Passport',
-      'Mobile App Developer - Serendip, BoozApp, YourCheck,',
-      'System design and architecture',
+      'Web development - Papergoods Warehouse (React), JK Unlimited Services (React), Scrolller (React, MobX), RegenHealthGlorbal (React, Supabase), C Spire Passport (Vue, Pinia, Quasar, Python)',
+      'Mobile development - Serendip, BoozApp, YourCheck, WhosOut - All built with React Native and third party integrations',
+      'System architecture & design',
       'Product & project management',
     ],
   },
@@ -59,8 +59,8 @@ export const techExperience: ExperienceInterface[] = [
     jobPosition: 'Software Engineer',
     jobDescription: null,
     jobResponsibilities: [
-      'Automated healthcare billing process at Yale New Haven Hospital',
-      'Wrote Python, FastAPI routes using Pydantic and created a basic frontend that enabled the AppliedML team to interact with their LLMs and visualize their output',
+      'Automated healthcare billing process at Yale New Haven Hospital (JavaScript, NodeJS)',
+      'Wrote Python, FastAPI routes using Pydantic and created a basic frontend that enabled the AppliedML team to interact with their LLMs and visualize the output',
     ],
   },
   {
@@ -72,9 +72,9 @@ export const techExperience: ExperienceInterface[] = [
     jobPosition: 'Senior Software Engineer',
     jobDescription: null,
     jobResponsibilities: [
-      "Levi's Mobile App - Implemented third party payment integrations (Afterpay, Apple Pay, & Google Pay), Reengineered user onboarding & product return flows to be API driven solutions, Led upskilling initiatives",
-      'VectorForm - UI developer for a greenfield 3D configurator for integration in a Shopify store',
       'Built the foundation for a proof of concept project management tool (React, TypeScript, NodeJS)',
+      'VectorForm - UI developer for a greenfield 3D configurator for integration in a Shopify store (React, Zustand, React 3 Fiber)',
+      "Levi's Mobile App - Implemented third party payment integrations (Afterpay, Apple Pay, & Google Pay), reengineered user onboarding & product return flows to be API driven solutions, led upskilling initiatives (React Native, iOS, Android / Kotlin, Redux, third party dependencies)",
     ],
   },
   {
@@ -89,8 +89,8 @@ export const techExperience: ExperienceInterface[] = [
       'Develop and maintained <a class="bold-text" href="https://www.stationeryhq.com" rel="noopener noreferrer" target="_blank">StationeryHQ</a> and <a class="bold-text" href="https://www.frecklebox.com" rel="noopener noreferrer" target="_blank">FreckleBox</a> Shopify stores using <span class="bold-text">jQuery</span>, <span class="bold-text">SCSS</span>, & <span class="bold-text">Liquid</span>. Update themes, build and update features, and resolve bugs',
       'Built a custom <span class="bold-text">JavaScript</span> video recorder for FreckleBox',
       'Maintained codebases via version control <span class="bold-text">Git</span>, <span class="bold-text">Github</span>, <span>Mercurial</span>, <span>BitBucket</span>, and <span class="bold-text">Shopify ThemeKit</span>',
-      'Provided development and project management consulting to ensure tasks were completed in a timely manner via <span class="bold-text">Monday</span>, <span class="bold-text">BaseCamp</span>, <span class="bold-text">Slack</span>',
-      'Liaison between tech, graphics, and marketing teams located in San Jose, CA and Detroit, MI',
+      'Provided development and project management consulting using <span class="bold-text">Monday</span>, <span class="bold-text">BaseCamp</span>, <span class="bold-text">Slack</span>',
+      'Liaison between technology, graphics, and marketing teams distributed across San Jose, CA and Detroit, MI',
       'Reengineered a new responsive customization preview engine for Frecklebox and updated the C# processing engine',
       'Utilized SEO via <span class="bold-text">Google AdWords</span>, <span class="bold-text">Google Analytics</span>, and <span class="bold-text">Facebook Pixel</span> to track marketing spend and impact',
     ],
@@ -117,9 +117,9 @@ export const techExperience: ExperienceInterface[] = [
     endMonth: 'December',
     endYear: 2016,
     jobName: 'GTB (Previously Team Detroit)',
-    jobPosition: 'Web Developer',
+    jobPosition: 'Intern => Web Developer',
     jobDescription:
-      'Web developer on GTB’s diversified accounts team responsible for redesigning 12 websites for Johnson Controls subsidiaries',
+      'Front end developer for redesign project of twelve websites using a global framework across eighteen countries and thirty-two languages',
     jobResponsibilities: [
       'Develop websites and AMP pages with <span class="bold-text">HTML</span>, <span class="bold-text">jQuery</span>, <span class="bold-text">SASS</span>, <span class="bold-text">php</span>, and <span class="bold-text">SVN</span>',
       'Update content of websites using <span class="bold-text">Concrete5</span> CMS',
