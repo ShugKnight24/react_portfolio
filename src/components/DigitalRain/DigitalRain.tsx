@@ -6,6 +6,9 @@ const FONT_SIZE = 16;
 export const DigitalRain: FC = () => {
   const [showMessage, setShowMessage] = useState(true);
 
+  // TODO: Rethink this approach
+  // Resizing currently increases the size of the container
+  // Resize while maintaining the same aspect ratio
   useEffect(() => {
     const container = document.querySelector('.digital-rain-container') as HTMLElement;
     if (!container) return;

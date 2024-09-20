@@ -11,6 +11,9 @@ export const Landing: FC = () => {
     <div className="landing-container">
       <Grid extraClass="landing-grid">
         <Cell columns={'full'}>
+          <div className="digital-rain-container">
+            <DigitalRain />
+          </div>
           <div className="home-feature">
             {createFeatureText()}
             <img
@@ -18,9 +21,6 @@ export const Landing: FC = () => {
               alt="Shugmi Shumunov Relaxing by the water"
               className="splash-img"
             />
-          </div>
-          <div className="digital-rain-container">
-            <DigitalRain />
           </div>
           <Feed truncate={3} />
           {createBannerText()}
