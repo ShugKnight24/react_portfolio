@@ -356,6 +356,11 @@
           }
 
           /* Shumunov Solutions Projects */
+          &.cspire {
+            background: url($projectImagePath + 'cspire_logo.svg');
+            @include centerProjectImage();
+          }
+
           &.regenmedglobal {
             background: url($projectImagePath + 'regenmedglobal.png');
             @include centerProjectImage();
