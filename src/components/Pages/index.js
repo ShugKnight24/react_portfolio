@@ -5,5 +5,5 @@ export { Landing } from './Landing';
 export { NotFound } from './NotFound';
 export { PhotoGal } from './PhotoGal';
 export { Playground } from './Playground';
-export { ProjectsPage } from './ProjectsPage';
+export { Projects } from './Projects';
 export { Resume } from './Resume';

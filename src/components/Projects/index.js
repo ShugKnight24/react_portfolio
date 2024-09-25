@@ -1,3 +1,4 @@
+export { CurrentProject } from './CurrentProject';
 export { Games } from './Games';
 export { GTB } from './GTB';
 export { JavaScript30 } from './JavaScript30';
@@ -7,5 +8,4 @@ export { OliveAI } from './OliveAI';
 export { PersonalProjects } from './PersonalProjects';
 export { Progressive } from './Progressive';
 export { ProjectCard } from './ProjectCard';
-export { Projects } from './Projects';
 export { ShumunovSolutions } from './ShumunovSolutions';

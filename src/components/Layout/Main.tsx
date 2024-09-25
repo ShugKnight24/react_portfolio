@@ -12,9 +12,7 @@ const PhotoGal = lazy(() => import('../Pages').then((module) => ({ default: modu
 const Playground = lazy(() =>
   import('../Pages').then((module) => ({ default: module.Playground }))
 );
-const ProjectsPage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.ProjectsPage }))
-);
+const Projects = lazy(() => import('../Pages').then((module) => ({ default: module.Projects })));
 const Resume = lazy(() => import('../Pages').then((module) => ({ default: module.Resume })));
 
 export const Main: FC = () => (
@@ -26,7 +24,7 @@ export const Main: FC = () => (
     <Route path="/feed" element={<Feed />} />
     <Route path="/photos" element={<PhotoGal />} />
     <Route path="/play" element={<Playground />} />
-    <Route path="/projects" element={<ProjectsPage />} />
+    <Route path="/projects" element={<Projects />} />
     <Route path="/resume" element={<Resume />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
