@@ -6,25 +6,32 @@ const FONT_SIZE = 16;
 export const DigitalRain: FC = () => {
   const [showMessage, setShowMessage] = useState(true);
 
-  // TODO: Rethink this approach
-  // Resizing currently increases the size of the container
-  // Resize while maintaining the same aspect ratio
+  // TODO: Fix resizing - Resizing still increases the canvas size
+  const handleResize = (canvas: HTMLCanvasElement, container: HTMLElement) => {
+    const aspectRatio = container.offsetWidth / container.offsetHeight;
+    const newWidth = container.offsetWidth;
+    const newHeight = newWidth / aspectRatio;
+
+    canvas.width = newWidth;
+    canvas.height = newHeight;
+
+    resizeCanvas(canvas, container, FONT_SIZE);
+  };
+
   useEffect(() => {
     const container = document.querySelector('.digital-rain-container') as HTMLElement;
     if (!container) return;
 
     const canvas = createCanvas(container);
 
-    resizeCanvas(canvas, container, FONT_SIZE);
+    handleResize(canvas, container);
 
-    const handleResize = () => {
-      resizeCanvas(canvas, container, FONT_SIZE);
-    };
+    const onResize = () => handleResize(canvas, container);
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', onResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', onResize);
       container.removeChild(canvas);
     };
   }, []);
@@ -40,10 +47,9 @@ export const DigitalRain: FC = () => {
     let drops = resizeCanvas(canvas, container, FONT_SIZE);
 
     if (showMessage) {
-      drawMessage(ctx, canvas, FONT_SIZE);
-      setTimeout(() => {
+      drawMessage(ctx, canvas, FONT_SIZE, () => {
         setShowMessage(false);
-      }, 3000);
+      });
     } else {
       drawRain(ctx, canvas, drops, FONT_SIZE);
     }

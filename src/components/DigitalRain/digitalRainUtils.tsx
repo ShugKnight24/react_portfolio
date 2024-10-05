@@ -5,6 +5,16 @@ const FADE_EFFECT = 'rgba(0, 0, 0, 0.05)';
 const FONT_FAMILY = 'monospace';
 const FONT_SIZE_MULTIPLIER = 2;
 const TEXT_COLOR = '#0F0';
+const messages = [
+  'Are you sure this line is clean?',
+  "Yeah, of course I'm sure",
+  'I better go...',
+  '...',
+  'Wake up, Neo...',
+  'The Matrix has you... ',
+  'Follow the white rabbit.',
+  'Knock, knock, Neo.',
+];
 
 export const createCanvas = (container: HTMLElement): HTMLCanvasElement => {
   const canvas = document.createElement('canvas');
@@ -18,18 +28,56 @@ export const createCanvas = (container: HTMLElement): HTMLCanvasElement => {
 export const drawMessage = (
   ctx: CanvasRenderingContext2D,
   canvas: HTMLCanvasElement,
-  fontSize: number
+  fontSize: number,
+  onComplete: () => void
 ) => {
   ctx.fillStyle = TEXT_COLOR;
   ctx.font = `bold ${fontSize * FONT_SIZE_MULTIPLIER}px ${FONT_FAMILY}`;
-  const messages = ['Hello Neo', 'The Matrix has you', 'Follow the white rabbit'];
-  messages.forEach((message, index) => {
-    ctx.fillText(
-      message,
-      canvas.width / 4,
-      canvas.height / 4 + fontSize * FONT_SIZE_MULTIPLIER * index * 1.25
-    );
-  });
+
+  let messageIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  const typeMessage = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const message = messages[messageIndex];
+    const displayText = message.substring(0, charIndex);
+
+    // Calculate the position to center the text
+    const textWidth = ctx.measureText(displayText).width;
+    const x = (canvas.width - textWidth) / 2;
+    const y = canvas.height / 2;
+
+    ctx.fillText(displayText, x, y);
+
+    if (!deleting) {
+      if (charIndex < message.length) {
+        charIndex++;
+      } else {
+        deleting = true;
+        setTimeout(typeMessage, 1000); // Pause before deleting
+        return;
+      }
+    } else {
+      if (charIndex > 0) {
+        charIndex = 0; // Instantly delete the string
+        setTimeout(typeMessage, 1000); // Pause before typing the next message
+        return;
+      } else {
+        deleting = false;
+        messageIndex = (messageIndex + 1) % messages.length;
+        if (messageIndex === 0) {
+          onComplete();
+          return;
+        }
+      }
+    }
+
+    setTimeout(typeMessage, 100);
+  };
+
+  typeMessage();
 };
 
 export const drawRain = (
