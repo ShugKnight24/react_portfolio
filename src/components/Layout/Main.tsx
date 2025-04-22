@@ -2,9 +2,10 @@ import { FC, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 
-const About = lazy(() => import('../Pages').then((module) => ({ default: module.About })));
+const AboutContact = lazy(() =>
+  import('../Pages').then((module) => ({ default: module.AboutContact }))
+);
 const BooksPage = lazy(() => import('../Pages').then((module) => ({ default: module.BooksPage })));
-const Contact = lazy(() => import('../Pages').then((module) => ({ default: module.Contact })));
 const Feed = lazy(() => import('../Feed').then((module) => ({ default: module.Feed })));
 const Landing = lazy(() => import('../Pages').then((module) => ({ default: module.Landing })));
 const NotFound = lazy(() => import('../Pages').then((module) => ({ default: module.NotFound })));
@@ -18,9 +19,8 @@ const Resume = lazy(() => import('../Pages').then((module) => ({ default: module
 export const Main: FC = () => (
   <Routes>
     <Route path="/" element={<Landing />} />
-    <Route path="/about" element={<About />} />
+    <Route path="/aboutcontact" element={<AboutContact />} />
     <Route path="/books" element={<BooksPage />} />
-    <Route path="/contact" element={<Contact />} />
     <Route path="/feed" element={<Feed />} />
     <Route path="/photos" element={<PhotoGal />} />
     <Route path="/play" element={<Playground />} />

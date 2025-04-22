@@ -29,7 +29,7 @@
       display: block;
       color: #fff;
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-      font-size: 24px;
+      font-size: $font-size-xl;
       font-weight: 500;
       line-height: 1;
       letter-spacing: 0.03em;
@@ -47,17 +47,17 @@
         line-height: 64px;
         padding: 0 12px;
         border-bottom: none;
-        width: 100px;
+        min-width: 100px;
       }
 
       a.active {
-        font-size: 20px;
+        font-size: $font-size-lg;
         font-weight: bold;
         text-shadow: $text-shadow;
       }
 
       a:hover {
-        font-size: 20px;
+        font-size: $font-size-lg;
         font-weight: bold;
         text-shadow: $text-shadow;
       }
