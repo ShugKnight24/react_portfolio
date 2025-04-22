@@ -1,292 +1,289 @@
 /* Resume Page Styles */
 .resume-page {
+  .grid {
+    padding: 0;
 
-	.grid {
-		padding: 0;
+    @include mq-max(950px) {
+      justify-content: center;
+    }
 
-		@include mq-max(950px) {
-			justify-content: center;
-		}
+    .cell {
+      margin: 0;
 
-		.cell {
-			margin: 0;
+      @include mq-max(950px) {
+        &.third,
+        &.two-thirds {
+          width: 100%;
+        }
+      }
+    }
+  }
 
-			@include mq-max(950px) {
-				&.third,
-				&.two-thirds {
-					width: 100%;
-				}
-			}
-		}
-	}
+  .resume-left-column {
+    text-align: center;
+    padding: 0 5px;
 
-	.resume-left-column {
-		text-align: center;
-		padding: 0 5px;
+    .resume-avatar {
+      width: 300px;
+      border-radius: $border-radius-xl;
+      display: block;
+      margin: $space-md auto 0;
 
-		.resume-avatar {
-			width: 300px;
-			border-radius: 20px;
-			display: block;
-			margin: $common-margin;
+      @include mq-max(950px) {
+        width: 90%;
+        max-width: 400px;
+      }
+    }
 
-			@include mq-max(950px) {
-				width: 90%;
-				max-width: 400px;
-			}
-		}
+    h2,
+    h4 {
+      margin: $space-md auto 0;
+    }
 
-		h2,
-		h4 {
-			margin: $common-margin;
-		}
+    h2 {
+      font-size: 36px;
+    }
 
-		h2 {
-			font-size: 36px;
-		}
+    h4 {
+      color: grey;
+    }
 
-		h4 {
-			color: grey;
-		}
+    hr {
+      margin: 20px auto;
+      border-top: 5px solid $primary-color;
+      width: 50%;
+    }
 
-		hr {
-			margin: 20px auto;
-			border-top: 5px solid $main-accent-color;
-			width: 50%;
-		}
+    @include mq-max(950px) {
+      hr:last-of-type {
+        border-top: none;
+        margin: 0 auto 20px;
+      }
+    }
 
-		@include mq-max(950px) {
-			hr:last-of-type {
-				border-top: none;
-				margin: 0 auto 20px;
-			}
-		}
+    .programming-quote {
+      font-size: 20px;
+    }
 
-		.programming-quote {
-			font-size: 20px;
-		}
+    p {
+      margin-bottom: 0;
+    }
+  }
 
-		p {
-			margin-bottom: 0;
-		}
-	}
+  .resume-right-column {
+    background: $secondary-color;
+    color: #fff;
+    padding: 0 2rem 20px;
+    border: 5px solid $primary-color;
 
-	.resume-right-column {
-		background: $secondary-accent-color;
-		color: #FFF;
-		padding: 0 2rem 20px;
-		border: 5px solid $main-accent-color;
+    @include mq-max(950px) {
+      padding: 0 20px 20px;
+    }
 
-		@include mq-max(950px) {
-			padding: 0 20px 20px;
-		}
+    .resume-heading {
+      text-align: center;
+      margin-top: 20px;
 
-		.resume-heading {
-			text-align: center;
-			margin-top: 20px;
+      i {
+        font-size: 40px;
+      }
 
-			i {
-				font-size: 40px;
-			}
+      h2 {
+        display: inline-block;
+        margin: 10px;
+        font-size: 36px;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: center;
+      }
+    }
 
-			h2 {
-				display: inline-block;
-				margin: 10px;
-				font-size: 36px;
-				font-weight: bold;
-				text-decoration: underline;
-				text-align: center;
-			}
-		}
+    .education-container,
+    .experience-container {
+      margin-bottom: 10px;
+    }
 
-		.education-container,
-		.experience-container {
-			margin-bottom: 10px;
-		}
+    h3,
+    h4,
+    h5 {
+      margin: 0 0 5px;
+    }
 
-		h3,
-		h4,
-		h5 {
-			margin: 0 0 5px;
-		}
+    .experience-container {
+      .date-of-employment {
+        &.hidden {
+          display: none;
+        }
+      }
 
-		.experience-container {
+      .job-responsibilities-list {
+        margin: 0;
+        padding-top: 0;
+        position: relative;
+        list-style: none;
+        padding-left: 1.2em;
 
-			.date-of-employment {
-				&.hidden {
-					display: none;
-				}
-			}
+        .job-responsibility {
+          display: list-item;
+          color: white;
+          padding: 5px 0;
+          min-height: 0;
+          line-height: 1.4;
 
-			.job-responsibilities-list {
-				margin: 0;
-				padding-top: 0;
-				position: relative;
-				list-style: none;
-				padding-left: 1.2em;
+          &:before {
+            content: '+';
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+    }
 
-				.job-responsibility {
-					display: list-item;
-					color: white;
-					padding: 5px 0;
-					min-height: 0;
-					line-height: 1.4;
+    .skills-container {
+      .tech-icon-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15px;
 
-					&:before {
-						content: "+";
-						position: absolute;
-						left: 0;
-					}
-				}
-			}
-		}
+        > div {
+          width: 33%;
+        }
+      }
 
-		.skills-container {
+      h3 {
+        text-align: center;
+        font-size: 24px;
+        text-decoration: underline;
+      }
 
-			.tech-icon-container {
-				display: flex;
-				flex-wrap: wrap;
-				padding: 15px;
+      h4 {
+        text-align: center;
+      }
 
-				> div {
-					width: 33%;
-				}
-			}
+      .tech-skill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 50%;
 
-			h3 {
-				text-align: center;
-				font-size: 24px;
-				text-decoration: underline;
-			}
+        .image {
+          text-align: center;
+        }
 
-			h4 {
-				text-align: center;
-			}
+        span.bar {
+          display: none;
+        }
 
-			.tech-skill {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				flex: 50%;
+        img {
+          height: 75px;
+          max-height: 75px;
+          width: 75px;
+          max-width: 75px;
 
-				.image {
-					text-align: center;
-				}
+          @include mq-max(600px) {
+            height: 50px;
+            max-height: 50px;
+            width: 50px;
+            max-width: 50px;
+          }
 
-				span.bar {
-					display: none;
-				}
+          &.cypress,
+          &.git {
+            background-color: #fff;
+            padding: 3px;
+            border-radius: 50%;
+          }
 
-				img {
-					height: 75px;
-					max-height: 75px;
-					width: 75px;
-					max-width: 75px;
+          &.jquery {
+            width: 250px;
+            max-width: 250px;
 
-					@include mq-max(600px) {
-						height: 50px;
-						max-height: 50px;
-						width: 50px;
-						max-width: 50px;
-					}
+            @include mq-max(600px) {
+              width: 150px;
+              max-width: 150px;
+            }
+          }
 
-					&.cypress,
-					&.git {
-						background-color: #FFF;
-						padding: 3px;
-						border-radius: 50%;
-					}
+          &.react,
+          &.git {
+            width: 100px;
+            max-width: 100px;
+          }
 
-					&.jquery {
-						width: 250px;
-						max-width: 250px;
+          &.nodejs,
+          &.mysql,
+          &.mongodb {
+            width: 150px;
+            max-width: 150px;
 
-						@include mq-max(600px) {
-							width: 150px;
-							max-width: 150px;
-						}
-					}
+            @include mq-max(600px) {
+              height: 75px;
+              max-height: 75px;
+              width: 75px;
+              max-width: 75px;
+            }
+          }
+        }
+      }
 
-					&.react,
-					&.git {
-						width: 100px;
-						max-width: 100px;
-					}
+      .progress-container {
+        display: flex;
+        margin: 10px 0;
+        align-items: center;
 
-					&.nodejs,
-					&.mysql,
-					&.mongodb {
-						width: 150px;
-						max-width: 150px;
+        span {
+          &.bar {
+            color: $primary-color;
+            padding: 0 20px;
+            font-size: 48px;
 
-						@include mq-max(600px) {
-							height: 75px;
-							max-height: 75px;
-							width: 75px;
-							max-width: 75px;
-						}
-					}
-				}
-			}
+            @include mq-max(500px) {
+              padding: 0 5px;
+            }
+          }
 
-			.progress-container {
-				display: flex;
-				margin: 10px 0;
-				align-items: center;
+          &.skill-name-centered {
+            flex: 50%;
+            width: 100%;
+            text-align: center;
+            font-size: 21px;
+            margin-bottom: 20px;
+          }
+        }
 
-				span {
-					&.bar {
-						color: $main-accent-color;
-						padding: 0 20px;
-						font-size: 48px;
+        .skill-progress {
+          margin: 15px auto;
+          width: 75%;
+          height: 9px;
+          display: flex;
+          flex-direction: row-reverse;
 
-						@include mq-max(500px) {
-							padding: 0 5px;
-						}
-					}
+          p {
+            font-weight: bold;
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
 
-					&.skill-name-centered {
-						flex: 50%;
-						width: 100%;
-						text-align: center;
-						font-size: 21px;
-						margin-bottom: 20px;
-					}
-				}
+    a,
+    a:link {
+      color: #fff;
+    }
 
-				.skill-progress {
-					margin: 15px auto;
-					width: 75%;
-					height: 9px;
-					display: flex;
-					flex-direction: row-reverse;
+    a:hover {
+      color: $primary-color;
+    }
 
-					p {
-						font-weight: bold;
-						font-size: 1.25rem;
-					}
-				}
-			}
-		}
+    hr {
+      border-top: 5px solid $primary-color;
+      width: 50%;
+      margin: 20px auto;
+    }
 
-		a,
-		a:link {
-			color: #FFF;
-		}
-
-		a:hover {
-			color: $main-accent-color;
-		}
-
-		hr {
-			border-top: 5px solid $main-accent-color;
-			width: 50%;
-			margin: 20px auto;
-		}
-
-		p {
-			margin-bottom: 0;
-		}
-	}
+    p {
+      margin-bottom: 0;
+    }
+  }
 }

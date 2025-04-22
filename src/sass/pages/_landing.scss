@@ -65,7 +65,7 @@
         margin-bottom: 10px;
 
         @include mq-max(950px) {
-          color: $main-accent-color;
+          color: $primary-color;
         }
 
         @include mq-max(900px) {
@@ -112,7 +112,7 @@
 
       .bar {
         font-size: inherit;
-        color: $main-accent-color;
+        color: $primary-color;
         padding: 0 20px;
 
         @include mq-max(900px) {
@@ -298,7 +298,7 @@
 
         .bar {
           font-size: 90px;
-          color: $main-accent-color;
+          color: $primary-color;
           padding: 0 9px;
 
           @include mq-max(900px) {

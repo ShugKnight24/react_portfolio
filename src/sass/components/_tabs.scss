@@ -1,69 +1,70 @@
 .tabs {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	
-	@include mq-max (1000px){
-		display: block;
-	}
+  display: flex;
+  justify-content: center;
+  width: 100%;
 
-	.tab-bar {
-		margin: 0;
-		padding: 0;
-		border-bottom: 1px solid rgb(224,224,224);
+  @include mq-max(1000px) {
+    display: block;
+  }
 
-		.tab {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin: 0;
-			border-right: 1px solid rgb(224, 224, 224);
-			padding: 9px 24px;
-			float: left;
-			position: relative;
-			text-decoration: none;
-			font-weight: 700;
-			font-size: 15px;
-			text-transform: uppercase;
-			color: rgba(0,0,0, 0.54);
-			text-indent: 0;
+  .tab-bar {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgb(224, 224, 224);
 
-			@include mq-min(1000px){
-				padding: 18px 24px;
-				font-size: 12px;
-			}
+    .tab {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      border-right: 1px solid rgb(224, 224, 224);
+      padding: 9px 24px;
+      float: left;
+      position: relative;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.54);
+      text-indent: 0;
 
-			&:first-of-type {
-				border-left: 1px solid rgb(224, 224, 224);
-			}
+      @include mq-min(1000px) {
+        padding: 18px 24px;
+        font-size: 12px;
+      }
 
-			.spacer {
-				display: block;
-				position: absolute;
-				height: 100%;
-				width: 100%;
-				left: 0px;
-				top: 0px;
-				z-index: 1;
-				overflow: hidden;
-			}
-			
-			&.active {
-				.spacer {
-					height: 3px;
-					width: 100%;
-					display: block;
-					content: ' ';
-					top: auto;
-					bottom: 0;
-					left: 0;
-					position: absolute;
-					background: $main-accent-color;
-					-webkit-animation: border-expand .2s cubic-bezier(.4,0,.4,1) .01s alternate forwards;
-					animation: border-expand .2s cubic-bezier(.4,0,.4,1) .01s alternate forwards;
-					transition: all 1s cubic-bezier(.4,0,1,1);
-				}
-			}
-		}
-	}
+      &:first-of-type {
+        border-left: 1px solid rgb(224, 224, 224);
+      }
+
+      .spacer {
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      &.active {
+        .spacer {
+          height: 3px;
+          width: 100%;
+          display: block;
+          content: ' ';
+          top: auto;
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          background: $primary-color;
+          -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate
+            forwards;
+          animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+          transition: all 1s cubic-bezier(0.4, 0, 1, 1);
+        }
+      }
+    }
+  }
 }

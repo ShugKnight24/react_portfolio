@@ -1,9 +1,72 @@
 /* Variables */
-$main-accent-color: #4286F4;
-$main-accent-darken: #186BF2;
-$secondary-accent-color: #373B44;
+/************/
+
+// Color Palette
+
+$primary-color: #4286f4;
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: #186bf2;
+
+$secondary-color: #373b44;
+$secondary-color-light: lighten($secondary-color, 15%);
+$secondary-color-dark: darken($secondary-color, 15%);
+
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-300: #dee2e6;
+$gray-500: #adb5bd;
+$gray-700: #495057;
+$gray-900: #212529;
+$black: #000;
+
+// Text & Link Colors
+
+$text-primary: $gray-900;
+$text-secondary: $gray-700;
+$text-muted: $gray-500;
+$text-light: $white;
+
+$link-color: $primary-color;
+$link-hover-color: $primary-color-dark;
+
+// Background Colors
+
+$background-color: $white;
+$background-color-secondary: $gray-100;
+
+// Typography
+$font-family: 'Roboto', sans-serif;
+$font-size-base: 1rem; // 16px
+$font-size-sm: 0.875rem; // 14px
+$font-size-lg: 1.25rem; // 20px
+$font-size-xl: 1.5rem; // 24px
+$font-size-xxl: 2rem; // 32px
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$line-height: 1.6;
+
+// Spacing
+$space-xs: 0.25rem; // 4px
+$space-sm: 0.5rem; // 8px
+$space: 1rem; // 16px
+$space-md: 1.5rem; // 24px
+$space-lg: 2rem; // 32px
+$space-xl: 3rem; // 48px
+$space-xxl: 4rem; // 64px
+
+// Borders
+$border-radius: 0.25rem; // 4px
+$border-radius-lg: 0.5rem; // 8px
+$border-radius-xl: 1rem; // 16px
+$border-color: $gray-300;
+$border-color-light: lighten($border-color, 10%);
+$border-color-dark: darken($border-color, 10%);
+
+// Shadows
+$box-shadow:
+  0 0.125rem 0.25rem rgba($black, 0.1),
+  0 0.25rem 0.5rem rgba($black, 0.1);
 $text-shadow: 1px 1px 1px #000;
-$common-margin: 20px auto 0;
 
+// Directory Paths
 $projectImagePath: '/img/projects/';
-
