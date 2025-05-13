@@ -2,26 +2,20 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  width: 300px;
-  max-width: 300px;
+  width: 240px;
+  max-width: 75vw;
   height: 100%;
-  max-height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  box-shadow:
-    0 2px 2px 0 rgba(0, 0, 0, 0.15),
-    0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 1px 5px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 4px 0 20px rgba($black, 0.3);
   border-right: 1px solid $primary-color;
-  background: #fff;
-  transform: translateX(-300px);
+  background: $background-color;
+  transform: translateX(-100%);
   transform-style: preserve-3d;
   will-change: transform;
-  transition-duration: 0.6s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: transform;
-  color: rgb(66, 66, 66);
+  transition: transform 0.6s ease-in-out;
+  color: $text-primary;
   overflow: visible;
   overflow-y: auto;
   z-index: 5;
@@ -31,16 +25,12 @@
   }
 
   .drawer-title {
-    color: #757575;
-    font-size: 2em;
-    font-weight: bold;
-    line-height: 64px;
-    padding-left: 42px;
-
-    @include mq-max(1024px) {
-      line-height: 56px;
-      padding-left: 18px;
-    }
+    color: $text-secondary;
+    font-size: $font-size-xxl;
+    font-weight: $font-weight-bold;
+    line-height: 1.5;
+    padding: $space-lg $space-md $space-sm;
+    border-bottom: 1px solid $border-color;
   }
 
   nav {
@@ -48,87 +38,108 @@
     flex-direction: column;
 
     a {
-      margin-bottom: 0.9em;
-      font-size: 1.25em;
-      padding: 18px 42px;
-      margin: 0;
-      color: #757575;
+      color: $text-secondary;
+      font-size: $font-size-lg;
+      padding: $space-sm $space-md;
       border-bottom: none;
       height: 60px;
+      transition:
+        background-color 0.3s ease-in-out,
+        color 0.6s ease-in-out,
+        font-size 0.6s ease-in-out;
 
-      &.active,
-      &:hover {
-        font-weight: bold;
-        background-color: #e0e0e0;
-        font-size: 1.5em;
+      &:hover,
+      &.active {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
       }
 
-      @include mq-max(1024px) {
-        padding-left: 18px;
+      &:hover {
+        background-color: $gray-300;
+      }
+
+      &.active {
+        color: $link-color;
+        background-color: lighten($primary-color, 30%);
       }
     }
   }
 }
 
 .drawer-button {
-  display: block;
+  display: flex;
   position: fixed;
+  top: $space-base;
+  left: $space-md;
   height: 48px;
   width: 48px;
-  border: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
+  border: none;
+  border-radius: $border-radius;
   overflow: hidden;
   text-align: center;
   cursor: pointer;
-  font-size: 36px;
-  line-height: 56px;
   font-family: Helvetica, Arial, sans-serif;
-  margin: 8px 12px;
-  top: 0;
-  left: 0;
-  color: #fff;
+  color: $white;
+  background-color: transparent;
   z-index: 4;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 
   &:hover {
-    color: $primary-color;
+    color: $primary-color-dark;
+
+    @include mq-max(1024px) {
+      color: $primary-color;
+    }
   }
 
-  @include mq-max(1024px) {
-    color: $primary-color;
-
-    &:hover {
-      color: $primary-color-dark;
-    }
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+    color: $primary-color-dark;
   }
 
   .material-icons {
     font-family: Material Icons;
-    font-weight: 400;
+    font-weight: normal;
     font-style: normal;
     font-size: 36px;
     line-height: 1;
     letter-spacing: normal;
     text-transform: none;
     display: inline-block;
+    white-space: nowrap;
     word-wrap: normal;
-    font-feature-settings: 'liga';
+    direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
   }
 }
 
-.drawer-overlay.active {
+.drawer-overlay {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
   z-index: 3;
-  background-color: black;
-  opacity: 0.75;
+  background-color: rgba($black, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.9s ease-in-out,
+    visibility 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
   }
 }
