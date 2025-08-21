@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker';
+import { defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,8 +10,13 @@ export default defineConfig({
     port: 3000,
     strictPort: true,
   },
-  build: {
-    outDir: "build",
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './tests/setup.ts',
   },
-  base: './'
+  build: {
+    outDir: 'build',
+  },
+  base: './',
 });
