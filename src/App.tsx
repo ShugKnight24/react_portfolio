@@ -1,5 +1,4 @@
 import { FC, Suspense, useEffect, useRef } from 'react';
-import ReactGA from 'react-ga4';
 import { useLocation, useNavigationType } from 'react-router-dom';
 import './styles/global.css';
 import { Content, Footer, Layout, Main } from './components/Layout';
@@ -68,10 +67,6 @@ const useScrollReset = () => {
 export const App: FC = () => {
   useWorld();
   useScrollReset();
-
-  useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
-  }, []);
 
   return (
     <>
