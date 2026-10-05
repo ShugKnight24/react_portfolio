@@ -4,9 +4,9 @@ import { NavProps } from '../../types/layout';
 import { trackPageEvent } from '../Analytics/analyticsUtils';
 import { navLinks } from './routes';
 
-export const Nav: FC<NavProps> = ({ toggleDrawer }) => {
+export const Nav: FC<NavProps> = ({ label = 'Main Navigation', toggleDrawer }) => {
   return (
-    <nav className="nav" aria-label="Main Navigation">
+    <nav className="nav" aria-label={label}>
       {navLinks.map((link, index) => (
         <NavLink
           key={index}
