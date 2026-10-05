@@ -32,7 +32,7 @@ export const projects: Project[] = [
     tech: ['React', 'Vite', 'Tailwind CSS', 'React Router', 'Vitest', 'Playwright', 'Docker'],
     github: 'https://github.com/Compass-Detroit/compass-website',
     live: 'https://compass-detroit.com',
-    image: './img/projects/compass_detroit_2026.jpg',
+    image: '/img/projects/compass_detroit_2026.jpg',
   },
   {
     id: 'clockwork-carnage',
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     tech: ['JavaScript', 'Canvas 2D', 'WebGL2', 'Web Audio API', 'Vite'],
     github: 'https://github.com/ShugKnight24/clockwork_carnage',
     live: 'https://shugknight24.github.io/clockwork_carnage/',
-    image: './img/projects/clockwork_carnage_2026.jpg',
+    image: '/img/projects/clockwork_carnage_2026.jpg',
   },
   {
     id: 'lunas-lullaby',
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     tech: ['JavaScript', 'SVG', 'Canvas', 'Vite', 'Vitest', 'Playwright'],
     github: 'https://github.com/ShugKnight24/lunas_lullaby',
     live: 'https://lunas-lullaby.vercel.app',
-    image: './img/projects/lunas_lullaby_2026.jpg',
+    image: '/img/projects/lunas_lullaby_2026.jpg',
   },
   {
     id: 'gym-bro',
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     tech: ['JavaScript', 'Canvas', 'SVG', 'Web Audio API', 'Vite', 'Vitest', 'Playwright'],
     github: 'https://github.com/ShugKnight24/gym_bro',
     live: 'https://gym-bro-rouge.vercel.app/',
-    image: './img/projects/gym_bro_2026.jpg',
+    image: '/img/projects/gym_bro_2026.jpg',
   },
   {
     id: 'shumunov-solutions',
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       'My consultancy. Web and mobile builds, system architecture and technical advising for businesses in southeast Michigan and across the US.',
     tech: ['React', 'TypeScript', 'Node.js', 'React Native'],
     live: 'https://shumunovsolutions.com',
-    image: './img/projects/shumunov_solutions_2026.jpg',
+    image: '/img/projects/shumunov_solutions_2026.jpg',
   },
   {
     id: 'devfest-portfolio-workshop',
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     tech: ['JavaScript', 'Web Components', 'CSS', 'Service Worker'],
     github: 'https://github.com/ShugKnight24/pomidor',
     live: 'https://shugknight24.github.io/pomidor',
-    image: './img/projects/pomidor_2026.jpg',
+    image: '/img/projects/pomidor_2026.jpg',
   },
   {
     id: 'next-shopping-cart',

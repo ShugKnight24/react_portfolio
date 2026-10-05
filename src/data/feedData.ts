@@ -316,7 +316,7 @@ export const postsArray: FeedPost[] = [
       2^1, 2^2, 2^3
       Mamba Mentality
     `,
-    image: './img/feed/kobe.jpg',
+    image: '/img/feed/kobe.jpg',
     youtubeInfo: {
       videoId: 'GE0UAdxPTc0',
       videoLink: 'https://www.youtube.com/watch?v=GE0UAdxPTc0',
@@ -332,9 +332,9 @@ export const postsArray: FeedPost[] = [
       Jumpman Jumpman Jumpman Jumpman
       It's gotta be the shoes
     `,
-    image: './img/feed/air_jordan.jpg',
+    image: '/img/feed/air_jordan.jpg',
     album: 'Lead Sails Paper Anchor',
-    albumArt: './img/feed/atreyu_lead_sails_paper_anchor.jpg',
+    albumArt: '/img/feed/atreyu_lead_sails_paper_anchor.jpg',
     artist: 'Atreyu',
     song: 'Becoming the Bull',
     // Allow for setting multiple aspects -> Would be cool if the video would play into another video seamlessly... start with a fade in...
@@ -477,7 +477,7 @@ export const postsArray: FeedPost[] = [
     artist: 'While She Sleeps',
     song: 'Seven Hills',
     album: 'This Is the Six',
-    albumArt: './img/feed/this_is_the_six.jpg',
+    albumArt: '/img/feed/this_is_the_six.jpg',
     youtubeInfo: {
       videoId: 'ujB7wSVDV9I',
       videoLink: 'https://www.youtube.com/watch?v=ujB7wSVDV9I',
@@ -494,7 +494,7 @@ export const postsArray: FeedPost[] = [
     song: 'Istillfeelher PartIII',
     artist: 'Jonny Craig',
     album: "A Dream Is A Question You Don't Know How To Answer",
-    albumArt: './img/feed/a_dream_is_a_question_you_dont_know_how_to_answer.jpg',
+    albumArt: '/img/feed/a_dream_is_a_question_you_dont_know_how_to_answer.jpg',
     youtubeInfo: {
       videoId: 'ydMDVsC5bVI',
       videoLink: 'https://www.youtube.com/watch?v=ydMDVsC5bVI',
@@ -615,7 +615,7 @@ export const postsArray: FeedPost[] = [
     artist: 'State of Mine',
     song: 'Rise - (Katy Perry Cover)',
     album: 'Devil in Disguise',
-    albumArt: './img/feed/state_of_mine_devil_in_disguise.jpg',
+    albumArt: '/img/feed/state_of_mine_devil_in_disguise.jpg',
     youtubeInfo: {
       videoId: '0lNpmPRjN-0',
       videoLink: 'https://www.youtube.com/watch?v=0lNpmPRjN-0',
@@ -644,7 +644,7 @@ export const postsArray: FeedPost[] = [
     artist: 'San Holo',
     song: 'Light',
     album: 'Light',
-    albumArt: './img/feed/san_holo_light.jpg',
+    albumArt: '/img/feed/san_holo_light.jpg',
     youtubeInfo: {
       videoId: 'uOFTqVi-qp4',
       videoLink: 'https://www.youtube.com/watch?v=uOFTqVi-qp4',

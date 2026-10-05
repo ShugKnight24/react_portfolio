@@ -141,7 +141,7 @@ export const Contact: FC = () => {
           </ol>
 
           <figure className="mc-still mc-still--tilt-left mc-still--small">
-            <img src="./img/jbp_shug.jpg" alt="Shugmi Shumunov with Jordan Peterson" loading="lazy" />
+            <img src="/img/jbp_shug.jpg" alt="Shugmi Shumunov with Jordan Peterson" loading="lazy" />
             <figcaption>
               Last seen with author and professor{' '}
               <a href="https://www.jordanbpeterson.com" target="_blank" rel="noopener noreferrer">

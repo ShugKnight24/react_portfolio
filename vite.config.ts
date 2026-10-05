@@ -36,5 +36,6 @@ export default defineConfig({
       localsConvention: 'camelCase',
     },
   },
-  base: './',
+  // Served from the root of the ShugKnight24.github.io user site
+  base: '/',
 });

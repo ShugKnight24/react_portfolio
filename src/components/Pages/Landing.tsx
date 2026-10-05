@@ -102,8 +102,8 @@ const quickLinkMedia: Record<string, ReactNode> = {
       </span>
     </>
   ),
-  about: <img src="./img/shug_brick.jpg" alt="" loading="lazy" className="card-media" />,
-  arcade: <img src="./img/projects/arcade_2026.jpg" alt="" loading="lazy" className="card-media" />,
+  about: <img src="/img/shug_brick.jpg" alt="" loading="lazy" className="card-media" />,
+  arcade: <img src="/img/projects/arcade_2026.jpg" alt="" loading="lazy" className="card-media" />,
   fun: (
     <span className="card-tapes" aria-hidden="true">
       {['Kamehameha', 'Bullet Time', 'Master Sword'].map((title) => (
@@ -114,7 +114,7 @@ const quickLinkMedia: Record<string, ReactNode> = {
   books: (
     <span className="card-covers">
       {['deep_work.jpg', 'dune.jpg', 'clean_code.jpg'].map((cover) => (
-        <img key={cover} src={`./img/books/${cover}`} alt="" loading="lazy" />
+        <img key={cover} src={`/img/books/${cover}`} alt="" loading="lazy" />
       ))}
     </span>
   ),

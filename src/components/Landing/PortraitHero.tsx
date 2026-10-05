@@ -7,7 +7,7 @@ export const PortraitHero: FC<{ children: ReactNode }> = ({ children }) => (
     <div className={styles.haze} aria-hidden="true" />
     <figure className={styles.portrait}>
       <img
-        src="./img/photos/me/shug-luna-car-smile.jpg"
+        src="/img/photos/me/shug-luna-car-smile.jpg"
         alt="Shugmi and his dog Luna both grinning in the car, her tongue out"
         width={1500}
         height={1997}

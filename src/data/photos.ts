@@ -24,7 +24,7 @@ export const photoCategories: { id: PhotoCategory; label: string }[] = [
   { id: 'life', label: 'Life' },
 ];
 
-const base = './img/photos';
+const base = '/img/photos';
 
 const img = (
   category: PhotoCategory,

@@ -18,7 +18,7 @@ export const AboutContact: FC = () => (
       lede="Shugmi Shumunov. Full stack engineer in Detroit, fond of small teams, heavy lifts and long walks with good dogs."
       aside={
         <figure className="mc-still mc-still--tilt-right mc-still--hero">
-          <img src="./img/shug_bpak.jpg" alt="Shugmi Shumunov with bodybuilder Ben Pakulski" />
+          <img src="/img/shug_bpak.jpg" alt="Shugmi Shumunov with bodybuilder Ben Pakulski" />
           <figcaption>
             Standing next to bodybuilder{' '}
             <a href="https://www.benpakulski.com" target="_blank" rel="noopener noreferrer">

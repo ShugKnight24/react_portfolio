@@ -1133,7 +1133,7 @@ export const LunaAngelScene: FC = () => {
 
           <figure className={styles.portrait}>
             <img
-              src="./img/gallery/luna_1.JPG"
+              src="/img/gallery/luna_1.JPG"
               alt="Luna, a fawn dog with big flyaway ears, looking up at the camera"
               loading="lazy"
               decoding="async"

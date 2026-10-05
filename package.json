@@ -40,8 +40,10 @@
   },
   "scripts": {
     "build": "tsc && vite build",
+    "postbuild": "node scripts/postbuild.mjs",
     "cleanCache": "rm -rf node_modules/.vite && vite --force",
-    "deploy": "gh-pages -b master -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -b master --nojekyll -r git@github.com:ShugKnight24/ShugKnight24.github.io.git",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
