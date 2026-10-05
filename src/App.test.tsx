@@ -14,9 +14,9 @@ const renderWithRouter = (component: React.ReactElement) => {
 };
 
 describe('App', () => {
-  it('renders loading text before App is mounted', () => {
+  it('renders a full-height loading placeholder before the page is mounted', () => {
     renderWithRouter(<App />);
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByRole('status')).toHaveTextContent('Loading');
   });
 
   it('renders without crashing', async () => {

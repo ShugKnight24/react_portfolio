@@ -288,3 +288,9 @@ a.skip-link:focus-visible {
   opacity: 1;
   transform: none;
 }
+
+/* Suspense fallback for lazy pages: reserve the viewport so the footer stays below the fold */
+.page-loading {
+  min-height: 100vh;
+  min-height: 100svh;
+}
