@@ -1,0 +1,689 @@
+/* Luna memorial scene. Night sky with warm sodium and gold accents. */
+
+.lunaSceneSection {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(40px, 6vw, 72px) 16px;
+  color: var(--w-text, #ede9e3);
+  background:
+    radial-gradient(ellipse 60% 50% at 12% 0%, rgb(255 138 42 / 0.08), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 88% 100%, rgb(212 168 75 / 0.07), transparent 70%),
+    linear-gradient(180deg, var(--w-bg, #08090b) 0%, var(--w-surface, #101216) 100%);
+  border-top: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  border-bottom: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+}
+
+.sceneContainer {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+/* Copy column */
+
+.copyColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.title {
+  margin: 0;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  line-height: 1;
+  color: var(--w-text, #ede9e3);
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.speechBubble {
+  position: relative;
+  margin-top: 4px;
+  padding: 12px 16px;
+  max-width: 100%;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--w-text, #ede9e3);
+  background: var(--w-surface, #101216);
+  border: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  border-left: 2px solid #d4a84b;
+  border-radius: 4px 12px 12px 4px;
+}
+
+.poseControl {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 3px;
+  gap: 2px;
+  background: var(--w-surface, #101216);
+  border: 1px solid var(--w-line, rgb(255 255 255 / 0.12));
+  border-radius: 999px;
+}
+
+.poseOption {
+  min-height: 40px;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  color: var(--w-muted, #9a9ea8);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.poseOption:hover {
+  color: var(--w-text, #ede9e3);
+}
+
+.poseOption[aria-checked='true'] {
+  color: #1d1406;
+  background: #d4a84b;
+}
+
+.poseOption:focus-visible {
+  outline: 2px solid var(--w-accent-hi, #ffb067);
+  outline-offset: 2px;
+}
+
+.controlsBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--w-on-accent, #170a00);
+  background: var(--w-accent, #ff8a2a);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.actionButton:hover {
+  background: var(--w-accent-hi, #ffb067);
+}
+
+.actionButton:active {
+  transform: scale(0.97);
+}
+
+.actionButton:focus-visible {
+  outline: 2px solid var(--w-accent-hi, #ffb067);
+  outline-offset: 3px;
+}
+
+.actionButtonGhost {
+  color: var(--w-text, #ede9e3);
+  background: var(--w-surface, #101216);
+  border-color: var(--w-line, rgb(255 255 255 / 0.12));
+}
+
+.actionButtonGhost:hover {
+  background: var(--w-surface-2, #171a20);
+}
+
+.counter {
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.counterValue {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #d4a84b;
+}
+
+/* Illustration stage */
+
+.stage {
+  position: relative;
+  min-width: 0;
+}
+
+.svgCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+}
+
+.portrait {
+  position: absolute;
+  right: 0;
+  bottom: 6%;
+  width: clamp(120px, 24%, 180px);
+  margin: 0;
+  padding: 8px 8px 0;
+  background: #efe3cc;
+  border-radius: 2px;
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.4),
+    0 12px 28px rgb(0 0 0 / 0.45);
+  transform: rotate(4deg);
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 30%;
+  background: #2a2520;
+}
+
+.portrait figcaption {
+  padding: 4px 0 6px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.125rem;
+  text-align: center;
+  color: #3a2d20;
+}
+
+.floatingHeart {
+  position: absolute;
+  z-index: 2;
+  font-size: 1.5rem;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: floatUpAndFade 1.8s ease-out forwards;
+}
+
+/* SVG parts */
+
+.floatGroup {
+  animation: gentleFloat 7s ease-in-out infinite;
+}
+
+.wingLeft,
+.wingRight {
+  transform-box: view-box;
+  animation: wingSway 6s ease-in-out infinite;
+}
+
+.wingRight {
+  animation-delay: -0.4s;
+}
+
+.halo {
+  animation: haloBreathe 5s ease-in-out infinite;
+}
+
+.twinkle {
+  animation: twinkle 4.5s ease-in-out infinite;
+}
+
+.tail {
+  transform-box: view-box;
+  transform-origin: 392px 440px;
+}
+
+.earLeft,
+.earRight {
+  transform-box: view-box;
+  transition: transform 300ms ease;
+}
+
+.earLeft {
+  transform-origin: 256px 162px;
+}
+
+.earRight {
+  transform-origin: 344px 162px;
+}
+
+.excited .tail {
+  animation: tailWag 0.45s ease-in-out infinite;
+}
+
+.excited .poseSit .earLeft {
+  transform: rotate(6deg);
+}
+
+.excited .poseSit .earRight {
+  transform: rotate(-6deg);
+}
+
+/* Pose crossfade */
+
+.pose {
+  transform-box: view-box;
+  transform-origin: 300px 470px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.poseActive {
+  opacity: 1;
+  transform: none;
+}
+
+.pose:not(.poseActive) * {
+  animation-play-state: paused;
+}
+
+/* Napping */
+
+.breath {
+  transform-box: view-box;
+  transform-origin: 322px 460px;
+  animation: breathe 4.4s ease-in-out infinite;
+}
+
+.napHead {
+  animation: headBob 4.4s ease-in-out infinite;
+}
+
+.poseNap .earLeft {
+  transform: rotate(-38deg);
+}
+
+.poseNap .earRight {
+  transform: rotate(36deg);
+  animation: earTwitch 9s ease-in-out infinite 3s;
+}
+
+.sleepGlow {
+  animation: glowPulse 4.4s ease-in-out infinite;
+}
+
+.mote {
+  opacity: 0;
+  animation: moteDrift 4.8s ease-out infinite;
+}
+
+.tailNap {
+  transform-box: view-box;
+  transform-origin: 462px 424px;
+}
+
+.excited .tailNap {
+  animation: tailThump 0.6s ease-in-out 2;
+}
+
+/* Treat time */
+
+.jaw {
+  transform-box: fill-box;
+}
+
+.poseTreat .jaw {
+  animation: chew 0.52s ease-in-out infinite;
+}
+
+.chewTilt {
+  transform-box: view-box;
+  transform-origin: 296px 366px;
+  animation: chewTilt 2.6s ease-in-out infinite;
+}
+
+.tailTreat {
+  transform-box: view-box;
+  transform-origin: 444px 436px;
+  animation: tailWag 0.5s ease-in-out infinite;
+}
+
+.crumb {
+  opacity: 0;
+  animation: crumbFall 1.8s ease-in infinite;
+}
+
+/* Flowers */
+
+.swayLeft,
+.swayRight {
+  transform-box: view-box;
+  animation: flowerSway 7s ease-in-out infinite;
+}
+
+.swayLeft {
+  transform-origin: 160px 480px;
+}
+
+.swayRight {
+  transform-origin: 420px 480px;
+  animation-delay: -2.5s;
+}
+
+.flame {
+  transform-box: view-box;
+  transform-origin: 98px 429px;
+  animation: flicker 2.2s ease-in-out infinite;
+}
+
+.candleGlow {
+  animation: glowPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes wingSway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes haloBreathe {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes tailWag {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-7deg);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  45% {
+    transform: scaleY(1.035);
+  }
+}
+
+@keyframes headBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-1.5px);
+  }
+}
+
+@keyframes earTwitch {
+  0%,
+  86%,
+  100% {
+    transform: rotate(36deg);
+  }
+  88% {
+    transform: rotate(26deg);
+  }
+  90% {
+    transform: rotate(36deg);
+  }
+  92% {
+    transform: rotate(29deg);
+  }
+  95% {
+    transform: rotate(36deg);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes moteDrift {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  25% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(10px, -46px);
+  }
+}
+
+@keyframes tailThump {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes chew {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes chewTilt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+}
+
+@keyframes crumbFall {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  12% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(6px, 70px);
+  }
+}
+
+@keyframes flowerSway {
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(0.94, 1.06);
+  }
+  60% {
+    transform: scale(1.04, 0.95);
+  }
+}
+
+@keyframes floatUpAndFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -160%) scale(1.1);
+  }
+}
+
+/* Layout */
+
+@media (min-width: 900px) {
+  .lunaSceneSection {
+    max-height: 760px;
+  }
+}
+
+@media (max-width: 899px) {
+  .sceneContainer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .copyColumn {
+    align-items: center;
+    text-align: center;
+  }
+
+  .speechBubble {
+    border-left-width: 1px;
+    border-radius: 12px;
+  }
+
+  .controlsBar {
+    justify-content: center;
+  }
+
+  .svgCanvas {
+    max-height: 460px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .portrait {
+    position: static;
+    width: min(52%, 200px);
+    transform: rotate(-2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floatGroup,
+  .wingLeft,
+  .wingRight,
+  .halo,
+  .twinkle,
+  .excited .tail,
+  .floatingHeart,
+  .breath,
+  .napHead,
+  .poseNap .earRight,
+  .sleepGlow,
+  .excited .tailNap,
+  .poseTreat .jaw,
+  .chewTilt,
+  .tailTreat,
+  .swayLeft,
+  .swayRight,
+  .flame,
+  .candleGlow {
+    animation: none;
+  }
+
+  .mote,
+  .crumb {
+    animation: none;
+    opacity: 0;
+  }
+
+  .pose {
+    transform: none;
+    transition: none;
+  }
+
+  .floatingHeart {
+    opacity: 0;
+  }
+
+  .earLeft,
+  .earRight {
+    transition: none;
+  }
+}

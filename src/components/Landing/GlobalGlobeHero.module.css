@@ -1,0 +1,296 @@
+.globalGlobeHeroSection {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  background: radial-gradient(circle at 50% 45%, #0d0e12 0%, #070809 70%, #050608 100%);
+  border-bottom: 1px solid rgba(255, 138, 42, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Top Telemetry Bar */
+.telemetryHudBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  background: rgba(8, 9, 11, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
+}
+
+.telemetryLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.liveBlip {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseBlip 1.8s infinite;
+}
+
+.statusText {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ff8a2a;
+  text-shadow: 0 0 8px rgba(255, 138, 42, 0.5);
+}
+
+.hudCoordReadout {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.68rem;
+  color: #9a9ea8;
+  letter-spacing: 0.5px;
+}
+
+/* Controls center */
+.telemetryControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hudControlBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(23, 26, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #d6d2cb;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.72rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hudControlBtn:hover {
+  background: rgba(255, 138, 42, 0.15);
+  border-color: #ff8a2a;
+  color: #fff;
+}
+
+.hudControlBtn.active {
+  background: rgba(255, 138, 42, 0.25);
+  border-color: #ff8a2a;
+  color: #ff8a2a;
+  box-shadow: 0 0 10px rgba(255, 138, 42, 0.3);
+}
+
+.controlIcon {
+  width: 14px;
+  height: 14px;
+}
+
+/* City Switcher */
+.telemetryCitySwitcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cityPill {
+  background: rgba(23, 26, 32, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #d6d2cb;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.74rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+}
+
+.cityPill .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cityPill:hover {
+  border-color: #ff8a2a;
+  background: rgba(255, 138, 42, 0.15);
+  color: #fff;
+}
+
+.cityPill.active {
+  background: rgba(8, 9, 11, 0.95);
+  font-weight: bold;
+  box-shadow: 0 0 14px rgba(255, 138, 42, 0.35);
+}
+
+/* 3D WebGL Canvas Viewport */
+.globeCanvasWrapper {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.globeCanvasContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Location Intel Floating Card */
+.locationIntelCard {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(8, 9, 11, 0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 138, 42, 0.3);
+  border-radius: 10px;
+  padding: 1.1rem 1.35rem;
+  max-width: 400px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75), 0 0 20px rgba(255, 138, 42, 0.2);
+  pointer-events: none;
+  user-select: none;
+  z-index: 5;
+  animation: fadeInCard 0.3s ease;
+}
+
+.intelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.65rem;
+  color: #9a9ea8;
+  margin-bottom: 0.3rem;
+}
+
+.intelRegion {
+  color: #ff8a2a;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.intelCoords {
+  color: #6f737c;
+}
+
+.intelTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 0.2rem 0;
+  font-family: var(--font-family-mono, monospace);
+  letter-spacing: 0.5px;
+}
+
+.intelRole {
+  display: block;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: bold;
+  color: #f59e0b;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.intelDesc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #d6d2cb;
+  margin: 0;
+}
+
+.globeInteractHint {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.68rem;
+  color: #6f737c;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes pulseBlip {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 868px) {
+  .globalGlobeHeroSection {
+    height: 520px;
+  }
+
+  .telemetryHudBar {
+    padding: 0.6rem 1rem;
+  }
+
+  .telemetryControls {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .locationIntelCard {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+    padding: 0.85rem 1rem;
+  }
+
+  .globeInteractHint {
+    display: none;
+  }
+}

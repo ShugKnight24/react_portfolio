@@ -1,0 +1,143 @@
+.hero {
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  min-height: min(calc(100dvh - 65px), 56rem);
+  padding: clamp(2rem, 6vh, 4rem) clamp(1.25rem, 5vw, 5rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.haze {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(40rem 34rem at 72% 45%, color-mix(in srgb, var(--w-accent, #ff8a2a) 22%, transparent), transparent 65%),
+    radial-gradient(30rem 20rem at 15% 90%, color-mix(in srgb, var(--w-accent-2, #c9d1dc) 6%, transparent), transparent 70%);
+}
+
+.portrait {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  width: min(100%, 26rem);
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--w-radius, 14px);
+  box-shadow: 0 40px 90px -40px rgb(0 0 0 / 0.9);
+  animation: reveal 1400ms var(--ease) both 150ms;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  filter: grayscale(0.55) sepia(0.18) contrast(1.15) brightness(0.88);
+  animation: pushIn 18s ease-out both;
+}
+
+/* Sodium-light grade: warm highlights, cool deep shadows */
+.grade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(200deg, color-mix(in srgb, var(--w-accent, #ff8a2a) 38%, transparent) 0%, transparent 45%),
+    linear-gradient(0deg, rgb(8 9 11 / 0.85) 0%, transparent 40%);
+  mix-blend-mode: soft-light;
+}
+
+.grade::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(8 9 11 / 0.7) 0%, transparent 35%);
+}
+
+.crop {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-color: var(--w-accent, #ff8a2a);
+  border-style: solid;
+  opacity: 0.8;
+}
+
+.cropTl {
+  top: 0.9rem;
+  left: 0.9rem;
+  border-width: 1px 0 0 1px;
+}
+
+.cropBr {
+  right: 0.9rem;
+  bottom: 0.9rem;
+  border-width: 0 1px 1px 0;
+}
+
+.caption {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1rem;
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  color: rgb(237 233 227 / 0.75);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: -6rem;
+}
+
+@keyframes reveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes pushIn {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    align-items: end;
+    padding-top: 1.5rem;
+  }
+  .portrait {
+    grid-column: 1;
+    justify-self: stretch;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 70dvh;
+  }
+  .content {
+    margin: -9rem 0 0;
+    grid-row: 2;
+    padding: 0 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait,
+  .photo {
+    animation: none;
+  }
+}

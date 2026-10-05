@@ -1,0 +1,1075 @@
+/* Travel parallax: a sticky stage where every plane reads the same camera.
+   JS only writes transform and opacity; everything else is laid out here. */
+
+.travel {
+  --tp-bg: var(--w-bg, #08090b);
+  --tp-text: var(--w-text, #ede9e3);
+  --tp-muted: var(--w-muted, #9a9ea8);
+  --tp-accent: var(--w-accent, #ff8a2a);
+  --tp-accent-hi: var(--w-accent-hi, #ffb067);
+  --tp-display: var(--w-display, 'Geist', 'Inter', sans-serif);
+  --tp-mono: var(--font-family-mono, 'Geist Mono', ui-monospace, monospace);
+  --cw: clamp(190px, 19vw, 320px);
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: var(--tp-bg);
+  color: var(--tp-text);
+}
+
+.moving {
+  /* Replaced by the measured track length once JS runs */
+  height: 560vh;
+  /* JS pulls the margins out to the viewport edges */
+  width: auto;
+}
+
+/* The page's generic fade-in waits for 6% of a section to show, which for this
+   very tall section lands right as the stage pins, so it would pop in late.
+   The stage runs its own scroll-linked hand-off instead. */
+.moving:global(.reveal) {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  perspective: 1400px;
+  contain: paint;
+}
+
+.scene,
+.near {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.moving .scene,
+.moving .near {
+  will-change: transform;
+}
+
+/* Blend the stage edges into the page while it pins and lets go */
+.feather {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 48%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.featherTop {
+  top: -1px;
+  background: linear-gradient(
+    180deg,
+    var(--tp-bg) 0%,
+    color-mix(in srgb, var(--tp-bg) 86%, transparent) 22%,
+    color-mix(in srgb, var(--tp-bg) 55%, transparent) 50%,
+    color-mix(in srgb, var(--tp-bg) 20%, transparent) 78%,
+    transparent 100%
+  );
+}
+
+.featherBottom {
+  bottom: -1px;
+  background: linear-gradient(
+    0deg,
+    var(--tp-bg) 0%,
+    color-mix(in srgb, var(--tp-bg) 86%, transparent) 22%,
+    color-mix(in srgb, var(--tp-bg) 55%, transparent) 50%,
+    color-mix(in srgb, var(--tp-bg) 20%, transparent) 78%,
+    transparent 100%
+  );
+}
+
+/* Sky */
+
+.sky {
+  position: absolute;
+  inset: 0;
+}
+
+/* One sky per stop, stacked in time order; JS fades each over the one below */
+.skyAfternoon {
+  background: linear-gradient(
+    180deg,
+    #0d1729 0%,
+    #1a3050 30%,
+    #36557a 52%,
+    #7790a6 70%,
+    #cfae8e 84%
+  );
+}
+
+.skyOvercast {
+  background: linear-gradient(
+    180deg,
+    #11181d 0%,
+    #222e35 30%,
+    #45535a 54%,
+    #73817f 70%,
+    #9aa39b 84%
+  );
+}
+
+.skyGolden {
+  background: linear-gradient(
+    180deg,
+    #170f2a 0%,
+    #3a1d48 30%,
+    #8a3657 54%,
+    #d9643a 70%,
+    #ffa552 82%
+  );
+}
+
+.skyDusk {
+  background: linear-gradient(
+    180deg,
+    #080c20 0%,
+    #161b42 34%,
+    #33295a 56%,
+    #7d4465 72%,
+    #c86c45 83%
+  );
+}
+
+.skyNight {
+  background: linear-gradient(180deg, #030409 0%, #070b18 40%, #10132a 66%, #2a1c28 82%);
+}
+
+.skyOvercast,
+.skyGolden,
+.skyDusk,
+.skyNight {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.stars {
+  position: absolute;
+  inset: 0 -20% 0 0;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.star {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: #fff7ec;
+  opacity: var(--o);
+}
+
+.twinkle {
+  animation: tpTwinkle 4.5s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes tpTwinkle {
+  50% {
+    opacity: 0.12;
+  }
+}
+
+.sun {
+  position: absolute;
+  left: -70px;
+  top: -70px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #fff1d6 0 26%,
+    rgb(255 196 120 / 0.85) 29%,
+    rgb(255 150 70 / 0.35) 42%,
+    rgb(255 138 42 / 0) 70%
+  );
+  will-change: transform, opacity;
+}
+
+.moon {
+  position: absolute;
+  left: -34px;
+  top: -34px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  opacity: 0;
+  background: radial-gradient(circle at 38% 36%, #fffaf0 0 30%, #ece2cf 58%, #cfc2aa 72%);
+  box-shadow:
+    0 0 40px 10px rgb(255 240 215 / 0.18),
+    0 0 120px 40px rgb(255 240 215 / 0.07);
+  will-change: transform, opacity;
+}
+
+.clouds {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 240%;
+  will-change: transform, opacity;
+}
+
+.cloudsNear {
+  width: 360%;
+}
+
+.cloud {
+  position: absolute;
+  width: var(--cw2);
+  height: calc(var(--cw2) * 0.22);
+  border-radius: 50%;
+  opacity: var(--o);
+  background: radial-gradient(
+    ellipse at center,
+    rgb(255 226 196 / 0.55),
+    rgb(255 200 160 / 0.14) 45%,
+    transparent 70%
+  );
+  animation: tpDrift 40s ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+@keyframes tpDrift {
+  to {
+    transform: translate3d(60px, 0, 0);
+  }
+}
+
+.glow {
+  position: absolute;
+  inset: auto 0 14% 0;
+  height: 46%;
+  background: radial-gradient(
+    ellipse 70% 60% at 62% 100%,
+    rgb(255 138 42 / 0.4),
+    rgb(255 138 42 / 0.1) 50%,
+    transparent 75%
+  );
+  will-change: opacity;
+}
+
+/* Land, back to front */
+
+.ridge {
+  position: absolute;
+  left: 0;
+  bottom: 22%;
+  width: 170%;
+  height: 34%;
+  color: #2b2335;
+  will-change: transform, opacity;
+}
+
+.ridge svg,
+.hills svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Far stop scenery: paler and slower than the landmark in front of it */
+.backdrop {
+  --bw: min(118vw, 1700px);
+  position: absolute;
+  left: 0;
+  bottom: 24.5%;
+  width: var(--bw);
+  translate: -50% 0;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.backdrop svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 32vh;
+}
+
+/* Air between the far planes and the near ones */
+.haze {
+  position: absolute;
+  inset: auto 0 16% 0;
+  height: 26%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgb(214 196 186 / 0.12) 55%,
+    rgb(20 16 24 / 0.38)
+  );
+  will-change: opacity;
+}
+
+.water {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  height: 13.5%;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #55657a 0%,
+    #2a3446 14%,
+    #141a26 55%,
+    #0a0d14 100%
+  );
+  will-change: opacity;
+}
+
+.waterGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 34% 90% at 62% 0%, rgb(255 178 110 / 0.5), transparent 70%),
+    linear-gradient(180deg, rgb(255 160 90 / 0.28), transparent 60%);
+  will-change: opacity;
+}
+
+.waterGlint {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  opacity: 0.16;
+  will-change: transform;
+}
+
+.hills {
+  position: absolute;
+  left: 0;
+  bottom: 12%;
+  width: 270%;
+  height: 22%;
+  color: #17141d;
+  will-change: transform, opacity;
+}
+
+.city {
+  position: absolute;
+  inset: auto 0 10% 0;
+  height: 40%;
+  opacity: 0;
+  background: radial-gradient(ellipse 60% 70% at 70% 100%, rgb(255 150 70 / 0.22), transparent 70%);
+  will-change: opacity;
+}
+
+/* Fog off the bay, mist off the falls: rolls in front of the landmark */
+.fog {
+  position: absolute;
+  left: 0;
+  bottom: 9%;
+  width: 320%;
+  height: 34%;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.fogPuff {
+  position: absolute;
+  width: var(--fw);
+  height: calc(var(--fw) * 0.2);
+  border-radius: 50%;
+  opacity: var(--o);
+  background: radial-gradient(
+    ellipse at center,
+    rgb(230 234 238 / 0.62),
+    rgb(214 222 228 / 0.26) 46%,
+    transparent 70%
+  );
+  animation: tpDrift 30s ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+.landmark {
+  --lw: min(56vw, 760px);
+  position: absolute;
+  left: 0;
+  bottom: 12.5%;
+  width: var(--lw);
+  translate: -50% 0;
+  transform-origin: 50% 100%;
+  color: #0d0c12;
+  will-change: transform, opacity;
+}
+
+/* Drawings end softly instead of on a hard vertical edge */
+.landmark svg,
+.backdrop svg {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+
+.landmark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 52vh;
+}
+
+.landmark[data-mark='bridge'] {
+  --lw: min(84vw, 1150px);
+}
+
+.landmark[data-mark='falls'] {
+  --lw: min(80vw, 1080px);
+}
+
+.landmark[data-mark='beach'] {
+  --lw: min(84vw, 1120px);
+}
+
+.landmark[data-mark='skyline'] {
+  --lw: min(112vw, 1560px);
+}
+
+.landmark[data-mark='tower'] {
+  --lw: min(44vw, 560px);
+}
+
+.landmark[data-mark='needle'] {
+  --lw: min(78vw, 1060px);
+}
+
+.landmark[data-mark='peak'] {
+  --lw: min(92vw, 1240px);
+}
+
+.landmark[data-mark='needle'] svg {
+  max-height: 62vh;
+}
+
+.landmark[data-mark='tower'] svg {
+  max-height: 60vh;
+}
+
+.landmark[data-mark='skyline'] svg {
+  max-height: 62vh;
+}
+
+.landmark [data-falls-streaks] path {
+  animation: tpFall 1.4s linear infinite;
+}
+
+@keyframes tpFall {
+  to {
+    stroke-dashoffset: -88;
+  }
+}
+
+.ground {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 13%;
+  background: linear-gradient(180deg, #0d0c12, #08080b 40%, #060608);
+}
+
+/* Chapter type rides in the photo plane, above the cards; cards sink out of its way */
+
+.title {
+  position: absolute;
+  z-index: 300;
+  left: 0;
+  top: 12%;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+.titleNum {
+  font-family: var(--tp-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--tp-accent);
+}
+
+.titleText {
+  font-family: var(--tp-display);
+  font-size: clamp(3.4rem, 10.5vw, 10rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  color: rgb(237 233 227 / 0.06);
+  -webkit-text-stroke: 1px rgb(237 233 227 / 0.34);
+}
+
+.titleBlurb {
+  max-width: 30ch;
+  white-space: normal;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: rgb(237 233 227 / 0.72);
+  text-shadow: 0 1px 14px rgb(0 0 0 / 0.55);
+}
+
+/* Photo plane */
+
+.plane {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.group {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.block {
+  position: absolute;
+  z-index: 300;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  width: min(34rem, 84vw);
+  will-change: transform, opacity;
+}
+
+.eyebrow {
+  margin: 0 0 0.9rem;
+  font-family: var(--tp-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tp-accent);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--tp-display);
+  font-size: clamp(2.5rem, 5.6vw, 5rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  color: var(--tp-text);
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgb(0 0 0 / 0.45);
+}
+
+.lede {
+  margin: 1.1rem 0 0;
+  max-width: 34ch;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.55;
+  color: rgb(237 233 227 / 0.8);
+  text-wrap: pretty;
+}
+
+.hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 2rem 0 0;
+  font-family: var(--tp-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tp-accent-hi);
+}
+
+.hint svg {
+  width: 40px;
+  height: 12px;
+  animation: tpNudge 1.8s ease-in-out infinite;
+}
+
+@keyframes tpNudge {
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+.outroLine {
+  margin: 0;
+  font-family: var(--tp-display);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.card {
+  position: absolute;
+  left: 0;
+  top: calc(var(--y, 0.5) * 100%);
+  width: calc(var(--cw) * var(--s, 1));
+  margin: 0;
+  padding: 7px 7px 0;
+  translate: -50% -50%;
+  border: 1px solid rgb(255 255 255 / 0.09);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #16181e, #0f1115);
+  box-shadow:
+    0 40px 70px -30px rgb(0 0 0 / 0.9),
+    0 12px 24px -12px rgb(0 0 0 / 0.6);
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: var(--ar);
+  border-radius: 7px;
+  background: #1b1e25;
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moving .frame img {
+  transform: scale(1.26);
+  will-change: transform;
+}
+
+.dim {
+  position: absolute;
+  inset: 0;
+  background: #07080b;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+  transform-origin: 100% 50%;
+  background: linear-gradient(100deg, #ff8a2a, #c2461c 60%, #5a1f10);
+  will-change: transform;
+}
+
+.caption {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.6rem 0.25rem 0.7rem;
+  font-family: var(--tp-mono);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: rgb(237 233 227 / 0.82);
+}
+
+.captionNum {
+  flex: none;
+  color: var(--tp-accent);
+}
+
+/* Near field */
+
+.fore {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 17%;
+  width: 200%;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  filter: blur(1.5px);
+  will-change: transform;
+}
+
+.bokeh {
+  position: absolute;
+  left: 0;
+  width: var(--bs);
+  height: var(--bs);
+  margin: calc(var(--bs) / -2) 0 0 calc(var(--bs) / -2);
+  border-radius: 50%;
+  opacity: var(--o);
+  background: radial-gradient(
+    circle,
+    rgb(255 180 110 / 0.34),
+    rgb(255 138 42 / 0.12) 48%,
+    transparent 70%
+  );
+  will-change: transform;
+}
+
+.ember {
+  position: absolute;
+  left: 0;
+  will-change: transform;
+}
+
+.ember span {
+  display: block;
+  width: var(--es);
+  height: var(--es);
+  border-radius: 50%;
+  background: #ffc58a;
+  box-shadow: 0 0 10px 2px rgb(255 138 42 / 0.6);
+  animation: tpFloat var(--dur) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes tpFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate3d(10px, -60px, 0);
+    opacity: 0.9;
+  }
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, var(--tp-bg) 0%, transparent 9%, transparent 90%, rgb(8 9 11 / 0.6) 100%),
+    radial-gradient(ellipse 85% 75% at 50% 50%, transparent 55%, rgb(0 0 0 / 0.5) 100%);
+}
+
+/* Pause looping work while the stage is offscreen */
+.stage[data-paused] .twinkle,
+.stage[data-paused] .cloud,
+.stage[data-paused] .fogPuff,
+.stage[data-paused] .ember span,
+.stage[data-paused] .hint svg,
+.stage[data-paused] [data-falls-streaks] path {
+  animation-play-state: paused;
+}
+
+/* HUD */
+
+.hud {
+  position: absolute;
+  left: clamp(16px, 4vw, 56px);
+  right: clamp(16px, 4vw, 56px);
+  bottom: clamp(14px, 3vh, 28px);
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-family: var(--tp-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(237 233 227 / 0.86);
+  pointer-events: none;
+}
+
+.stop {
+  display: inline-flex;
+  gap: 0.4rem;
+  color: var(--tp-accent);
+}
+
+.stopLabel,
+.stopOf {
+  color: rgb(237 233 227 / 0.55);
+}
+
+.stopName {
+  min-width: 10ch;
+}
+
+.route {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: rgb(237 233 227 / 0.2);
+}
+
+.routeFill {
+  position: absolute;
+  inset: 0;
+  background: var(--tp-accent);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+.routeDot {
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  border: 1px solid rgb(237 233 227 / 0.5);
+  background: var(--tp-bg);
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease;
+}
+
+.routeDot[data-active] {
+  border-color: var(--tp-accent);
+  background: var(--tp-accent);
+}
+
+.routeMarker {
+  position: absolute;
+  left: -9px;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  color: var(--tp-accent-hi);
+  filter: drop-shadow(0 0 6px rgb(255 138 42 / 0.7));
+  will-change: transform;
+}
+
+.routeMarker svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.count {
+  color: rgb(237 233 227 / 0.55);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 699px) {
+  .ridge {
+    width: 260%;
+    bottom: 24%;
+    height: 26%;
+  }
+
+  .hills {
+    width: 420%;
+    height: 16%;
+  }
+
+  .landmark {
+    --lw: 120vw;
+  }
+
+  .landmark[data-mark='bridge'],
+  .landmark[data-mark='beach'] {
+    --lw: 165vw;
+  }
+
+  .landmark[data-mark='falls'] {
+    --lw: 150vw;
+  }
+
+  .landmark[data-mark='needle'] {
+    --lw: 150vw;
+  }
+
+  .landmark[data-mark='peak'] {
+    --lw: 175vw;
+  }
+
+  .landmark[data-mark='needle'] svg {
+    max-height: 48vh;
+  }
+
+  .landmark[data-mark='tower'] {
+    --lw: 92vw;
+  }
+
+  .landmark[data-mark='skyline'] {
+    --lw: 200vw;
+  }
+
+  .landmark svg {
+    max-height: 40vh;
+  }
+
+  .landmark[data-mark='tower'] svg {
+    max-height: 46vh;
+  }
+
+  .backdrop {
+    --bw: 230vw;
+  }
+
+  .backdrop svg {
+    max-height: 22vh;
+  }
+
+  .fog {
+    width: 520%;
+  }
+
+  .title {
+    top: 9%;
+  }
+
+  .titleText {
+    font-size: 17vw;
+  }
+
+  .titleBlurb {
+    max-width: 24ch;
+    font-size: 0.85rem;
+  }
+
+  .caption {
+    font-size: 0.66rem;
+    padding: 0.5rem 0.2rem 0.6rem;
+  }
+
+  .fore {
+    height: 12%;
+    filter: none;
+  }
+
+  .hud {
+    gap: 0.7rem;
+    font-size: 0.66rem;
+  }
+
+  .stopLabel,
+  .count {
+    display: none;
+  }
+
+  .stopName {
+    min-width: 0;
+    max-width: 9.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Reduced motion: no sticky stage, a still scene over a flat layout */
+
+.still {
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.stillHero {
+  position: relative;
+  height: clamp(460px, 78vh, 760px);
+  overflow: hidden;
+}
+
+.still .sun {
+  display: none;
+}
+
+.still .sky,
+.still .backdrop,
+.still .city {
+  opacity: 1;
+}
+
+.still .stars {
+  opacity: 0.8;
+}
+
+.still .moon {
+  left: 88%;
+  top: 12%;
+  opacity: 1;
+}
+
+.still .ridge,
+.still .hills,
+.still .fore {
+  width: 100%;
+}
+
+.still .fore {
+  background-size: auto 100%;
+}
+
+.still .landmark,
+.still .backdrop {
+  left: 50%;
+}
+
+.stillIntro {
+  position: absolute;
+  left: clamp(16px, 6vw, 80px);
+  right: 16px;
+  top: 18%;
+}
+
+.stillChapter {
+  display: grid;
+  gap: 1.5rem;
+  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
+  padding: 0 clamp(16px, 4vw, 56px);
+  max-width: 1280px;
+}
+
+.stillHead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stillTitle {
+  margin: 0;
+  font-family: var(--tp-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.stillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: clamp(0.9rem, 2vw, 1.5rem);
+  align-items: start;
+}
+
+.still .card {
+  position: relative;
+  top: auto;
+  width: auto;
+  translate: none;
+  rotate: var(--tilt, 0deg);
+  will-change: auto;
+}
+
+.stillOutro {
+  margin: clamp(3rem, 7vw, 5rem) auto 0;
+  padding: 0 clamp(16px, 4vw, 56px);
+  max-width: 1280px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle,
+  .cloud,
+  .fogPuff,
+  .ember span,
+  .hint svg,
+  [data-falls-streaks] path {
+    animation: none;
+  }
+}
