@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { sound } from '../arcade/audio/audioSynth';
-import { GlobeController, initGlobeOrchestrator } from './globe/GlobeOrchestrator';
-import { GLOBE_LOCATIONS, GlobeLocation } from './globe/globeTypes';
+import type { GlobeController } from './globe/GlobeOrchestrator';
+import { GLOBE_LOCATIONS, GlobeLocation } from './globe/locations';
 import styles from './GlobalGlobeHero.module.css';
 
 export const GlobalGlobeHero: FC = () => {
@@ -39,19 +39,54 @@ export const GlobalGlobeHero: FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Initialize WebGL Three.js 3D Globe
+  // Initialize the WebGL globe. three.js is a separate chunk, fetched only when the globe
+  // gets close to the viewport, so the rest of Home paints without it.
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const controller = initGlobeOrchestrator(container);
-    controllerRef.current = controller;
+    let cancelled = false;
+    let controller: GlobeController | null = null;
 
-    // Initial focus on Detroit
-    controller.focusLocation(42.3314, -83.0458);
+    const start = () =>
+      import('./globe/GlobeOrchestrator').then(({ initGlobeOrchestrator }) => {
+        if (cancelled) return;
+        controller = initGlobeOrchestrator(container);
+        controllerRef.current = controller;
+        // Initial focus on Detroit
+        controller.focusLocation(42.3314, -83.0458);
+      });
+
+    // Wait for an idle moment too, so the globe never competes with the hero image
+    let idleId = 0;
+    const startWhenIdle = () => {
+      idleId =
+        typeof requestIdleCallback === 'function'
+          ? requestIdleCallback(start, { timeout: 2500 })
+          : window.setTimeout(start, 300);
+    };
+
+    let observer: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver === 'undefined') {
+      startWhenIdle();
+    } else {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return;
+          observer?.disconnect();
+          startWhenIdle();
+        },
+        { rootMargin: '400px 0px' }
+      );
+      observer.observe(container);
+    }
 
     return () => {
-      controller.destroy();
+      cancelled = true;
+      if (typeof cancelIdleCallback === 'function') cancelIdleCallback(idleId);
+      else window.clearTimeout(idleId);
+      observer?.disconnect();
+      controller?.destroy();
       controllerRef.current = null;
     };
   }, []);

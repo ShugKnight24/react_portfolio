@@ -1,32 +1,39 @@
 import { FC, lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-// const lazyPageLoad = (pageName: string): =>
-//   lazy(() => import(`../Pages`).then((module) => ({ default: module[pageName] })));
-
+// Each page is its own chunk, so heavy dependencies (three.js on Home) load only where used
 const AboutContact = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.AboutContact }))
+  import('../Pages/AboutContact').then((module) => ({ default: module.AboutContact }))
 );
-const BooksPage = lazy(() => import('../Pages').then((module) => ({ default: module.BooksPage })));
+const BooksPage = lazy(() =>
+  import('../Pages/BooksPage').then((module) => ({ default: module.BooksPage }))
+);
 const Feed = lazy(() => import('../Feed').then((module) => ({ default: module.Feed })));
-const Landing = lazy(() => import('../Pages').then((module) => ({ default: module.Landing })));
-const NotFound = lazy(() => import('../Pages').then((module) => ({ default: module.NotFound })));
-const PhotoGal = lazy(() => import('../Pages').then((module) => ({ default: module.PhotoGal })));
-const Projects = lazy(() => import('../Pages').then((module) => ({ default: module.Projects })));
+const Landing = lazy(() =>
+  import('../Pages/Landing').then((module) => ({ default: module.Landing }))
+);
+const NotFound = lazy(() =>
+  import('../Pages/NotFound').then((module) => ({ default: module.NotFound }))
+);
+const PhotoGal = lazy(() =>
+  import('../Pages/PhotoGal').then((module) => ({ default: module.PhotoGal }))
+);
+const Projects = lazy(() =>
+  import('../Pages/Projects').then((module) => ({ default: module.Projects }))
+);
 const FunPage = lazy(() => import('../Fun/FunPage').then((module) => ({ default: module.FunPage })));
 const AnimationsPage = lazy(() =>
   import('../Animations/AnimationsPage').then((module) => ({ default: module.AnimationsPage }))
 );
-const Roadmap = lazy(() => import('../Pages').then((module) => ({ default: module.Roadmap })));
+const Roadmap = lazy(() =>
+  import('../Pages/Roadmap').then((module) => ({ default: module.Roadmap }))
+);
 const ArcadePortfolio = lazy(() =>
   import('../arcade/ArcadePortfolio').then((module) => ({ default: module.ArcadePortfolio }))
 );
 
 export const Main: FC = () => (
   <Routes>
-    {/* {routes.map((route: Route) => (
-      <Route key={route.path} path={route.path} element={() => lazyPageLoad(route.component)} />
-    ))} */}
     <Route path="/" element={<Landing />} />
     <Route path="/about" element={<AboutContact />} />
     <Route path="/contact" element={<AboutContact />} />

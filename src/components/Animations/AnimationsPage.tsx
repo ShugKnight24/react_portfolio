@@ -2,7 +2,7 @@ import { CSSProperties, FC, useCallback, useEffect, useRef, useState } from 'rea
 import { useNavigate, useParams } from 'react-router-dom';
 import { PageHero } from '../Layout/PageHero';
 import { usePrefersReducedMotion } from '../Fun/useSceneMount';
-import { FILMS, findFilm } from './films';
+import { type FilmMeta, FILMS, findFilm, loadFilm } from './films';
 import { getPoster } from './posters';
 import { RisoPlayer } from './RisoPlayer';
 import type { RisoFilm } from './riso/engine';
@@ -10,7 +10,7 @@ import styles from './AnimationsPage.module.css';
 
 const totalSeconds = Math.round(FILMS.reduce((sum, f) => sum + f.duration, 0));
 
-type Shelf = { name: string; films: RisoFilm<never>[] };
+type Shelf = { name: string; films: FilmMeta[] };
 
 // Older films only carry a theme; fold those into the browsing categories
 const CATEGORY_BY_THEME: Record<string, string> = {
@@ -32,11 +32,11 @@ const CATEGORY_BY_THEME: Record<string, string> = {
   Music: 'Culture',
 };
 
-const categoryOf = (film: RisoFilm<never>) =>
+const categoryOf = (film: FilmMeta) =>
   film.category ?? CATEGORY_BY_THEME[film.theme] ?? film.theme;
 
 /** Group films into shelves in the order each key first appears */
-const shelvesBy = (key: (film: RisoFilm<never>) => string) =>
+const shelvesBy = (key: (film: FilmMeta) => string) =>
   FILMS.reduce<Shelf[]>((shelves, film) => {
     const name = key(film);
     const shelf = shelves.find((s) => s.name === name);
@@ -60,7 +60,7 @@ const readGrouping = (): Grouping => {
   }
 };
 
-const FilmCard: FC<{ film: RisoFilm<never>; index: number; active: boolean; onPick(): void }> = ({
+const FilmCard: FC<{ film: FilmMeta; index: number; active: boolean; onPick(): void }> = ({
   film,
   index,
   active,
@@ -98,7 +98,7 @@ const FilmCard: FC<{ film: RisoFilm<never>; index: number; active: boolean; onPi
         className={`${styles.card} ${active ? styles.cardOn : ''}`}
         onClick={onPick}
         aria-pressed={active}
-        style={{ '--card-ink': film.inks[1]?.color ?? film.inks[0].color } as CSSProperties}
+        style={{ '--card-ink': film.inkColors[1] ?? film.inkColors[0] } as CSSProperties}
       >
         <span className={styles.cardPrint}>
           {poster ? <img src={poster} alt="" decoding="async" /> : <span className={styles.cardWet}>INKING</span>}
@@ -112,13 +112,49 @@ const FilmCard: FC<{ film: RisoFilm<never>; index: number; active: boolean; onPi
         <span className={styles.cardTitle}>{film.title}</span>
         <span className={styles.cardMotif}>Motif: {film.motif}</span>
         <span className={styles.swatches} aria-hidden="true">
-          {film.inks.map((ink) => (
-            <span key={ink.color} style={{ background: ink.color }} />
+          {film.inkColors.map((color) => (
+            <span key={color} style={{ background: color }} />
           ))}
         </span>
       </button>
     </li>
   );
+};
+
+/**
+ * The film to hand the player. While the next film's chunk loads, the previous one stays on
+ * the press, so switching never blanks the canvas. Neighbours are fetched ahead of time.
+ */
+/** A blank sheet with the film's paper, inks and length, so the player lays out exactly as it
+ * will once the film arrives and nothing on the page shifts */
+const blankFilm = (meta: FilmMeta): RisoFilm<never> => ({
+  ...meta,
+  inks: meta.inkColors.map((color) => ({ color })),
+  scenes: [],
+  draw: () => undefined,
+});
+
+const useLoadedFilm = (meta: FilmMeta, index: number) => {
+  const [film, setFilm] = useState<RisoFilm<never>>(() => blankFilm(meta));
+
+  useEffect(() => {
+    let cancelled = false;
+    loadFilm(meta).then(
+      (loaded) => {
+        if (cancelled) return;
+        setFilm(loaded);
+        [index + 1, index - 1].forEach((i) => {
+          void loadFilm(FILMS[(i + FILMS.length) % FILMS.length]).catch(() => undefined);
+        });
+      },
+      (err) => console.error(`Film "${meta.id}" failed to load`, err)
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [meta, index]);
+
+  return film;
 };
 
 /**
@@ -132,6 +168,7 @@ export const AnimationsPage: FC = () => {
   const filmId = (params['*'] ?? '').split('/')[0] || undefined;
   const film = findFilm(filmId) ?? FILMS[0];
   const index = FILMS.indexOf(film);
+  const loadedFilm = useLoadedFilm(film, index);
   const [playAll, setPlayAll] = useState(false);
   const [grouping, setGrouping] = useState<Grouping>(readGrouping);
   const shelves = grouping === 'style' ? SERIES : CATEGORIES;
@@ -190,8 +227,8 @@ export const AnimationsPage: FC = () => {
         </header>
 
         <RisoPlayer
-          film={film}
-          index={index}
+          film={loadedFilm}
+          index={FILMS.findIndex((f) => f.id === loadedFilm.id)}
           total={FILMS.length}
           playAll={playAll}
           reducedMotion={reducedMotion}
