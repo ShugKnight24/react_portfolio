@@ -3,9 +3,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { describe, expect, it, test } from 'vitest';
 
 import { App } from './App';
+import { ThemeProvider } from './context/ThemeProvider';
 
 const renderWithRouter = (component: React.ReactElement) => {
-  return render(<BrowserRouter>{component}</BrowserRouter>);
+  return render(
+    <ThemeProvider>
+      <BrowserRouter>{component}</BrowserRouter>
+    </ThemeProvider>
+  );
 };
 
 describe('App', () => {
@@ -16,13 +21,16 @@ describe('App', () => {
 
   it('renders without crashing', async () => {
     renderWithRouter(<App />);
-    await waitFor(() => {
-      expect(screen.getByText('Full Stack Software Engineer')).toBeInTheDocument();
-    });
-  });
+    await waitFor(
+      () => {
+        expect(screen.getByText(/Full stack engineer, building in Detroit/)).toBeInTheDocument();
+      },
+      { timeout: 10000 }
+    );
+  }, 15000);
 
-  test('contains a specific button', () => {
+  test('contains a theme toggle button', async () => {
     renderWithRouter(<App />);
-    expect(screen.getByRole('button', { name: /Load More Posts/i })).toBeInTheDocument();
+    expect(await screen.findByRole('button', { name: /Open theme switcher/i })).toBeInTheDocument();
   });
 });

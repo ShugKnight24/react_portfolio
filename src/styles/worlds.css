@@ -1,0 +1,323 @@
+/* Worlds: one visual language per experience, chosen by route (see useWorld in App.tsx).
+   motor  = Motor City Night (cinematic Detroit)
+   codex  = Knight's Codex (gold-leaf manuscript)
+   arcade = Arcade OS (CRT machine)
+   Tokens are re-declared on body so they win over the inline theme vars on <html>. */
+
+html[data-world] body {
+  --color-background: var(--w-bg);
+  --color-surface: var(--w-surface);
+  --color-surface-elevated: var(--w-surface-2);
+  --color-text: var(--w-text);
+  --color-border: var(--w-line);
+  --color-primary: var(--w-accent);
+  --color-primary-light: var(--w-accent-hi);
+  --color-on-primary: var(--w-on-accent);
+  background-color: var(--w-bg);
+  color: var(--w-text);
+  transition: background-color 600ms ease, color 600ms ease;
+}
+
+html[data-world='motor'] body {
+  --w-bg: #08090b;
+  --w-surface: #101216;
+  --w-surface-2: #171a20;
+  --w-line: rgb(255 255 255 / 0.08);
+  --w-text: #ede9e3;
+  --w-muted: #9a9ea8;
+  --w-accent: #ff8a2a;
+  --w-accent-hi: #ffb067;
+  --w-accent-2: #c9d1dc;
+  --w-on-accent: #170a00;
+  --w-display: 'Geist', 'Inter', sans-serif;
+  --w-body: 'Geist', 'Inter', sans-serif;
+  --w-radius: 14px;
+}
+
+html[data-world='codex'] body {
+  --w-bg: #0c0a07;
+  --w-surface: #15110b;
+  --w-surface-2: #1d1810;
+  --w-line: rgb(212 168 75 / 0.22);
+  --w-text: #efe4cc;
+  --w-muted: #a8997a;
+  --w-accent: #d4a84b;
+  --w-accent-hi: #f0cf7a;
+  --w-accent-2: #a1392b;
+  --w-on-accent: #1a1204;
+  --w-display: 'Cinzel', 'EB Garamond', serif;
+  --w-body: 'EB Garamond', Georgia, serif;
+  --w-radius: 3px;
+}
+
+html[data-world='arcade'] body {
+  --w-bg: #07060f;
+  --w-surface: #0f0d1c;
+  --w-surface-2: #17142a;
+  --w-line: rgb(93 255 176 / 0.16);
+  --w-text: #e6f5ec;
+  --w-muted: #8aa39a;
+  --w-accent: #5dffb0;
+  --w-accent-hi: #a6ffd4;
+  --w-accent-2: #ff4fa3;
+  --w-on-accent: #04140c;
+  --w-display: 'Press Start 2P', 'Geist Mono', monospace;
+  --w-body: 'Geist Mono', ui-monospace, monospace;
+  --w-radius: 4px;
+}
+
+/* World texture: fixed, non-interactive, never on a scrolling container */
+html[data-world] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+}
+
+html[data-world='motor'] body::after {
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html[data-world='codex'] body::after {
+  opacity: 0.08;
+  background-image:
+    radial-gradient(ellipse at center, transparent 55%, rgb(0 0 0 / 0.9) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9  0 0 0 0 .75  0 0 0 0 .45  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html[data-world='arcade'] body::after {
+  opacity: 0.16;
+  background: repeating-linear-gradient(180deg, rgb(0 0 0 / 0.35) 0 1px, transparent 1px 3px);
+}
+
+/* Shared world page heading: solid ink, no gradient text */
+.world-title {
+  margin: 0;
+  font-family: var(--w-display);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--w-text);
+  text-wrap: balance;
+}
+
+html[data-world='codex'] .world-title {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+html[data-world='arcade'] .world-title {
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-shadow: 0 0 18px rgb(93 255 176 / 0.35);
+}
+
+/* Site footer: shared shell, every value from world tokens */
+.footer {
+  position: relative;
+  margin-top: clamp(3rem, 8vw, 6rem);
+  overflow: hidden;
+  border-top: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  background: var(--w-bg, #08090b);
+  color: var(--w-text, #ede9e3);
+}
+.footer .footer-inner {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 4vw, 3rem) 1.5rem;
+}
+.footer .footer-top-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+.footer .footer-brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 2rem;
+}
+.footer .footer-emblem {
+  width: clamp(96px, 12vw, 136px);
+  height: auto;
+  flex: none;
+}
+.footer .footer-brand--shugmi .footer-emblem {
+  width: auto;
+  height: clamp(96px, 12vw, 136px);
+}
+.footer .footer-hello {
+  display: grid;
+  gap: 0.5rem;
+  font-family: var(--w-display, inherit);
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--w-text, #ede9e3);
+  text-decoration: none;
+}
+.footer .footer-hello-address {
+  font-family: var(--font-family-mono);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--w-muted, #9a9ea8);
+  background: linear-gradient(var(--w-accent), var(--w-accent)) 0 100% / 0 1px no-repeat;
+  justify-self: start;
+  padding-bottom: 2px;
+  transition: background-size 400ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease;
+}
+.footer .footer-hello:hover .footer-hello-address {
+  color: var(--w-accent);
+  background-size: 100% 1px;
+}
+.footer .footer-nav-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  max-width: 34rem;
+  justify-content: flex-end;
+}
+.footer .footer-shortcut-link {
+  font-size: 0.9375rem;
+  color: var(--w-muted, #9a9ea8);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.footer .footer-shortcut-link:hover {
+  color: var(--w-text, #ede9e3);
+}
+.footer .footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+}
+.footer .copyright-text {
+  margin: 0;
+  font-family: var(--font-family-mono);
+  font-size: 0.8125rem;
+  color: var(--w-muted, #9a9ea8);
+}
+.footer .footer-social-cluster {
+  display: flex;
+  gap: 0.25rem;
+}
+.footer .social-btn {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--w-radius, 12px);
+  color: var(--w-muted, #9a9ea8);
+  transition: color 200ms ease, background-color 200ms ease;
+}
+.footer .social-btn:hover {
+  color: var(--w-text);
+  background: color-mix(in srgb, var(--w-text) 8%, transparent);
+}
+.footer .footer-wordmark {
+  margin: 0;
+  padding: 0 1rem;
+  font-family: var(--w-display, inherit);
+  font-size: 9vw;
+  font-weight: 700;
+  line-height: 0.78;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--w-text) 10%, transparent);
+  transform: translateY(12%);
+  user-select: none;
+}
+html[data-world='codex'] .footer .footer-hello,
+html[data-world='codex'] .footer .footer-wordmark {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+html[data-world='codex'] .footer .footer-wordmark {
+  font-size: 8.5vw;
+}
+html[data-world='arcade'] .footer .footer-hello {
+  font-size: clamp(1.25rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+html[data-world='arcade'] .footer .footer-wordmark {
+  font-size: 5.6vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+  transform: none;
+  padding-bottom: 1rem;
+}
+@media (max-width: 640px) {
+  .footer .footer-nav-shortcuts {
+    justify-content: flex-start;
+  }
+  .footer .footer-bottom-row {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}
+
+/* Header + drawer: shared shell, world tokens */
+html[data-world] .header,
+html[data-world] .mobile-header {
+  background: color-mix(in srgb, var(--w-bg) 78%, transparent);
+  border-bottom-color: var(--w-line);
+  box-shadow: none;
+}
+html[data-world] .header .header-container nav.nav a.nav-link {
+  color: var(--w-muted);
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+}
+html[data-world] .header .header-container nav.nav a.nav-link:hover {
+  color: var(--w-text);
+  background: color-mix(in srgb, var(--w-text) 7%, transparent);
+}
+html[data-world] .header .header-container nav.nav a.nav-link.active {
+  color: var(--w-text);
+  background: color-mix(in srgb, var(--w-accent) 14%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--w-accent) 45%, transparent);
+}
+html[data-world='codex'] .header .header-container nav.nav a.nav-link {
+  font-family: var(--w-body);
+  font-size: 0.95rem;
+  border-radius: var(--w-radius);
+}
+html[data-world='arcade'] .header .header-container nav.nav a.nav-link {
+  font-family: var(--w-body);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: var(--w-radius);
+}
+html[data-world] .header .header-container .brand-persona-toggle {
+  background: transparent;
+  border-color: transparent;
+}
+html[data-world] .header .header-container .brand-persona-toggle:hover {
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--w-accent) 55%, transparent));
+}
+html[data-world] .drawer {
+  background: var(--w-bg);
+  color: var(--w-text);
+}

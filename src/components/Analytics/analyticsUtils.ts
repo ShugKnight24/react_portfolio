@@ -1,5 +1,6 @@
 import ReactGA from 'react-ga4';
-import { UaEventOptions } from 'react-ga4/types/ga4';
+
+type UaEventOptions = Exclude<Parameters<typeof ReactGA.event>[0], string>;
 
 const gaTrackingId = 'G-G4LH4VLSV3';
 

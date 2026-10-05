@@ -1,0 +1,187 @@
+/* Arcade hub and hall screens: one tile language for halls and experiences */
+.view {
+  --tile-green: var(--w-accent, #5dffb0);
+  --tile-magenta: var(--w-accent-2, #ff4fa3);
+  --tile-ink: var(--w-on-accent, #04140c);
+  --tile-text: var(--w-text, #e6f5ec);
+  --tile-muted: var(--w-muted, #8aa39a);
+  --tile-line: rgb(93 255 176 / 0.28);
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(0.75rem, 2.5vw, 1.75rem);
+  color: var(--tile-text);
+  font-family: var(--w-body, 'Geist Mono', ui-monospace, monospace);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid-halls {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.grid-experiences {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+
+.grid-item {
+  display: flex;
+  min-width: 0;
+}
+
+/* ---------- Tile ---------- */
+.tile {
+  --tile-edge: var(--tile-line);
+  --tile-depth: 6px;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  background: var(--w-surface, #0f0d1c);
+  color: var(--tile-text);
+  text-decoration: none;
+  box-shadow:
+    0 -2px 0 0 var(--tile-edge),
+    0 2px 0 0 var(--tile-edge),
+    -2px 0 0 0 var(--tile-edge),
+    2px 0 0 0 var(--tile-edge),
+    0 var(--tile-depth) 0 0 rgb(0 0 0 / 0.55);
+  transition:
+    transform 90ms steps(2, end),
+    box-shadow 90ms steps(2, end);
+}
+
+.preview {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 120px;
+  overflow: hidden;
+  background-color: var(--w-bg, #07060f);
+  background-image:
+    linear-gradient(rgb(93 255 176 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(93 255 176 / 0.06) 1px, transparent 1px);
+  background-size: 12px 12px;
+  border-bottom: 2px solid var(--tile-edge);
+}
+
+/* A floor line so sprites stand on something */
+.preview::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  height: 2px;
+  background: var(--tile-line);
+}
+
+.tile-hall .preview {
+  height: 132px;
+}
+
+.preview-sprites {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.25rem;
+  margin-top: 8px;
+}
+
+.preview-icon {
+  color: var(--tile-green);
+}
+
+.tile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  padding: 1rem 1rem 0.75rem;
+}
+
+.tile-meta {
+  margin-top: auto;
+  padding-top: 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tile-muted);
+}
+
+.tile-title {
+  font-family: var(--w-display, 'Press Start 2P', monospace);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--tile-green);
+}
+
+.tile-hall .tile-title {
+  font-size: 18px;
+}
+
+.tile-intro {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--tile-text);
+}
+
+.tile-verb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  margin: 0 1rem 1rem;
+  padding: 0.45rem 0.7rem;
+  font-family: var(--w-display, 'Press Start 2P', monospace);
+  font-size: 12px;
+  line-height: 1;
+  color: var(--tile-ink);
+  background: var(--tile-green);
+}
+
+.tile:hover {
+  --tile-edge: var(--tile-green);
+}
+
+.tile:hover .tile-verb {
+  background: var(--tile-magenta);
+  color: var(--a-ink-magenta, #1a0010);
+}
+
+.tile:active {
+  --tile-depth: 2px;
+  transform: translateY(4px);
+}
+
+.tile:focus-visible {
+  --tile-edge: var(--tile-green);
+  outline: 2px solid var(--tile-magenta);
+  outline-offset: 4px;
+}
+
+@media (max-width: 560px) {
+  .preview,
+  .tile-hall .preview {
+    height: 100px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile {
+    transition: none;
+  }
+
+  .tile:active {
+    transform: none;
+  }
+}

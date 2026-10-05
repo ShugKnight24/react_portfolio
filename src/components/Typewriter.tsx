@@ -1,42 +1,56 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useEffect, useState, useSyncExternalStore } from 'react';
 import { TypewriterInterface } from '../types/typewriter';
+
+const reducedMotionQuery = '(prefers-reduced-motion: reduce)';
+const subscribeReducedMotion = (onChange: () => void) => {
+  const mql = window.matchMedia(reducedMotionQuery);
+  mql.addEventListener('change', onChange);
+  return () => mql.removeEventListener('change', onChange);
+};
+const getReducedMotion = () => window.matchMedia(reducedMotionQuery).matches;
 
 export const Typewriter: FC<TypewriterInterface> = ({
   textToType,
   typingSpeed = 100,
-  deletingSpeed = 50
+  deletingSpeed = 50,
+  pauseMs = 1800,
 }) => {
-  const [isDeleting, setIsDeleting] = useState(false);
+  const reduceMotion = useSyncExternalStore(subscribeReducedMotion, getReducedMotion, () => false);
   const [loopNum, setLoopNum] = useState(0);
   const [text, setText] = useState('');
-  const [typingSpeedState, setTypingSpeedState] = useState(typingSpeed);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const fullText = textToType[loopNum % textToType.length] ?? '';
 
   useEffect(() => {
-    const handleTyping = () => {
-      const i = loopNum % textToType.length;
-      const fullText = textToType[i];
+    if (reduceMotion) {
+      const timer = setTimeout(() => setLoopNum((n) => n + 1), pauseMs * 2);
+      return () => clearTimeout(timer);
+    }
 
-      setText(
-        isDeleting
-          ? fullText.substring(0, text.length - 1)
-          : fullText.substring(0, text.length + 1)
-      );
+    const doneTyping = !isDeleting && text === fullText;
+    const doneDeleting = isDeleting && text === '';
+    const delay = doneTyping ? pauseMs : isDeleting ? deletingSpeed : typingSpeed;
 
-      setTypingSpeedState(isDeleting ? deletingSpeed : typingSpeed);
-
-      if (!isDeleting && text === fullText) {
-        setTimeout(() => setIsDeleting(true), 500);
-      } else if (isDeleting && text === '') {
+    const timer = setTimeout(() => {
+      if (doneTyping) return setIsDeleting(true);
+      if (doneDeleting) {
         setIsDeleting(false);
-        setLoopNum(loopNum + 1);
+        setLoopNum((n) => n + 1);
+        return;
       }
-    };
-
-    const timer = setTimeout(handleTyping, typingSpeedState);
+      setText(fullText.substring(0, text.length + (isDeleting ? -1 : 1)));
+    }, delay);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, typingSpeedState]);
+  }, [text, isDeleting, fullText, reduceMotion, pauseMs, typingSpeed, deletingSpeed]);
 
   return (
-    <span>&nbsp;{text}&nbsp;</span>
+    <span className="typewriter">
+      <span className="sr-only">{textToType[0]}</span>
+      <span aria-hidden="true">
+        {reduceMotion ? fullText : text}
+        <span className="typewriter-caret" />
+      </span>
+    </span>
   );
 };

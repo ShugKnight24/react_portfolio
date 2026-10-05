@@ -1,0 +1,20 @@
+/* Theme attribute and class overrides */
+[data-theme='dark'],
+.theme-dark {
+  --color-background: #0f172a;
+  --color-text: #f8fafc;
+  --color-surface: #1e293b;
+  --color-surface-elevated: #334155;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-shadow: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme='light'],
+.theme-light {
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+}

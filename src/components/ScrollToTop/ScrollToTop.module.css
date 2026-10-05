@@ -1,0 +1,105 @@
+.scrollToTop {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: var(--z-fixed);
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition:
+    opacity var(--transition-base),
+    visibility var(--transition-base),
+    transform var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  &:hover {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px) scale(1.05);
+
+    .progressRingFill {
+      stroke: white;
+    }
+
+    .progressRingBg {
+      stroke: rgba(255, 255, 255, 0.25);
+    }
+
+    .rocketIcon {
+      animation: rocketHover 0.6s ease-in-out infinite alternate;
+    }
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.95);
+  }
+
+  /* Progress ring */
+  .progressRing {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .progressRingBg {
+    stroke: var(--color-border);
+    transition: stroke var(--transition-base);
+  }
+
+  .progressRingFill {
+    stroke: var(--color-primary);
+    transition:
+      stroke-dashoffset 0.15s ease-out,
+      stroke var(--transition-base);
+  }
+
+  /* Rocket icon */
+  .rocketIcon {
+    width: 22px;
+    height: 22px;
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    width: 44px;
+    height: 44px;
+
+    .rocketIcon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+@keyframes rocketHover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-3px);
+  }
+}

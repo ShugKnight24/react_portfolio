@@ -1,0 +1,2077 @@
+@charset "UTF-8";
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+/* General Styles / Resets */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-theme, "Geist", "Roboto", -apple-system, BlinkMacSystemFont, sans-serif);
+  line-height: 1.6;
+  color: var(--color-text, #1f2937);
+  background-color: var(--color-background, #f9fafb);
+  transition: background-color 300ms ease, color 300ms ease;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--color-primary, #3b82f6);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-elevated, #f1f5f9);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary, #3b82f6);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark, #2563eb);
+}
+
+a,
+a:link {
+  text-decoration: none;
+  color: var(--color-primary, #3b82f6);
+  cursor: pointer;
+  transition: color 200ms ease, transform 150ms ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark, #2563eb);
+}
+
+a:visited {
+  color: var(--color-primary, #3b82f6);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Geist", "Inter", sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text, #1f2937);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 1.875rem;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+code {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  font-size: 0.875em;
+  background: var(--color-surface-elevated, #f1f5f9);
+  padding: 0.125em 0.375em;
+  border-radius: 0.25rem;
+}
+
+pre {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+  background: var(--color-surface-elevated, #f1f5f9);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.theme-dark .glass {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--color-primary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-surface-elevated) 0%, var(--color-surface) 50%, var(--color-surface-elevated) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.5rem;
+}
+
+/* Mixins */
+/* Helper Classes */
+
+/* Text Formatting	*/
+.tab {
+  text-indent: 40px;
+  line-height: 1.5;
+}
+
+.button {
+  background: transparent;
+  border: 1px;
+  border-radius: 9px;
+  color: #000;
+  position: relative;
+  height: 36px;
+  margin: 0;
+  min-width: 36px;
+  padding: 0 16px;
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  overflow: hidden;
+  will-change: all;
+  transition: box-shadow 0.9s cubic-bezier(0.4, 0, 1, 1) background-color 0.9s cubic-bezier(0.4, 0, 0.2, 1), color 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle;
+}
+.button:hover {
+  background-color: #1e40af;
+  color: #fff;
+}
+.button:hover a {
+  color: #fff;
+}
+.button a:hover {
+  color: #fff;
+}
+.button.primary {
+  background-color: #1e40af;
+  border-color: #1e40af;
+  color: #fff;
+}
+.button.primary:hover {
+  background-color: #fff;
+  color: #1e40af;
+}
+.button.primary:hover a {
+  color: #1e40af;
+}
+.button.disabled {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+  pointer-events: none;
+}
+.button.disabled:hover {
+  cursor: not-allowed;
+}
+.button.continue {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+}
+.button.continue:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+.button.stop {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+}
+.button.stop:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+.button.warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+.button.warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+.cell.quarter {
+  width: 25%;
+}
+.cell.third {
+  width: 33.33%;
+}
+.cell.half {
+  width: 50%;
+}
+.cell.full {
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    padding-top: 64px;
+  }
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 300px;
+  max-width: 85vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 15, 26, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transform: translateX(-100%);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #f1f5f9;
+  overflow-y: auto;
+  z-index: 105;
+}
+.drawer.active {
+  transform: translateX(0);
+}
+.drawer .drawer-title {
+  color: #ffffff;
+  font-family: "Cinzel", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  padding: 1.25rem 1.25rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.drawer nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0.35rem 0.25rem;
+  gap: 0.1rem;
+}
+.drawer nav a.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #94a3b8;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.48rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.drawer nav a.nav-link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateX(4px);
+}
+.drawer nav a.nav-link.active {
+  color: #ffffff;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.drawer .drawer-theme-section {
+  margin-top: auto;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.drawer-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 8px;
+  left: 12px;
+  height: 44px;
+  width: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 110;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.drawer-button svg {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.drawer-button:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+.drawer-button:focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 102;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.drawer-overlay:hover {
+  cursor: pointer;
+}
+.drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.feed {
+  padding: 25px 0;
+  text-align: center;
+}
+.feed h1,
+.feed h2 {
+  margin: 0;
+}
+.feed hr {
+  margin: 5px auto;
+  border-top: 5px dotted black;
+  width: 50%;
+}
+.feed .post {
+  margin-top: 5px 0;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.feed .post h3 {
+  font-size: 1.5em;
+  margin: 0;
+}
+.feed .post iframe {
+  margin: 10px 0;
+}
+.feed .post img {
+  max-width: 300px;
+}
+.feed .post:last-of-type {
+  margin-bottom: 25px;
+}
+.feed button {
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 20px;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.feed button:hover {
+  background-color: #00c0f3;
+  color: #fff;
+}
+
+.grid {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  margin: 0 auto;
+  padding: 9px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(10, 15, 26, 0.82);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+@media screen and (max-width: 1024px) {
+  .header {
+    display: none;
+  }
+}
+.header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  /* left padding clears the fixed drawer button whenever the container reaches the viewport edge */
+  padding: 0 2rem 0 max(2rem, calc(76px - max(0px, (100vw - 1400px) / 2)));
+  height: 72px;
+  /* Navigation Styles */
+}
+.header .header-container .brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.header .header-container .brand-persona-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 11px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header .header-container .brand-persona-toggle:hover {
+  border-color: #F59E0B;
+  background: rgba(30, 41, 59, 0.9);
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
+}
+.header .header-container .brand-persona-toggle .persona-switch-badge {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 15px;
+  height: 15px;
+  background: #020617;
+  border: 1px solid #F59E0B;
+  border-radius: 50%;
+  color: #F59E0B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+.header .header-container .brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+.header .header-container .brand-link:hover {
+  transform: scale(1.02);
+}
+/* The SS signet is tall and narrow, so it sits a little shorter than the crest */
+.header .header-container .brand-persona-toggle--shugmi img {
+  height: 44px;
+}
+/* Brand wordmarks share an optical cap height: Young Serif runs larger than Instrument Serif */
+.header .header-container .brand-link .brand-wordmark {
+  display: block;
+  width: auto;
+  height: 24px;
+}
+.header .header-container .brand-link .brand-wordmark--shugmi {
+  height: 21px;
+}
+.header .header-container nav.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  min-width: 0;
+}
+.header .header-container nav.nav a.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #94a3b8;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.header .header-container nav.nav a.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.header .header-container nav.nav a.nav-link.active {
+  color: #ffffff;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+@media screen and (max-width: 1320px) {
+  .header .header-container nav.nav a.nav-link {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    background: rgba(10, 15, 26, 0.88);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    width: 100%;
+    z-index: 90;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    display: grid;
+    place-items: center;
+  }
+  .mobile-header .mobile-brand {
+    display: grid;
+    place-items: center;
+    height: 60px;
+    padding: 0 0.5rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .mobile-header {
+    display: none;
+  }
+  /* centre the fixed menu button on the 72px desktop header */
+  .drawer-button {
+    top: 14px;
+  }
+}
+.mobile-header .mobile-brand img {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+.list {
+  display: block;
+  padding: 8px 0;
+  list-style: none;
+}
+
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+/* Roadmap Page Styles - Premium Design */
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .tabs {
+    display: block;
+  }
+}
+.tabs .tab-bar {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+.tabs .tab-bar .tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  border-right: 1px solid rgb(224, 224, 224);
+  padding: 9px 24px;
+  float: left;
+  position: relative;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.54);
+  text-indent: 0;
+}
+@media screen and (min-width: 1000px) {
+  .tabs .tab-bar .tab {
+    padding: 18px 24px;
+    font-size: 12px;
+  }
+}
+.tabs .tab-bar .tab:first-of-type {
+  border-left: 1px solid rgb(224, 224, 224);
+}
+
+/* Landing Page Style - Premium Redesign */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+
+/* Landing Page Premium Styles */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+.landing-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.landing-page .section-icon,
+.landing-page .cta-icon,
+.landing-page .arrow-icon {
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+.landing-page .hero-copy {
+  --hero-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 90rem;
+  color: #f4efe8;
+}
+.landing-page .hero-copy > :not(.hero-title) {
+  animation: heroRise 900ms var(--hero-ease) both;
+  animation-delay: 700ms;
+}
+.landing-page .hero-copy > .hero-cta {
+  animation-delay: 850ms;
+}
+
+.landing-page .hero-copy .arcade-launch-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0.85rem 0.3rem 0.3rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-radius: 999px;
+  background: rgb(8 9 11 / 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #e4e0da;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+.landing-page .hero-copy .arcade-launch-banner:hover {
+  border-color: rgb(255 255 255 / 0.3);
+}
+.landing-page .hero-copy .arcade-pill-badge {
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-on-primary, #140d02);
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+.landing-page .hero-copy .arcade-launch-arrow {
+  color: var(--color-primary-light);
+  transition: transform 200ms var(--hero-ease);
+}
+.landing-page .hero-copy .arcade-launch-banner:hover .arcade-launch-arrow {
+  transform: translateX(3px);
+}
+
+.landing-page .hero-copy .hero-title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(3rem, 8.2vw, 8rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+.landing-page .hero-copy .hero-name {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+.landing-page .hero-copy .hero-name:last-child {
+  color: rgb(244 239 232 / 0.5);
+}
+.landing-page .hero-copy .hero-name > span {
+  display: inline-block;
+  animation: letterRise 1000ms var(--hero-ease) both;
+  animation-delay: calc(var(--i) * 45ms + 150ms);
+}
+.landing-page .hero-copy .hero-subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1.25rem;
+  margin: 0 0 2rem;
+  font-size: clamp(1.0625rem, 1.5vw, 1.375rem);
+  font-weight: 500;
+  color: #f4efe8;
+}
+.landing-page .hero-copy .hero-alias {
+  font-family: var(--font-family-mono);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: rgb(244 239 232 / 0.55);
+}
+
+.landing-page .hero-copy .hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.landing-page .hero-copy .cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 160ms var(--hero-ease), background-color 200ms ease, border-color 200ms ease;
+}
+.landing-page .hero-copy .cta-primary:active {
+  transform: scale(0.97);
+}
+.landing-page .hero-copy .cta-primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary, #140d02);
+}
+.landing-page .hero-copy .cta-primary:hover {
+  background: var(--color-primary-light);
+}
+.landing-page .hero-copy .cta-primary .cta-icon {
+  width: 1.05em;
+  height: 1.05em;
+  margin: 0;
+  transition: transform 200ms var(--hero-ease);
+}
+.landing-page .hero-copy .cta-primary:hover .cta-icon {
+  transform: translateX(3px);
+}
+.landing-page .hero-copy .hero-socials {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: 0.5rem;
+}
+.landing-page .hero-copy .social-link {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  color: rgb(244 239 232 / 0.7);
+  transition: color 200ms ease, background-color 200ms ease;
+}
+.landing-page .hero-copy .social-link:hover {
+  color: #fff;
+  background: rgb(255 255 255 / 0.1);
+}
+.landing-page .hero-copy .social-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes letterRise {
+  from {
+    transform: translateY(105%);
+  }
+}
+@media (max-width: 560px) {
+  .landing-page .hero-copy .hero-socials {
+    margin-left: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .hero-copy > *,
+  .landing-page .hero-copy .hero-name > span {
+    animation: none;
+  }
+}
+.landing-page .landing-quick-nav {
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 3rem);
+}
+.landing-page .landing-quick-nav .section-title {
+  margin: 0 0 2rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+.landing-page .landing-quick-nav .quick-nav-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: repeat(4, minmax(9.5rem, auto));
+  grid-template-areas:
+    'projects arcade about'
+    'projects arcade about'
+    'projects arcade fun'
+    'projects books fun';
+  gap: 1rem;
+}
+.landing-page .landing-quick-nav .quick-nav-card {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--color-text) 4%, var(--color-background));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text) 9%, transparent);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms ease;
+}
+.landing-page .landing-quick-nav .quick-nav-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(22rem circle at var(--mx) var(--my), color-mix(in srgb, var(--color-primary) 80%, transparent), transparent 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+.landing-page .landing-quick-nav .quick-nav-card:hover::after,
+.landing-page .landing-quick-nav .quick-nav-card:focus-visible::after {
+  opacity: 1;
+}
+.landing-page .landing-quick-nav .quick-nav-card:active {
+  transform: scale(0.985);
+}
+.landing-page .landing-quick-nav .quick-nav-card .card-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  transform: scale(1.02);
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms ease;
+}
+.landing-page .landing-quick-nav .quick-nav-card:hover .card-media {
+  opacity: 0.7;
+  transform: scale(1.06);
+}
+.landing-page .landing-quick-nav .quick-nav-card:has(.card-media)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 5%, color-mix(in srgb, var(--color-background) 70%, transparent) 50%, color-mix(in srgb, var(--color-background) 96%, transparent) 85%);
+}
+.landing-page .landing-quick-nav .quick-nav-card .card-body {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 30rem;
+}
+.landing-page .landing-quick-nav .quick-nav-card .card-icon {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--color-primary) 16%, transparent);
+  color: var(--color-primary-light, var(--color-primary));
+}
+.landing-page .landing-quick-nav .quick-nav-card .card-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.landing-page .landing-quick-nav .quick-nav-card .card-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.landing-page .landing-quick-nav .quick-nav-card .card-blurb {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-text) 68%, transparent);
+  text-wrap: pretty;
+}
+.landing-page .landing-quick-nav .quick-nav-card .card-arrow {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease;
+}
+.landing-page .landing-quick-nav .quick-nav-card:hover .card-arrow {
+  color: var(--color-primary-light, var(--color-primary));
+  transform: translate(2px, -2px);
+}
+
+.landing-page .landing-quick-nav .quick-nav-card--projects {
+  grid-area: projects;
+  padding: 2rem;
+}
+.landing-page .landing-quick-nav .quick-nav-card--projects .card-media {
+  object-position: top center;
+}
+.landing-page .landing-quick-nav .quick-nav-card--projects .card-label {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+}
+.landing-page .landing-quick-nav .quick-nav-card--arcade {
+  grid-area: arcade;
+  background:
+    radial-gradient(circle at 80% 10%, color-mix(in srgb, var(--color-primary) 55%, transparent), transparent 55%),
+    linear-gradient(color-mix(in srgb, var(--color-primary) 10%, transparent) 1px, transparent 1px) 0 0 / 14px 14px,
+    linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 10%, transparent) 1px, transparent 1px) 0 0 / 14px 14px,
+    color-mix(in srgb, var(--color-primary) 8%, var(--color-background));
+}
+.landing-page .landing-quick-nav .quick-nav-card--about {
+  grid-area: about;
+}
+.landing-page .landing-quick-nav .quick-nav-card--about .card-media {
+  object-position: center 25%;
+}
+.landing-page .landing-quick-nav .quick-nav-card--books {
+  grid-area: books;
+}
+.landing-page .landing-quick-nav .quick-nav-card--fun {
+  grid-area: fun;
+}
+.landing-page .landing-quick-nav .card-covers {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  display: flex;
+  z-index: -1;
+}
+.landing-page .landing-quick-nav .card-covers img {
+  width: 3.4rem;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  box-shadow: 0 10px 24px -8px rgb(0 0 0 / 0.6);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.landing-page .landing-quick-nav .card-covers img:nth-child(1) { transform: rotate(-8deg); }
+.landing-page .landing-quick-nav .card-covers img:nth-child(2) { margin-left: -1rem; transform: translateY(-4px); }
+.landing-page .landing-quick-nav .card-covers img:nth-child(3) { margin-left: -1rem; transform: rotate(8deg); }
+.landing-page .landing-quick-nav .quick-nav-card:hover .card-covers img:nth-child(1) { transform: rotate(-14deg) translateX(-6px); }
+.landing-page .landing-quick-nav .quick-nav-card:hover .card-covers img:nth-child(3) { transform: rotate(14deg) translateX(6px); }
+
+@media (max-width: 1024px) {
+  .landing-page .landing-quick-nav .quick-nav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: minmax(12rem, auto);
+    grid-template-areas:
+      'projects projects'
+      'arcade about'
+      'books fun';
+  }
+  .landing-page .landing-quick-nav .quick-nav-card--projects {
+    min-height: 26rem;
+  }
+}
+@media (max-width: 560px) {
+  .landing-page .landing-quick-nav .quick-nav-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'projects' 'arcade' 'about' 'books' 'fun';
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .landing-quick-nav .quick-nav-card,
+  .landing-page .landing-quick-nav .quick-nav-card .card-media,
+  .landing-page .landing-quick-nav .card-covers img {
+    transition: none;
+  }
+}
+.landing-page .landing-illustration {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.landing-page .landing-illustration .illustration-scene {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+}
+.landing-page .landing-illustration .illustration-scene .illust-cursor {
+  animation: cursorBlink 1s step-end infinite;
+}
+.landing-page .landing-illustration .illustration-scene .illust-steam {
+  animation: steamRise 3s ease-out infinite;
+}
+.landing-page .landing-illustration .illustration-scene .illust-steam.illust-steam-2 {
+  animation-delay: 0.8s;
+}
+.landing-page .landing-illustration .illustration-scene .illust-steam.illust-steam-3 {
+  animation-delay: 1.6s;
+}
+.landing-page .landing-illustration .illustration-scene .illust-note {
+  animation: noteFloat 3s ease-in-out infinite;
+}
+.landing-page .landing-illustration .illustration-scene .illust-note.illust-note-2 {
+  animation-delay: 1s;
+}
+.landing-page .landing-illustration .illustration-scene .illust-waveform {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 0;
+  animation: waveformScan 6s linear infinite;
+}
+.landing-page .landing-illustration .illustration-scene .illust-mesh {
+  transform-origin: 669px 116px;
+  animation: meshFloat 5s ease-in-out infinite alternate;
+}
+@media (max-width: 600px) {
+  .landing-page .landing-illustration .illustration-scene {
+    max-width: 100%;
+  }
+}
+.landing-page .landing-tech {
+  padding: clamp(3rem, 7vw, 5rem) 0;
+  overflow: hidden;
+}
+.landing-page .landing-tech .section-title {
+  margin: 0 clamp(1.25rem, 4vw, 3rem) 2rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+}
+.landing-page .landing-tech .tech-marquee {
+  display: flex;
+  width: max-content;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  animation: techMarquee 55s linear infinite;
+}
+.landing-page .landing-tech:hover .tech-marquee {
+  animation-play-state: paused;
+}
+.landing-page .landing-tech .tech-grid {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0 0.375rem;
+  list-style: none;
+}
+.landing-page .landing-tech .tech-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.1rem 0.5rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-text) 4%, var(--color-background));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text) 9%, transparent);
+  white-space: nowrap;
+}
+.landing-page .landing-tech .tech-card .tech-card-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.45rem;
+  border-radius: 999px;
+  background: #f4f4f5;
+}
+.landing-page .landing-tech .tech-card .tech-card-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.landing-page .landing-tech .tech-card .tech-card-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+@keyframes techMarquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .landing-tech .tech-marquee {
+    width: auto;
+    animation: none;
+    mask-image: none;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+  .landing-page .landing-tech .tech-grid {
+    flex-wrap: wrap;
+  }
+  .landing-page .landing-tech .tech-grid[aria-hidden] {
+    display: none;
+  }
+}
+.landing-page .landing-feed {
+  padding: 3rem 2rem;
+}
+.landing-page .landing-feed .feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.landing-page .landing-feed .feed-header .section-title {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin: 0;
+}
+.landing-page .landing-feed .feed-header .section-title .section-icon {
+  color: var(--color-primary);
+}
+.landing-page .landing-feed .feed-header .view-all-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+.landing-page .landing-feed .feed-header .view-all-link .arrow-icon {
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  transition: transform 200ms ease;
+}
+.landing-page .landing-feed .feed-header .view-all-link:hover .arrow-icon {
+  transform: translateX(4px);
+}
+.landing-page .landing-philosophy {
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+}
+.landing-page .landing-philosophy .philosophy-card {
+  position: relative;
+  max-width: 58rem;
+  margin: 0;
+  padding-left: clamp(2.5rem, 6vw, 5rem);
+}
+.landing-page .landing-philosophy .philosophy-card::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.35em;
+  left: 0;
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-primary);
+}
+.landing-page .landing-philosophy .philosophy-card blockquote {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+.landing-page .landing-philosophy .philosophy-card figcaption {
+  font-family: var(--font-family-mono);
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+}
+.landing-page .landing-cta {
+  position: relative;
+  margin: 0 clamp(1.25rem, 4vw, 3rem) clamp(3rem, 7vw, 5rem);
+  padding: clamp(3rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 1.75rem;
+  background:
+    radial-gradient(60rem 30rem at 100% 0%, color-mix(in srgb, var(--color-primary) 26%, transparent), transparent 60%),
+    color-mix(in srgb, var(--color-text) 4%, var(--color-background));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text) 9%, transparent);
+}
+.landing-page .landing-cta .cta-content {
+  max-width: 40rem;
+}
+.landing-page .landing-cta .cta-content h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+}
+.landing-page .landing-cta .cta-content p {
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+  text-wrap: pretty;
+}
+.landing-page .landing-cta .cta-content .cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.landing-page .landing-cta .cta-content .cta-buttons .cta-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease, box-shadow 200ms ease;
+}
+.landing-page .landing-cta .cta-content .cta-buttons .cta-button:active {
+  transform: scale(0.97);
+}
+.landing-page .landing-cta .cta-content .cta-buttons .cta-button.primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary, #140d02);
+}
+.landing-page .landing-cta .cta-content .cta-buttons .cta-button.primary:hover {
+  background: var(--color-primary-light, var(--color-primary));
+}
+.landing-page .landing-cta .cta-content .cta-buttons .cta-button.secondary {
+  color: var(--color-text);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text) 22%, transparent);
+}
+.landing-page .landing-cta .cta-content .cta-buttons .cta-button.secondary:hover {
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes steamRise {
+  0% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+@keyframes noteFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes waveformScan {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes meshFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2.5px) scale(1.02);
+  }
+  100% {
+    transform: translateY(1.5px) scale(0.98);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .landing-illustration .illustration-scene .illust-cursor,
+  .landing-page .landing-illustration .illustration-scene .illust-steam,
+  .landing-page .landing-illustration .illustration-scene .illust-note,
+  .landing-page .landing-illustration .illustration-scene .illust-waveform,
+  .landing-page .landing-illustration .illustration-scene .illust-mesh {
+    animation: none !important;
+  }
+}
+
+/* About Page Premium Styles */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Books Page Styles - Premium Redesign */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Contact Page Premium Styles */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+/* Entertainment Page Styles - Premium Design */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+
+/* Feed Page Styles - Premium Edition */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+
+.feed-minimal .feed-posts-minimal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 768px) {
+  .feed-minimal .feed-posts-minimal {
+    grid-template-columns: 1fr;
+  }
+}
+.feed-minimal .feed-view-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: 1rem;
+  border: 1px solid rgba(var(--color-border-rgb), 0.3);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 200ms ease;
+}
+.feed-minimal .feed-view-more .arrow-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 200ms ease;
+}
+.feed-minimal .feed-view-more .arrow-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.feed-minimal .feed-view-more:hover {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.3);
+}
+.feed-minimal .feed-view-more:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+.not-found {
+  text-align: center;
+  padding: 50px;
+}
+.not-found h1 {
+  font-size: 72px;
+  margin-bottom: 20px;
+}
+.not-found p {
+  font-size: 24px;
+  margin: 20px 0;
+}
+.not-found .home-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.not-found .home-button:hover {
+  background-color: #0056b3;
+}
+
+/* Photo Gallery Premium Styles */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.playground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.playground button {
+  margin: 1rem 0;
+}
+
+/* Projects Page Styles - Premium Redesign */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+
+/* Resume Page Styles - Premium Redesign */
+/* Sass-level default colors (used at compile-time for Sass functions)
+   These provide concrete color values so `lighten()`, `darken()` etc. work.
+   Updated to match the Cobalt theme - deep blue with red accent
+*/
+/* Useful RGB form for shadow/glow utilities */
+/* Font family hook used by SCSS variables */
+/* Emit the runtime CSS custom properties using the Sass defaults above.
+   This keeps the same :root tokens you can override at runtime while
+   ensuring Sass has concrete colors to operate on.
+*/
+:root {
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #1e3a8a;
+  --color-accent: #dc2626;
+  --color-accent-yellow: #fbbf24;
+  --color-background: #f0f9ff;
+  --color-text: #1e3a8a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #eff6ff;
+  --color-border: rgba(30, 64, 175, 0.1);
+  --color-shadow: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  --font-family-theme: Geist, Inter, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Variables */
+/************/
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*# sourceMappingURL=test-compiled.css.map */
+
+.landing-page .landing-quick-nav .card-roll {
+  position: absolute;
+  inset: 1.75rem 2rem auto;
+  z-index: -1;
+  display: grid;
+  gap: 0.1em;
+  font-size: clamp(1.75rem, 3.4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--color-text) 22%, transparent);
+  mask-image: linear-gradient(180deg, #000 20%, transparent 85%);
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.landing-page .landing-quick-nav .card-roll > span:first-child {
+  color: var(--color-primary);
+  -webkit-text-stroke: 0;
+}
+.landing-page .landing-quick-nav .quick-nav-card:hover .card-roll {
+  transform: translateY(-1.1em);
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .landing-quick-nav .card-roll {
+    transition: none;
+  }
+}
+
+/* Projects tile: tilted screenshot collage above the title roll */
+.landing-page .landing-quick-nav .card-collage {
+  position: absolute;
+  inset: 6% 5% auto auto;
+  z-index: -1;
+  width: 66%;
+  aspect-ratio: 16 / 10;
+}
+.landing-page .landing-quick-nav .card-collage img {
+  position: absolute;
+  width: 78%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+  box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.85), 0 0 0 1px rgb(255 255 255 / 0.08);
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.landing-page .landing-quick-nav .card-collage img:nth-child(1) { top: 0; right: 0; transform: rotate(4deg); }
+.landing-page .landing-quick-nav .card-collage img:nth-child(2) { top: 22%; right: 14%; transform: rotate(-3deg); }
+.landing-page .landing-quick-nav .card-collage img:nth-child(3) { top: 46%; right: 4%; transform: rotate(2deg); }
+.landing-page .landing-quick-nav .quick-nav-card--projects:hover .card-collage img:nth-child(1) { transform: rotate(6deg) translate(8px, -8px); }
+.landing-page .landing-quick-nav .quick-nav-card--projects:hover .card-collage img:nth-child(2) { transform: rotate(-5deg) translate(-10px, 0); }
+.landing-page .landing-quick-nav .quick-nav-card--projects:hover .card-collage img:nth-child(3) { transform: rotate(3deg) translate(6px, 8px); }
+.landing-page .landing-quick-nav .quick-nav-card--projects .card-roll {
+  inset: auto 2rem 9rem;
+  max-height: 3.3em;
+  overflow: hidden;
+  font-size: clamp(1.25rem, 2vw, 1.875rem);
+  mask-image: linear-gradient(0deg, #000 40%, transparent 100%);
+}
+.landing-page .landing-quick-nav .quick-nav-card--projects .card-body {
+  position: relative;
+}
+.landing-page .landing-quick-nav .quick-nav-card--arcade .card-media {
+  object-position: center top;
+  opacity: 0.6;
+}
+.landing-page .landing-quick-nav .quick-nav-card--about .card-media {
+  object-position: center 30%;
+}
+@media (max-width: 560px) {
+  .landing-page .landing-quick-nav .card-collage {
+    width: 88%;
+    inset: 6% 6% auto auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .landing-quick-nav .card-collage img {
+    transition: none;
+  }
+}
+
+.landing-page .landing-quick-nav .quick-nav-card--books .card-covers {
+  left: auto;
+  right: 3.25rem;
+  top: 1rem;
+}
+.landing-page .landing-quick-nav .card-tapes {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 3rem;
+  z-index: -1;
+  display: grid;
+  gap: 0.5rem;
+}
+.landing-page .landing-quick-nav .card-tapes > span {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #15161b 0 1.4rem, #1d1f26 1.4rem);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.06), 0 10px 20px -12px rgb(0 0 0 / 0.8);
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.landing-page .landing-quick-nav .card-tapes > span::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: -0.15rem;
+  border-radius: 2px;
+  background: var(--color-primary);
+}
+.landing-page .landing-quick-nav .card-tapes > span:nth-child(2) { transform: translateX(0.75rem) rotate(-1.5deg); }
+.landing-page .landing-quick-nav .card-tapes > span:nth-child(3) { transform: translateX(0.3rem) rotate(1deg); }
+.landing-page .landing-quick-nav .quick-nav-card--fun:hover .card-tapes > span:nth-child(1) { transform: translateX(0.5rem); }
+.landing-page .landing-quick-nav .quick-nav-card--fun:hover .card-tapes > span:nth-child(2) { transform: translateX(1.4rem) rotate(-1.5deg); }
+@media (prefers-reduced-motion: reduce) {
+  .landing-page .landing-quick-nav .card-tapes > span { transition: none; }
+}

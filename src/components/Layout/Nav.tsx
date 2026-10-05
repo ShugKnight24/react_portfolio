@@ -6,11 +6,12 @@ import { navLinks } from './routes';
 
 export const Nav: FC<NavProps> = ({ toggleDrawer }) => {
   return (
-    <nav className="nav">
+    <nav className="nav" aria-label="Main Navigation">
       {navLinks.map((link, index) => (
         <NavLink
           key={index}
           to={link.path}
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           onClick={() => {
             if (toggleDrawer) {
               toggleDrawer();

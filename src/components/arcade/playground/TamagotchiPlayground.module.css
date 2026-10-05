@@ -1,0 +1,1099 @@
+/* ============================================================================ */
+/* POCKET COMPANION // TAMAGOTCHI PLAYGROUND STYLES */
+/* Tactile handheld cyber-pet chassis, segmented LED vitals, and habitat stage */
+/* ============================================================================ */
+
+.tamagotchi-playground-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0.75rem;
+  color: #F8FAFC;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.habitat-night {
+    filter: brightness(0.78) contrast(1.1);
+  }
+
+  &.embedded-view {
+    max-width: 100%;
+    width: 100%;
+    padding: 0.25rem;
+
+    .tamagotchi-inner-bezel {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: none;
+      background: rgba(15, 23, 42, 0.6);
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Handheld Chassis Outer Shell */
+/* -------------------------------------------------------------------------- */
+  .tamagotchi-chassis {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(165deg, #1E293B 0%, #0F172A 50%, #090D16 100%);
+    border: 3px solid #334155;
+    border-radius: 28px;
+    padding: 1.5rem;
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.8),
+      0 0 40px rgba(56, 189, 248, 0.12),
+      inset 0 2px 4px rgba(255, 255, 255, 0.12),
+      inset 0 -4px 8px rgba(0, 0, 0, 0.6);
+
+    @media (max-width: 640px) {
+      padding: 0.85rem;
+      border-radius: 20px;
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Top Hardware (Lanyard Chain Loop & Antenna) */
+/* -------------------------------------------------------------------------- */
+  .chassis-top-hardware {
+    position: absolute;
+    top: -18px;
+    left: 2rem;
+    right: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 15;
+
+    .lanyard-chain-loop {
+      position: relative;
+      width: 32px;
+      height: 24px;
+
+      .chain-ring.outer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 24px;
+        border: 4px solid #64748B;
+        border-radius: 12px 12px 0 0;
+        background: radial-gradient(circle, #334155, #1E293B);
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+      }
+
+      .chain-ring.inner {
+        position: absolute;
+        top: 6px;
+        left: 8px;
+        width: 16px;
+        height: 12px;
+        background: #090D16;
+        border-radius: 8px 8px 0 0;
+      }
+    }
+
+    .chassis-antenna {
+      position: relative;
+      width: 12px;
+      height: 22px;
+      background: linear-gradient(180deg, #94A3B8, #475569);
+      border-radius: 4px 4px 0 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.4);
+
+      .antenna-tip-led {
+        position: absolute;
+        top: -7px;
+        left: 1px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #10B981;
+        box-shadow: 0 0 10px #10B981, 0 0 18px rgba(16, 185, 129, 0.6);
+        animation: antennaPulse 2s infinite ease-in-out;
+      }
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Inner Bezel (Recessed Screen & Controls Casing) */
+/* -------------------------------------------------------------------------- */
+  .tamagotchi-inner-bezel {
+    position: relative;
+    background: radial-gradient(circle at 50% 15%, #0B1120 0%, #030712 100%);
+    border: 2px solid #1E293B;
+    border-radius: 20px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(255, 255, 255, 0.05);
+
+    @media (max-width: 640px) {
+      padding: 0.85rem;
+      gap: 0.9rem;
+    }
+
+/* Corner Screw Rivets */
+    .chassis-rivet {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #64748B 30%, #334155 70%, #1E293B 100%);
+      border-radius: 50%;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.6);
+      pointer-events: none;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 2px;
+        width: 6px;
+        height: 2px;
+        background: #0F172A;
+        border-radius: 1px;
+      }
+
+      &.top-left { top: 10px; left: 10px; }
+      &.top-right { top: 10px; right: 10px; }
+      &.bottom-left { bottom: 10px; left: 10px; }
+      &.bottom-right { bottom: 10px; right: 10px; }
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Chassis Top Header Banner */
+/* -------------------------------------------------------------------------- */
+  .chassis-header-stripe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: 'JetBrains Mono', monospace, ui-monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+
+    .device-brand-tag {
+      color: #38BDF8;
+      font-weight: 800;
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
+
+    .device-model-no {
+      color: #94A3B8;
+      font-size: 0.68rem;
+    }
+
+    .status-live-dot {
+      width: 8px;
+      height: 8px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10B981;
+      animation: livePulse 1.6s infinite alternate ease-in-out;
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Companion Profile Deck (Avatar, Title, Switcher) */
+/* -------------------------------------------------------------------------- */
+  .companion-profile-deck {
+    display: flex;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.65rem 0.9rem;
+
+    .companion-card-info {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+
+      .companion-avatar-ring {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 2px solid #38BDF8;
+        background: radial-gradient(circle, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.8));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+        overflow: hidden;
+      }
+
+      .companion-meta-texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+
+        .name-mood-row {
+          display: flex;
+          align-items: center;
+          gap: 0.55rem;
+
+          .companion-name {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace, ui-monospace;
+            color: #F8FAFC;
+            letter-spacing: 0.02em;
+          }
+
+          .mood-pill {
+            padding: 0.15rem 0.55rem;
+            border-radius: 10px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace, ui-monospace;
+            border: 1px solid;
+            letter-spacing: 0.04em;
+          }
+        }
+
+        .companion-title-tag {
+          font-size: 0.75rem;
+          color: #94A3B8;
+          font-family: 'JetBrains Mono', monospace, ui-monospace;
+        }
+      }
+    }
+
+    .deck-action-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      min-width: 0;
+      max-width: 100%;
+
+      .select-container {
+        position: relative;
+        /* The native select sizes to its longest option; let it shrink on narrow screens */
+        flex: 1 1 12rem;
+        min-width: 0;
+
+        .companion-select-dropdown {
+          width: 100%;
+          max-width: 100%;
+          text-overflow: ellipsis;
+          background: rgba(30, 41, 59, 0.9);
+          border: 1px solid rgba(56, 189, 248, 0.35);
+          color: #F8FAFC;
+          padding: 0.42rem 0.85rem;
+          border-radius: 8px;
+          font-size: 0.82rem;
+          font-family: 'JetBrains Mono', monospace, ui-monospace;
+          cursor: pointer;
+          outline: none;
+          transition: all 0.2s ease;
+
+          &:focus, &:hover {
+            border-color: #38BDF8;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+          }
+        }
+      }
+
+      .deck-quick-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #CBD5E1;
+        padding: 0.42rem 0.75rem;
+        border-radius: 8px;
+        font-size: 0.78rem;
+        font-family: 'JetBrains Mono', monospace, ui-monospace;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: rgba(56, 189, 248, 0.2);
+          border-color: #38BDF8;
+          color: #fff;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Vitals Segmented Dashboard Cluster */
+/* -------------------------------------------------------------------------- */
+  .vitals-dashboard-cluster {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0.9rem;
+    align-items: stretch;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+/* Level & XP Pod */
+    .level-xp-pod {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+      .level-badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #F59E0B, #D97706);
+        color: #0F172A;
+        font-family: 'JetBrains Mono', monospace, ui-monospace;
+        font-weight: 900;
+        padding: 0.35rem 0.65rem;
+        border-radius: 8px;
+        min-width: 48px;
+        box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+
+        .lvl-prefix {
+          font-size: 0.58rem;
+          letter-spacing: 0.05em;
+          line-height: 1;
+        }
+
+        .lvl-number {
+          font-size: 1.25rem;
+          line-height: 1.1;
+        }
+      }
+
+      .xp-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+
+        .xp-label-row {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.72rem;
+          font-family: 'JetBrains Mono', monospace, ui-monospace;
+          color: #FBBF24;
+          font-weight: 700;
+        }
+
+        .xp-bar-track {
+          width: 100%;
+          height: 8px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 4px;
+          overflow: hidden;
+
+          .xp-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #F59E0B, #FBBF24);
+            border-radius: 4px;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+            transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+        }
+      }
+    }
+
+/* Segmented Meters Grid (Hunger, Happiness, Energy) */
+    .meters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+
+      @media (max-width: 580px) {
+        grid-template-columns: 1fr;
+      }
+
+      .meter-pod {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 12px;
+        padding: 0.65rem 0.85rem;
+
+        .meter-pod-header {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-family: 'JetBrains Mono', monospace, ui-monospace;
+          font-size: 0.72rem;
+
+          .meter-glyph {
+            color: #94A3B8;
+          }
+
+          .meter-pod-label {
+            color: #CBD5E1;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+          }
+
+          .meter-pct {
+            margin-left: auto;
+            color: #94A3B8;
+            font-size: 0.7rem;
+          }
+        }
+
+/* Segmented 5-Pip Meter */
+        .segmented-meter {
+          display: flex;
+          gap: 4px;
+          height: 10px;
+          width: 100%;
+
+          .meter-pip {
+            flex: 1;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 2px;
+            transition: all 0.25s ease;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+
+            &.filled {
+              border-radius: 2px;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Main Pet Habitat Stage */
+/* -------------------------------------------------------------------------- */
+  .pet-habitat-stage {
+    position: relative;
+    min-height: 320px;
+    background: radial-gradient(circle at 50% 30%, #0F172A 0%, #020617 85%);
+    border: 2px solid rgba(56, 189, 248, 0.25);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.8);
+    user-select: none;
+
+/* Stage Light Cone from Top */
+    .stage-light-cone {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 220px;
+      background: radial-gradient(ellipse at top, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+/* Grid Floor Plane */
+    .stage-floor-plane {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.8) 100%);
+      border-top: 1px dashed rgba(56, 189, 248, 0.15);
+      pointer-events: none;
+    }
+
+/* Dropping Food Item */
+    .dropping-food-item {
+      position: absolute;
+      top: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 25;
+      animation: foodDropBounce 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.6));
+    }
+
+/* Interactive Bouncing Ball */
+    .play-ball-element {
+      position: absolute;
+      z-index: 24;
+      transform: translate(-50%, -50%);
+      animation: ballBobSpin 0.6s infinite alternate ease-in-out;
+      filter: drop-shadow(0 6px 12px rgba(168, 85, 247, 0.5));
+    }
+
+/* Mini-Game Target Chip */
+    .minigame-target-chip {
+      position: absolute;
+      z-index: 30;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      cursor: crosshair;
+      padding: 0.45rem;
+      background: rgba(15, 23, 42, 0.85);
+      border: 2px solid #F59E0B;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.7);
+      animation: targetWiggle 0.5s infinite alternate;
+
+      .target-exp-badge {
+        font-size: 0.65rem;
+        font-weight: 800;
+        font-family: 'JetBrains Mono', monospace, ui-monospace;
+        color: #FBBF24;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 0.1rem 0.35rem;
+        border-radius: 4px;
+      }
+    }
+
+/* Floating Dynamic Particles */
+    .floating-particle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 28;
+      transform: translate(-50%, -50%);
+      animation: floatParticle 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+
+      &.particle-heart {
+        color: #EC4899;
+        filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.7));
+      }
+
+      &.particle-bubble {
+        color: #38BDF8;
+        filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.7));
+      }
+
+      &.particle-crumb {
+        color: #F59E0B;
+        filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5));
+      }
+
+      .zzz-text {
+        font-family: 'JetBrains Mono', monospace, ui-monospace;
+        font-weight: 800;
+        color: #818CF8;
+        font-size: 1.1rem;
+        text-shadow: 0 0 8px rgba(129, 140, 248, 0.8);
+      }
+
+      .exp-float-text {
+        font-family: 'JetBrains Mono', monospace, ui-monospace;
+        font-weight: 800;
+        color: #FBBF24;
+        font-size: 0.95rem;
+        text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
+      }
+    }
+
+/* Speech Dialogue Box */
+    .pet-speech-dialogue {
+      position: absolute;
+      top: 18px;
+      max-width: 82%;
+      background: #FFFFFF;
+      color: #0F172A;
+      padding: 0.6rem 1.15rem;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      z-index: 20;
+      animation: popInSpeech 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -7px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 7px 7px 0;
+        border-style: solid;
+        border-color: #FFFFFF transparent;
+      }
+
+      .speech-text {
+        font-size: 0.86rem;
+        font-weight: 700;
+        font-family: 'JetBrains Mono', monospace, ui-monospace;
+        line-height: 1.35;
+      }
+    }
+
+/* Pet Centerpiece Sprite */
+    .pet-sprite-centerpiece {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+      margin-top: 1.5rem;
+
+      .active-pet-sprite {
+        transform-origin: bottom center;
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .pet-ground-shadow {
+        width: 140px;
+        height: 18px;
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, transparent 75%);
+        margin-top: -6px;
+      }
+    }
+
+/* Sleeping Cozy Blanket Overlay */
+    .sleep-blanket-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(15, 23, 42, 0.85) 0%, rgba(2, 6, 23, 0.95) 100%);
+      z-index: 18;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+
+      .moonbeam-rays {
+        position: absolute;
+        top: 0;
+        right: 25%;
+        width: 120px;
+        height: 220px;
+        background: linear-gradient(135deg, rgba(129, 140, 248, 0.12), transparent 70%);
+      }
+
+      .snore-zzz {
+        position: absolute;
+        font-family: 'JetBrains Mono', monospace, ui-monospace;
+        font-weight: 900;
+        color: #818CF8;
+        text-shadow: 0 0 10px rgba(129, 140, 248, 0.8);
+        animation: snoreFloat 2.4s infinite ease-in-out;
+
+        &.z1 { font-size: 1.6rem; top: 38%; left: 54%; animation-delay: 0s; }
+        &.z2 { font-size: 1.1rem; top: 30%; left: 58%; animation-delay: 0.6s; }
+        &.z3 { font-size: 0.8rem; top: 22%; left: 62%; animation-delay: 1.2s; }
+      }
+    }
+
+/* Tap Hint at Bottom */
+    .habitat-click-hint {
+      position: absolute;
+      bottom: 8px;
+      font-size: 0.7rem;
+      color: #64748B;
+      font-family: 'JetBrains Mono', monospace, ui-monospace;
+      letter-spacing: 0.06em;
+      pointer-events: none;
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Mini-Game Active HUD Control */
+/* -------------------------------------------------------------------------- */
+  .minigame-hud-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #0284C7, #0369A1);
+    border-radius: 10px;
+    padding: 0.55rem 1rem;
+    font-family: 'JetBrains Mono', monospace, ui-monospace;
+    font-weight: 800;
+    font-size: 0.82rem;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+
+    .hud-score-display {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #FFFFFF;
+    }
+
+    .minigame-quit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #EF4444;
+      border: 1px solid #F87171;
+      color: #FFFFFF;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 0.74rem;
+      transition: background 0.15s ease;
+
+      &:hover {
+        background: #DC2626;
+      }
+    }
+  }
+
+/* -------------------------------------------------------------------------- */
+/* Action Control Deck (Categorized Tabs & Action Panels) */
+/* -------------------------------------------------------------------------- */
+  .action-control-deck {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+/* Category Tabs Bar */
+    .action-nav-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.45rem;
+
+      .action-tab-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        padding: 0.55rem 0.75rem;
+        background: rgba(30, 41, 59, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: #94A3B8;
+        font-family: 'JetBrains Mono', monospace, ui-monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+          background: rgba(56, 189, 248, 0.15);
+          color: #F8FAFC;
+          border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        &.active {
+          background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 165, 233, 0.15));
+          border-color: #38BDF8;
+          color: #38BDF8;
+          box-shadow: 0 0 14px rgba(56, 189, 248, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+
+/* Sub-Action Content Panel */
+    .action-sub-panel {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 0.85rem;
+
+/* FEED GRID */
+      .food-action-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.55rem;
+
+        .food-item-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.65rem;
+          background: rgba(30, 41, 59, 0.85);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 10px;
+          padding: 0.55rem 0.75rem;
+          color: #F8FAFC;
+          cursor: pointer;
+          transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+          text-align: left;
+
+          &:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: #38BDF8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+          }
+
+          &:active {
+            transform: translateY(1px);
+          }
+
+          &.special {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(217, 119, 6, 0.15));
+            border-color: #F59E0B;
+
+            &:hover {
+              box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+            }
+          }
+
+          .item-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+
+            .item-title {
+              font-size: 0.78rem;
+              font-weight: 700;
+              font-family: 'JetBrains Mono', monospace, ui-monospace;
+            }
+
+            .item-boost {
+              font-size: 0.66rem;
+              color: #10B981;
+              font-family: 'JetBrains Mono', monospace, ui-monospace;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+/* TACTILE ACTIONS GRID (Play, Care, Rest) */
+      .tactile-action-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.65rem;
+
+        &.single {
+          grid-template-columns: 1fr;
+        }
+
+        .tactile-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.75rem 1rem;
+          border-radius: 12px;
+          border: 1px solid;
+          cursor: pointer;
+          text-align: left;
+          font-family: 'JetBrains Mono', monospace, ui-monospace;
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+          &:active {
+            transform: translateY(2px);
+          }
+
+          .btn-label-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+
+            .btn-main-label {
+              font-size: 0.84rem;
+              font-weight: 800;
+              color: #FFFFFF;
+            }
+
+            .btn-sub-label {
+              font-size: 0.68rem;
+              opacity: 0.85;
+            }
+          }
+
+/* Specific Button Themes */
+          &.primary-play {
+            background: linear-gradient(135deg, #0284C7, #0369A1);
+            border-color: #38BDF8;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5);
+            }
+          }
+
+          &.active-stop {
+            background: linear-gradient(135deg, #DC2626, #B91C1C);
+            border-color: #EF4444;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+          }
+
+          &.secondary-play {
+            background: linear-gradient(135deg, #7C3AED, #6D28D9);
+            border-color: #A78BFA;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 18px rgba(124, 58, 237, 0.5);
+            }
+          }
+
+          &.pet-care {
+            background: linear-gradient(135deg, #DB2777, #BE185D);
+            border-color: #F472B6;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(219, 39, 119, 0.35);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 18px rgba(219, 39, 119, 0.5);
+            }
+          }
+
+          &.groom-care {
+            background: linear-gradient(135deg, #0D9488, #0F766E);
+            border-color: #2DD4BF;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 18px rgba(13, 148, 136, 0.5);
+            }
+          }
+
+          &.cheer-care {
+            background: linear-gradient(135deg, #D97706, #B45309);
+            border-color: #FBBF24;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 18px rgba(217, 119, 6, 0.5);
+            }
+          }
+
+          &.sleep-toggle {
+            background: linear-gradient(135deg, #4338CA, #3730A3);
+            border-color: #818CF8;
+            color: #FFFFFF;
+            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.35);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 18px rgba(67, 56, 202, 0.5);
+            }
+
+            &.waking-state {
+              background: linear-gradient(135deg, #EA580C, #C2410C);
+              border-color: #FB923C;
+              box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------- */
+/* Keyframe Animations */
+/* ---------------------------------------------------------------------------- */
+@keyframes antennaPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px #10B981, 0 0 18px rgba(16, 185, 129, 0.6);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 14px #10B981, 0 0 24px rgba(16, 185, 129, 0.9);
+  }
+}
+
+@keyframes livePulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes popInSpeech {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes foodDropBounce {
+  0% {
+    transform: translate(-50%, -80px) scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: translate(-50%, 60px) scale(1.1);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-50%, 40px) scale(0.95);
+  }
+  100% {
+    transform: translate(-50%, 55px) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ballBobSpin {
+  0% {
+    transform: translate(-50%, -50%) translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(-14px) rotate(45deg);
+  }
+}
+
+@keyframes targetWiggle {
+  0% {
+    transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(4deg) scale(1.08);
+  }
+}
+
+@keyframes floatParticle {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-55px) scale(1.2);
+  }
+}
+
+@keyframes snoreFloat {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translate(12px, -18px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(24px, -36px) scale(1.25);
+  }
+}
+

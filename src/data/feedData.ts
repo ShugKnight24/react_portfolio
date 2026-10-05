@@ -2,6 +2,291 @@ import { FeedPost } from '../types/feed';
 
 export const postsArray: FeedPost[] = [
   {
+    id: 56,
+    title: `It'll be okay`,
+    content: `
+      Can't shut my playboy mouth...
+
+      Can't believe my eyes so many pretty women without a flaw... Ey
+    `,
+    artist: 'Lady Gage',
+    song: `Just Dance`,
+    youtubeInfo: {
+      videoId: '2Abk1jAONjw',
+      videoLink: 'https://www.youtube.com/watch?v=2Abk1jAONjw',
+    },
+  },
+  {
+    id: 55,
+    title: 'Glory Fades',
+    content: `
+      Sic Transit gloria
+    `,
+    artist: 'Brand New',
+    song: 'Glory Fades - Sic Transit Gloria',
+    youtubeInfo: {
+      videoId: 'iOHg1rKzWuE',
+      videoLink: 'https://www.youtube.com/watch?v=iOHg1rKzWuE',
+    },
+  },
+  {
+    id: 54,
+    title: 'Sweet Nothings',
+    content: `
+      Whispered in my ear,
+      Nothing's what it seems,
+    `,
+    artist: 'Plini',
+    song: 'Sweet Nothings',
+    youtubeInfo: {
+      videoId: 'ywlWkkNl19',
+      videoLink: 'https://www.youtube.com/watch?v=ywlWkkNl19U',
+    },
+  },
+  {
+    id: 53,
+    title: 'Back to My house',
+    content: `
+      Take a trip to my house,
+      Nothing's what it seems,
+      
+      ...
+
+      Trapped inside a dream.
+      `,
+    artist: 'Overwerk',
+    song: 'House',
+    youtubeInfo: {
+      videoId: 'X1T8kJzN3nA',
+      videoLink: 'https://www.youtube.com/watch?v=wojvjhONprE',
+    },
+  },
+  {
+    id: 52,
+    title: 'Begin to Show',
+    content: `
+      Leave the past behind,
+      Just walk away.
+      When it's over,
+      and [your] heart breaks,
+      And
+      The cracks
+      begin to show.
+    `,
+    artist: 'Flux Pavilion',
+    song: 'Cracks',
+    youtubeInfo: {
+      videoId: 'r8T-mUUuaWo',
+      videoLink: 'https://www.youtube.com/watch?v=r8T-mUUuaWo',
+    },
+  },
+  {
+    id: 51,
+    title: 'The Ship of Theseus',
+    content: `
+      If you replace all the parts of a ship, 
+      is it still the same ship?
+      If I replace all the parts of myself,
+      am I still the same person?
+    `,
+  },
+  {
+    id: 50,
+    title: 'The Mirror of Erised',
+    content: `
+      Show me
+      Nothing more
+      or less, than
+      my deepest, desperate desires of my heart.
+    `,
+    author: 'Albus Dumbledore',
+    book: "Harry Potter and the Sorcerer's Stone",
+  },
+  {
+    id: 49,
+    content: `
+      Seek discomfort.
+    `,
+  },
+  {
+    id: 48,
+    title: 'The Great Game',
+    content: `
+      The only winning move is not to play.
+    `,
+    youtubeInfo: {
+      videoId: 'NHWjgp-s1lE',
+      videoLink: 'https://www.youtube.com/watch?v=NHWjgp-s1lE',
+    },
+  },
+  {
+    id: 47,
+    title: 'You gotta keep on fighting',
+    content: `
+      There's a fire, a fight, a reason to be
+      So lift up your eyes and surrender the defeat!
+    `,
+    artist: 'Our Last Night',
+    song: 'Surrender the Defeat',
+    album: 'Selective Hearing',
+    youtubeInfo: {
+      videoId: 'pXhW1PzP-oA',
+      videoLink: 'https://www.youtube.com/watch?v=pXhW1PzP-oA',
+    },
+  },
+  {
+    id: 46,
+    title: 'The Art of War',
+    content: `
+      All warfare is based on deception.
+    `,
+    author: 'Sun Tzu',
+    book: 'The Art of War',
+  },
+  {
+    id: 45,
+    content: `
+      The unexamined life is not worth living.
+    `,
+    author: 'Socrates',
+  },
+  {
+    id: 44,
+    title: 'The only easy day was yesterday',
+    content: `
+      Navy SEAL Creed
+      In times of war or uncertainty there is a special breed of warrior ready to answer our Nation's call.
+    `,
+  },
+  {
+    id: 43,
+    content: `
+      Know Thyself.
+    `,
+  },
+  {
+    id: 42,
+    content: `
+      There is no 'try'. There is only do or do not.
+    `,
+  },
+  {
+    id: 41,
+    title: 'The Butterfly Effect',
+    content: `
+      A small change in one state of a deterministic nonlinear system
+      can result in large differences in a later state.
+    `,
+  },
+  {
+    id: 40,
+    content: `
+      Control the controllable.
+    `,
+  },
+  {
+    id: 39,
+    title: 'Remember the name',
+    content: `
+      10% luck, 20% skill, 15% concentrated power of will,
+      5% pleasure, 50% pain, and 100% reason to remember the name!
+    `,
+    artist: 'Fort Minor',
+    song: 'Remember The Name',
+    album: 'The Rising Tied',
+    youtubeInfo: {
+      videoId: 'VDvr08sCPOc',
+      videoLink: 'https://www.youtube.com/watch?v=VDvr08sCPOc',
+    },
+  },
+  {
+    id: 38,
+    content: `
+      It's time to build.
+    `,
+  },
+  {
+    id: 37,
+    title: 'Memento Mori',
+    content: `
+      Remember you will die.
+    `,
+  },
+  {
+    id: 36,
+    title: 'The long-term game',
+    content: `
+      Patience is the currency of success.
+    `,
+  },
+  {
+    id: 35,
+    content: `
+      It is what it is.
+    `,
+  },
+  {
+    id: 34,
+    title: 'Run away with me',
+    content: `
+      Run away with me.
+      I'll be your silver lining,
+      You'll be my gold.
+    `,
+    artist: 'Our Last Night',
+    song: 'Runaway (Galantis Cover)',
+    album: 'Selective Hearing',
+    youtubeInfo: {
+      videoId: '6YdBnrpn0Dw',
+      videoLink: 'https://www.youtube.com/watch?v=6YdBnrpn0Dw',
+    },
+  },
+  {
+    id: 33,
+    content: `
+      Be the change that you wish to see in the world.
+    `,
+    author: 'Mahatma Gandhi',
+  },
+  {
+    id: 32,
+    content: `
+      Never confuse a single defeat with a final defeat.
+    `,
+    author: 'F. Scott Fitzgerald',
+  },
+  {
+    id: 31,
+    title: 'The Great Filter',
+    content: `
+      Where is everybody?
+      - The Fermi Paradox
+    `,
+  },
+  {
+    id: 30,
+    title: 'Veni Vidi Vici',
+    content: `
+      I came, I saw, I conquered.
+    `,
+    author: 'Julius Caesar',
+  },
+  {
+    id: 29,
+    title: 'Inner Peace',
+    content: `
+      Peace comes from within. Do not seek it without.
+    `,
+    author: 'Buddha',
+  },
+  {
+    id: 28,
+    title: 'The Law of Attraction',
+    content: `
+      What you focus on expands.
+    `,
+  },
+  {
     id: 27,
     content: `
       The rule of three
@@ -52,6 +337,7 @@ export const postsArray: FeedPost[] = [
     albumArt: './img/feed/atreyu_lead_sails_paper_anchor.jpg',
     artist: 'Atreyu',
     song: 'Becoming the Bull',
+    // Allow for setting multiple aspects -> Would be cool if the video would play into another video seamlessly... start with a fade in...
     youtubeInfo: {
       videoId: 'PqCt54Wx2e0',
       videoLink: 'https://www.youtube.com/watch?v=PqCt54Wx2e0',
