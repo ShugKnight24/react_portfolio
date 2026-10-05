@@ -53,7 +53,7 @@ const Mark: FC<MarkProps & { src: string; alt: string }> = ({ src, alt, size = 6
 
 /** Plain direction: the woven SS signet, for the Shugmi Shumunov persona */
 export const ShugStylizedLogo: FC<MarkProps> = ({ className = '', ...props }) => (
-  <Mark src="/brand/plain/mark.svg" alt="SS signet" className={`shug-stylized-logo ${className}`} {...props} />
+  <Mark src="/img/brand/plain/mark.svg" alt="SS signet" className={`shug-stylized-logo ${className}`} {...props} />
 );
 
 // Backward-compatible alias for existing imports
@@ -62,7 +62,7 @@ export const ShugmiMonogram = ShugStylizedLogo;
 /** Knight & Luna direction: the crest with the barbell helm and Luna */
 export const ShugKnightEmblem: FC<MarkProps> = ({ className = '', ...props }) => (
   <Mark
-    src="/brand/knight-and-luna/mark.svg"
+    src="/img/brand/knight-and-luna/mark.svg"
     alt="Shug Knight crest with Luna"
     className={`shugknight-emblem ${className}`}
     {...props}
@@ -76,7 +76,7 @@ export const PersonaMark: FC<MarkProps & { persona: BrandPersona }> = ({ persona
 /** The persona's name set in its brand type; alt is empty because callers label the link */
 export const PersonaWordmark: FC<{ persona: BrandPersona; className?: string }> = ({ persona, className = '' }) => (
   <img
-    src={persona === 'shugknight' ? '/brand/knight-and-luna/wordmark-name-dark.svg' : '/brand/plain/wordmark-dark.svg'}
+    src={persona === 'shugknight' ? '/img/brand/knight-and-luna/wordmark-name-dark.svg' : '/img/brand/plain/wordmark-dark.svg'}
     alt=""
     className={`brand-wordmark brand-wordmark--${persona} ${className}`}
     draggable={false}

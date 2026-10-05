@@ -24,7 +24,7 @@ export const Footer: FC = () => {
         <div className="footer-top-row">
           <div className={`footer-brand footer-brand--${persona}`}>
             <img
-              src={knight ? '/brand/knight-and-luna/emblem.svg' : '/brand/plain/lockup-stacked-dark.svg'}
+              src={knight ? '/img/brand/knight-and-luna/emblem.svg' : '/img/brand/plain/lockup-stacked-dark.svg'}
               alt={knight ? 'Shug Knight and Luna emblem' : 'Shugmi Shumunov'}
               className="footer-emblem"
               loading="lazy"

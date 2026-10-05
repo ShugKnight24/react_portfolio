@@ -89,11 +89,11 @@ describe('Arcade & Tamagotchi System', () => {
   it('renders the brand marks for both personas', async () => {
     const { ShugStylizedLogo, ShugKnightEmblem } = await import('../src/components/Branding/BrandLogos');
     render(<ShugStylizedLogo size={80} />);
-    expect(screen.getByAltText('SS signet').getAttribute('src')).toBe('/brand/plain/mark.svg');
+    expect(screen.getByAltText('SS signet').getAttribute('src')).toBe('/img/brand/plain/mark.svg');
 
     render(<ShugKnightEmblem size={80} />);
     expect(screen.getByAltText('Shug Knight crest with Luna').getAttribute('src')).toBe(
-      '/brand/knight-and-luna/mark.svg'
+      '/img/brand/knight-and-luna/mark.svg'
     );
   });
 

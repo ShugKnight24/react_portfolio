@@ -20,6 +20,7 @@ export default [
       '.astro/',
       '.playwright-mcp/',
       'public/',
+      'design/',
     ],
   },
   js.configs.recommended,
