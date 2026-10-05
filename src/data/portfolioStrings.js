@@ -1,16 +1,15 @@
 // TODO: Handle internationalization (i18n)
 export const aboutText = [
-  `What distinguishes me is my unique ability to transform lines of code into compelling narratives.
-  Whether it's crafting deliverables or solving complex problems,
-  I seamlessly blend technical expertise with creativity. 
-  This fusion allows me to deeply comprehend my clients' needs, strategize effectively,
-  and deliver high-quality, comprehensive solutions marked by craftsmanship and meticulous attention to detail.`,
-  `Driven by a passion for continuous learning, I am committed to constantly refining my skills and expanding my knowledge base.`,
-  `While I thrive in diverse team dynamics, my true joy lies in the dynamic environment of startups. Wearing multiple hats and influencing the company's trajectory is what fuels my enthusiasm.`,
-  `As the founder of my own development company, I exercise my creative muscle to build solutions that propel businesses toward accelerated growth. 
-  There's a profound sense of humility in witnessing your work come to life, especially when it contributes to the growth of small businesses.`,
-  `Feel free to reach out if you'd like to explore how I can contribute to your business growth or bring your personal project to fruition.`,
-  `Beyond coding, you'll catch me engaging in fitness routines, exploring new destinations, immersing myself in literature, grooving to music, capturing scenic moments through my lens, and cherishing quality time with Luna :)`,
+  `I'm a full stack engineer in the Detroit area, building for the web since 2016. These days the job is less about typing and more about taste: finding the right problem, shaping the plan and reviewing the work until it feels good to use.`,
+  `I run Shumunov Solutions, a small shop that builds websites and tools for small businesses. My favorite kind of project is the one nobody notices after launch, because it just quietly makes someone's Tuesday easier.`,
+  `I like startups and small teams, where everyone wears a few hats and the distance between an idea and something real is one good conversation.`,
+  `I also enjoy picking up heavy things and putting them back down. It's my reset button. Most of my better ideas show up between sets while listening to music.`,
+  `Off the clock I travel when I can, read a lot, take photos, play games, and always have music on. For years the best part of my day was a long walk with Luna, my dog. She has her own little spot further down this page.`,
+];
+
+// About page only. approachText is still used on the resume, so this is its own string.
+export const aboutApproachText = [
+  `I read a lot, collect hobbies faster than I finish them and pick up new tools the usual way: curiosity first, competence eventually. The list of things I want to learn only gets longer, which is the good part.`,
 ];
 
 export const approachText = [

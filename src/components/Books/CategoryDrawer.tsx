@@ -1,33 +1,36 @@
 import { FC } from 'react';
-import { Category } from './Category';
-import { Grid } from '../Grid';
 import { CategoryDrawerInterface } from '../../types/category';
+import styles from './BookCatalogView.module.css';
+import { onTabListKeyDown } from '../../utils/tablistKeys';
 
-export const CategoryDrawer : FC<CategoryDrawerInterface> = ({ 
-	allCategories,
-	currentCategory,
-	updateCategoryState
+export const CategoryDrawer: FC<CategoryDrawerInterface> = ({
+  allCategories,
+  currentCategory,
+  updateCategoryState,
 }) => {
-	// TODO: Add active / closed state to drawer
-	return(
-		<Grid extraClass="category-drawer">
-			{ 
-				allCategories.map((category, index) => {
-					const altText = category.bookList[0].name + ' by ' + category.bookList[0].author;
+  return (
+    <div className={styles.categoryBar} role="tablist" onKeyDown={onTabListKeyDown} aria-label="Book Categories">
+      {allCategories.map((category, index) => {
+        const isActive = index === currentCategory;
+        const bookCount = category.bookList.length;
 
-					return(
-						<Category
-							key={ index }
-							categoryName={ category.categoryName }
-							categoryIndex={ index }
-							categoryImgSRC={ category.bookList[0].imgSrc }
-							categoryImgAltText={ altText }
-							updateCategoryState={ updateCategoryState }
-							currentCategory={ currentCategory }
-						/>
-					);
-				})
-			}
-		</Grid>
-	)
-}
+        return (
+          <button
+            key={index}
+            type="button"
+            role="tab"
+            aria-selected={isActive}
+            tabIndex={isActive ? 0 : -1}
+            data-category-index={index}
+            className={`category ${styles.categoryPill} ${isActive ? styles.active : ''}`}
+            onClick={updateCategoryState}
+          >
+            <span>{category.categoryName}</span>
+            <span className={styles.categoryCountBadge}>{bookCount}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+

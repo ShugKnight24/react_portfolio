@@ -155,7 +155,6 @@ export const previouslyRead = {
     {
       name: 'Where the Wild Things Are',
       author: 'Maurice Sendak',
-      imgSrc: './img/books/where_the_wild_things_are.jpg',
       readNo: 1,
     },
     {
@@ -164,7 +163,7 @@ export const previouslyRead = {
     {
       name: 'The Alchemist: A Graphic Novel',
       author: 'Paulo Coelho, Daniel Sampere, Derek Ruiz',
-      imgSrc: './img/books/alchemist_graphic_novel.jpg',
+      imgSrc: './img/books/the_alchemist_graphic_novel.jpg',
       readNo: 1,
     },
     {
