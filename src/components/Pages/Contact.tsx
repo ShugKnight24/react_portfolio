@@ -57,6 +57,9 @@ const highlightedRepos = [
   },
 ];
 
+const email = 'sshumunov@gmail.com';
+const projectMailto = `mailto:${email}?subject=${encodeURIComponent('Project inquiry')}`;
+
 const services = [
   { name: 'Websites and web apps', detail: 'React, Next.js, Node.js and TypeScript' },
   { name: 'Backend and APIs', detail: 'Databases, services and the plumbing behind the app' },
@@ -85,8 +88,14 @@ export const Contact: FC = () => {
           </h2>
           <p className={styles.lead}>
             Happy to talk shop, startups, books or whatever you&rsquo;re building. Pick whichever
-            door below feels most like you.
+            door below feels most like you, or skip the clues and email me.
           </p>
+          <div className={styles.actions}>
+            <a href={`mailto:${email}`} className="mc-btn">
+              Email me
+            </a>
+            <span className={styles.address}>{email}</span>
+          </div>
         </header>
 
         <div className={styles.contactGrid}>
@@ -152,7 +161,7 @@ export const Contact: FC = () => {
         </div>
       </section>
 
-      <section className={styles.consulting} aria-labelledby="consulting-title">
+      <section id="consulting" className={styles.consulting} aria-labelledby="consulting-title">
         <div>
           <p className="mc-eyebrow">
             <span className={styles.statusDot} aria-hidden="true" />
@@ -165,6 +174,19 @@ export const Contact: FC = () => {
             My own little shop. I build websites and apps for small businesses, and I&rsquo;m always
             up for a weird 3D project or a slow page that needs fixing.
           </p>
+          <div className={styles.actions}>
+            <a href={projectMailto} className="mc-btn">
+              Email me about a project
+            </a>
+            <a
+              href="https://shumunovsolutions.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mc-link"
+            >
+              Shumunov Solutions <Arrow />
+            </a>
+          </div>
         </div>
         <dl className={styles.services}>
           {services.map((service) => (

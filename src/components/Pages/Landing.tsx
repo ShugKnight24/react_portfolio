@@ -741,7 +741,7 @@ export const Landing: FC = () => {
             and to see what's possible. Poke at it, steal an idea, or tell me what you're cooking.
           </p>
           <div className="cta-buttons">
-            <Link to="/contact" className="cta-button primary">
+            <Link to="/aboutcontact#contact" className="cta-button primary">
               Get in touch
             </Link>
             <a

@@ -48,20 +48,21 @@ const useWorld = () => {
 const inPlacePrefixes = ['/fun', '/animations'];
 
 const useScrollReset = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const navigationType = useNavigationType();
   const previous = useRef(pathname);
 
   useEffect(() => {
     const from = previous.current;
     previous.current = pathname;
-    if (from === pathname || navigationType === 'POP') return;
+    // Links to a section (/aboutcontact#contact) are scrolled by the page itself
+    if (from === pathname || navigationType === 'POP' || hash) return;
     const section = (path: string) =>
       inPlacePrefixes.find((prefix) => path === prefix || path.startsWith(`${prefix}/`));
     const fromSection = section(from);
     if (fromSection && fromSection === section(pathname)) return;
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [pathname, navigationType]);
+  }, [pathname, hash, navigationType]);
 };
 
 export const App: FC = () => {

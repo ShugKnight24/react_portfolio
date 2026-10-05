@@ -219,7 +219,7 @@ export const Projects: FC = () => {
             Shumunov Solutions takes on consulting and contract work. Tell me what you are working
             on.
           </p>
-          <Link to="/aboutcontact" className={styles.ctaButton}>
+          <Link to="/aboutcontact#consulting" className={styles.ctaButton}>
             Get in touch <Arrow />
           </Link>
         </section>

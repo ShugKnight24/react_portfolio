@@ -30,6 +30,21 @@
   color: var(--w-muted, #9a9ea8);
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.address {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.875rem;
+  color: var(--w-muted, #9a9ea8);
+  user-select: all;
+}
+
 .contactGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
