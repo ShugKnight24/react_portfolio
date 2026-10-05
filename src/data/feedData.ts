@@ -120,17 +120,6 @@ export const postsArray: FeedPost[] = [
     },
   },
   {
-    id: 47,
-    title: 'You gotta keep on fighting',
-    content: `
-      There's a fire, a fight, a reason to be
-      So lift up your eyes and surrender the defeat!
-    `,
-    artist: 'Our Last Night',
-    song: 'Surrender the Defeat',
-    album: 'Selective Hearing',
-  },
-  {
     id: 46,
     title: 'The Art of War',
     content: `
@@ -229,9 +218,12 @@ export const postsArray: FeedPost[] = [
       I'll be your silver lining,
       You'll be my gold.
     `,
-    artist: 'Our Last Night',
-    song: 'Runaway (Galantis Cover)',
-    album: 'Selective Hearing',
+    artist: 'Galantis',
+    song: 'Runaway (U & I)',
+    youtubeInfo: {
+      videoId: '5XR7naZ_zZA',
+      videoLink: 'https://www.youtube.com/watch?v=5XR7naZ_zZA',
+    },
   },
   {
     id: 33,
