@@ -20,7 +20,7 @@ export interface SceneModule {
   mount: MountScene;
 }
 
-export type FunCategory = 'anime' | 'games' | 'comics' | 'movies' | 'studio';
+export type FunCategory = 'anime' | 'games' | 'comics' | 'movies' | 'studio' | 'legends';
 
 export interface FunSceneMeta {
   id: string;

@@ -9,6 +9,7 @@ import { theaterScenes } from './registry/theater';
 import { gamesMoreScenes } from './registry/games-more';
 import { animeMoreScenes } from './registry/anime-more';
 import { moviesMoreScenes } from './registry/movies-more';
+import { legendsScenes } from './registry/legends';
 import type { FunCategory, FunSceneMeta } from './types';
 
 export const FUN_CATEGORIES: { id: FunCategory; label: string }[] = [
@@ -17,6 +18,7 @@ export const FUN_CATEGORIES: { id: FunCategory; label: string }[] = [
   { id: 'comics', label: 'Comics' },
   { id: 'movies', label: 'Movies' },
   { id: 'studio', label: 'Studio' },
+  { id: 'legends', label: 'Legends of the game' },
 ];
 
 const SCENES: FunSceneMeta[] = [
@@ -180,6 +182,7 @@ const ALL_SCENES: FunSceneMeta[] = [
   ...moviesMoreScenes,
   ...gamesScenes,
   ...matrixScenes,
+  ...legendsScenes,
 ];
 
 /**
@@ -202,6 +205,8 @@ export const ARCHIVED_SCENE_IDS = new Set([
   'drum-kit',
   'jjk-hollow-purple',
   'unlimited-void',
+  'gojo-hollow-purple',
+  'gojo-unlimited-void',
 ]);
 
 export const FUN_ARCHIVE: FunSceneMeta[] = ALL_SCENES.filter((s) => ARCHIVED_SCENE_IDS.has(s.id));
@@ -211,9 +216,14 @@ export const FUN_SCENES: FunSceneMeta[] = FUN_CATEGORIES.flatMap(({ id }) =>
   ALL_SCENES.filter((s) => s.category === id && !ARCHIVED_SCENE_IDS.has(s.id))
 );
 
-export const FUN_GROUPS = FUN_CATEGORIES.map((c) => ({
+const ALL_GROUPS = FUN_CATEGORIES.map((c) => ({
   ...c,
   scenes: FUN_SCENES.filter((s) => s.category === c.id),
 })).filter((g) => g.scenes.length > 0);
+
+/** The tile gallery; the legends group renders separately, under the Sports Legends feature */
+export const FUN_GROUPS = ALL_GROUPS.filter((g) => g.id !== 'legends');
+
+export const LEGENDS_GROUP = ALL_GROUPS.find((g) => g.id === 'legends');
 
 export const findScene = (id: string | undefined) => FUN_SCENES.find((s) => s.id === id);

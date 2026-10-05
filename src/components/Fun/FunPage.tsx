@@ -5,11 +5,11 @@ import { saturdayMorningFilm } from '../Animations/films/saturday-morning';
 import type { RisoFilm } from '../Animations/riso/engine';
 import { DetroitCodeCity } from '../DetroitCodeCity';
 import { SportsLegends } from '../SportsLegends';
-import { SceneTile } from './SceneTile';
-import { ScenePlayer } from './ScenePlayer';
-import { FUN_GROUPS, FUN_SCENES, findScene } from './scenes';
-import { usePrefersReducedMotion } from './useSceneMount';
 import styles from './FunPage.module.css';
+import { ScenePlayer } from './ScenePlayer';
+import { SceneTile } from './SceneTile';
+import { FUN_GROUPS, FUN_SCENES, LEGENDS_GROUP, findScene } from './scenes';
+import { usePrefersReducedMotion } from './useSceneMount';
 
 const MUTE_KEY = 'fun:muted';
 
@@ -76,6 +76,26 @@ export const FunPage: FC = () => {
       return next;
     });
 
+  const renderGroup = (group: (typeof FUN_GROUPS)[number]) => (
+    <section key={group.id} className={styles.group} aria-labelledby={`fun-group-${group.id}`}>
+      <h2 id={`fun-group-${group.id}`} className={styles.groupTitle}>
+        <span>{group.label}</span>
+        <span className={styles.groupCount}>{String(group.scenes.length).padStart(2, '0')}</span>
+      </h2>
+      <ul className={styles.grid}>
+        {group.scenes.map((s) => (
+          <SceneTile
+            key={s.id}
+            scene={s}
+            index={FUN_SCENES.indexOf(s)}
+            reducedMotion={reducedMotion}
+            previewsEnabled={!scene}
+          />
+        ))}
+      </ul>
+    </section>
+  );
+
   return (
     <section className={styles.page} aria-labelledby="fun-title">
       <header className={styles.hero}>
@@ -95,31 +115,7 @@ export const FunPage: FC = () => {
         </p>
       </header>
 
-      <div className={styles.groups}>
-        {FUN_GROUPS.map((group) => (
-          <section
-            key={group.id}
-            className={styles.group}
-            aria-labelledby={`fun-group-${group.id}`}
-          >
-            <h2 id={`fun-group-${group.id}`} className={styles.groupTitle}>
-              <span>{group.label}</span>
-              <span className={styles.groupCount}>{String(group.scenes.length).padStart(2, '0')}</span>
-            </h2>
-            <ul className={styles.grid}>
-              {group.scenes.map((s) => (
-                <SceneTile
-                  key={s.id}
-                  scene={s}
-                  index={FUN_SCENES.indexOf(s)}
-                  reducedMotion={reducedMotion}
-                  previewsEnabled={!scene}
-                />
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
+      <div className={styles.groups}>{FUN_GROUPS.map(renderGroup)}</div>
 
       {/* Bigger pieces that don't fit in a tile: they sit at the end of the gallery */}
       <section className={styles.features} aria-labelledby="fun-features">
@@ -128,6 +124,7 @@ export const FunPage: FC = () => {
         </h2>
       </section>
       <SportsLegends />
+      {LEGENDS_GROUP && <div className={styles.legendsGroup}>{renderGroup(LEGENDS_GROUP)}</div>}
       <DetroitCodeCity />
       <section className={styles.feature} aria-labelledby="fun-saturday">
         <h2 id="fun-saturday" className={styles.groupTitle}>

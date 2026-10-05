@@ -13,6 +13,16 @@ export const moviesMoreScenes: FunSceneMeta[] = [
     load: () => import('../interstellar'),
   },
   {
+    id: 'inception',
+    category: 'movies',
+    title: 'Dream Within a Dream',
+    caption:
+      'A Paris street folds up over itself while the café blows apart in slow motion, then the kicks drop you down through rain, a turning hotel corridor, a snow fortress and limbo.',
+    hint: 'Hold or drag up to fold the city (drag down to unfold); in the hotel, hold or drag sideways to turn the corridor, at the fortress hold to blow the charges, and in limbo hold to bring the towers down. Tap, Space or Enter is the kick: it drops you a level, and out of limbo it wakes you. B also holds. Watch the top. Unmute for the horn.',
+    accent: '#c9a46a',
+    load: () => import('../inception'),
+  },
+  {
     id: 'rick-and-morty',
     category: 'movies',
     title: 'Portal Gun',

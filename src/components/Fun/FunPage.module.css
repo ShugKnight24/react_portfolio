@@ -122,6 +122,11 @@
   color: var(--fun-accent);
 }
 
+/* The legends' signature moves sit under the Sports Legends feature */
+.legendsGroup {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
 /* ---------- Grid ---------- */
 .grid {
   display: grid;
