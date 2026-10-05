@@ -1029,27 +1029,36 @@ const paintPyramids = (r: Riso, st: Studio) =>
     // far dune line
     const far = new Path2D();
     far.moveTo(-200, 940);
-    for (let x = -200; x <= 1800; x += 16) far.lineTo(x, H7 - 12 * Math.sin(x * 0.005 + 2));
+    // the far sand line: drifts piled up against each pyramid's base, so they sit in the dunes
+    const farTop = (x: number) => {
+      let y = H7 + 14 - 12 * Math.sin(x * 0.005 + 2) - 5 * Math.sin(x * 0.019 + 1);
+      for (const [cx, hw] of PYRS) y -= 20 * Math.exp(-(((x - cx) / (hw * 1.05)) ** 2));
+      return y;
+    };
+    for (let x = -200; x <= 1800; x += 12) far.lineTo(x, farTop(x));
     far.lineTo(1800, 940);
     far.closePath();
-    for (const [cx, hw, py] of PYRS) {
+    for (const [cx, hw0, py] of PYRS) {
+      // the faces run on below the sand line (hidden by the drifts)
+      const BASE = H7 + 46;
+      const hw = (hw0 * (BASE - py)) / (H7 + 6 - py);
       const lit = new Path2D();
-      lit.moveTo(cx - hw, H7 + 6);
+      lit.moveTo(cx - hw, BASE);
       lit.lineTo(cx, py);
-      lit.lineTo(cx + hw * 0.18, H7 + 6);
+      lit.lineTo(cx + hw * 0.18, BASE);
       lit.closePath();
       const sh = new Path2D();
-      sh.moveTo(cx + hw * 0.18, H7 + 6);
+      sh.moveTo(cx + hw * 0.18, BASE);
       sh.lineTo(cx, py);
-      sh.lineTo(cx + hw, H7 + 6);
+      sh.lineTo(cx + hw, BASE);
       sh.closePath();
       wash(g, st, lit, SD.pyramid, { reserve: 1, a: 0.92, gran: 0.6, rim: 2, soft: true, grad: [cx, py, cx, H7, mixHex(SD.pyramid, SD.sandPale, 0.3)] });
       wash(g, st, sh, SD.pyramidShade, { reserve: 1, a: 0.92, gran: 0.6, rim: 2, soft: true, grad: [cx, py, cx + hw, H7, deepen(SD.pyramidShade, 0.25)] });
       // courses of stone
       const cs = new Path2D();
-      for (let k = 1; k < 26; k++) {
-        const q = k / 26;
-        const y = lerp(py, H7, q);
+      for (let k = 1; k < 30; k++) {
+        const q = k / 30;
+        const y = lerp(py, BASE, q);
         const w = hw * q;
         cs.moveTo(cx - w, y);
         cs.lineTo(cx + w, y);
@@ -1063,9 +1072,29 @@ const paintPyramids = (r: Riso, st: Studio) =>
       g.restore();
       pencil(g, st, lit, 0.35, 1);
       pencil(g, st, sh, 0.35, 1);
-      sketchLine(g, st, [[cx, py], [cx + hw * 0.18, H7 + 6]], 0.3, 4);
+      sketchLine(g, st, [[cx, py], [cx + hw * 0.18, BASE]], 0.3, 4);
     }
     wash(g, st, far, mixHex(SD.sand, SD.duneRose, 0.35), { reserve: 1, a: 0.85, gran: 0.5, rim: 1.6, soft: true, grad: [0, H7, 0, 760, SD.sand] });
+    g.save();
+    g.clip(far);
+    // each pyramid's shadow falling across the sand at its foot, and ripples to break up the plain
+    for (const [cx, hw] of PYRS) {
+      g.save();
+      g.filter = `blur(${(14 * 1.15 * r.scale).toFixed(1)}px)`;
+      wash(g, st, blob(cx + hw * 0.6, farTop(cx + hw * 0.6) + 10, hw * 0.7, 12, Math.floor(cx), 0.15), SD.duneShade, { a: 0.22, gran: 0, rim: 0 });
+      g.restore();
+    }
+    mottle(g, -200, H7, 2000, 200, [SD.duneShade, SD.sandPale, SD.duneRose], 26, 73, 0.22, 0.6);
+    const fr = new Path2D();
+    const frng = mulberry(74);
+    for (let i = 0; i < 90; i++) {
+      const x = -200 + frng() * 2000;
+      const y = farTop(x) + 12 + frng() * 150;
+      fr.moveTo(x - 16, y);
+      fr.quadraticCurveTo(x, y - 2.5, x + 18, y + 1);
+    }
+    strokeP(g, fr, SD.duneShade, 1, 0.35, 'multiply');
+    g.restore();
     // foreground dune
     const near = new Path2D();
     near.moveTo(-200, 940);
@@ -1090,14 +1119,18 @@ const paintPyramids = (r: Riso, st: Studio) =>
 
 /* ---------- caravan sprites ---------- */
 
+const CARAVAN_PH = 24;
 const paintCaravan = (r: Riso, st: Studio): Plate[] => {
   const out: Plate[] = [];
-  for (let i = 0; i < 12; i++) {
+  // two loads (pack / rider) x CARAVAN_PH gait phases; a camel keeps its load for the whole walk
+  for (let n = 0; n < 2 * CARAVAN_PH; n++) {
+    const rider = n >= CARAVAN_PH;
+    const i = n % CARAVAN_PH;
     out.push(
       bake(r, -80, -200, 240, 210, 1.1, (g) => {
-        const pose = camelWalk(i / 12);
-        const m = drawCamel(g, st, pose, { t: i * 0.3, pack: i % 3 !== 1, saddle: i % 3 === 1, pencil: 0.25 });
-        if (i % 3 === 1) {
+        const pose = camelWalk(i / CARAVAN_PH);
+        const m = drawCamel(g, st, pose, { t: 0, pack: !rider, saddle: rider, pencil: 0.25 });
+        if (rider) {
           // a robed rider
           const [sx, sy] = m.seat;
           const robe = smoothPath([[sx - 8, sy + 4], [sx - 6, sy - 26], [sx + 2, sy - 32], [sx + 9, sy - 24], [sx + 14, sy + 6], [sx + 18, sy + 22], [sx - 2, sy + 20]], true, 0.4);
@@ -1839,7 +1872,7 @@ const dunesBack = (r: Riso, s: State, C: Cam, t: number, tod: { top: string; mid
         const x = 300 + (t - T5) * 48 - i * 120;
         const y = dMidY(x) + 4;
         const ph = (((x / (79 * 0.42)) % 1) + 1) % 1;
-        const pl2 = s.caravan[Math.floor(ph * 12) % 12];
+        const pl2 = s.caravan[(i % 3 === 1 ? CARAVAN_PH : 0) + (Math.floor(ph * CARAVAN_PH) % CARAVAN_PH)];
         c.save();
         c.translate(x, y);
         c.scale(0.42, 0.42);
@@ -1904,11 +1937,13 @@ const drawCh5 = (r: Riso, s: State, t: number) => {
   const haze = Math.min(1, tween(t, T_STORM, 43.6) * 0.75 + tween(t, 44.2, T_NIGHT, ease.inSine) * 0.25);
   if (haze > 0.01) {
     screen(r);
+    // toward the end the cover takes on exactly the colour the night camp clears from, so the cut under it is seamless
+    const k2 = tween(t, 43.8, T_NIGHT, ease.inOutSine);
     c.save();
-    c.globalAlpha = haze * 0.9;
+    c.globalAlpha = haze * lerp(0.9, 1, k2);
     const g = c.createLinearGradient(0, 0, 1600, 900);
-    g.addColorStop(0, rgba('#d7a46a', 0.9));
-    g.addColorStop(1, rgba('#b98458', 0.95));
+    g.addColorStop(0, rgba(mixHex('#d7a46a', '#b98458', k2), lerp(0.9, 1, k2)));
+    g.addColorStop(1, rgba(mixHex('#b98458', '#5a4a6a', k2), lerp(0.95, 1, k2)));
     c.fillStyle = g;
     c.fillRect(0, 0, 1600, 900);
     c.restore();
@@ -2045,10 +2080,10 @@ const drawCamp = (r: Riso, s: State, t: number) => {
   if (clear > 0.01) {
     screen(r);
     c.save();
-    c.globalAlpha = clear * 0.92;
+    c.globalAlpha = clear;
     const g = c.createLinearGradient(0, 0, 1600, 900);
-    g.addColorStop(0, rgba('#b98458', 0.95));
-    g.addColorStop(1, rgba('#5a4a6a', 0.95));
+    g.addColorStop(0, rgba('#b98458', 1));
+    g.addColorStop(1, rgba('#5a4a6a', 1));
     c.fillStyle = g;
     c.fillRect(0, 0, 1600, 900);
     c.restore();

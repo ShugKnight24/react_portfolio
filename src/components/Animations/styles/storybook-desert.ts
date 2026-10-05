@@ -579,10 +579,12 @@ export const camelWalk = (p: number, stride = 46): CamelPose => {
   const foot = (off: number, base: number): [Pt, number] => {
     const q = (((p + off) % 1) + 1) % 1;
     const duty = 0.58;
-    if (q < duty) return [[base + stride * (0.5 - q / duty), 0], 0.35 - (q / duty) * 0.3];
+    if (q < duty) return [[base + stride * (0.5 - q / duty), 0], 0.45 - (q / duty) * 0.5];
     const s = (q - duty) / (1 - duty);
     const e = s * s * (3 - 2 * s);
-    return [[base + stride * (-0.5 + e), Math.sin(Math.PI * s) * 13], 0.25 + Math.sin(Math.PI * s) * 1.1];
+    // a high, loose swing: the foot lifts early and the pastern folds back under it
+    const lift = Math.sin(Math.PI * Math.pow(s, 0.8));
+    return [[base + stride * (-0.5 + e), lift * 17], 0.3 + lift * 1.45];
   };
   const fn = foot(0, C_FRONT[1]);
   const bn = foot(0.04, C_HIND[1]);

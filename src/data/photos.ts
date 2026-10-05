@@ -870,14 +870,6 @@ export const photos: Photo[] = [
   }),
   img(
     'me',
-    'shug-pirate-ship',
-    1500,
-    2000,
-    'Shug sitting on a big green alligator statue in front of a pirate ship playground',
-    { caption: 'Captain' }
-  ),
-  img(
-    'me',
     'shug-model-t',
     1500,
     2000,
@@ -915,6 +907,14 @@ export const photos: Photo[] = [
 
 /** Taken off the site but kept for reference; nothing renders these */
 export const archivedPhotos: Photo[] = [
+  img(
+    'me',
+    'shug-pirate-ship',
+    1500,
+    2000,
+    'Shug sitting on a big green alligator statue in front of a pirate ship playground',
+    { caption: 'Captain' }
+  ),
   img(
     'travel',
     'shug-on-the-pier',
