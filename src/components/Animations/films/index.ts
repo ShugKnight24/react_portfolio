@@ -1,4 +1,5 @@
 import type { RisoFilm } from '../riso/engine';
+import { alchemistFilm } from './alchemist';
 import { auraFilm } from './aura';
 import { bSideFilm } from './b-side';
 import { bakuDetroitFilm } from './baku-detroit';
@@ -7,6 +8,7 @@ import { blueprintV8Film } from './blueprint-v8';
 import { buzzerBeaterFilm } from './buzzer-beater';
 import { decoMotorCityFilm } from './deco-motor-city';
 import { decoOrientLineFilm } from './deco-orient-line';
+import { gymSessionFilm } from './gym-session';
 import { helloWorldFilm } from './hello-world';
 import { inkCaspianWindFilm } from './ink-caspian-wind';
 import { inkIronMountainFilm } from './ink-iron-mountain';
@@ -40,9 +42,12 @@ import { windowSeatFilm } from './window-seat';
 
 // Reel order. Each film is typed with its own state; the player only needs the shared shape
 const ALL_FILMS = [
+  alchemistFilm,
+  littlePrinceFilm,
   lunaFilm,
   bakuDetroitFilm,
   ironHoursFilm,
+  gymSessionFilm,
   insertCoinFilm,
   auraFilm,
   buzzerBeaterFilm,
@@ -77,7 +82,6 @@ const ALL_FILMS = [
   risoNightWalkFilm,
   paperSnowDayFilm,
   inkCaspianWindFilm,
-  littlePrinceFilm,
 ] as unknown as RisoFilm<never>[];
 
 /** Archived films stay in the codebase but leave the reel. Remove an id here to bring one back. */
@@ -88,6 +92,9 @@ export const ARCHIVED_FILM_IDS = new Set([
   'pop-gym-hero',
   'kinetic-splits',
   'kinetic-twelve-rounds',
+  'noir-long-take',
+  'noir-coming-soon',
+  'iron-hours',
 ]);
 
 export const FILM_ARCHIVE = ALL_FILMS.filter((f) => ARCHIVED_FILM_IDS.has(f.id));

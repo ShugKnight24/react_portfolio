@@ -1531,6 +1531,279 @@ export const drawFox = (c: Ctx, st: Studio, pose: FoxPose, o: FoxOpts) => {
   return { nose: np, eye: e, head: hp([20, 0]), rump, chest: tp([45, 0]) };
 };
 
+/* ---------- Luna herself (a fox-like portrait of the real dog) ---------- */
+
+/** Luna's colours: pale fawn, white chest/legs/tail tip, charcoal muzzle, grey-brown rose ears */
+export const LUNA_COL = {
+  coat: '#d8ab72',
+  coatDeep: '#b27e4a',
+  white: '#f6efe2',
+  mask: '#77706e',
+  ear: '#866550',
+  earDeep: '#5e4636',
+  nose: '#262222',
+  eye: '#4a2c1c',
+  bandana: '#c9484f',
+} as const;
+
+const L_TORSO: Pt[] = [
+  [53, -7], [49, -20], [35, -28], [14, -25], [-10, -22], [-32, -24], [-48, -22], [-58, -10],
+  [-55, 7], [-42, 13], [-24, 7], [-4, 10], [16, 21], [37, 20], [50, 9],
+];
+/** Broad skull, soft stop, a blocky muzzle with a little jowl */
+const L_HEAD: Pt[] = [[-8, -2], [-5, -14], [5, -21], [17, -20.5], [25, -13], [32, -9.5], [41, -8.5], [48, -6.5], [51, -2], [51, 4], [47, 10], [39, 14], [30, 16.5], [21, 17], [9, 15], [-2, 9]];
+const L_MASK: Pt[] = [[30, -9.5], [41, -8.5], [48, -6.5], [51, -2], [51, 3.5], [45, 2.5], [37, 1.5], [30, -1.5]];
+const L_JAW: Pt[] = [[23, 5], [36, 4], [46, 4.5], [51, 4.5], [47, 10], [39, 14], [30, 16.5], [21, 17], [16, 10]];
+/** Rose ear: up off the back of the skull, then the tip folds over and down */
+const L_EAR: Pt[] = [[11, -15], [6, -20.5], [-2, -22.5], [-10, -20], [-15, -14], [-14.5, -9], [-10, -8], [-4, -10.5], [2, -10]];
+/** the folded-over edge: the darker leather at the tip */
+const L_EAR_FOLD: Pt[] = [[-2, -22.5], [-10, -20], [-15, -14], [-14.5, -9], [-11.5, -10.5], [-9, -15.5], [-4, -19]];
+
+export interface LunaOpts extends FoxOpts {
+  /** a small rose-red neckerchief, 0..1 */
+  bandana?: number;
+}
+
+/**
+ * Luna, drawn as herself with a fox's grace: pale fawn coat, white blaze from throat to chest,
+ * white legs and tail tip, a blocky charcoal-masked muzzle, dark brows, soft brown eyes and big
+ * semi-folded ears. Same FoxPose rig, ground at y = 0, facing +x.
+ */
+export const drawLuna = (c: Ctx, st: Studio, pose: FoxPose, o: LunaOpts) => {
+  const t = o.t;
+  const L = LUNA_COL;
+  const tp = (q: Pt): Pt => {
+    const r = rot(q, pose.tilt, F_HIP);
+    return [r[0], r[1] - pose.y];
+  };
+  const roots = foxRoots(pose.tilt);
+  const R = (q: Pt): Pt => [q[0], q[1] - pose.y];
+  const foot = (q: Pt): Pt => [q[0], -q[1] - PAW];
+  const legs = {
+    ff: frontLeg(R(roots.ff), foot(pose.feet.ff), pose.pa[0]),
+    fn: frontLeg(R(roots.fn), foot(pose.feet.fn), pose.pa[1]),
+    bf: hindLeg(R(roots.bf), foot(pose.feet.bf), pose.ma[0]),
+    bn: hindLeg(R(roots.bn), foot(pose.feet.bn), pose.ma[1]),
+  };
+  const sil = new Path2D();
+  const penA = o.pencil ?? 0.32;
+  const part = (path: Path2D, color: string, opt: WashOpts = {}, pen = true) => {
+    wash(c, st, path, color, { reserve: 0.96, a: 0.86, gran: 0.4, rim: 1.6, rimA: 0.45, ...opt });
+    sil.addPath(path);
+    if (pen && penA > 0) pencil(c, st, path, penA, 0.8);
+  };
+  const mid = (a: Pt, b: Pt, k: number): Pt => [lerp(a[0], b[0], k), lerp(a[1], b[1], k)];
+  const pawP = (pt: Pt, a: number, p: Path2D) => {
+    const P = (x: number, y: number): Pt => add(pt, rot([x, y], a));
+    return smoothPath([P(-5.5, -3.8), P(2, -5.5), P(8, -3.2), P(10, 0.5), P(9, 3.6), P(-5, 3.6)], true, 0.5, p);
+  };
+  /** a leg: white from the elbow/stifle down, fawn above, as in her photos */
+  const front = (j: Pt[], far: boolean) => {
+    const white = chain([j[0], j[1], j[2], j[3]], [17.5, 12, 9, 8]);
+    pawP([j[3][0] + 2, j[3][1]], (angOf(j[2], j[3]) - 0.25) * 0.4 - Math.max(0, -(j[3][1] + PAW) / 30), white);
+    part(white, far ? deepen(L.white, 0.18) : L.white, { gran: 0.2, edge: deepen(L.coat, 0.2), rimA: 0.35 });
+    const upper = chain([j[0], j[1], mid(j[1], j[2], 0.25)], [18, 12.5, 10.5]);
+    part(upper, far ? deepen(L.coat, 0.3) : L.coat, { gran: 0.45 }, false);
+  };
+  const hind = (j: Pt[], far: boolean) => {
+    const [hip, s, h, paw] = j;
+    const lower = chain([s, h, paw], [13, 7.6, 7]);
+    pawP([paw[0] + 2, paw[1]], (angOf(h, paw) - 0.1) * 0.4, lower);
+    part(lower, far ? deepen(L.white, 0.18) : L.white, { gran: 0.2, edge: deepen(L.coat, 0.2), rimA: 0.35 });
+    const dx = s[0] - hip[0];
+    const dy = s[1] - hip[1];
+    const l = Math.hypot(dx, dy) || 1;
+    const nx = -dy / l;
+    const ny = dx / l;
+    const A = (k: number, side: number): Pt => [hip[0] + dx * k + nx * side, hip[1] + dy * k + ny * side];
+    const thigh = smoothPath([A(-0.4, 15), A(-0.4, -12), A(0.35, -13), A(1.05, -6), A(1.12, 0), A(1.0, 7), A(0.55, 15), A(0.05, 19.5)], true, 0.5);
+    // the fawn runs down the back of the gaskin to the hock
+    chain([s, mid(s, h, 0.75)], [12.5, 8], thigh);
+    part(thigh, far ? deepen(L.coat, 0.3) : L.coat, { gran: 0.5, grad: [hip[0], hip[1], s[0], s[1] + 10, far ? deepen(L.coat, 0.4) : deepen(L.coat, 0.12)] });
+  };
+
+  // tail: medium length, slim, fawn with a white tip and a little upward curl at the end
+  const rump = tp([-47, -13]);
+  const wag = (o.wag ?? 0) * Math.sin(t * 7);
+  const tailPts: Pt[] = [rump];
+  let ang = Math.PI / 2 + 0.35 + pose.tail * 0.9 + pose.tilt;
+  ang = ang + 0.05 * Math.sin(t * 1.3) + wag * 0.18;
+  for (let i = 1; i < 8; i++) {
+    const prev = tailPts[i - 1];
+    const len = 9.2 - i * 0.3;
+    ang -= pose.curl + 0.03 * Math.sin(t * 1.7 - i * 0.6) + wag * 0.05 * i - (i > 4 ? 0.16 : 0);
+    let nx = prev[0] + Math.cos(ang) * len;
+    let ny = prev[1] + Math.sin(ang) * len;
+    if (ny > -4) ny = -4;
+    if (ny > -4.5 && i > 2) nx = prev[0] + Math.sign(Math.cos(ang) || 1) * len;
+    tailPts.push([nx, ny]);
+  }
+  const prof = (k: number) => lerp(10.5, 4.2, k) + Math.sin(Math.min(1, k * 1.3) * Math.PI) * 2.2;
+  const tail = ribbon(tailPts, prof);
+  const tailTip = ribbon(tailPts.slice(5), (k) => lerp(prof(0.71), 3.2, k));
+
+  // head mapping
+  const hs = 1.3;
+  const neckBase = tp([38, -15]);
+  const nAng = pose.neck + (o.lookUp ?? 0);
+  const nd: Pt = [Math.cos(nAng), Math.sin(nAng)];
+  const nb: Pt = [Math.sin(nAng), -Math.cos(nAng)];
+  const end: Pt = [neckBase[0] + nd[0] * 20, neckBase[1] + nd[1] * 20];
+  const ha = pose.head + pose.tilt * 0.2;
+  const anc = rot([5 * hs, 6 * hs], ha);
+  const hp = (q: Pt): Pt => {
+    // a shorter, blockier muzzle than a fox's: compress everything forward of the stop
+    const qx = q[0] > 24 ? 24 + (q[0] - 24) * 0.8 : q[0];
+    const r = rot([qx * hs, q[1] * hs], ha);
+    return [r[0] - anc[0] + end[0], r[1] - anc[1] + end[1]];
+  };
+  // ears: alert lifts them up and forward (semi-pricked), relaxed lets them hang back
+  const earLift = (1 - pose.ears) * 0.55;
+  const earRot = (pts: Pt[], dx: number, dy: number) =>
+    pts.map((q) => hp(add(rot([q[0] * 1.15, q[1] * 1.1], earLift - 0.05 * Math.sin(t * 0.9), [8, -14]), [dx, dy])));
+
+  // far side first
+  front(legs.ff, true);
+  hind(legs.bf, true);
+  part(smoothPath(earRot(L_EAR, 6, -3), true, 0.4), L.earDeep, { gran: 0.35 });
+  part(tail, L.coat, { grad: [...tailPts[0], ...tailPts[7], deepen(L.coat, 0.15)] as [number, number, number, number, string], gran: 0.45 });
+  part(tailTip, L.white, { gran: 0.15, rim: 1, edge: deepen(L.coat, 0.2) }, false);
+  // body: deep chest, white underline
+  const torso = smoothPath(L_TORSO.map(([x, y]) => tp([x * 0.84 - 3, y])), true, 0.5);
+  const tTop = tp([0, -27]);
+  const tBot = tp([0, 20]);
+  part(torso, L.coat, { grad: [tTop[0], tTop[1], tBot[0], tBot[1], deepen(L.coat, 0.15)], gran: 0.5, rim: 2 });
+  const belly = smoothPath([tp([-30, 6]), tp([-10, 4]), tp([14, 12]), tp([36, 15]), tp([30, 20]), tp([14, 20]), tp([-6, 10]), tp([-26, 9])], true, 0.5);
+  wash(c, st, belly, L.white, { reserve: 0.9, a: 0.8, gran: 0.15, rim: 0 });
+  lift(c, smoothPath([tp([-44, -20]), tp([-10, -20.5]), tp([30, -25]), tp([10, -16]), tp([-30, -16])], true, 0.5), 0.28);
+  // a thick neck with the white blaze running up the throat
+  const neck = smoothPath([tp([14, -25]), [end[0] + nb[0] * 13, end[1] + nb[1] * 13], [end[0] - nb[0] * 13, end[1] - nb[1] * 13], tp([51, 2])], true, 0.35);
+  part(neck, L.coat, { gran: 0.5 });
+  hind(legs.bn, false);
+  front(legs.fn, false);
+  const chest = smoothPath([tp([30, -6]), [end[0] - nb[0] * 2, end[1] - nb[1] * 2], hp([18, 14]), tp([54, -4]), tp([48, 13]), tp([36, 20]), tp([24, 14])], true, 0.45);
+  part(chest, L.white, { gran: 0.15, rim: 1.2, edge: deepen(L.coat, 0.2), rimA: 0.35 });
+  // neckerchief
+  const bd = o.bandana ?? 0;
+  if (bd > 0.01) {
+    const a = [end[0] + nb[0] * 11, end[1] + nb[1] * 11] as Pt;
+    const b = [end[0] - nb[0] * 11, end[1] - nb[1] * 11] as Pt;
+    const tipP: Pt = [lerp(a[0], b[0], 0.6) + nd[0] * -4 + 6, Math.max(a[1], b[1]) + 13];
+    const band = smoothPath([[a[0] - nd[0] * 3, a[1] - nd[1] * 3], [b[0] - nd[0] * 2, b[1] - nd[1] * 2], tipP], true, 0.25);
+    c.save();
+    c.globalAlpha = bd;
+    part(band, L.bandana, { gran: 0.4, rim: 1.2 });
+    c.restore();
+  }
+  // head
+  const head = smoothPath(L_HEAD.map(hp), true, 0.5);
+  part(head, L.coat, { gran: 0.45, rim: 1.6, grad: [...hp([0, -18]), ...hp([20, 15]), deepen(L.coat, 0.12)] as [number, number, number, number, string] });
+  part(smoothPath(L_JAW.map(hp), true, 0.5), L.white, { gran: 0.12, rim: 1, edge: deepen(L.coat, 0.15), rimA: 0.3 }, false);
+  wash(c, st, smoothPath(L_MASK.map(hp), true, 0.5), L.mask, { a: 0.4, gran: 0.45, rim: 0.6, grad: [...hp([30, -6]), ...hp([50, 0]), L.mask] as [number, number, number, number, string] });
+  // jowl line and wrinkles on the brow
+  const lines = new Path2D();
+  const ln = (a: Pt, b: Pt, m: Pt) => {
+    const A = hp(a);
+    const B = hp(b);
+    const M = hp(m);
+    lines.moveTo(A[0], A[1]);
+    lines.quadraticCurveTo(M[0], M[1], B[0], B[1]);
+  };
+  ln([30, -1], [26, 12], [25, 5]);
+  ln([12, -15], [20, -16], [16, -17.5]);
+  ln([10, 12], [3, 15], [6, 14.5]);
+  // ears
+  const ear = smoothPath(earRot(L_EAR, 0, 2), true, 0.4);
+  part(ear, mixHex(L.coat, L.ear, 0.45), { gran: 0.4, grad: [...hp([6, -14]), ...hp([-14, -14]), L.ear] as [number, number, number, number, string] });
+  wash(c, st, smoothPath(earRot(L_EAR_FOLD, 0, 2), true, 0.4), L.earDeep, { a: 0.75, gran: 0.3, rim: 0.6 });
+  // brows: the dark smudges over her eyes
+  const e = hp([24, -6]);
+  const brow = new Path2D();
+  brow.ellipse(...hp([22, -11.5]), 3.6 * hs, 1.9 * hs, ha - 0.25, 0, TAU);
+  wash(c, st, brow, '#6a4a3a', { a: 0.5, gran: 0.2, rim: 0 });
+  // eye: round, soft, brown
+  const blink = pose.blink ?? 0;
+  const ex = (x: number, y: number) => {
+    const q = rot([x, y], ha);
+    return [e[0] + q[0], e[1] + q[1]] as Pt;
+  };
+  const eo = 2.3 * (1 - blink);
+  const eye = new Path2D();
+  const E = [ex(-3.6, 0.3), ex(0, -eo), ex(3.8, -0.2), ex(0, eo * 0.9)];
+  eye.moveTo(E[0][0], E[0][1]);
+  eye.quadraticCurveTo(E[1][0], E[1][1], E[2][0], E[2][1]);
+  eye.quadraticCurveTo(E[3][0], E[3][1], E[0][0], E[0][1]);
+  c.save();
+  c.fillStyle = rgba(L.eye, 0.95);
+  c.fill(eye);
+  c.strokeStyle = rgba('#241712', 0.9);
+  c.lineWidth = 1.1;
+  c.stroke(eye);
+  if (blink < 0.6) {
+    const hi = ex(0.9, -0.9);
+    c.fillStyle = rgba('#fff8e8', 0.9);
+    c.beginPath();
+    c.arc(hi[0], hi[1], 0.8, 0, TAU);
+    c.fill();
+  }
+  c.restore();
+  // nose: big and black
+  const np = hp([49.5, 0.5]);
+  const nose = new Path2D();
+  nose.ellipse(np[0], np[1], 4.2, 3.4, ha, 0, TAU);
+  c.fillStyle = rgba(L.nose, 0.95);
+  c.fill(nose);
+  lift(c, (() => {
+    const p = new Path2D();
+    const q = hp([48.5, -1]);
+    p.ellipse(q[0], q[1], 1.4, 0.8, ha, 0, TAU);
+    return p;
+  })(), 0.5);
+  // mouth, with a happy pant when open
+  const mo = pose.mouth ?? 0;
+  if (mo > 0.3) {
+    const open = smoothPath([hp([47, 6]), hp([40, 9 + mo * 4]), hp([31, 9 + mo * 2]), hp([38, 7.5])], true, 0.5);
+    wash(c, st, open, '#5a3438', { a: 0.85, gran: 0, rim: 0.5, reserve: 0.9 });
+    const tongue = smoothPath([hp([41, 9]), hp([44, 10 + mo * 5]), hp([38, 12 + mo * 5]), hp([35, 9.5])], true, 0.5);
+    wash(c, st, tongue, '#e48c96', { a: 0.85, gran: 0, rim: 0.6, reserve: 0.9 });
+  }
+  const mouth = new Path2D();
+  const m0 = hp([48, 5.5]);
+  const mm = hp([40, 8.5 + mo * 3]);
+  const m1 = hp([30, 8 + mo * 1.5]);
+  mouth.moveTo(m0[0], m0[1]);
+  mouth.quadraticCurveTo(mm[0], mm[1], m1[0], m1[1]);
+  c.save();
+  c.lineCap = 'round';
+  c.strokeStyle = rgba(L.nose, 0.75);
+  c.lineWidth = 1;
+  c.stroke(mouth);
+  c.globalCompositeOperation = 'multiply';
+  c.globalAlpha = 0.45;
+  c.strokeStyle = deepen(L.coat, 0.5);
+  c.lineWidth = 0.8;
+  c.stroke(lines);
+  c.restore();
+
+  if (o.tint && o.tint[1] > 0.01) {
+    c.save();
+    c.globalCompositeOperation = 'multiply';
+    c.globalAlpha = o.tint[1];
+    c.fillStyle = o.tint[0];
+    c.fill(sil);
+    c.restore();
+  }
+  if (o.glow && o.glow > 0.01) {
+    c.save();
+    c.globalCompositeOperation = 'multiply';
+    c.globalAlpha = o.glow * 0.3;
+    c.fillStyle = SB.apricot;
+    c.fill(sil);
+    c.restore();
+  }
+  return { nose: np, eye: e, head: hp([20, 0]), rump, chest: tp([45, 0]) };
+};
+
 /* ---------- the rose ---------- */
 
 /** The rose, base at (0, 0), about 46 units tall. open 0..1 */

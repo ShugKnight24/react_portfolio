@@ -13,7 +13,7 @@ import {
   blobPts,
   bloomAt,
   deepen,
-  drawFox,
+  drawLuna,
   drawMan,
   drawPaperStar,
   drawPlate,
@@ -132,7 +132,7 @@ const MAN_CHAIR: ManPose = { spine: -0.04, head: -0.06, aN: [0.38, 1.25, 1.3], a
 const MAN_FLOAT: ManPose = { spine: -0.04, head: -0.18, aN: [2.7, 2.88, 2.95], aF: [0.32, 0.6, 0.6], lN: [0.3, -0.12, 1.15], lF: [0.04, -0.4, 0.95], smile: 0.8, look: -0.6 };
 const MAN_SITG: ManPose = { spine: -0.02, head: 0.05, aN: [0.6, 1.75, 1.85], aF: [0.45, 1.6, 1.7], lN: [2.1, 0.42, 1.4], lF: [1.8, 0.2, 1.5], smile: 0.7 };
 const MAN_REACH: ManPose = { spine: 0.16, head: 0.12, aN: [1.32, 1.5, 1.62], aF: [0.45, 1.6, 1.7], lN: [2.0, 0.35, 1.4], lF: [1.8, 0.2, 1.5], smile: 0.85, look: 0.4 };
-const MAN_REST: ManPose = { spine: -0.22, head: 0.32, aN: [0.95, 1.55, 1.7], aF: [-0.55, -0.35, -0.3], lN: [1.62, 1.48, 2.6], lF: [2.05, 0.5, 1.4], smile: 0.95, look: 0.7 };
+const MAN_REST: ManPose = { spine: -0.22, head: 0.32, aN: [0.75, 1.2, 1.5], aF: [-0.55, -0.35, -0.3], lN: [1.62, 1.48, 2.6], lF: [2.05, 0.5, 1.4], smile: 0.95, look: 0.7 };
 const MAN_BOW: ManPose = { spine: 0.5, head: 0.42, aN: [1.0, 1.9, 2.0], aF: [0.8, 1.6, 1.7], lN: [1.42, 0.06, P / 2], lF: [0.15, -1.5, -1.55], smile: 0.9, blink: 1, look: 0.6 };
 const MAN_LOOKUP: ManPose = { spine: -0.14, head: -0.42, aN: [0.6, 1.75, 1.85], aF: [-0.5, -0.3, -0.25], lN: [2.1, 0.42, 1.4], lF: [1.8, 0.2, 1.5], smile: 0.7, look: -1 };
 
@@ -685,11 +685,11 @@ const man = (c: Ctx, s: State, x: number, groundY: number, sc: number, face: num
 /** world position of a rig point on a drawn prince */
 const manPt = (m: { px: number; py: number; sc: number; face: number }, q: Pt): Pt => [m.px + q[0] * m.sc * m.face, m.py + q[1] * m.sc];
 
-const fox = (c: Ctx, s: State, x: number, groundY: number, sc: number, face: number, p: FoxPose, o: Partial<Parameters<typeof drawFox>[3]> & { t: number }) => {
+const fox = (c: Ctx, s: State, x: number, groundY: number, sc: number, face: number, p: FoxPose, o: Partial<Parameters<typeof drawLuna>[3]> & { t: number }) => {
   c.save();
   c.translate(x, groundY);
   c.scale(sc * face, sc);
-  const r = drawFox(c, s.st, p, o);
+  const r = drawLuna(c, s.st, p, o);
   c.restore();
   const w = (q: Pt): Pt => [x + q[0] * sc * face, groundY + q[1] * sc];
   return { nose: w(r.nose), eye: w(r.eye), head: w(r.head), rump: w(r.rump), chest: w(r.chest) };
@@ -1362,7 +1362,7 @@ const drawField = (r: Riso, s: State, t: number) => {
     if (t > 46.4 && t < 50.4) fGround -= Math.max(0, Math.sin(t * 2.4 * TAU + 0.3)) * 10;
     // fox lands lying beside him, head on his knee
     if (t > 50.5) {
-      fx = lerp(fx, HILL_X - 6, tween(t, 50.5, 51.4));
+      fx = lerp(fx, HILL_X + 10, tween(t, 50.5, 51.4));
       fGround = gy(fx) + 40;
       fFace = -1;
     }
@@ -1506,7 +1506,7 @@ const drawField = (r: Riso, s: State, t: number) => {
   }
   // the fox
   if (fOn) {
-    fox(c, s, fx, fGround, 0.5, fFace, fPose, { t, wag, tint, glow, lookUp });
+    fox(c, s, fx, fGround, 0.5, fFace, fPose, { t, wag, tint, glow, lookUp, bandana: tween(t, 45.6, 46.2) });
   }
   // the prince
   const m = man(c, s, px, pGround, 1, pFace, pose, {
@@ -1589,12 +1589,16 @@ const drawField = (r: Riso, s: State, t: number) => {
 
 /** Luna's constellation: ear tips, head, chest, paws, haunch, tail (screen space, sitting, facing left) */
 const CONST: Pt[] = [
-  [905, 150], [897, 196], [840, 226], [872, 243], [878, 300], [878, 420], [965, 420], [1006, 362], [962, 282], [936, 214], [943, 158], [922, 200],
-  [1040, 428], [1086, 402], [1094, 360],
+  [880, 196], [898, 168], [924, 170], [946, 186], [952, 214], [978, 228],
+  [964, 282], [1008, 362], [965, 420], [878, 420], [880, 300], [862, 258], [834, 242], [836, 212], [866, 198],
+  [1030, 404], [1060, 380], [1066, 352],
 ];
-const CONST_LINES: [number, number][] = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11], [11, 0], [6, 12], [12, 13], [13, 14]];
+/** ear (folded), skull, neck, back, haunch, paws, chest, jowl, blocky muzzle, brow; then the tail curling up */
+const CONST_LINES: [number, number][] = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [14, 0], [8, 15], [15, 16], [16, 17]];
 /** her eye: the star that shines back */
-const EYE: Pt = [873, 214];
+const EYE: Pt = [874, 214];
+/** the outline (no tail) for the soft fill */
+const CONST_BODY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0];
 
 const C7_START: Cam = { x: C1[0] + 310, y: C1[1] + 760 - manLow(MAN_FLOAT) - 10 + 80, z: 1.1, rot: 0 };
 
@@ -1651,8 +1655,8 @@ const drawCh7 = (r: Riso, s: State, t: number) => {
   c.save();
   c.translate(cdx, cdy);
   if (fillK > 0) {
-    const body = smoothPath(CONST.slice(0, 12), true, 0.3);
-    const tail = ribbon([CONST[6], CONST[12], CONST[13], CONST[14]], (q) => 4 + Math.sin(q * P) * 26);
+    const body = smoothPath(CONST_BODY.map((i) => CONST[i]), true, 0.3);
+    const tail = ribbon([CONST[8], CONST[15], CONST[16], CONST[17]], (q) => 4 + Math.sin(q * P) * 16);
     c.save();
     c.globalCompositeOperation = 'screen';
     c.globalAlpha = 0.2 * fillK;
@@ -1684,7 +1688,7 @@ const drawCh7 = (r: Riso, s: State, t: number) => {
     if (on <= 0) return;
     const tw = 0.75 + 0.25 * Math.sin(t * 3 + i * 1.3) + laugh * 0.5 * Math.max(0, Math.sin(t * 7 - i));
     starAt(c, s.st, p[0], p[1], 5.5 * tw, on);
-    if (i === 0 || i === 10 || i === 5 || i === 14) sparkle(c, p[0], p[1], 8 * tw, 1.4, '#ffefc4', on * 0.9, 0.05);
+    if (i === 2 || i === 9 || i === 7 || i === 17) sparkle(c, p[0], p[1], 8 * tw, 1.4, '#ffefc4', on * 0.9, 0.05);
   });
   c.restore();
   c.restore();
