@@ -5,6 +5,7 @@ import { Content, Footer, Layout, Main } from './components/Layout';
 import { HeaderDrawer } from './components/Layout/HeaderDrawer';
 import { Loading } from './components/Loading';
 import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
+import { useRouteMeta } from './utils/usePageMeta';
 
 type World = 'motor' | 'codex' | 'arcade';
 
@@ -68,6 +69,7 @@ const useScrollReset = () => {
 export const App: FC = () => {
   useWorld();
   useScrollReset();
+  useRouteMeta();
 
   return (
     <>

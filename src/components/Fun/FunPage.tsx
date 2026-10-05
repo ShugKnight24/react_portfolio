@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { RisoPlayer } from '../Animations/RisoPlayer';
 import { saturdayMorningFilm } from '../Animations/films/saturday-morning';
 import type { RisoFilm } from '../Animations/riso/engine';
+import { usePageTitle } from '../../utils/usePageMeta';
 import { DetroitCodeCity } from '../DetroitCodeCity';
 import { SportsLegends } from '../SportsLegends';
 import styles from './FunPage.module.css';
@@ -37,6 +38,7 @@ export const FunPage: FC = () => {
   const sceneId = (params['*'] ?? '').split('/')[0] || undefined;
   const scene = findScene(sceneId);
   const index = scene ? FUN_SCENES.indexOf(scene) : -1;
+  usePageTitle(scene ? `${scene.title} | Fun` : undefined, scene?.caption);
   const lastOpened = useRef<string | null>(null);
 
   // Unknown ids fall back to the gallery instead of an empty player

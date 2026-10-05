@@ -1,5 +1,6 @@
 import { CSSProperties, FC, useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { usePageTitle } from '../../utils/usePageMeta';
 import { PageHero } from '../Layout/PageHero';
 import { usePrefersReducedMotion } from '../Fun/useSceneMount';
 import { type FilmMeta, FILMS, findFilm, loadFilm } from './films';
@@ -169,6 +170,7 @@ export const AnimationsPage: FC = () => {
   const film = findFilm(filmId) ?? FILMS[0];
   const index = FILMS.indexOf(film);
   const loadedFilm = useLoadedFilm(film, index);
+  usePageTitle(filmId ? `${film.title} | Animations` : undefined, filmId ? film.caption : undefined);
   const [playAll, setPlayAll] = useState(false);
   const [grouping, setGrouping] = useState<Grouping>(readGrouping);
   const shelves = grouping === 'style' ? SERIES : CATEGORIES;
