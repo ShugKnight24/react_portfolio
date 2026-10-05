@@ -25,10 +25,6 @@
       "title": "Books | Shugmi Shumunov",
       "description": "The books that shaped how Shugmi Shumunov thinks about code, work and life."
     },
-    "/feed": {
-      "title": "Feed | Shugmi Shumunov",
-      "description": "Notes, music, videos and books Shugmi Shumunov is into right now."
-    },
     "/roadmap": {
       "title": "Roadmap | Shugmi Shumunov",
       "description": "What is next for this site and the projects behind it."

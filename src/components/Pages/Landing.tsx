@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { names } from '../../data/portfolioStrings';
 import { featuredProjects, projects } from '../../data/projects';
 import { techIcons } from '../../data/techIcons';
-import { Feed } from '../Feed';
 import { LunaAngelScene } from '../LunaAngel';
 import { LunaMemories } from '../LunaAngel/LunaMemories';
 import { Typewriter } from '../Typewriter';
@@ -686,40 +685,6 @@ export const Landing: FC = () => {
             </ul>
           ))}
         </div>
-      </section>
-
-      {/* Featured Feed Section */}
-      <section className="landing-feed">
-        <div className="feed-header">
-          <h2 className="section-title">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="section-icon"
-            >
-              <path d="M4 11a9 9 0 0 1 9 9" />
-              <path d="M4 4a16 16 0 0 1 16 16" />
-              <circle cx="5" cy="19" r="1" />
-            </svg>
-            Latest Thoughts
-          </h2>
-          <Link to="/feed" className="view-all-link">
-            View All
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="arrow-icon"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </Link>
-        </div>
-        <Feed truncate={3} />
       </section>
 
       <section className="landing-philosophy">

@@ -12,7 +12,6 @@ type World = 'motor' | 'codex' | 'arcade';
 // Each experience gets its own visual language; see styles/worlds.css
 const worldByPath: Record<string, World> = {
   '/books': 'codex',
-  '/feed': 'codex',
   '/roadmap': 'codex',
   '/entertainment': 'arcade',
   // Legacy arcade URLs redirect into /arcade; keep the world stable during the redirect

@@ -8,7 +8,6 @@ const AboutContact = lazy(() =>
 const BooksPage = lazy(() =>
   import('../Pages/BooksPage').then((module) => ({ default: module.BooksPage }))
 );
-const Feed = lazy(() => import('../Feed').then((module) => ({ default: module.Feed })));
 const Landing = lazy(() =>
   import('../Pages/Landing').then((module) => ({ default: module.Landing }))
 );
@@ -41,7 +40,8 @@ export const Main: FC = () => (
     <Route path="/books" element={<BooksPage />} />
     {/* The Entertainment page is archived; old links go home */}
     <Route path="/entertainment" element={<Navigate to="/" replace />} />
-    <Route path="/feed" element={<Feed />} />
+    {/* The feed is archived for now; old links go home */}
+    <Route path="/feed" element={<Navigate to="/" replace />} />
     <Route path="/photos" element={<PhotoGal />} />
     {/* One arcade, two halls: /arcade, /arcade/<hall>, /arcade/<hall>/<experience> */}
     <Route path="/arcade/*" element={<ArcadePortfolio />} />

@@ -1,4 +1,4 @@
-/* Knight's Codex world: Books, Feed, Roadmap. Scope every rule under html[data-world='codex']. */
+/* Knight's Codex world: Books, Roadmap. Scope every rule under html[data-world='codex']. */
 
 /* ---------- Tokens local to the codex ---------- */
 html[data-world='codex'] body {

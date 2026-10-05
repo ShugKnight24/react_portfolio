@@ -498,56 +498,6 @@ pre {
   visibility: visible;
 }
 
-.feed {
-  padding: 25px 0;
-  text-align: center;
-}
-.feed h1,
-.feed h2 {
-  margin: 0;
-}
-.feed hr {
-  margin: 5px auto;
-  border-top: 5px dotted black;
-  width: 50%;
-}
-.feed .post {
-  margin-top: 5px 0;
-  padding-top: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.feed .post h3 {
-  font-size: 1.5em;
-  margin: 0;
-}
-.feed .post iframe {
-  margin: 10px 0;
-}
-.feed .post img {
-  max-width: 300px;
-}
-.feed .post:last-of-type {
-  margin-bottom: 25px;
-}
-.feed button {
-  text-transform: uppercase;
-  font-weight: bold;
-  background-color: transparent;
-  border: 1px solid #000;
-  border-radius: 20px;
-  color: #000;
-  padding: 10px 20px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.feed button:hover {
-  background-color: #00c0f3;
-  color: #fff;
-}
-
 .grid {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1375,43 +1325,6 @@ pre {
   .landing-page .landing-tech .tech-grid[aria-hidden] {
     display: none;
   }
-}
-.landing-page .landing-feed {
-  padding: 3rem 2rem;
-}
-.landing-page .landing-feed .feed-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-.landing-page .landing-feed .feed-header .section-title {
-  display: inline-flex;
-  align-items: center;
-  font-size: 1.5rem;
-  color: var(--color-text);
-  margin: 0;
-}
-.landing-page .landing-feed .feed-header .section-title .section-icon {
-  color: var(--color-primary);
-}
-.landing-page .landing-feed .feed-header .view-all-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-primary);
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 200ms ease;
-}
-.landing-page .landing-feed .feed-header .view-all-link .arrow-icon {
-  width: 1em;
-  height: 1em;
-  margin: 0;
-  transition: transform 200ms ease;
-}
-.landing-page .landing-feed .feed-header .view-all-link:hover .arrow-icon {
-  transform: translateX(4px);
 }
 .landing-page .landing-philosophy {
   padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 4vw, 3rem);
