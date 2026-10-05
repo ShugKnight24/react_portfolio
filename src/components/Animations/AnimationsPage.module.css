@@ -1,0 +1,558 @@
+/* Animations: risograph films shown like fresh prints pinned on a dark studio wall */
+
+.page {
+  --an-paper: #f1e7d3;
+  --an-paper-ink: #2b2a33;
+  --an-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --an-gutter: clamp(1rem, 4vw, 3rem);
+  color: var(--w-text, #ede9e3);
+}
+
+/* ---------- The press (featured player) ---------- */
+
+.press {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4rem) var(--an-gutter) clamp(1.5rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+  scroll-margin-top: 1rem;
+}
+
+.pressHead {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+}
+
+.kicker {
+  margin: 0;
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--w-accent, #ff8a2a);
+}
+
+.filmTitle {
+  margin: 0;
+  font-family: var(--w-display, 'Geist', sans-serif);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.caption {
+  margin: 0;
+  max-width: 44rem;
+  color: var(--w-muted, #9a9ea8);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* The player also embeds on other pages, so it carries its own tokens */
+.player {
+  --an-paper: #f1e7d3;
+  --an-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  display: grid;
+  gap: 1rem;
+}
+
+/* The sheet: a paper margin around the image with ink swatches like a press proof */
+.frame {
+  position: relative;
+  padding: clamp(0.5rem, 1.6vw, 1.1rem) clamp(0.5rem, 1.6vw, 1.1rem) clamp(1.6rem, 3vw, 2.2rem);
+  background: var(--an-paper);
+  border-radius: 2px;
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.4) inset,
+    0 30px 60px -30px rgb(0 0 0 / 0.8),
+    0 8px 20px -10px rgb(0 0 0 / 0.6);
+}
+
+.stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--an-paper);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.registration {
+  position: absolute;
+  right: clamp(0.5rem, 1.6vw, 1.1rem);
+  bottom: clamp(0.45rem, 1vw, 0.7rem);
+  display: flex;
+  gap: 4px;
+}
+
+.registration span {
+  width: 18px;
+  height: 8px;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Transport ---------- */
+
+.transport {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+}
+
+.buttons {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.iconButton {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--w-text, #ede9e3);
+  background: var(--w-surface, #101216);
+  border: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms var(--an-ease);
+}
+
+.iconButton:hover {
+  border-color: rgb(255 255 255 / 0.25);
+}
+
+.iconButton:active {
+  transform: scale(0.94);
+}
+
+.primary {
+  color: #170a00;
+  background: var(--w-accent, #ff8a2a);
+  border-color: transparent;
+}
+
+.primary:hover {
+  background: var(--w-accent-hi, #ffb067);
+  border-color: transparent;
+}
+
+.iconButton:focus-visible,
+.chain:focus-visible,
+.slider:focus-visible,
+.card:focus-visible {
+  outline: 2px solid var(--w-accent, #ff8a2a);
+  outline-offset: 3px;
+}
+
+.timeline {
+  position: relative;
+  min-width: 0;
+  padding-bottom: 1.4rem;
+}
+
+.slider {
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(90deg, var(--ink-a), var(--ink-b), var(--ink-c));
+  border-radius: 2px;
+}
+
+.slider::-moz-range-track {
+  height: 4px;
+  background: linear-gradient(90deg, var(--ink-a), var(--ink-b), var(--ink-c));
+  border-radius: 2px;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  background: var(--an-paper);
+  border: 3px solid var(--w-bg, #08090b);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.4);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: var(--an-paper);
+  border: 3px solid var(--w-bg, #08090b);
+  border-radius: 50%;
+}
+
+.ticks {
+  position: absolute;
+  inset: 22px 8px 0;
+  pointer-events: none;
+}
+
+.tick {
+  position: absolute;
+  top: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--w-muted, #9a9ea8);
+  background: none;
+  border: 0;
+  border-left: 1px solid rgb(255 255 255 / 0.25);
+  padding-left: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color 160ms ease;
+}
+
+.tick span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tick:hover,
+.tickOn {
+  color: var(--w-text, #ede9e3);
+  border-left-color: var(--w-accent, #ff8a2a);
+}
+
+.readout {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.clock {
+  min-width: 9.5ch;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.chain {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 40px;
+  padding: 0 0.9rem 0 0.7rem;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--w-muted, #9a9ea8);
+  background: transparent;
+  border: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.chain:hover {
+  color: var(--w-text, #ede9e3);
+}
+
+.chainOn {
+  color: var(--w-accent, #ff8a2a);
+  border-color: color-mix(in srgb, var(--w-accent, #ff8a2a) 60%, transparent);
+}
+
+.keys {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--w-muted, #9a9ea8);
+  opacity: 0.8;
+}
+
+/* ---------- The reel ---------- */
+
+.reel {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) var(--an-gutter) 0;
+  box-sizing: border-box;
+}
+
+.reel:last-child {
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.reelTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 clamp(1rem, 2.5vw, 1.5rem);
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.reelTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--w-line, rgb(255 255 255 / 0.08));
+}
+
+.reelCount {
+  order: 2;
+  color: var(--w-accent, #ff8a2a);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr));
+  gap: clamp(1rem, 2.4vw, 1.75rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: grid;
+  gap: 0.45rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.55rem 0.55rem 0.85rem;
+  box-sizing: border-box;
+  font: inherit;
+  text-align: left;
+  color: var(--an-paper-ink);
+  background: var(--an-paper);
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 14px 30px -20px rgb(0 0 0 / 0.9);
+  transition:
+    transform 360ms var(--an-ease),
+    box-shadow 360ms var(--an-ease);
+}
+
+.card:hover {
+  transform: translateY(-4px) rotate(-0.4deg);
+  box-shadow: 0 22px 40px -22px rgb(0 0 0 / 0.95);
+}
+
+.cardOn {
+  box-shadow:
+    0 0 0 2px var(--card-ink),
+    0 22px 40px -22px rgb(0 0 0 / 0.95);
+}
+
+.cardPrint {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #e8dcc4;
+}
+
+.cardPrint img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardWet {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgb(43 42 51 / 0.45);
+}
+
+.cardNo,
+.cardNow {
+  position: absolute;
+  top: 0.45rem;
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 0.15rem 0.4rem;
+  background: var(--an-paper);
+  color: var(--an-paper-ink);
+}
+
+.cardNo {
+  left: 0.45rem;
+}
+
+.cardNow {
+  right: 0.45rem;
+  color: var(--an-paper);
+  background: var(--card-ink);
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.2rem;
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(43 42 51 / 0.6);
+}
+
+.cardTitle {
+  font-family: var(--w-display, 'Geist', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.cardMotif {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: rgb(43 42 51 / 0.72);
+}
+
+.swatches {
+  display: flex;
+  gap: 3px;
+  margin-top: 0.2rem;
+}
+
+.swatches span {
+  width: 22px;
+  height: 6px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .transport {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'timeline timeline'
+      'buttons readout';
+  }
+
+  .timeline {
+    grid-area: timeline;
+  }
+
+  .buttons {
+    grid-area: buttons;
+  }
+
+  .readout {
+    grid-area: readout;
+  }
+
+  /* Scene labels crowd on phones; keep the marks */
+  .tick span {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .iconButton {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
+
+/* ---------- Reel grouping toggle ---------- */
+
+.grouping {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 1.5rem) var(--an-gutter) 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-mono, ui-monospace, monospace);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.groupingLabel {
+  margin-right: 0.4rem;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.groupingButton {
+  height: 34px;
+  padding: 0 0.9rem;
+  font: inherit;
+  color: var(--w-muted, #9a9ea8);
+  background: transparent;
+  border: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.groupingButton:hover {
+  color: var(--w-text, #ede9e3);
+}
+
+.groupingOn {
+  color: var(--w-accent, #ff8a2a);
+  border-color: color-mix(in srgb, var(--w-accent, #ff8a2a) 60%, transparent);
+}
+
+.groupingButton:focus-visible {
+  outline: 2px solid var(--w-accent, #ff8a2a);
+  outline-offset: 3px;
+}
