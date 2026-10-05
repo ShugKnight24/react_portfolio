@@ -39,7 +39,7 @@ export const postsArray: FeedPost[] = [
     artist: 'Plini',
     song: 'Sweet Nothings',
     youtubeInfo: {
-      videoId: 'ywlWkkNl19',
+      videoId: 'ywlWkkNl19U',
       videoLink: 'https://www.youtube.com/watch?v=ywlWkkNl19U',
     },
   },
