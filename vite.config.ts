@@ -1,5 +1,4 @@
 import react from '@vitejs/plugin-react';
-import path from 'path';
 import checker from 'vite-plugin-checker';
 import { configDefaults, defineConfig } from 'vitest/config';
 
@@ -9,10 +8,11 @@ export default defineConfig({
   optimizeDeps: {
     entries: ['index.html'],
   },
-  plugins: [checker({ typescript: true }), react()],
+  // tsc already runs in `npm run build`; the checker only adds overlay errors in dev
+  plugins: [checker({ typescript: true, enableBuild: false }), react()],
   resolve: {
     alias: {
-      three: path.resolve(__dirname, './src/vendor/three/three.module.js'),
+      three: `${import.meta.dirname}/src/vendor/three/three.module.js`,
     },
   },
   server: {
