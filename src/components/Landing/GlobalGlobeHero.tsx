@@ -220,9 +220,9 @@ export const GlobalGlobeHero: FC = () => {
               {activeLocation.lat.toFixed(2)}°N, {Math.abs(activeLocation.lon).toFixed(2)}{activeLocation.lon >= 0 ? '°E' : '°W'}
             </span>
           </div>
-          <h3 className={styles.intelTitle} style={{ color: activeLocation.color }}>
+          <p className={styles.intelTitle} style={{ color: activeLocation.color }}>
             {activeLocation.name}
-          </h3>
+          </p>
           <span className={styles.intelRole}>{activeLocation.role}</span>
           <p className={styles.intelDesc}>{activeLocation.description}</p>
         </div>

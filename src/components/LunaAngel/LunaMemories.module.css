@@ -498,7 +498,7 @@
 .captionMeta {
   flex: none;
   font-family: var(--lm-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #9a7f5c;

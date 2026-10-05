@@ -256,7 +256,7 @@ html[data-world='motor'] .mc-still::after {
 html[data-world='motor'] .mc-still figcaption {
   padding: 0.7rem 0.1rem 0.8rem;
   font-family: var(--font-family-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.04em;
   line-height: 1.4;
   color: var(--w-muted);

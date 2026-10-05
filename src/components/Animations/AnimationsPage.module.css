@@ -400,7 +400,7 @@
   font-family: var(--font-family-mono, ui-monospace, monospace);
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: rgb(43 42 51 / 0.45);
+  color: rgb(43 42 51 / 0.75);
 }
 
 .cardNo,
@@ -421,8 +421,10 @@
 
 .cardNow {
   right: 0.45rem;
+  /* Dark chip with an ink edge: paper text on a light ink (gold, peach) was unreadable */
   color: var(--an-paper);
-  background: var(--card-ink);
+  background: var(--an-paper-ink);
+  box-shadow: inset 3px 0 0 var(--card-ink);
 }
 
 .cardMeta {
@@ -433,7 +435,7 @@
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgb(43 42 51 / 0.6);
+  color: rgb(43 42 51 / 0.8);
 }
 
 .cardTitle {

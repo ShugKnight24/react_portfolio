@@ -118,8 +118,11 @@
   color: var(--fun-muted);
 }
 
-.featureLink {
+/* Two classes so it outranks the global `a:link { text-decoration: none }` */
+.featureLede .featureLink {
   color: var(--fun-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 /* The legends' signature moves sit under the Sports Legends feature */

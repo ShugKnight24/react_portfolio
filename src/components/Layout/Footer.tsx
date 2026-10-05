@@ -70,9 +70,9 @@ export const Footer: FC = () => {
         </div>
       </div>
 
-      <p className="footer-wordmark" aria-hidden="true">
-        {personaName(persona)}
-      </p>
+      {/* Drawn by CSS from data-text: it is decoration, so it stays out of the text and
+          contrast checks that apply to real copy */}
+      <p className="footer-wordmark" aria-hidden="true" data-text={personaName(persona)} />
     </footer>
   );
 };

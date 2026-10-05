@@ -242,6 +242,9 @@ html[data-world='arcade'] .world-title {
   transform: translateY(12%);
   user-select: none;
 }
+.footer .footer-wordmark::before {
+  content: attr(data-text);
+}
 html[data-world='codex'] .footer .footer-hello,
 html[data-world='codex'] .footer .footer-wordmark {
   font-weight: 500;

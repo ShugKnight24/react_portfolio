@@ -212,7 +212,7 @@
         gap: 0.5rem;
 
         .compact-coin-btn {
-          background: #D97706;
+          background: #B45309;
           border: 1px solid #FBBF24;
           color: #FFF;
           font-family: monospace;
@@ -224,13 +224,13 @@
           transition: all 0.15s ease;
 
           &:hover {
-            background: #B45309;
+            background: #92400E;
             box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
           }
         }
 
         .compact-start-btn {
-          background: #16A34A;
+          background: #15803D;
           border: 1px solid #4ADE80;
           color: #FFF;
           font-family: monospace;
@@ -242,7 +242,7 @@
           transition: all 0.15s ease;
 
           &:hover {
-            background: #15803D;
+            background: #166534;
             box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
           }
         }

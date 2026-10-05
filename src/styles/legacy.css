@@ -1816,14 +1816,14 @@ pre {
   padding: 10px 20px;
   font-size: 18px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #0062cc;
   border: none;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 .not-found .home-button:hover {
-  background-color: #0056b3;
+  background-color: #004a99;
 }
 
 /* Photo Gallery Premium Styles */
