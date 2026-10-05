@@ -1,9 +1,9 @@
-export { AboutPage } from './AboutPage';
+export { About } from './About';
+export { AboutContact } from './AboutContact';
 export { BooksPage } from './BooksPage';
-export { ContactPage } from './ContactPage';
-export { LandingPage } from './Landingpage';
-export { NotFoundPage } from './NotFoundPage';
+export { Contact } from './Contact';
+export { Landing } from './Landing';
+export { NotFound } from './NotFound';
 export { PhotoGal } from './PhotoGal';
-export { PlaygroundPage } from './PlaygroundPage';
-export { ProjectsPage } from './ProjectsPage';
-export { ResumePage } from './ResumePage';
+export { Projects } from './Projects';
+export { Roadmap } from './Roadmap';

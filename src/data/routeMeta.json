@@ -1,0 +1,49 @@
+{
+  "site": {
+    "url": "https://shugknight24.github.io",
+    "name": "Shugmi Shumunov",
+    "title": "Shugmi Shumunov | Full Stack Engineer",
+    "description": "Shugmi Shumunov, full stack engineer in Detroit. Projects, 3D experiments, an arcade, and the books and ideas behind them.",
+    "image": "/og/default.jpg",
+    "imageAlt": "Shugmi Shumunov, full stack engineer in Detroit"
+  },
+  "routes": {
+    "/": {},
+    "/projects": {
+      "title": "Projects | Shugmi Shumunov",
+      "description": "Selected work by Shugmi Shumunov: client platforms, community sites, open-source tools and browser games, mostly React and TypeScript."
+    },
+    "/aboutcontact": {
+      "title": "About & Contact | Shugmi Shumunov",
+      "description": "About Shugmi Shumunov, a full stack engineer in Detroit, and how to get in touch about work or consulting."
+    },
+    "/photos": {
+      "title": "Photos | Shugmi Shumunov",
+      "description": "Luna, trips, a few people met along the way and the everyday stuff in between."
+    },
+    "/books": {
+      "title": "Books | Shugmi Shumunov",
+      "description": "The books that shaped how Shugmi Shumunov thinks about code, work and life."
+    },
+    "/roadmap": {
+      "title": "Roadmap | Shugmi Shumunov",
+      "description": "What is next for this site and the projects behind it."
+    },
+    "/arcade": {
+      "title": "Arcade | Shugmi Shumunov",
+      "description": "A pixel arcade of browser games, a character creator and a virtual pet, all built from scratch."
+    },
+    "/fun": {
+      "title": "Fun | Shugmi Shumunov",
+      "description": "Small interactive scenes drawn in code: films, games and legends, each one a little experiment.",
+      "image": "/og/fun.jpg",
+      "imageAlt": "A scene from the Fun collection"
+    },
+    "/animations": {
+      "title": "Animations | Shugmi Shumunov",
+      "description": "Short films about the things I love, in a few different print styles. Every frame is drawn in code.",
+      "image": "/og/animations.jpg",
+      "imageAlt": "The Prince and the Fox, a risograph-style animated short"
+    }
+  }
+}

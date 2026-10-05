@@ -1,0 +1,70 @@
+/* Theme tints: a theme recolors the active world's accents (ThemeProvider writes --t-* on <html>
+   and sets data-tint). The world keeps its structure, fonts and texture. No data-tint = native palette.
+   Surfaces only take a faint hue so every world stays dark. */
+
+/* Registered so the world tokens themselves can transition when a tint or world changes */
+@property --w-accent { syntax: '<color>'; inherits: true; initial-value: #ff8a2a; }
+@property --w-accent-hi { syntax: '<color>'; inherits: true; initial-value: #ffb067; }
+@property --w-accent-2 { syntax: '<color>'; inherits: true; initial-value: #c9d1dc; }
+@property --w-on-accent { syntax: '<color>'; inherits: true; initial-value: #170a00; }
+@property --w-bg { syntax: '<color>'; inherits: true; initial-value: #08090b; }
+@property --w-surface { syntax: '<color>'; inherits: true; initial-value: #101216; }
+@property --w-surface-2 { syntax: '<color>'; inherits: true; initial-value: #171a20; }
+@property --w-line { syntax: '<color>'; inherits: true; initial-value: rgb(255 255 255 / 0.08); }
+
+html[data-tint] body {
+  --w-accent: var(--t-accent);
+  --w-accent-hi: var(--t-accent-hi);
+  --w-accent-2: var(--t-accent-2);
+  --w-on-accent: var(--t-on-accent);
+}
+
+html[data-world='motor'][data-tint] body {
+  --w-bg: color-mix(in oklab, #08090b 95%, var(--t-bg-tint));
+  --w-surface: color-mix(in oklab, #101216 93%, var(--t-bg-tint));
+  --w-surface-2: color-mix(in oklab, #171a20 91%, var(--t-bg-tint));
+}
+
+/* Codex and Arcade draw their hairlines in the accent hue, so the lines follow the tint */
+html[data-world='codex'][data-tint] body {
+  --w-bg: color-mix(in oklab, #0c0a07 95%, var(--t-bg-tint));
+  --w-surface: color-mix(in oklab, #15110b 93%, var(--t-bg-tint));
+  --w-surface-2: color-mix(in oklab, #1d1810 91%, var(--t-bg-tint));
+  --w-line: color-mix(in srgb, var(--t-accent) 22%, transparent);
+  --cx-line-strong: color-mix(in srgb, var(--t-accent) 45%, transparent);
+}
+
+html[data-world='arcade'][data-tint] body {
+  --w-bg: color-mix(in oklab, #07060f 95%, var(--t-bg-tint));
+  --w-surface: color-mix(in oklab, #0f0d1c 93%, var(--t-bg-tint));
+  --w-surface-2: color-mix(in oklab, #17142a 91%, var(--t-bg-tint));
+  --w-line: color-mix(in srgb, var(--t-accent) 16%, transparent);
+  --a-line-strong: color-mix(in srgb, var(--t-accent) 32%, transparent);
+}
+
+html[data-world='arcade'][data-tint] .world-title {
+  text-shadow: 0 0 18px color-mix(in srgb, var(--t-accent) 35%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-world] body {
+    transition:
+      background-color 600ms ease,
+      color 600ms ease,
+      --w-accent 400ms ease,
+      --w-accent-hi 400ms ease,
+      --w-accent-2 400ms ease,
+      --w-on-accent 400ms ease,
+      --w-bg 400ms ease,
+      --w-surface 400ms ease,
+      --w-surface-2 400ms ease,
+      --w-line 400ms ease;
+  }
+}
+
+/* Host slot for the switcher in the menu drawer */
+html[data-world] .drawer .drawer-theme-section {
+  padding: 0.75rem;
+  border-top-color: var(--w-line);
+  background: transparent;
+}

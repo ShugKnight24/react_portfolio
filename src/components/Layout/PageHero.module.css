@@ -1,0 +1,358 @@
+/* Shared page-top band for the Motor City Night world.
+   Left-aligned display type, sodium haze, a chrome horizon and a mono instrument cluster. */
+
+.hero {
+  --ph-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ph-gutter: clamp(1rem, 4vw, 3rem);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: min(68vh, 44rem);
+  padding: clamp(4rem, 10vh, 7rem) 0 0;
+  background: var(--w-bg, #08090b);
+  color: var(--w-text, #ede9e3);
+  border-bottom: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+}
+
+/* ---------- Backdrop ---------- */
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.haze {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 55% at 78% 88%, rgb(255 138 42 / 0.22), transparent 70%),
+    radial-gradient(35% 30% at 18% 96%, rgb(255 176 103 / 0.08), transparent 70%);
+}
+
+.horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 34%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 44%,
+    rgb(201 209 220 / 0.2) 54%,
+    rgb(201 209 220 / 0.45) 74%,
+    rgb(201 209 220 / 0.12) 94%,
+    transparent
+  );
+}
+
+/* A distant row of freeway lamps sitting on the horizon */
+.lamps {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(34% + 3px);
+  height: 3px;
+  background: radial-gradient(circle, rgb(255 176 103 / 0.75) 0 1px, transparent 1.6px) 0 0 / 34px
+    3px repeat-x;
+  mask-image: linear-gradient(90deg, transparent 50%, #000 66%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent 50%, #000 66%, #000 88%, transparent);
+  opacity: 0.8;
+}
+
+/* Taillight streak sliding along the horizon */
+.streak {
+  position: absolute;
+  bottom: calc(34% - 1px);
+  left: 44%;
+  width: 18rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgb(255 138 42 / 0.9));
+  filter: blur(0.4px);
+  transform: translateX(-20rem);
+  animation: streak 9s linear infinite 1.2s;
+}
+
+@keyframes streak {
+  0% {
+    transform: translateX(-20rem);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  75%,
+  100% {
+    transform: translateX(62vw);
+    opacity: 0;
+  }
+}
+
+/* ---------- Copy ---------- */
+
+.inner {
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 var(--ph-gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: end;
+}
+
+.withAside .inner {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+}
+
+.copy {
+  min-width: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0;
+  margin: 0 0 1.5rem;
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--w-muted, #9a9ea8);
+  animation: rise 900ms var(--ph-ease) both 80ms;
+}
+
+.metaDot {
+  margin: 0 0.75rem;
+  color: var(--w-accent, #ff8a2a);
+}
+
+.title {
+  margin: 0 0 1.75rem;
+  font-family: var(--w-display, 'Geist', sans-serif);
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  color: var(--w-text, #ede9e3);
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  white-space: nowrap;
+}
+
+.line > span {
+  display: inline-block;
+  animation: letterRise 1000ms var(--ph-ease) both;
+  animation-delay: calc(var(--i) * 40ms + 120ms);
+}
+
+.outlined {
+  color: var(--w-muted, #9a9ea8);
+}
+
+.lede {
+  max-width: 34rem;
+  margin: 0 0 2rem;
+  font-size: clamp(1.0625rem, 1.4vw, 1.3125rem);
+  font-weight: 450;
+  line-height: 1.5;
+  color: rgb(237 233 227 / 0.82);
+  animation: rise 900ms var(--ph-ease) both 600ms;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 2rem;
+  animation: rise 900ms var(--ph-ease) both 720ms;
+}
+
+.aside {
+  min-width: 0;
+  padding-bottom: 2rem;
+  animation: rise 1100ms var(--ph-ease) both 400ms;
+}
+
+/* ---------- Instrument cluster ---------- */
+
+.cluster {
+  width: 100%;
+  max-width: 1380px;
+  margin: 1rem auto 0;
+  padding: 0 var(--ph-gutter);
+  display: flex;
+  flex-wrap: wrap;
+  animation: rise 900ms var(--ph-ease) both 820ms;
+}
+
+.gauge {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.35rem;
+  padding: 1.25rem 2.5rem 1.5rem 0;
+  margin-right: 2.5rem;
+  border-right: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+}
+
+.gauge:last-child {
+  border-right: 0;
+  margin-right: 0;
+}
+
+.gauge dd {
+  margin: 0;
+  font-family: var(--font-family-mono);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--w-text, #ede9e3);
+}
+
+.gauge dt {
+  font-family: var(--font-family-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.gauge:first-child dd {
+  color: var(--w-accent, #ff8a2a);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes letterRise {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (max-width: 900px) {
+  .withAside .inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aside {
+    padding-bottom: 0;
+    max-width: 26rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 0;
+    padding-top: 3.5rem;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .outlined {
+    -webkit-text-stroke-width: 1px;
+  }
+
+  /* On phones the copy spans the full width, so the horizon moves above it */
+  .horizon,
+  .lamps,
+  .streak {
+    bottom: auto;
+    top: 2rem;
+  }
+
+  .lamps {
+    top: calc(2rem - 3px);
+  }
+
+  .streak {
+    top: calc(2rem - 1px);
+    left: 0;
+    width: 9rem;
+  }
+
+  .horizon {
+    background: linear-gradient(90deg, transparent, rgb(201 209 220 / 0.35) 60%, transparent);
+  }
+
+  .lamps {
+    mask-image: linear-gradient(90deg, transparent 20%, #000 60%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent 20%, #000 60%, transparent);
+  }
+
+  .cluster {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gauge {
+    padding: 1rem 0 1.1rem;
+    margin-right: 0;
+    border-right: 0;
+    border-top: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  }
+
+  .gauge:nth-child(odd) {
+    padding-right: 1rem;
+    border-right: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  }
+
+  .gauge:nth-child(even) {
+    padding-left: 1rem;
+  }
+
+  .gauge:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    border-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line > span,
+  .meta,
+  .lede,
+  .actions,
+  .aside,
+  .cluster {
+    animation: none;
+  }
+
+  .streak {
+    display: none;
+  }
+}

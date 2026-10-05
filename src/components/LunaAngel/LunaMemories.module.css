@@ -1,0 +1,758 @@
+/* Luna memories: a sticky night sky that the camera drifts forward and down through.
+   JS only writes transform and opacity; everything else is laid out here. */
+
+.memories {
+  --lm-bg: var(--w-bg, #08090b);
+  --lm-top: var(--w-surface, #101216);
+  --lm-text: var(--w-text, #ede9e3);
+  --lm-muted: var(--w-muted, #9a9ea8);
+  --lm-gold: #d4a84b;
+  --lm-gold-hi: #f0cf7a;
+  --lm-serif: 'EB Garamond', Georgia, serif;
+  --lm-mono: var(--font-family-mono, 'Geist Mono', ui-monospace, monospace);
+  --lm-paw: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f0cf7a'%3E%3Cpath d='M12 12.6c-3.1 0-6.2 3.4-6.2 6 0 1.7 1.4 2.6 3.1 2.6 1.3 0 2.1-.7 3.1-.7s1.8.7 3.1.7c1.7 0 3.1-.9 3.1-2.6 0-2.6-3.1-6-6.2-6z'/%3E%3Cellipse cx='4.6' cy='9.8' rx='2' ry='2.7' transform='rotate(-18 4.6 9.8)'/%3E%3Cellipse cx='9.1' cy='5.4' rx='2.1' ry='2.9' transform='rotate(-6 9.1 5.4)'/%3E%3Cellipse cx='14.9' cy='5.4' rx='2.1' ry='2.9' transform='rotate(6 14.9 5.4)'/%3E%3Cellipse cx='19.4' cy='9.8' rx='2' ry='2.7' transform='rotate(18 19.4 9.8)'/%3E%3C/svg%3E");
+  --cw: clamp(210px, 20vw, 300px);
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background: var(--lm-bg);
+  color: var(--lm-text);
+}
+
+.moving {
+  /* Replaced by the measured length once JS runs */
+  height: 420vh;
+  width: auto;
+}
+
+/* The stage runs its own scroll-linked entrance */
+.moving:global(.reveal) {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  contain: paint;
+}
+
+.scene,
+.near,
+.plane {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.moving .scene,
+.moving .near,
+.moving .plane {
+  will-change: transform;
+}
+
+/* Blend the stage into the page above and below */
+.feather {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 48%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.featherTop {
+  top: -1px;
+  background: linear-gradient(
+    180deg,
+    var(--lm-top) 0%,
+    color-mix(in srgb, var(--lm-top) 86%, transparent) 22%,
+    color-mix(in srgb, var(--lm-top) 55%, transparent) 50%,
+    color-mix(in srgb, var(--lm-top) 20%, transparent) 78%,
+    transparent 100%
+  );
+}
+
+.featherBottom {
+  bottom: -1px;
+  background: linear-gradient(
+    0deg,
+    var(--lm-bg) 0%,
+    color-mix(in srgb, var(--lm-bg) 86%, transparent) 22%,
+    color-mix(in srgb, var(--lm-bg) 55%, transparent) 50%,
+    color-mix(in srgb, var(--lm-bg) 20%, transparent) 78%,
+    transparent 100%
+  );
+}
+
+/* Sky */
+
+.sky {
+  position: absolute;
+  inset: 0;
+}
+
+.skyNight {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgb(70 60 120 / 0.16), transparent 70%),
+    linear-gradient(180deg, #06070d 0%, #0a0c19 40%, #121327 72%, #1b1726 100%);
+}
+
+.skyDusk {
+  opacity: 0;
+  will-change: opacity;
+  background: linear-gradient(
+    180deg,
+    #06070e 0%,
+    #10112a 34%,
+    #2c1d3a 56%,
+    #6e3a33 74%,
+    #c7793a 88%,
+    #eaa250 100%
+  );
+}
+
+.far,
+.mid {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  top: 0;
+  pointer-events: none;
+}
+
+.far {
+  height: 110%;
+}
+
+.mid {
+  height: 170%;
+}
+
+.moving .far,
+.moving .mid {
+  will-change: transform;
+}
+
+.star {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: #fff6e6;
+  opacity: var(--o);
+}
+
+.mid .star {
+  box-shadow: 0 0 6px 1px rgb(255 236 200 / 0.35);
+}
+
+.twinkle {
+  animation: lmTwinkle 5s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes lmTwinkle {
+  50% {
+    opacity: 0.1;
+  }
+}
+
+/* Her constellation and the paw trail up to it */
+
+.heaven {
+  position: absolute;
+  inset: 0;
+}
+
+.moving .heaven {
+  will-change: transform;
+}
+
+.cons,
+.halo {
+  --cs: min(44vh, 400px, 64vw);
+  position: absolute;
+  left: calc(50% - var(--cs) / 2);
+  top: 9%;
+  width: var(--cs);
+  height: var(--cs);
+}
+
+.moving .cons {
+  will-change: transform;
+}
+
+.halo {
+  border-radius: 50%;
+  transform: scale(1.9);
+  background: radial-gradient(
+    circle,
+    rgb(240 207 122 / 0.26),
+    rgb(212 168 75 / 0.1) 40%,
+    transparent 68%
+  );
+  will-change: opacity;
+}
+
+.link {
+  position: absolute;
+  height: 1px;
+  margin-top: -0.5px;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, rgb(240 207 122 / 0.75), rgb(255 236 200 / 0.55));
+  box-shadow: 0 0 6px rgb(240 207 122 / 0.5);
+}
+
+.moving .link {
+  will-change: transform;
+}
+
+.cStar,
+.eye {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: #fff3d6;
+  box-shadow:
+    0 0 6px 2px rgb(240 207 122 / 0.7),
+    0 0 18px 4px rgb(240 207 122 / 0.25);
+}
+
+.moving .cStar {
+  will-change: opacity;
+}
+
+.eye {
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  background: #fffaf0;
+  box-shadow:
+    0 0 8px 3px rgb(255 240 210 / 0.9),
+    0 0 26px 8px rgb(240 207 122 / 0.4);
+  animation: lmShine 3.6s ease-in-out infinite;
+}
+
+.eye::before,
+.eye::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34px;
+  height: 1px;
+  margin: -0.5px 0 0 -17px;
+  background: linear-gradient(90deg, transparent, rgb(255 244 220 / 0.85), transparent);
+}
+
+.eye::after {
+  transform: rotate(90deg);
+}
+
+@keyframes lmShine {
+  50% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+.paw {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  background: var(--lm-paw) center / contain no-repeat;
+  filter: drop-shadow(0 0 6px rgb(240 207 122 / 0.55));
+  will-change: opacity;
+}
+
+/* Horizon and meadow, rising into view near the end */
+
+.horizon {
+  position: absolute;
+  inset: auto -10% 0 -10%;
+  height: 70%;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse 50% 46% at 50% 100%, rgb(255 200 120 / 0.55), transparent 72%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, rgb(234 140 60 / 0.3), transparent 75%);
+}
+
+.meadow {
+  position: absolute;
+  left: -3%;
+  right: -3%;
+  bottom: -1px;
+  height: 24%;
+  color: #0d0a0b;
+}
+
+.moving .horizon,
+.moving .meadow {
+  will-change: transform, opacity;
+}
+
+.meadow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Words */
+
+.intro,
+.outro {
+  position: absolute;
+  left: 50%;
+  width: min(36rem, calc(100% - 32px));
+  translate: -50% 0;
+  text-align: center;
+}
+
+.intro {
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.moving .intro,
+.moving .outro {
+  will-change: transform, opacity;
+}
+
+.outro {
+  top: calc(9% + min(44vh, 400px, 64vw) + 2.5rem);
+  opacity: 0;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-family: var(--lm-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lm-gold);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--lm-serif);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--lm-text);
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgb(0 0 0 / 0.5);
+}
+
+.lede {
+  margin: 1.1rem auto 0;
+  max-width: 34ch;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.6;
+  color: rgb(237 233 227 / 0.8);
+  text-wrap: pretty;
+  text-shadow: 0 1px 18px rgb(0 0 0 / 0.6);
+}
+
+.hint {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2rem 0 0;
+  font-family: var(--lm-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lm-gold-hi);
+}
+
+.hint svg {
+  width: 12px;
+  height: 28px;
+  animation: lmNudge 1.8s ease-in-out infinite;
+}
+
+@keyframes lmNudge {
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.outroLine {
+  margin: 0;
+  font-family: var(--lm-serif);
+  font-style: italic;
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #fff3dc;
+  text-wrap: balance;
+  text-shadow: 0 0 30px rgb(240 207 122 / 0.35);
+}
+
+/* Memory cards */
+
+.cards {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  width: var(--cw);
+  margin: 0;
+  translate: -50% -50%;
+  pointer-events: auto;
+}
+
+.moving .card {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.face {
+  position: relative;
+  grid-area: 1 / 1;
+  padding: 8px 8px 0;
+  border-radius: 3px;
+  background: linear-gradient(170deg, #fbf5ea, #efe4d0);
+  box-shadow:
+    0 30px 60px -24px rgb(0 0 0 / 0.85),
+    0 10px 20px -10px rgb(0 0 0 / 0.5);
+}
+
+.moving .face {
+  will-change: opacity;
+}
+
+.ghost {
+  filter: blur(7px);
+}
+
+.captionGhost {
+  display: block;
+  height: 2.6rem;
+}
+
+.glow {
+  position: absolute;
+  inset: -18%;
+  grid-area: 1 / 1;
+  border-radius: 50%;
+  opacity: 0;
+  background: radial-gradient(closest-side, rgb(240 207 122 / 0.3), transparent);
+  will-change: opacity;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: var(--ar);
+  border-radius: 1px;
+  background: #2a2220;
+}
+
+.media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  min-height: 2.6rem;
+  padding: 0.55rem 0.3rem 0.6rem;
+  box-sizing: border-box;
+}
+
+.captionText {
+  font-family: var(--lm-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: #3a2c20;
+}
+
+.captionMeta {
+  flex: none;
+  font-family: var(--lm-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9a7f5c;
+}
+
+/* Near field */
+
+.flies {
+  position: absolute;
+  inset: 0;
+  will-change: opacity;
+}
+
+.fly {
+  position: absolute;
+  top: 0;
+  will-change: transform;
+}
+
+.fly span {
+  display: block;
+  width: var(--fs);
+  height: var(--fs);
+  border-radius: 50%;
+  background: #ffe9a8;
+  box-shadow:
+    0 0 8px 2px rgb(255 214 120 / 0.7),
+    0 0 22px 6px rgb(255 190 90 / 0.25);
+  animation: lmFloat var(--dur) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes lmFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.15;
+  }
+  35% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(14px, -30px, 0);
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 0.2;
+  }
+}
+
+.bokeh {
+  position: absolute;
+  top: 0;
+  width: var(--bs);
+  height: var(--bs);
+  margin: calc(var(--bs) / -2) 0 0 calc(var(--bs) / -2);
+  border-radius: 50%;
+  opacity: var(--o);
+  background: radial-gradient(
+    circle,
+    rgb(255 214 150 / 0.3),
+    rgb(212 168 75 / 0.1) 50%,
+    transparent 70%
+  );
+  will-change: transform;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 80% at 50% 50%, transparent 55%, rgb(0 0 0 / 0.45) 100%);
+}
+
+.hud {
+  position: absolute;
+  left: clamp(16px, 4vw, 56px);
+  bottom: clamp(14px, 3vh, 28px);
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  opacity: 0;
+  font-family: var(--lm-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(237 233 227 / 0.55);
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.hudNum {
+  color: var(--lm-gold-hi);
+}
+
+/* Pause looping work while the stage is offscreen */
+.stage[data-paused] .twinkle,
+.stage[data-paused] .eye,
+.stage[data-paused] .fly span,
+.stage[data-paused] .hint svg {
+  animation-play-state: paused;
+}
+
+@media (max-width: 699px) {
+  .cons,
+  .halo {
+    top: 8%;
+  }
+
+  .outro {
+    top: calc(8% + min(44vh, 400px, 64vw) + 2rem);
+  }
+
+  .meadow {
+    height: 18%;
+  }
+
+  .caption {
+    min-height: 2.3rem;
+  }
+
+  .captionText {
+    font-size: 0.95rem;
+  }
+
+  .captionGhost {
+    height: 2.3rem;
+  }
+
+  .hud {
+    font-size: 0.66rem;
+  }
+}
+
+/* Reduced motion: the finished sky over a still collage */
+
+.stillHero,
+.stillOutro {
+  position: relative;
+  overflow: hidden;
+}
+
+.stillSky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.stillHero .stillSky {
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 70%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 12%, #000 70%, transparent);
+}
+
+.stillHero .cons,
+.stillHero .halo {
+  top: 3.5rem;
+}
+
+.still .halo {
+  opacity: 0.85;
+}
+
+.stillIntro {
+  position: relative;
+  width: min(36rem, calc(100% - 32px));
+  margin: 0 auto;
+  padding: calc(3.5rem + min(44vh, 400px, 64vw) + 1.5rem) 0 1rem;
+  text-align: center;
+}
+
+.stillGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: clamp(1.2rem, 3vw, 2.2rem);
+  align-items: start;
+  max-width: 1180px;
+  margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+  padding: 0 clamp(16px, 4vw, 56px);
+}
+
+.still .card {
+  position: relative;
+  width: auto;
+  translate: none;
+  rotate: var(--tilt, 0deg);
+}
+
+.stillOutro {
+  margin-top: clamp(2rem, 5vw, 3rem);
+  padding: clamp(5rem, 10vw, 8rem) 16px clamp(9rem, 16vw, 12rem);
+}
+
+.stillOutro .skyDusk {
+  opacity: 1;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 45%);
+  mask-image: linear-gradient(180deg, transparent, #000 45%);
+}
+
+.stillOutro .horizon {
+  opacity: 1;
+}
+
+.stillOutro .meadow {
+  height: clamp(5rem, 14vw, 9rem);
+}
+
+.stillOutroText {
+  position: relative;
+  width: min(36rem, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stillPaws {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 1.4rem;
+}
+
+.stillPaws .paw {
+  position: relative;
+  opacity: 0.85;
+}
+
+.stillPaws .paw:nth-child(even) {
+  translate: 0 -8px;
+}
+
+@media (max-width: 699px) {
+  .stillGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem 0.9rem;
+  }
+
+  .still .face {
+    padding: 6px 6px 0;
+  }
+
+  .still .caption {
+    flex-wrap: wrap;
+    gap: 0.1rem 0.5rem;
+  }
+
+  .still .captionText {
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle,
+  .eye,
+  .fly span,
+  .hint svg {
+    animation: none;
+  }
+}

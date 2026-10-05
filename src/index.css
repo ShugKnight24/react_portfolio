@@ -1,13 +1,37 @@
+/* Root defaults for CSS custom properties used by SCSS
+   Ensures Sass color functions have concrete fallbacks at runtime
+*/
+:root {
+  --color-primary: #4286f4;
+  --color-primary-light: #6ba3f7;
+  --color-primary-dark: #2a6ed4;
+
+  --color-secondary: #373b44;
+  --color-accent: #ec4899;
+
+  --color-background: #ffffff;
+  --color-text: #212529;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f8f9fa;
+
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Useful RGB form for shadow/glow utilities */
+  --color-primary-rgb: 66, 134, 244;
+
+  /* Font family hook used by SCSS variables */
+  --font-family-theme: 'Geist', 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--font-family-theme);
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Geist Mono', ui-monospace, Menlo, Consolas, monospace;
 }

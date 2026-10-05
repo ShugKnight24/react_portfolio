@@ -4,68 +4,54 @@ The React code of my [portfolio site](ShugKnight24.github.io)
 
 ## Review
 
-Improve site as it has become old & stale...
-Update design
+Improve site it's old & stale...
 
-- integrate new layouts - Especially on projects
-  Update content & copy
-
+- System design
+  - currently a mess
+- Especially the design
+- integrate new layouts
+  - Photo gallery & projects
+- Update content & copy
 - Update UI
 
   - Move to new style system - tailwind, chakra, emotion etc
+    - At very least make styles consistent & improve responsiveness
   - Simplify and update content
-
-- Improve Gallery / Books components
-
-  - Filter by category / genre - add a select dropdown?
-  - Add a search bar
-  - Convert books to "media"
 
 - Further Improve Projects
 
-  - Add a search bar?
-    - Filter by tech?
   - Update out of date projects & Add most recent projects
-  - Add a "featured" section?
+  - Add "featured" section?
   - Allow users to click into projects for more info?
     - modal system?
 
-- Update Resume
-
-  - Add new content & improve old content
-  - Improve layout and display
-
-- Themeing
+- Add Themeing
 
   - Light / Dark / Custom modes
   - use Context API
   - move away from scss vars to css vars for colors
 
-- Combine About & Contact?
+- Combine About & Contact
 
 ## To-Do
 
-- Fix differential rendering on feed
+- Improve differential rendering on feed
   - Add multimedia posts or consolidate to a single type
+- Refactor BooksPage, PhotoGallery, ProjectsPage, and ResumePage (Experience & Education)
+  - Add a filter / search bar
+  - Improve UI
+  - Update content to latest
+  - [ ] Create Media Section (Movies, TV, etc)
+    - Make books stuff more generic to handle this
+  - (Photo Gal) Move away from GetColumnsHook & simplfy layout
+  - (Books) Add additional functionality
+    - differentiate audio books, stopped, multiple times, covers, links, ratings, reviews, etc...
 - Optimize assets after build prior to deployment
-- Fix feeling is the secret on deployed version.
-  - check to see if it's a problem in dev too
-  - correct asset if it is
+- Fix broken assets
 - Update to React 19
 - Reoptimize the images used throughout
 - convert JS files to TS for typesafety
-- Automate workflows
-  - Add ci / cd
-  - husky / linting / etc...
 - Add way to differentiate audio books in UI
-- Improve use of Typescript
-- Move away from GetColumnsHook
-  - Pass in images and use a flex grid
-  - [ ] Update Image columns based off resize events
-    - responsiveness not great on resize / based off load
-    - Or... add column # to columns class and improve the media queries
-    - Will this even be a problem once a flex grid is used?
-  - Use similar layout for the feed
 - Refactor Skills & TechIcons
   - Clean up SkillsInterface
   - Add SVGs to tech & skills sections
@@ -75,27 +61,14 @@ Update design
     - Add tech stack to positions
     - build from dataset
 - [ ] Add a blog
-- [ ] Create Media Section (Movies & TV)
-  - [ ] Completed ... Started... Improved version of books
-- [ ] Update Experience section
-  - how components are built
-    - Map from dataset
-- [ ] Move to functional components
-- [ ] Add content to Books page
-  - alternate covers
-  - Figure out system for books you stopped
-  - how to handle multiple successive reads
-  - audio vs physical
-  - [ ] Amazon link
-  - [ ] GoodReads link
-  - [ ] GoodReads Rating
-  - [ ] Longterm - Blurb / Reviews
+  - Redundant with feed?
 - [x] Add JS30 Section
   - [ ] Add project descriptions
 - [ ] Button Sizing
 
 ## Done
 
+- [x] Rename Page components, update content & styles, make code declarative and functional - 9/3 -> 9/5
 - [x] Update Deps, Update Analytics to GA4, Fix build process - 6/13
 - [x] Implement basic feed - 5/23 -> 6/4
 - [x] Begin updating Resume content, Update project display - 1/1/24

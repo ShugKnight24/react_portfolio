@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
 import { GoogleAnalytics } from './components/Analytics/GoogleAnalytics';
+import { ThemeProvider } from './context/ThemeProvider';
 import './index.css';
 
 // Fix console text color in dark mode
@@ -36,9 +37,11 @@ if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <GoogleAnalytics />
-      <App />
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <GoogleAnalytics />
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );

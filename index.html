@@ -3,7 +3,72 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Shugmi Shumunov's Portfolio Site" />
+    <title>Shugmi Shumunov | Full Stack Engineer</title>
+    <meta
+      name="description"
+      content="Shugmi Shumunov, full stack engineer in Detroit. Projects, 3D experiments, an arcade, and the books and ideas behind them."
+    />
+    <link rel="canonical" href="https://shugknight24.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Shugmi Shumunov" />
+    <meta property="og:title" content="Shugmi Shumunov | Full Stack Engineer" />
+    <meta
+      property="og:description"
+      content="Shugmi Shumunov, full stack engineer in Detroit. Projects, 3D experiments, an arcade, and the books and ideas behind them."
+    />
+    <meta property="og:url" content="https://shugknight24.github.io/" />
+    <meta property="og:image" content="https://shugknight24.github.io/og/default.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Shugmi Shumunov, full stack engineer in Detroit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shugmi Shumunov | Full Stack Engineer" />
+    <meta
+      name="twitter:description"
+      content="Shugmi Shumunov, full stack engineer in Detroit. Projects, 3D experiments, an arcade, and the books and ideas behind them."
+    />
+    <meta name="twitter:image" content="https://shugknight24.github.io/og/default.jpg" />
+    <meta name="twitter:image:alt" content="Shugmi Shumunov, full stack engineer in Detroit" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shugmi Shumunov",
+        "alternateName": "ShugKnight24",
+        "jobTitle": "Full Stack Engineer",
+        "url": "https://shugknight24.github.io/",
+        "image": "https://shugknight24.github.io/og/default.jpg",
+        "email": "mailto:sshumunov@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Detroit",
+          "addressRegion": "MI",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://github.com/ShugKnight24",
+          "https://www.linkedin.com/in/shugmishumunov"
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Press+Start+2P&display=swap"
+    />
+    <!-- Home's LCP image, fetched before the app chunk asks for it. postbuild strips this
+         (data-home-only) from the other route pages and 404.html. -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/img/photos/me/shug-luna-car-smile-1000.webp"
+      imagesrcset="/img/photos/me/shug-luna-car-smile-640.webp 640w, /img/photos/me/shug-luna-car-smile-1000.webp 1000w"
+      imagesizes="(max-width: 900px) 100vw, 26rem"
+      fetchpriority="high"
+      data-home-only
+    />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
@@ -14,28 +79,21 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="592x592" href="/android-icon-592x592.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="manifest" href="/manifest.json" />
 
-    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#0D1430" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
-    />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <title>Shugmi Shumunov Portfolio</title>
+    <meta name="theme-color" content="#0D1430" />
+    <meta name="color-scheme" content="dark light" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to see this website.</noscript>
     <div id="root"></div>
-    <script type="module" src="./src/index.tsx"></script>
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

@@ -1,0 +1,397 @@
+/* Contact: Motor City Night. Clue rows, consulting and repos. */
+
+.contactPage {
+  --ct-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--w-text, var(--color-text));
+}
+
+.arrow {
+  flex-shrink: 0;
+  transition: transform 320ms var(--ct-ease);
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+  padding-top: clamp(4rem, 9vw, 7rem);
+  scroll-margin-top: 80px;
+}
+
+.head {
+  max-width: 44rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.lead {
+  max-width: 34rem;
+  margin: 1rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.address {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.875rem;
+  color: var(--w-muted, #9a9ea8);
+  user-select: all;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+
+/* Channels */
+
+.channels {
+  display: grid;
+  border-top: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+}
+
+.channel,
+.channel:link,
+.channel:visited {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  color: inherit;
+  text-decoration: none;
+}
+
+.channelLabel {
+  font-family: var(--font-family-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.channelValue,
+.channelValue:link,
+.channelValue:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 1.0625rem;
+  font-weight: 550;
+  color: var(--w-text, #ede9e3);
+  text-decoration: none;
+}
+
+a.channelValue:hover,
+.channelLink:hover .channelValue {
+  color: var(--w-accent-hi, #ffb067);
+}
+
+.channelLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+.channelNote {
+  grid-column: 2;
+  font-size: 0.875rem;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.channels :global(.mc-still) {
+  margin-top: 2.5rem;
+}
+
+/* ---------- Consulting ---------- */
+
+.consulting {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-top: clamp(4rem, 9vw, 7rem);
+  padding-top: 2.5rem;
+  border-top: 1px solid rgb(201 209 220 / 0.2);
+}
+
+.sectionTitle {
+  margin: 0 0 1rem;
+  font-family: var(--w-display, inherit);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--w-text, #ede9e3);
+}
+
+.sectionText {
+  max-width: 30rem;
+  margin: 0;
+  color: rgb(237 233 227 / 0.78);
+}
+
+.statusDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 0.6rem;
+  border-radius: 50%;
+  background: var(--w-accent, #ff8a2a);
+  box-shadow: 0 0 10px rgb(255 138 42 / 0.8);
+  vertical-align: middle;
+  animation: pulseDot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.services {
+  margin: 0;
+  border-top: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+}
+
+.services > div {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: 0.25rem 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+}
+
+.services dt {
+  font-weight: 600;
+  color: var(--w-text, #ede9e3);
+}
+
+.services dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--w-muted, #9a9ea8);
+}
+
+/* ---------- Repos ---------- */
+
+.repos {
+  margin-top: clamp(4rem, 9vw, 7rem);
+}
+
+.reposHead {
+  margin-bottom: 1rem;
+}
+
+.repoList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+}
+
+.repoRow,
+.repoRow:link,
+.repoRow:visited {
+  display: grid;
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr) auto;
+  grid-template-areas:
+    'name desc arrow'
+    'name tech arrow';
+  align-items: baseline;
+  gap: 0.35rem 2rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--w-line, rgb(255 255 255 / 0.08));
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background-color 240ms ease,
+    padding 320ms var(--ct-ease);
+}
+
+.repoRow:hover {
+  padding-left: 0.75rem;
+  background: linear-gradient(90deg, rgb(255 138 42 / 0.06), transparent 60%);
+}
+
+.repoRow > .arrow {
+  grid-area: arrow;
+  align-self: center;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.repoRow:hover > .arrow {
+  transform: translateX(4px);
+  color: var(--w-accent, #ff8a2a);
+}
+
+.repoName {
+  grid-area: name;
+  overflow-wrap: anywhere;
+  font-family: var(--font-family-mono);
+  font-size: 0.9375rem;
+  color: var(--w-text, #ede9e3);
+}
+
+.repoDesc {
+  grid-area: desc;
+  color: rgb(237 233 227 / 0.8);
+}
+
+.repoTech {
+  grid-area: tech;
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  color: var(--w-accent-2, #c9d1dc);
+  opacity: 0.75;
+}
+
+
+ol.channels {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.head .radar {
+  margin-bottom: 1rem;
+}
+
+/* The last clue is redacted until someone clicks it */
+.redacted {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 1.0625rem;
+  letter-spacing: -0.08em;
+  color: var(--w-text, #ede9e3);
+  opacity: 0.85;
+  cursor: pointer;
+  transition: opacity 200ms ease, color 200ms ease;
+}
+
+.redacted:hover,
+.redacted:focus-visible {
+  opacity: 1;
+  color: var(--w-accent, #ff8a2a);
+}
+
+.revealed {
+  color: var(--w-accent-hi, #ffb067);
+  animation: declassify 700ms var(--ct-ease) both;
+}
+
+@keyframes declassify {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    letter-spacing: 0.3em;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.radar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  font-family: var(--font-family-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--w-muted, #9a9ea8);
+}
+
+.radarPing {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--w-accent, #ff8a2a);
+}
+
+.radarPing::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--w-accent, #ff8a2a);
+  animation: sonar 2.2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+@keyframes sonar {
+  to {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .contactGrid,
+  .consulting {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .channel,
+  .channel:link,
+  .channel:visited {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .channelNote {
+    grid-column: 1;
+  }
+
+  .services > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .repoRow,
+  .repoRow:link,
+  .repoRow:visited {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'name arrow'
+      'desc desc'
+      'tech tech';
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statusDot,
+  .radarPing::after,
+  .revealed {
+    animation: none;
+  }
+
+  .arrow,
+  .repoRow,
+  .repoRow:link,
+  .repoRow:visited {
+    transition: none;
+  }
+}

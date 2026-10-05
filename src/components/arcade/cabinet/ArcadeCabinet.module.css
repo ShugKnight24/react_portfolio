@@ -1,0 +1,768 @@
+.arcade-chassis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 15%, #0F172A, #020617);
+  padding: 1rem 0.5rem 3rem 0.5rem;
+  box-sizing: border-box;
+
+  /* Perspective Form-Factor Toolbar */
+  .cabinet-perspective-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 1440px;
+    margin-bottom: 1.25rem;
+    padding: 0.6rem 1rem;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+
+    .mode-toggle-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      .toolbar-label {
+        font-family: monospace;
+        font-size: 0.78rem;
+        font-weight: bold;
+        color: #38BDF8;
+      }
+
+      .mode-btn {
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #CBD5E1;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: #38BDF8;
+          color: #fff;
+        }
+
+        &.active {
+          background: #0284C7;
+          border-color: #38BDF8;
+          color: #fff;
+          font-weight: bold;
+          box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+        }
+      }
+    }
+
+    .hardware-toggles {
+      display: flex;
+      gap: 0.5rem;
+
+      .hw-btn {
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #94A3B8;
+        padding: 0.35rem 0.75rem;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover,
+        &.active {
+          color: #FBBF24;
+          border-color: #FBBF24;
+        }
+      }
+    }
+  }
+
+  /* Scanlines Overlay */
+  .with-scanlines {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.65;
+    }
+  }
+
+  /* ================= ARCADE CABINET ================= */
+  .arcade-cabinet-exterior {
+    width: 100%;
+    max-width: 1440px;
+    background: linear-gradient(180deg, #1E1B4B 0%, #0F172A 60%, #020617 100%);
+    border: 4px solid #090D16;
+    border-radius: 14px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(56, 189, 248, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    /* Marquee */
+    .arcade-marquee {
+      background: #090D16;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 3px solid #1E293B;
+
+      .marquee-neon-border {
+        background: radial-gradient(circle at 50% 50%, #1E1B4B, #090D16);
+        border: 2px solid #EC4899;
+        border-radius: 8px;
+        padding: 0.5rem 1.25rem;
+        text-align: center;
+        box-shadow: 0 0 16px rgba(236, 72, 153, 0.4), inset 0 0 10px rgba(236, 72, 153, 0.2);
+
+        .marquee-sub {
+          font-size: 0.7rem;
+          font-family: monospace;
+          color: #FBBF24;
+          letter-spacing: 0.2em;
+          display: block;
+        }
+
+        .marquee-title {
+          font-family: 'Courier New', Courier, monospace;
+          font-size: clamp(1.4rem, 3vw, 2rem);
+          font-weight: 900;
+          letter-spacing: 0.12em;
+          margin: 0.15rem 0;
+          color: #38BDF8;
+          text-shadow: 0 0 15px #38BDF8, 0 0 30px #0284C7;
+        }
+
+        .marquee-credits {
+          font-size: 0.72rem;
+          font-family: monospace;
+          color: #10B981;
+          letter-spacing: 0.1em;
+          font-weight: bold;
+        }
+      }
+    }
+
+    /* Monitor Housing */
+    .arcade-monitor-housing {
+      background: #030712;
+      padding: 0.5rem;
+      border-bottom: 4px solid #1E293B;
+
+      .crt-screen-bezel {
+        background: #020617;
+        border: 3px solid #1E293B;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+
+        .crt-glass-glare {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 35%;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+          pointer-events: none;
+          z-index: 45;
+        }
+
+        .screen-viewport {
+          width: 100%;
+          min-height: clamp(580px, 72vh, 850px);
+          display: flex;
+          flex-direction: column;
+          position: relative;
+        }
+      }
+    }
+
+    /* Compact Control Strip (Default / Minimized Mode) */
+    .compact-control-strip {
+      background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+      padding: 0.6rem 1.25rem;
+      border-top: 2px solid #334155;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+
+      .compact-deck-left {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .compact-coin-btn {
+          background: #B45309;
+          border: 1px solid #FBBF24;
+          color: #FFF;
+          font-family: monospace;
+          font-size: 0.75rem;
+          font-weight: bold;
+          padding: 0.35rem 0.65rem;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.15s ease;
+
+          &:hover {
+            background: #92400E;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+          }
+        }
+
+        .compact-start-btn {
+          background: #15803D;
+          border: 1px solid #4ADE80;
+          color: #FFF;
+          font-family: monospace;
+          font-size: 0.75rem;
+          font-weight: bold;
+          padding: 0.35rem 0.65rem;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.15s ease;
+
+          &:hover {
+            background: #166534;
+            box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+          }
+        }
+      }
+
+      .compact-deck-keys {
+        font-family: monospace;
+        font-size: 0.7rem;
+        color: #94A3B8;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        flex-wrap: wrap;
+
+        .key-badge {
+          background: rgba(30, 41, 59, 0.9);
+          border: 1px solid #475569;
+          color: #38BDF8;
+          padding: 0.1rem 0.35rem;
+          border-radius: 3px;
+          font-size: 0.68rem;
+          font-weight: bold;
+        }
+      }
+
+      .compact-toggle-btn {
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #CBD5E1;
+        padding: 0.35rem 0.7rem;
+        font-family: monospace;
+        font-size: 0.72rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+
+        &:hover {
+          color: #FFF;
+          border-color: #38BDF8;
+          background: #1E293B;
+        }
+      }
+    }
+
+    /* Control Deck */
+    .arcade-control-deck {
+      background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+      padding: 1.25rem 2rem;
+      border-top: 4px solid #334155;
+      position: relative;
+
+      .deck-minimize-btn {
+        position: absolute;
+        top: 0.4rem;
+        right: 0.75rem;
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #94A3B8;
+        padding: 0.25rem 0.55rem;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.7rem;
+        cursor: pointer;
+
+        &:hover {
+          color: #FFF;
+          border-color: #38BDF8;
+        }
+      }
+
+      .deck-surface {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+
+        @media (max-width: 700px) {
+          justify-content: center;
+        }
+      }
+
+      .joystick-assembly {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+
+        .joystick-base {
+          width: 76px;
+          height: 76px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 50% 50%, #111, #333);
+          border: 4px solid #475569;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: grab;
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+
+          .joystick-stick {
+            width: 14px;
+            height: 14px;
+            position: relative;
+            transition: transform 0.1s ease-out;
+
+            .joystick-balltop {
+              position: absolute;
+              top: -24px;
+              left: -14px;
+              width: 42px;
+              height: 42px;
+              border-radius: 50%;
+              background: radial-gradient(circle at 35% 35%, #F87171, #DC2626 70%, #991B1B);
+              box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+            }
+          }
+        }
+
+        .deck-label {
+          font-size: 0.72rem;
+          color: #94A3B8;
+          font-family: monospace;
+          font-weight: bold;
+        }
+      }
+
+      .deck-center-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+
+        .coin-slot-housing {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.3rem;
+
+          .coin-insert-btn {
+            background: linear-gradient(180deg, #F59E0B, #D97706);
+            border: 2px solid #FDE68A;
+            color: #78350F;
+            font-family: monospace;
+            font-weight: 900;
+            font-size: 0.85rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+            transition: all 0.1s ease;
+
+            &:active,
+            &.pressed {
+              transform: translateY(2px);
+              box-shadow: 0 1px 4px rgba(245, 158, 11, 0.6);
+            }
+
+            .coin-light {
+              display: inline-block;
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              background: #FDE68A;
+              box-shadow: 0 0 6px #FDE68A;
+              margin-right: 0.4rem;
+            }
+          }
+
+          .coin-label {
+            font-size: 0.75rem;
+            font-family: monospace;
+            color: #10B981;
+            font-weight: bold;
+          }
+        }
+
+        .start-btn {
+          background: #fff;
+          border: 2px solid #CBD5E1;
+          color: #0F172A;
+          font-family: monospace;
+          font-weight: 900;
+          font-size: 0.8rem;
+          padding: 0.4rem 1rem;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:active,
+          &.pressed {
+            transform: translateY(2px);
+          }
+        }
+      }
+
+      .buttons-assembly {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+
+        .button-cluster {
+          display: flex;
+          gap: 0.75rem;
+
+          .arcade-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-family: monospace;
+            font-weight: 900;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.6);
+            transition: all 0.1s ease;
+
+            &.btn-red {
+              background: radial-gradient(circle at 35% 35%, #EF4444, #B91C1C);
+            }
+            &.btn-blue {
+              background: radial-gradient(circle at 35% 35%, #3B82F6, #1D4ED8);
+            }
+            &.btn-yellow {
+              background: radial-gradient(circle at 35% 35%, #FBBF24, #D97706);
+              color: #78350F;
+            }
+
+            &:active,
+            &.pressed {
+              transform: translateY(3px);
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+            }
+          }
+        }
+
+        .deck-label {
+          font-size: 0.72rem;
+          color: #94A3B8;
+          font-family: monospace;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  /* ================= GAME BOY DMG CHASSIS ================= */
+  .gameboy-chassis {
+    width: 100%;
+    max-width: 680px;
+    background: #D1D5DB;
+    border: 6px solid #9CA3AF;
+    border-radius: 24px 24px 70px 24px;
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 2px 4px #F3F4F6;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .gameboy-top-bevel {
+      display: flex;
+      justify-content: flex-start;
+
+      .off-on-switch {
+        font-family: monospace;
+        font-size: 0.65rem;
+        color: #6B7280;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    .gameboy-screen-surround {
+      background: #475569;
+      border-radius: 12px 12px 30px 12px;
+      padding: 1rem 1.25rem;
+      border: 3px solid #334155;
+      box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
+
+      .screen-header-stripe {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+
+        .battery-indicator {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-size: 0.62rem;
+          font-family: monospace;
+          color: #CBD5E1;
+
+          .battery-led {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #EF4444;
+            box-shadow: 0 0 6px #EF4444;
+          }
+        }
+
+        .dot-matrix-text {
+          font-size: 0.65rem;
+          font-family: monospace;
+          color: #94A3B8;
+          letter-spacing: 0.08em;
+        }
+      }
+
+      .gameboy-screen-viewport {
+        background: #0F172A;
+        border: 4px solid #1E293B;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+    }
+
+    .gameboy-brand-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-left: 0.5rem;
+
+      .nintendo-logo {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #1E3A8A;
+        font-family: 'Arial Rounded MT Bold', sans-serif;
+      }
+
+      .gameboy-logo {
+        font-size: 1.4rem;
+        font-weight: 900;
+        font-style: italic;
+        color: #1E3A8A;
+        font-family: sans-serif;
+      }
+
+      .color-badge {
+        font-size: 0.7rem;
+        font-weight: bold;
+        color: #6B7280;
+      }
+    }
+
+    .gameboy-controls-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1.5rem;
+
+      .dpad-cross {
+        width: 100px;
+        height: 100px;
+        position: relative;
+
+        .dpad-btn {
+          position: absolute;
+          background: #1F2937;
+          border: none;
+          color: #6B7280;
+          font-size: 0.8rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:active {
+            background: #111;
+          }
+
+          &.up {
+            top: 0;
+            left: 33px;
+            width: 34px;
+            height: 36px;
+            border-radius: 4px 4px 0 0;
+          }
+          &.down {
+            bottom: 0;
+            left: 33px;
+            width: 34px;
+            height: 36px;
+            border-radius: 0 0 4px 4px;
+          }
+          &.left {
+            top: 33px;
+            left: 0;
+            width: 36px;
+            height: 34px;
+            border-radius: 4px 0 0 4px;
+          }
+          &.right {
+            top: 33px;
+            right: 0;
+            width: 36px;
+            height: 34px;
+            border-radius: 0 4px 4px 0;
+          }
+        }
+
+        .dpad-center-indent {
+          position: absolute;
+          top: 33px;
+          left: 33px;
+          width: 34px;
+          height: 34px;
+          background: #1F2937;
+        }
+      }
+
+      .ab-buttons-housing {
+        display: flex;
+        gap: 1.25rem;
+        transform: rotate(-25deg);
+
+        .angled-btn-pill {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.25rem;
+
+          .gb-round-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #BE185D, #831843);
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 900;
+            font-family: sans-serif;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+            &:active,
+            &.pressed {
+              transform: translateY(2px);
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            }
+          }
+
+          .btn-label {
+            font-family: monospace;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #1E3A8A;
+          }
+        }
+      }
+    }
+
+    .gameboy-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0 1rem;
+
+      .select-start-cluster {
+        display: flex;
+        gap: 1rem;
+        transform: rotate(-25deg);
+        margin-left: 2rem;
+
+        .pill-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.2rem;
+
+          .gb-pill-btn {
+            width: 48px;
+            height: 14px;
+            background: #4B5563;
+            border-radius: 7px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+            &:active {
+              transform: translateY(1px);
+            }
+          }
+
+          .pill-text {
+            font-size: 0.62rem;
+            font-family: monospace;
+            font-weight: bold;
+            color: #1E3A8A;
+          }
+        }
+      }
+
+      .speaker-slits {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        transform: rotate(-25deg);
+
+        .slit {
+          width: 50px;
+          height: 5px;
+          background: #9CA3AF;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  /* ================= FULLSCREEN ================= */
+  .fullscreen-view-container {
+    width: 100%;
+    max-width: 1200px;
+    background: #090D16;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  }
+}

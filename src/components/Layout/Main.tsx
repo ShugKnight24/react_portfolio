@@ -1,40 +1,60 @@
 import { FC, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-const AboutPage = lazy(() => import('../Pages').then((module) => ({ default: module.AboutPage })));
-const BooksPage = lazy(() => import('../Pages').then((module) => ({ default: module.BooksPage })));
-const ContactPage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.ContactPage }))
+// Each page is its own chunk, so heavy dependencies (three.js on Home) load only where used
+const AboutContact = lazy(() =>
+  import('../Pages/AboutContact').then((module) => ({ default: module.AboutContact }))
 );
-const Feed = lazy(() => import('../Feed').then((module) => ({ default: module.Feed })));
-const LandingPage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.LandingPage }))
+const BooksPage = lazy(() =>
+  import('../Pages/BooksPage').then((module) => ({ default: module.BooksPage }))
 );
-const NotFoundPage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.NotFoundPage }))
+const Landing = lazy(() =>
+  import('../Pages/Landing').then((module) => ({ default: module.Landing }))
 );
-const PhotoGal = lazy(() => import('../Pages').then((module) => ({ default: module.PhotoGal })));
-const PlaygroundPage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.PlaygroundPage }))
+const NotFound = lazy(() =>
+  import('../Pages/NotFound').then((module) => ({ default: module.NotFound }))
 );
-const ProjectsPage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.ProjectsPage }))
+const PhotoGal = lazy(() =>
+  import('../Pages/PhotoGal').then((module) => ({ default: module.PhotoGal }))
 );
-const ResumePage = lazy(() =>
-  import('../Pages').then((module) => ({ default: module.ResumePage }))
+const Projects = lazy(() =>
+  import('../Pages/Projects').then((module) => ({ default: module.Projects }))
+);
+const FunPage = lazy(() => import('../Fun/FunPage').then((module) => ({ default: module.FunPage })));
+const AnimationsPage = lazy(() =>
+  import('../Animations/AnimationsPage').then((module) => ({ default: module.AnimationsPage }))
+);
+const Roadmap = lazy(() =>
+  import('../Pages/Roadmap').then((module) => ({ default: module.Roadmap }))
+);
+const ArcadePortfolio = lazy(() =>
+  import('../arcade/ArcadePortfolio').then((module) => ({ default: module.ArcadePortfolio }))
 );
 
 export const Main: FC = () => (
   <Routes>
-    <Route path="/" element={<LandingPage />} />
-    <Route path="/about" element={<AboutPage />} />
+    <Route path="/" element={<Landing />} />
+    <Route path="/about" element={<AboutContact />} />
+    <Route path="/contact" element={<AboutContact />} />
+    <Route path="/aboutcontact" element={<AboutContact />} />
     <Route path="/books" element={<BooksPage />} />
-    <Route path="/contact" element={<ContactPage />} />
-    <Route path="/feed" element={<Feed />} />
+    {/* The Entertainment page is archived; old links go home */}
+    <Route path="/entertainment" element={<Navigate to="/" replace />} />
+    {/* The feed is archived for now; old links go home */}
+    <Route path="/feed" element={<Navigate to="/" replace />} />
     <Route path="/photos" element={<PhotoGal />} />
-    <Route path="/play" element={<PlaygroundPage />} />
-    <Route path="/projects" element={<ProjectsPage />} />
-    <Route path="/resume" element={<ResumePage />} />
-    <Route path="*" element={<NotFoundPage />} />
+    {/* One arcade, two halls: /arcade, /arcade/<hall>, /arcade/<hall>/<experience> */}
+    <Route path="/arcade/*" element={<ArcadePortfolio />} />
+    <Route path="/v8" element={<Navigate to="/arcade" replace />} />
+    <Route path="/play" element={<Navigate to="/arcade/play/tamagotchi" replace />} />
+    <Route path="/tamagotchi" element={<Navigate to="/arcade/play/tamagotchi" replace />} />
+    <Route path="/brawler" element={<Navigate to="/arcade/play/brawler" replace />} />
+    <Route path="/projects" element={<Projects />} />
+    {/* The old résumé page is archived; its links land on Projects */}
+    <Route path="/resume" element={<Navigate to="/projects" replace />} />
+    <Route path="/roadmap" element={<Roadmap />} />
+    <Route path="/fun/*" element={<FunPage />} />
+    <Route path="/animations/*" element={<AnimationsPage />} />
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );

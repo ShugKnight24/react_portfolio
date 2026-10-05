@@ -1,8 +1,11 @@
 import ReactGA from 'react-ga4';
-import { UaEventOptions } from 'react-ga4/types/ga4';
+
+type UaEventOptions = Exclude<Parameters<typeof ReactGA.event>[0], string>;
 
 const gaTrackingId = 'G-G4LH4VLSV3';
 
+// initialize() sends the first page_view; later route changes are counted by GA4's
+// enhanced measurement (browser history events), so the app never sends page views itself.
 export const initializeGA = () => {
   ReactGA.initialize(gaTrackingId);
 };

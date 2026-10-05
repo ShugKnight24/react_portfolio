@@ -1,0 +1,68 @@
+import type { FunSceneMeta } from '../types';
+
+// Owned by one lane; add entries like: { id, category, title, caption, hint, accent, load: () => import('../<id>') }
+export const animeMoreScenes: FunSceneMeta[] = [
+  {
+    id: 'jjk-hollow-purple',
+    category: 'anime',
+    title: 'Hollow Purple',
+    caption: 'Gojo folds Blue and Red together and erases a path straight through the city.',
+    hint: 'Hold the pointer, Space or Enter to gather Blue and Red. Point where to aim and let go to fire. Press D or double tap for Domain Expansion.',
+    accent: '#a55cff',
+    load: () => import('../jjk-hollow-purple'),
+  },
+  {
+    id: 'gojo-hollow-purple',
+    category: 'anime',
+    title: 'Hollow Purple',
+    caption: 'Gojo gathers Blue and Red, folds them into one purple sphere and erases a straight line through the city.',
+    hint: 'Hold the left half for Blue, the right half for Red (or hold Space or Enter for both). With both full they merge; aim with the pointer and let go or tap to fire.',
+    accent: '#a55cff',
+    load: () => import('../gojo-hollow-purple'),
+  },
+  {
+    id: 'unlimited-void',
+    category: 'anime',
+    title: 'Unlimited Void',
+    caption: 'Gojo lifts his blindfold and traps a cursed spirit inside his domain, an endless flood of information.',
+    hint: 'Hold the pointer, Space or Enter for the hand sign and the Six Eyes. Let go (or keep holding) to expand the domain. Move the pointer to drift through the void; stop and it collapses.',
+    accent: '#7cc8ff',
+    load: () => import('../unlimited-void'),
+  },
+  {
+    id: 'gojo-unlimited-void',
+    category: 'anime',
+    title: 'Unlimited Void',
+    caption: 'Gojo pulls down his blindfold, forms the sign and drowns a cursed spirit in an infinite void.',
+    hint: 'Tap, Space or Enter to expand the domain. Move the pointer to drift through the void; tap again (or wait) to close it.',
+    accent: '#7cc8ff',
+    load: () => import('../gojo-unlimited-void'),
+  },
+  {
+    id: 'one-punch-man',
+    category: 'anime',
+    title: 'One Punch',
+    caption: 'Saitama versus a towering alien warlord. Only one punch really counts.',
+    hint: 'Tap, Space or Enter for a normal punch. Hold to get serious, then let go for the Serious Punch.',
+    accent: '#ffd43b',
+    load: () => import('../one-punch-man'),
+  },
+  {
+    id: 'spirited-away',
+    category: 'anime',
+    title: 'Sea Railway',
+    caption: 'Chihiro and No-Face ride the quiet train across the flooded sea at sunset.',
+    hint: 'Move left and right to change the hour and ripple the water. Tap the sky for petals, tap the sea for soot sprites. Space or Enter sounds the whistle.',
+    accent: '#ff9f7a',
+    load: () => import('../spirited-away'),
+  },
+  {
+    id: 'demon-slayer',
+    category: 'anime',
+    title: 'Water and Sun',
+    caption: 'Tanjiro cuts Water Breathing waves, then calls on Hinokami Kagura against a demon.',
+    hint: 'Tap, Space or Enter for a Water Breathing form. Hold for Hinokami Kagura and let go to strike with fire.',
+    accent: '#2f9b6a',
+    load: () => import('../demon-slayer'),
+  },
+];

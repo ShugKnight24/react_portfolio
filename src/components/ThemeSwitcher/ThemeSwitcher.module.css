@@ -1,0 +1,456 @@
+/* Theme switcher: every value comes from the active world's tokens so it looks native in each world */
+
+.root {
+  width: 100%;
+}
+
+/* ---------- Mini palette ---------- */
+.swatch {
+  display: inline-flex;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: min(var(--w-radius, 12px), 6px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+
+.swatch > span {
+  flex: 1;
+  transition: background-color 400ms ease;
+}
+
+/* ---------- Trigger (lives in the menu drawer) ---------- */
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--w-line);
+  border-radius: min(var(--w-radius, 12px), 10px);
+  background: var(--w-surface);
+  color: var(--w-text);
+  font-family: var(--w-body);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+
+.trigger:hover {
+  border-color: color-mix(in srgb, var(--w-accent) 55%, transparent);
+  background: var(--w-surface-2);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--w-accent);
+  outline-offset: 2px;
+}
+
+.triggerSwatch {
+  width: 2.25rem;
+  height: 1.5rem;
+}
+
+.triggerText {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.triggerLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--w-muted);
+}
+
+.triggerValue {
+  overflow: hidden;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.triggerIcon {
+  flex-shrink: 0;
+  color: var(--w-muted);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trigger:hover .triggerIcon {
+  transform: translateX(2px);
+  color: var(--w-accent);
+}
+
+/* ---------- Layer: scrim + side sheet ---------- */
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000000; /* above the fixed archive switcher (999999) */
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.12);
+  animation: fadeIn 260ms ease both;
+}
+
+/* Let the page show through while previewing: soften the menu drawer's own overlay */
+:global(html[data-theme-sheet] .drawer-overlay.active) {
+  background-color: rgb(0 0 0 / 0.1);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.sheet {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(26rem, 100vw);
+  border-left: 1px solid var(--w-line);
+  background: var(--w-bg);
+  color: var(--w-text);
+  font-family: var(--w-body);
+  box-shadow: -24px 0 64px rgb(0 0 0 / 0.5);
+  animation: slideIn 340ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.closing .scrim {
+  animation: fadeOut 220ms ease both;
+}
+
+.closing .sheet {
+  animation: slideOut 220ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+}
+
+@keyframes slideOut {
+  to { transform: translateX(100%); }
+}
+
+/* ---------- Header ---------- */
+.sheetHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--w-line);
+}
+
+.headingBlock {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--w-accent);
+}
+
+.worldName {
+  margin: 0;
+  font-family: var(--w-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--w-text);
+}
+
+:global(html[data-world='codex']) .worldName {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+:global(html[data-world='arcade']) .worldName {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.lede {
+  margin: 0.5rem 0 0;
+  max-width: 32ch;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--w-muted);
+}
+
+.iconBtn {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--w-line);
+  border-radius: min(var(--w-radius, 12px), 10px);
+  background: transparent;
+  color: var(--w-muted);
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+.iconBtn:hover {
+  color: var(--w-text);
+  border-color: color-mix(in srgb, var(--w-text) 30%, transparent);
+}
+
+.iconBtn:focus-visible,
+.surpriseBtn:focus-visible {
+  outline: 2px solid var(--w-accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.85rem 1.25rem;
+}
+
+.surpriseBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.25rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid transparent;
+  border-radius: min(var(--w-radius, 12px), 10px);
+  background: var(--w-accent);
+  color: var(--w-on-accent);
+  font-family: var(--w-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+
+.surpriseBtn:hover {
+  background: var(--w-accent-hi);
+}
+
+.surpriseBtn:active svg {
+  transform: rotate(-20deg);
+}
+
+.surpriseBtn svg {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--w-muted);
+}
+
+/* ---------- Chip groups ---------- */
+.scrollArea {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.25rem 1.25rem 1.25rem;
+}
+
+.group + .group {
+  margin-top: 1.25rem;
+}
+
+.groupTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0 0 0.6rem;
+  font-family: var(--w-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--w-muted);
+}
+
+.groupCount {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: 0.5rem;
+}
+
+.chip {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0.5rem;
+  border: 1px solid var(--w-line);
+  border-radius: min(var(--w-radius, 12px), 10px);
+  background: var(--w-surface);
+  color: var(--w-text);
+  font-family: var(--w-body);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chip .swatch {
+  width: 100%;
+  height: 1.75rem;
+}
+
+.chip:hover {
+  border-color: color-mix(in srgb, var(--chip-accent) 60%, transparent);
+  background: var(--w-surface-2);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--chip-accent);
+  outline-offset: 2px;
+}
+
+.chip:active {
+  transform: scale(0.97);
+}
+
+.chip[aria-checked='true'] {
+  border-color: var(--chip-accent);
+  box-shadow: inset 0 0 0 1px var(--chip-accent);
+}
+
+.chipName {
+  overflow: hidden;
+  padding-right: 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+:global(html[data-world='arcade']) .chipName {
+  font-size: 0.75rem;
+}
+
+.chipCheck {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  display: grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--chip-accent);
+  color: #0a0a0c;
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 200ms ease,
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chip[aria-checked='true'] .chipCheck {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- Footer: what is on screen right now ---------- */
+.sheetFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.25rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--w-line);
+  background: var(--w-surface);
+}
+
+.footerSwatch {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.footerText {
+  display: grid;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.footerLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--w-accent);
+}
+
+.footerName {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.footerDesc {
+  overflow: hidden;
+  font-size: 0.8rem;
+  color: var(--w-muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrim,
+  .sheet,
+  .closing .scrim,
+  .closing .sheet {
+    animation: none;
+  }
+
+  .swatch > span,
+  .chip,
+  .chipCheck,
+  .trigger,
+  .triggerIcon {
+    transition: none;
+  }
+}

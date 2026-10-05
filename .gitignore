@@ -2,8 +2,10 @@
 
 # dependencies
 /node_modules
+/.vite
 /.pnp
 .pnp.js
+
 
 # testing
 /coverage
@@ -21,3 +23,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+riso-exports/
+
+# local tooling
+.astro/
+.playwright-mcp/
+
+# vendored three.js: only the module build and types are used
+/src/vendor/three/build/
+/src/vendor/three/examples/
+/src/vendor/three/three.cjs
+/src/vendor/three/three.core.min.js
+/src/vendor/three/three.module.min.js
+/src/vendor/three/three.tsl*.js
+/src/vendor/three/three.webgpu*.js

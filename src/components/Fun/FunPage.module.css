@@ -1,0 +1,518 @@
+/* Fun: Arcade OS gallery of small canvas scenes plus a modal player */
+
+.page {
+  --fun-accent: var(--w-accent, #5dffb0);
+  --fun-accent-2: var(--w-accent-2, #ff4fa3);
+  --fun-line: var(--w-line, rgb(93 255 176 / 0.16));
+  --fun-surface: var(--w-surface, #0f0d1c);
+  --fun-surface-2: var(--w-surface-2, #17142a);
+  --fun-text: var(--w-text, #e6f5ec);
+  --fun-muted: var(--w-muted, #8aa39a);
+  --fun-bg: var(--w-bg, #07060f);
+  --fun-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.5rem) clamp(3rem, 8vw, 6rem);
+  box-sizing: border-box;
+  color: var(--fun-text);
+  font-family: var(--w-body, 'Geist Mono', ui-monospace, monospace);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  gap: 1rem;
+  max-width: 46rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  font-family: var(--w-display, 'Press Start 2P', monospace);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--fun-accent);
+}
+
+.kickerDot {
+  width: 8px;
+  height: 8px;
+  background: var(--fun-accent);
+  box-shadow: 0 0 10px var(--fun-accent);
+  animation: blink 1.6s steps(2, jump-none) infinite;
+}
+
+.title {
+  font-size: clamp(2.5rem, 9vw, 5rem);
+}
+
+.lede {
+  margin: 0;
+  max-width: 40rem;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.65;
+  color: var(--fun-muted);
+  text-wrap: pretty;
+}
+
+/* ---------- Groups ---------- */
+.groups {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.25rem);
+}
+
+.group {
+  display: grid;
+  gap: clamp(0.85rem, 2vw, 1.15rem);
+  min-width: 0;
+}
+
+.groupTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: var(--w-display, 'Press Start 2P', monospace);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--fun-text);
+}
+
+/* Rule that runs from the heading to the edge of the grid */
+.groupTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--fun-line);
+}
+
+.groupCount {
+  order: 2;
+  font-size: 12px;
+  color: var(--fun-accent);
+}
+
+/* ---------- Features below the gallery ---------- */
+.features {
+  margin-top: clamp(3rem, 7vw, 5rem);
+}
+
+.feature {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(3rem, 7vw, 5rem);
+}
+
+.featureLede {
+  margin: 0;
+  max-width: 44rem;
+  line-height: 1.6;
+  color: var(--fun-muted);
+}
+
+/* Two classes so it outranks the global `a:link { text-decoration: none }` */
+.featureLede .featureLink {
+  color: var(--fun-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* The legends' signature moves sit under the Sports Legends feature */
+.legendsGroup {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* ---------- Grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  gap: clamp(1rem, 2.4vw, 1.75rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tileItem {
+  min-width: 0;
+}
+
+.tile {
+  --tile-accent: var(--fun-accent);
+  display: grid;
+  gap: 0.55rem;
+  height: 100%;
+  padding: 0.6rem 0.6rem 0.9rem;
+  box-sizing: border-box;
+  color: inherit;
+  text-decoration: none;
+  background: var(--fun-surface);
+  border: 1px solid var(--fun-line);
+  border-radius: var(--w-radius, 4px);
+  transition:
+    transform 320ms var(--fun-ease),
+    border-color 200ms ease,
+    box-shadow 320ms var(--fun-ease);
+}
+
+.tile:hover,
+.tile:focus-visible {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--tile-accent) 70%, transparent);
+  box-shadow:
+    0 14px 34px -18px color-mix(in srgb, var(--tile-accent) 70%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--tile-accent) 35%, transparent);
+}
+
+.tile:focus-visible {
+  outline: 2px solid var(--tile-accent);
+  outline-offset: 3px;
+}
+
+.tile:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.tileFrame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--fun-bg);
+  border-radius: max(0px, calc(var(--w-radius, 4px) - 2px));
+  isolation: isolate;
+}
+
+/* CRT scanlines over the poster and preview */
+.tileFrame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg, rgb(0 0 0 / 0.18) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 60%, rgb(0 0 0 / 0.45) 100%);
+}
+
+.tilePoster,
+.tileLive {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tilePoster {
+  object-fit: cover;
+  animation: posterIn 420ms var(--fun-ease) both;
+}
+
+.tileLive {
+  z-index: 1;
+  animation: posterIn 260ms ease both;
+}
+
+.tileLoading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--w-display, monospace);
+  font-size: 12px;
+  color: var(--fun-muted);
+  animation: blink 1.2s steps(2, jump-none) infinite;
+}
+
+.tileIndex,
+.tilePlay {
+  position: absolute;
+  z-index: 4;
+  top: 0.55rem;
+  padding: 0.3rem 0.45rem;
+  font-family: var(--w-display, monospace);
+  font-size: 12px;
+  line-height: 1;
+  color: var(--fun-text);
+  background: rgb(7 6 15 / 0.78);
+  border: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.tileIndex {
+  left: 0.55rem;
+}
+
+.tilePlay {
+  right: 0.55rem;
+  color: var(--w-on-accent, #04140c);
+  background: var(--tile-accent);
+  border-color: transparent;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 180ms ease,
+    transform 260ms var(--fun-ease);
+}
+
+.tile:hover .tilePlay,
+.tile:focus-visible .tilePlay {
+  opacity: 1;
+  transform: none;
+}
+
+.tileTitle {
+  padding: 0.2rem 0.2rem 0;
+  font-family: var(--w-display, monospace);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fun-text);
+}
+
+.tileCaption {
+  padding: 0 0.2rem;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--fun-muted);
+}
+
+/* ---------- Player ---------- */
+.scrollLocked {
+  overflow: hidden;
+}
+
+.player {
+  --tile-accent: var(--fun-accent);
+  width: min(1200px, calc(100vw - 2rem));
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--w-text, #e6f5ec);
+  font-family: var(--w-body, 'Geist Mono', ui-monospace, monospace);
+  background: var(--w-surface, #0f0d1c);
+  border: 1px solid color-mix(in srgb, var(--tile-accent) 45%, transparent);
+  border-radius: var(--w-radius, 4px);
+  box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.9);
+  overflow: auto;
+}
+
+.player[open] {
+  animation: playerIn 320ms var(--fun-ease) both;
+}
+
+.player::backdrop {
+  background: rgb(4 3 10 / 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.playerInner {
+  display: grid;
+  gap: 0.85rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.playerHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.playerHeading {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.playerCounter {
+  font-family: var(--w-display, monospace);
+  font-size: 12px;
+  color: var(--tile-accent);
+}
+
+.playerTitle {
+  margin: 0;
+  font-family: var(--w-display, monospace);
+  font-size: clamp(14px, 2.2vw, 20px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--w-text, #e6f5ec);
+}
+
+.playerCaption {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--w-muted, #8aa39a);
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100dvh - 15rem);
+  min-height: 240px;
+  overflow: hidden;
+  background: var(--w-bg, #07060f);
+  border: 1px solid var(--w-line, rgb(93 255 176 / 0.16));
+  border-radius: max(0px, calc(var(--w-radius, 4px) - 2px));
+}
+
+.playerFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.playerHint {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex: 1 1 18rem;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--w-text, #e6f5ec);
+}
+
+.hintLabel {
+  flex: none;
+  padding: 0.25rem 0.4rem;
+  font-family: var(--w-display, monospace);
+  font-size: 12px;
+  line-height: 1;
+  color: var(--w-on-accent, #04140c);
+  background: var(--tile-accent);
+}
+
+.playerControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iconButton {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--w-text, #e6f5ec);
+  background: var(--w-surface-2, #17142a);
+  border: 1px solid var(--w-line, rgb(93 255 176 / 0.16));
+  border-radius: var(--w-radius, 4px);
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms var(--fun-ease, ease);
+}
+
+.iconButton:hover {
+  color: var(--tile-accent);
+  border-color: var(--tile-accent);
+}
+
+.iconButton:active {
+  transform: scale(0.94);
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid var(--tile-accent);
+  outline-offset: 2px;
+}
+
+.iconButton[aria-pressed='true'] {
+  color: var(--tile-accent);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .player {
+    width: calc(100vw - 1rem);
+    max-height: calc(100dvh - 1rem);
+  }
+
+  .stage {
+    aspect-ratio: auto;
+    height: min(62dvh, 520px);
+    max-height: none;
+  }
+
+  .playerControls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes posterIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes playerIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile,
+  .tilePlay,
+  .iconButton {
+    transition: none;
+  }
+
+  .tile:hover,
+  .tile:focus-visible {
+    transform: none;
+  }
+
+  .kickerDot,
+  .tileLoading,
+  .tilePoster,
+  .tileLive,
+  .player[open] {
+    animation: none;
+  }
+}
+
+.fine {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  color: var(--fun-muted);
+  opacity: 0.8;
+}
+
+.stage:focus-visible {
+  outline: 2px solid var(--tile-accent, var(--w-accent));
+  outline-offset: 3px;
+}

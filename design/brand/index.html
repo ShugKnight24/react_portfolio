@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brand round 5</title>
+<link rel="icon" href="knight-and-luna/favicon.svg">
+<style>:root{--paper:#F3F1EC;--ink:#111214;--mute:#5F6168;--line:rgba(17,18,20,.12);--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html,body{overflow-x:hidden}
+body{background:var(--paper);color:var(--ink);font:15px/1.55 ui-sans-serif,-apple-system,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+svg{display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:48px 28px 80px}
+.top{padding:24px 0 36px;border-bottom:1px solid var(--line)}
+.eyebrow{font:600 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+h1{font:600 clamp(40px,7vw,84px)/1 ui-serif,Georgia,serif;letter-spacing:-.02em;margin:14px 0 18px}
+.ask{max-width:760px;font:italic 19px/1.5 ui-serif,Georgia,serif;color:#33353b}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips a{text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;background:#fff}
+.chips a b{font-family:ui-monospace,Menlo,monospace;color:var(--mute);margin-right:6px;font-weight:500}
+.chips a:hover{border-color:var(--ink)}
+h2{font:600 clamp(30px,4.2vw,46px)/1.05 ui-serif,Georgia,serif;letter-spacing:-.015em}
+h3{font:600 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:40px 0 14px}
+h4{font-size:13px;font-weight:700;margin-bottom:6px;letter-spacing:.01em}
+.prev{padding:8px 0 24px;border-bottom:1px solid var(--line)}
+.rounds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rnd{background:#17181C;border-radius:var(--r);padding:14px 14px 10px;color:#ECEAE4}
+.rnd>a{text-decoration:none;font-weight:600;font-size:14px;display:flex;justify-content:space-between}
+.rnd>a span{opacity:.5}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:8px;margin-top:10px}
+.thumbs figure{text-align:center}
+.thumbs img{width:100%;height:44px;object-fit:contain}
+.thumbs figcaption{font-size:9.5px;opacity:.55;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dir{padding:72px 0 24px;border-bottom:1px solid var(--line)}
+.dir-h{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px}
+.num{font:500 13px/1 ui-monospace,Menlo,monospace;border:1px solid var(--ink);border-radius:999px;padding:7px 10px;margin-top:8px}
+.idea{max-width:760px;color:#3A3C42;font-size:17px;margin-top:8px}
+.hero{border-radius:20px;padding:clamp(24px,5vw,56px);overflow:hidden}
+.why{margin-top:26px}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.cols3 p{color:#3A3C42;font-size:14.5px}
+.grid{display:grid;gap:12px}
+.sys{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.tile{border-radius:var(--r);padding:26px 22px 14px;display:flex;flex-direction:column;justify-content:space-between;min-height:220px;border:1px solid var(--line)}
+.tile svg{width:100%;height:150px}
+.tile.wide{grid-column:span 2}
+.tile.wide svg{height:120px;margin:14px 0}
+.tile figcaption{font:11px/1.3 ui-monospace,Menlo,monospace;opacity:.6;margin-top:12px}
+.two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.sw{background:#fff;border-radius:12px;padding:8px 8px 10px;border:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.sw span{height:54px;border-radius:8px;margin-bottom:6px;border:1px solid rgba(0,0,0,.06)}
+.sw b{font-size:13px}.sw code{font-size:11.5px;color:var(--mute)}.sw small{font-size:11.5px;color:var(--mute)}
+.favs{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.favsizes{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap}
+.favsizes figure{text-align:center}
+.favsizes figcaption{font:10.5px ui-monospace,Menlo,monospace;color:var(--mute);margin-top:6px}
+.favsizes img{display:block;margin:0 auto;image-rendering:auto}
+.favsizes.alt{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.altnote{font:11px ui-monospace,Menlo,monospace;color:var(--mute);align-self:center}
+.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tab{display:flex;align-items:center;gap:8px;background:#E9EAEE;border-radius:9px 9px 0 0;padding:8px 12px;font-size:12.5px;min-width:180px}
+.tab span{flex:1}.tab i{font-style:normal;opacity:.45}
+.tab.dark{background:#2A2B30;color:#E8E8EA}
+.apps{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.app{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.app-stage{flex:1;min-height:300px;display:flex;align-items:center;justify-content:center;padding:18px;background:#ECEAE4}
+.app figcaption{font-size:12.5px;color:var(--mute);padding:10px 14px;border-top:1px solid var(--line)}
+.files{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.files h4{font:600 12px ui-monospace,Menlo,monospace;color:var(--mute)}
+.files div{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.files code{font-size:11.5px;background:#F1EFEA;border-radius:6px;padding:3px 7px}
+/* knight */
+.k-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center}
+.k-seal{width:100%;max-width:470px;height:auto;margin:0 auto}
+.k-side{display:flex;flex-direction:column;align-items:center;gap:28px}
+.k-crest{width:52%;height:auto}.k-wm{width:100%;height:auto;max-width:420px}
+.k-footer{width:100%;background:#0D1430;color:#F5E8D2;border-radius:10px;padding:26px 16px 12px;text-align:center}
+.kf-seal svg{width:132px;height:132px;margin:0 auto}
+.kf-h{font:600 17px/1.3 ui-serif,Georgia,serif;margin:14px 0 10px}
+.kf-links{display:flex;justify-content:center;gap:10px;font-size:11.5px}
+.kf-links span{border:1px solid rgba(245,232,210,.25);border-radius:999px;padding:4px 10px}
+.kf-c{display:flex;align-items:center;justify-content:center;gap:6px;font-size:10.5px;opacity:.6;margin-top:18px}
+.patch-bg{width:100%;height:100%;min-height:264px;display:flex;align-items:center;justify-content:center;border-radius:10px;
+ background:repeating-linear-gradient(45deg,#39506F 0 2px,#3D5577 2px 4px),#3B5373}
+.patch{width:190px;height:190px;border-radius:50%;padding:5px;background:#0D1430;box-shadow:0 0 0 4px #F0B84A,0 0 0 5px #0D1430,0 10px 24px rgba(0,0,0,.45);
+ outline:2px dashed rgba(240,184,74,.9);outline-offset:-2px}
+.patch svg{width:100%;height:100%}
+.k-profile{width:100%;display:grid;grid-template-columns:78px 1fr;gap:14px;align-items:center}
+.kp-av{width:78px;height:78px;border-radius:50%;background:#0D1430;display:flex;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.kp-av svg{width:56px;height:56px}
+.k-profile b{display:block;font-size:16px}.k-profile span{font-size:12.5px;color:var(--mute)}
+.k-profile p{font-size:12.5px;margin-top:4px}
+.kp-lock{grid-column:1/-1;background:#F5EFE3;border-radius:10px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.kp-lock svg{width:100%;height:auto;max-height:70px}
+/* plain */
+.p-hero{display:flex;align-items:center;justify-content:center;gap:clamp(24px,6vw,80px);flex-wrap:wrap;min-height:280px}
+.p-mk{width:150px;height:auto}.p-lock{width:min(560px,100%);height:auto}
+.resume{width:100%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:22px 22px 26px;border-radius:4px}
+.rs-top svg{width:88%;height:auto}
+.rs-contact{font:10.5px/1.4 ui-sans-serif,-apple-system,sans-serif;color:#6E6B66;margin:10px 0 16px;padding-bottom:12px;border-bottom:1px solid #15171C}
+.rs-h{font:600 9.5px ui-sans-serif,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2F4FB5;margin:12px 0 7px}
+.rs-l{height:6px;background:#E7E4DE;border-radius:3px;margin:5px 0}
+.w90{width:90%}.w70{width:70%}.w80{width:80%}.w60{width:60%}.w75{width:75%}
+.li{width:100%;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.1);position:relative}
+.li-banner{background:#15171C;height:112px;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;padding:0 18px;gap:4px}
+.li-banner svg{width:62%;height:auto}.li-banner span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A19E97}
+.li-av{position:absolute;left:16px;top:66px;width:86px;height:86px;border-radius:50%;background:#F6F4EF;border:4px solid #fff;display:flex;align-items:center;justify-content:center}
+.li-av svg{width:58px;height:auto}
+.li-body{padding:48px 16px 16px}.li-body b{display:block;font-size:17px}.li-body span{font-size:12.5px;color:#555}
+.cards{display:flex;flex-direction:column;gap:14px;align-items:center}
+.bc{width:252px;height:144px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.14);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.bc.front{background:#F6F4EF}.bc.front svg{width:64px;height:auto}
+.bc.back{background:#15171C;color:#A19E97;gap:6px}.bc.back svg{width:78%;height:auto}
+.bc.back span{font-size:8.5px;letter-spacing:.2em}.bc.back small{font-size:8.5px;color:#8FA6F0}
+/* fitness */
+.f-hero{display:flex;align-items:center;justify-content:center;gap:clamp(24px,5vw,64px);flex-wrap:wrap;min-height:280px}
+.f-mk{width:190px;height:auto}.f-lock{width:min(560px,100%);height:auto}
+.tees{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.tee{width:100%;height:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.2))}
+.phone{width:210px;border-radius:30px;background:#1C1C1F;padding:9px;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.ph-scr{background:#0E0E10;border-radius:22px;padding:16px 13px;color:#F1EEE7;min-height:380px}
+.ph-top svg{width:84%;height:auto}
+.ph-day{margin:16px 0 10px}.ph-day small{font-size:9px;letter-spacing:.16em;color:#E23B2E;display:block}.ph-day b{font-size:15px}
+.ph-set{display:grid;grid-template-columns:1fr auto;gap:3px 8px;font-size:11px;padding:8px 0;border-top:1px solid #222}
+.ph-set i{grid-column:1/-1;height:5px;border-radius:3px;background:linear-gradient(90deg,#E23B2E var(--w),#26262A var(--w))}
+.ph-set em{font-style:normal;color:#8E939B}
+.ph-pr{display:flex;gap:10px;align-items:center;margin-top:12px;background:#1A1A1D;border-radius:12px;padding:9px}
+.ph-pr svg{width:46px;height:46px;flex:none}.ph-pr b{font-size:12px;display:block}.ph-pr span{font-size:10.5px;color:#8E939B}
+.stickers{position:relative;width:100%;height:280px}
+.st1{position:absolute;left:4%;top:8%;width:62%;height:auto;transform:rotate(-8deg);filter:drop-shadow(0 0 0 #fff) drop-shadow(0 6px 10px rgba(0,0,0,.25))}
+.st2{position:absolute;right:6%;top:10%;width:100px;padding:10px;background:#F1EEE7;border-radius:22px;transform:rotate(9deg);box-shadow:0 6px 12px rgba(0,0,0,.2)}
+.st2 svg{width:100%;height:auto;filter:invert(0)}
+.appicon{position:absolute;right:12%;bottom:6%;width:84px;height:84px;border-radius:20px;background:#0E0E10;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(0,0,0,.3)}
+.appicon svg{width:66px;height:auto}
+/* personality */
+.x-hero{display:flex;flex-direction:column;align-items:center;gap:18px}
+.x-lock{position:relative;width:min(520px,92%)}
+.x-word{width:78%;height:auto}
+.x-bub{position:absolute;right:0;top:-16%;width:30%;aspect-ratio:120/104}
+.x-bub .mood{position:absolute;inset:0;opacity:0;transform:scale(.6) rotate(-12deg);transition:opacity .25s,transform .35s cubic-bezier(.3,1.6,.5,1)}
+.x-bub .mood.on{opacity:1;transform:none}
+.x-bub svg{width:100%;height:auto}
+.x-cap{font:500 14px ui-monospace,Menlo,monospace;color:#6A6275}
+.x-btns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.x-btns button{display:flex;align-items:center;gap:7px;border:2px solid transparent;background:#fff;border-radius:999px;padding:5px 14px 5px 6px;font:600 14px ui-sans-serif,-apple-system,sans-serif;color:#211B2E;cursor:pointer}
+.x-btns button.on{border-color:var(--c)}
+.x-btns button:focus-visible{outline:2px solid #211B2E;outline-offset:2px}
+.sheet{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;background:#C9A77C;border-radius:10px;padding:18px}
+.stk{transform:rotate(var(--r));filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 4px 5px rgba(0,0,0,.2))}
+.stk svg{width:100%;height:auto}
+.prof{width:100%;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);position:relative}
+.pf-ban{height:74px;background:#27B3A0}
+.pf-av{position:absolute;left:14px;top:34px;width:78px;height:78px;border-radius:50%;background:#FFF5E6;border:4px solid #fff;display:flex;align-items:center;justify-content:center}
+.pf-av svg{width:60px;height:auto}
+.pf-b{padding:44px 16px 16px}.pf-wm svg{height:34px;width:auto}
+.pf-st{display:inline-flex;align-items:center;gap:6px;font-size:12px;background:#F3F1EC;border-radius:999px;padding:3px 10px;margin:8px 0}
+.pf-st i{width:8px;height:8px;border-radius:50%;background:#27B3A0}
+.prof p{font-size:12.5px;color:#4A4458}
+.pf-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}.pf-tags span{font-size:11px;border:1px solid #E4DFEA;border-radius:6px;padding:2px 7px}
+.web{width:100%;background:#FFF5E6;border-radius:10px;padding:14px 16px 20px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.wb-nav{display:flex;align-items:center;gap:14px;font-size:12px;color:#6A6275}.wb-nav svg{height:28px;width:auto;margin-right:auto}
+.wb-h{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center;margin-top:26px}
+.wb-h b{font:800 26px/1.05 ui-sans-serif,-apple-system,sans-serif;color:#211B2E;letter-spacing:-.02em}
+.wb-h p{font-size:12.5px;color:#4A4458;margin-top:8px}.wb-h svg{width:92px;height:auto}
+.rec{padding:64px 0 16px}.rec h2{margin-bottom:22px}
+.foot{margin-top:48px;font-size:12px;color:var(--mute)}
+@media (max-width:900px){
+ .cols3{grid-template-columns:1fr;gap:18px}
+ .two{grid-template-columns:1fr;gap:0}
+ .k-hero{grid-template-columns:1fr}
+ .rounds{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+ .wrap{padding:28px 16px 60px}
+ .tile.wide{grid-column:auto}
+ .sys{grid-template-columns:1fr 1fr}
+ .tile{min-height:170px;padding:16px 12px 10px}.tile svg{height:110px}.tile.wide svg{height:80px}
+ .apps{grid-template-columns:1fr}
+ .tab{min-width:0;flex:1}
+}
+@media (prefers-reduced-motion:reduce){.x-bub .mood{transition:none}}
+.tee-l{display:block;text-align:center;font:10px ui-monospace,Menlo,monospace;letter-spacing:.14em;color:#777;margin-top:6px}
+</style></head><body>
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">Shugmi Shumunov · Shug Knight · Brand round 5</p>
+  <h1>Two directions</h1>
+  <p class="ask">“A knight and Luna without the codex or Detroit, keeping the fitness edge with a weight. Keep the plain one, more stylized, with the two S's to the side and no tagline.”</p>
+  <nav class="chips"><a href="#knight-and-luna"><b>01</b> Knight &amp; Luna</a><a href="#plain"><b>02</b> Plain</a></nav>
+</header>
+<section class="dir kl5" id="knight-and-luna">
+<style>
+.kl5{padding:72px 0 24px;border-bottom:1px solid rgba(17,18,20,.12);color:#111214}
+.kl5 *{box-sizing:border-box}
+.kl5 img{display:block}
+.kl5 .kl5-h{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px}
+.kl5 .kl5-num{font:500 13px/1 ui-monospace,Menlo,monospace;border:1px solid #111214;border-radius:999px;padding:7px 10px;margin-top:8px}
+.kl5 h2{font:600 clamp(30px,4.2vw,46px)/1.05 ui-serif,Georgia,serif;letter-spacing:-.015em;margin:0}
+.kl5 h3{font:600 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#5F6168;margin:40px 0 14px}
+.kl5 h4{font-size:13px;font-weight:700;margin:0 0 6px;letter-spacing:.01em}
+.kl5 .kl5-idea{max-width:760px;color:#3A3C42;font-size:17px;margin:8px 0 0}
+.kl5 .kl5-hero{border-radius:20px;padding:clamp(24px,5vw,56px);background:#0D1430;color:#F5E8D2;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center}
+.kl5 .kl5-hero .kl5-seal{width:100%;max-width:440px;margin:0 auto}
+.kl5 .kl5-side{display:flex;flex-direction:column;gap:28px;align-items:center}
+.kl5 .kl5-side .kl5-crest{width:52%;max-width:220px}
+.kl5 .kl5-side .kl5-wm{width:100%;max-width:420px}
+.kl5 .kl5-why{margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.kl5 .kl5-why p{color:#3A3C42;font-size:14.5px;line-height:1.55;margin:0}
+.kl5 .kl5-sys{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.kl5 .kl5-tile{margin:0;border-radius:14px;padding:26px 22px 14px;display:flex;flex-direction:column;justify-content:space-between;min-height:220px;border:1px solid rgba(17,18,20,.12)}
+.kl5 .kl5-art{height:150px;display:flex;align-items:center;justify-content:center}
+.kl5 .kl5-art img{max-width:100%;max-height:100%}
+.kl5 .kl5-tile.wide{grid-column:span 2}
+.kl5 .kl5-tile.wide .kl5-art{height:120px;margin:14px 0}
+.kl5 .kl5-tile figcaption{font:11px/1.3 ui-monospace,Menlo,monospace;opacity:.6;margin-top:12px}
+.kl5 .kl5-rev img{filter:invert(1)}
+.kl5 .kl5-two{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px}
+.kl5 .kl5-swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.kl5 .kl5-sw{background:#fff;border-radius:12px;padding:8px 8px 10px;border:1px solid rgba(17,18,20,.12);display:flex;flex-direction:column;gap:2px}
+.kl5 .kl5-sw span{height:54px;border-radius:8px;margin-bottom:6px;border:1px solid rgba(0,0,0,.06)}
+.kl5 .kl5-sw b{font-size:13px}.kl5 .kl5-sw code,.kl5 .kl5-sw small{font-size:11.5px;color:#5F6168}
+.kl5 .kl5-favs{background:#fff;border:1px solid rgba(17,18,20,.12);border-radius:14px;padding:18px}
+.kl5 .kl5-favsizes{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap}
+.kl5 .kl5-favsizes figure{margin:0;text-align:center}
+.kl5 .kl5-favsizes img{margin:0 auto}
+.kl5 .kl5-favsizes figcaption{font:10.5px ui-monospace,Menlo,monospace;color:#5F6168;margin-top:6px}
+.kl5 .kl5-favalt{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px dashed rgba(17,18,20,.12)}
+.kl5 .kl5-favalt>span{font:11px ui-monospace,Menlo,monospace;color:#5F6168}
+.kl5 .kl5-tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.kl5 .kl5-tab{display:flex;align-items:center;gap:8px;background:#E9EAEE;border-radius:9px 9px 0 0;padding:8px 12px;font-size:12.5px;min-width:180px}
+.kl5 .kl5-tab span{flex:1}.kl5 .kl5-tab i{font-style:normal;opacity:.45}
+.kl5 .kl5-tab.dark{background:#2A2B30;color:#E8E8EA}
+.kl5 .kl5-apps{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.kl5 .kl5-app{margin:0;background:#fff;border:1px solid rgba(17,18,20,.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.kl5 .kl5-stage{flex:1;min-height:300px;display:flex;align-items:center;justify-content:center;padding:18px;background:#ECEAE4}
+.kl5 .kl5-app figcaption{font-size:12.5px;color:#5F6168;padding:10px 14px;border-top:1px solid rgba(17,18,20,.12)}
+.kl5 .kl5-footer{width:100%;background:#0D1430;color:#F5E8D2;border-radius:10px;padding:22px 18px 14px;text-align:center}
+.kl5 .kl5-fseal{width:132px;margin:0 auto 10px}.kl5 .kl5-fseal img{width:100%}
+.kl5 .kl5-fh{font:600 17px/1.3 ui-serif,Georgia,serif;margin:0 0 10px}
+.kl5 .kl5-flinks{display:flex;gap:16px;justify-content:center;font-size:12.5px;color:#F0B84A;margin-bottom:14px}
+.kl5 .kl5-fc{display:flex;gap:6px;align-items:center;justify-content:center;font-size:11px;opacity:.65;border-top:1px solid rgba(245,232,210,.15);padding-top:10px}
+.kl5 .kl5-tees{display:flex;gap:10px;width:100%}
+.kl5 .kl5-tee{position:relative;flex:1}
+.kl5 .kl5-tee svg{width:100%;height:auto;display:block}
+.kl5 .kl5-tee>span{display:block;text-align:center;font:10.5px ui-monospace,Menlo,monospace;color:#5F6168;margin-top:4px}
+.kl5 .kl5-chest{position:absolute;left:55%;top:21%;width:21%}
+.kl5 .kl5-back{position:absolute;left:31%;top:27%;width:38%}
+.kl5 .kl5-chest img,.kl5 .kl5-back img{width:100%}
+.kl5 .kl5-inv{filter:invert(93%) sepia(12%) saturate(300%) hue-rotate(340deg)}
+.kl5 .kl5-gold{filter:invert(78%) sepia(52%) saturate(700%) hue-rotate(345deg) brightness(101%)}
+.kl5 .kl5-phone{width:210px;background:#111214;border-radius:30px;padding:9px;box-shadow:0 14px 32px rgba(0,0,0,.18)}
+.kl5 .kl5-scr{background:linear-gradient(170deg,#1B2552,#0D1430 60%);border-radius:23px;padding:14px 14px 18px;color:#F5E8D2;min-height:330px}
+.kl5 .kl5-time{font:600 12px ui-sans-serif,-apple-system,sans-serif;text-align:center;margin-bottom:16px;opacity:.8}
+.kl5 .kl5-icons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 6px}
+.kl5 .kl5-ic{text-align:center;font-size:9.5px}
+.kl5 .kl5-ic img,.kl5 .kl5-ic i{width:36px;height:36px;margin:0 auto 4px;border-radius:10px;display:block}
+.kl5 .kl5-widget{margin-top:18px;background:rgba(245,232,210,.1);border-radius:16px;padding:10px;display:flex;gap:10px;align-items:center}
+.kl5 .kl5-widget img{width:44px}
+.kl5 .kl5-widget b{display:block;font-size:11.5px}.kl5 .kl5-widget span{font-size:10px;opacity:.75}
+.kl5 .kl5-files{margin-top:28px;background:#fff;border:1px solid rgba(17,18,20,.12);border-radius:14px;padding:14px 16px}
+.kl5 .kl5-files h4{font:600 12px ui-monospace,Menlo,monospace;color:#5F6168}
+.kl5 .kl5-files div{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.kl5 .kl5-files code{font-size:11.5px;background:#F1EFEA;border-radius:6px;padding:3px 7px}
+@media (max-width:760px){
+ .kl5 .kl5-hero,.kl5 .kl5-why,.kl5 .kl5-two{grid-template-columns:1fr}
+ .kl5 .kl5-sys{grid-template-columns:1fr 1fr}
+ .kl5 .kl5-tile.wide{grid-column:span 2}
+ .kl5 .kl5-tile{min-height:170px;padding:16px 12px 10px}.kl5 .kl5-art{height:110px}.kl5 .kl5-tile.wide .kl5-art{height:80px}
+ .kl5 .kl5-apps{grid-template-columns:1fr}
+}
+</style>
+<header class="kl5-h"><span class="kl5-num">01</span><div><h2>Knight &amp; Luna, under the bar</h2>
+<p class="kl5-idea">The Knight &amp; Luna emblem you liked, with the barbell from Earn the Armor worked in. He lifts, she spots, and the whole thing still feels like the two of them.</p></div></header>
+<div class="kl5-hero">
+  <img src="knight-and-luna/emblem.svg" alt="Emblem: the knight with a barbell on his shoulders and Luna at his side" class="kl5-seal">
+  <div class="kl5-side"><img src="knight-and-luna/mark.svg" alt="Crest: barbell helm and Luna" class="kl5-crest"><img src="knight-and-luna/wordmark-dark.svg" alt="Shug Knight wordmark" class="kl5-wm"></div>
+</div>
+<div class="kl5-why">
+<div><h4>Idea</h4><p>Same knight, same Luna, but now he's under the bar. The emblem swaps the shield for a loaded barbell across his shoulders, and Luna sits next to him like she's spotting. The halo and the stars stay. The ring reads SHUG KNIGHT on top and WITH LUNA · EARN THE ARMOR along the bottom, with little dumbbells as the stops.</p></div>
+<div><h4>The system</h4><p><b>Emblem</b> for big spots: the site footer, the back of a tee, a patch. <b>Crest</b> for avatars and headers: the round 4 shield with Luna's face, where the helm's eye slit is now the barbell from Earn the Armor, plates poking out past the cheeks. <b>Favicon</b> is that crowned helm alone, since it stays crisp at 16px. <b>Sir Luna</b> is back as the app icon, chin resting on a bar.</p></div>
+<div><h4>Type and colour</h4><p>Young Serif for the name, same as before. The tagline is Big Shoulders Bold, slanted, which is where the gym energy comes in. Under the name sits a thin barbell rule with red plates on each end. Same palette as round 4; the plates borrow the heraldic red and the bar borrows the crown gold, so nothing new had to be added.</p></div>
+</div>
+<h3>System</h3><div class="kl5-sys"><figure class="kl5-tile" style="background:#0D1430;color:#F3F1EC"><div class="kl5-art"><img src="knight-and-luna/emblem.svg" alt="Emblem on dark"></div><figcaption>emblem.svg</figcaption></figure><figure class="kl5-tile" style="background:#F5EFE3;color:#111214"><div class="kl5-art"><img src="knight-and-luna/emblem-light.svg" alt="Emblem on light"></div><figcaption>emblem-light.svg</figcaption></figure><figure class="kl5-tile" style="background:#FFFFFF;color:#111214"><div class="kl5-art"><img src="knight-and-luna/emblem-mono.svg" alt="Emblem, one colour"></div><figcaption>emblem-mono.svg · one colour</figcaption></figure><figure class="kl5-tile kl5-rev" style="background:#0D1430;color:#F3F1EC"><div class="kl5-art"><img src="knight-and-luna/emblem-mono.svg" alt="Emblem, one colour reversed"></div><figcaption>emblem-mono.svg · reversed</figcaption></figure><figure class="kl5-tile" style="background:#0D1430;color:#F3F1EC"><div class="kl5-art"><img src="knight-and-luna/mark.svg" alt="Crest on dark"></div><figcaption>mark.svg · crest on dark</figcaption></figure><figure class="kl5-tile" style="background:#F5EFE3;color:#111214"><div class="kl5-art"><img src="knight-and-luna/mark-light.svg" alt="Crest on light"></div><figcaption>mark-light.svg · crest on light</figcaption></figure><figure class="kl5-tile" style="background:#FFFFFF;color:#111214"><div class="kl5-art"><img src="knight-and-luna/mark-mono.svg" alt="Crest, one colour"></div><figcaption>mark-mono.svg · one colour</figcaption></figure><figure class="kl5-tile" style="background:#E9E4DA;color:#111214"><div class="kl5-art"><img src="knight-and-luna/favicon-luna.svg" alt="Sir Luna icon"></div><figcaption>favicon-luna.svg · app icon</figcaption></figure><figure class="kl5-tile wide" style="background:#0D1430;color:#F3F1EC"><div class="kl5-art"><img src="knight-and-luna/lockup-dark.svg" alt="Lockup on dark"></div><figcaption>lockup-dark.svg</figcaption></figure><figure class="kl5-tile wide" style="background:#F5EFE3;color:#111214"><div class="kl5-art"><img src="knight-and-luna/lockup-light.svg" alt="Lockup on light"></div><figcaption>lockup-light.svg</figcaption></figure><figure class="kl5-tile wide" style="background:#0D1430;color:#F3F1EC"><div class="kl5-art"><img src="knight-and-luna/wordmark-dark.svg" alt="Wordmark on dark"></div><figcaption>wordmark-dark.svg</figcaption></figure><figure class="kl5-tile wide" style="background:#F5EFE3;color:#111214"><div class="kl5-art"><img src="knight-and-luna/wordmark-light.svg" alt="Wordmark on light"></div><figcaption>wordmark-light.svg</figcaption></figure><figure class="kl5-tile wide" style="background:#FFFFFF;color:#111214"><div class="kl5-art"><img src="knight-and-luna/wordmark-mono.svg" alt="Wordmark, one colour"></div><figcaption>wordmark-mono.svg</figcaption></figure></div>
+<div class="kl5-two"><div><h3>Palette</h3><div class="kl5-swatches"><div class="kl5-sw"><span style="background:#0D1430"></span><b>Night</b><code>#0D1430</code><small>field, ring</small></div><div class="kl5-sw"><span style="background:#3159C4"></span><b>Cobalt</b><code>#3159C4</code><small>armour</small></div><div class="kl5-sw"><span style="background:#D23A3F"></span><b>Heraldic red</b><code>#D23A3F</code><small>trim, plates</small></div><div class="kl5-sw"><span style="background:#F0B84A"></span><b>Crown gold</b><code>#F0B84A</code><small>crown, bar, type</small></div><div class="kl5-sw"><span style="background:#D39A5C"></span><b>Luna fawn</b><code>#D39A5C</code><small>Luna</small></div><div class="kl5-sw"><span style="background:#F5E8D2"></span><b>Blaze cream</b><code>#F5E8D2</code><small>type on dark</small></div></div></div><div><h3>Favicon</h3><div class="kl5-favs">
+  <div class="kl5-favsizes"><figure><img src="knight-and-luna/favicon.svg" alt="" width="16" height="16"><figcaption>16px</figcaption></figure><figure><img src="knight-and-luna/favicon.svg" alt="" width="32" height="32"><figcaption>32px</figcaption></figure><figure><img src="knight-and-luna/favicon.svg" alt="" width="64" height="64"><figcaption>64px</figcaption></figure></div>
+  <div class="kl5-favalt"><div class="kl5-favsizes"><figure><img src="knight-and-luna/favicon-luna.svg" alt="" width="16" height="16"><figcaption>16px</figcaption></figure><figure><img src="knight-and-luna/favicon-luna.svg" alt="" width="32" height="32"><figcaption>32px</figcaption></figure><figure><img src="knight-and-luna/favicon-luna.svg" alt="" width="64" height="64"><figcaption>64px</figcaption></figure></div><span>favicon-luna.svg · Sir Luna, for 32px and up</span></div>
+  <div class="kl5-tabs"><div class="kl5-tab"><img src="knight-and-luna/favicon.svg" alt="" width="16" height="16"><span>Shug Knight</span><i>×</i></div>
+  <div class="kl5-tab dark"><img src="knight-and-luna/favicon.svg" alt="" width="16" height="16"><span>Shug Knight</span><i>×</i></div></div>
+</div></div></div>
+<h3>In use</h3><div class="kl5-apps"><figure class="kl5-app"><div class="kl5-stage"><div class="kl5-footer">
+      <div class="kl5-fseal"><img src="knight-and-luna/emblem.svg" alt="Emblem"></div>
+      <p class="kl5-fh">Let's build something worth building.</p>
+      <div class="kl5-flinks"><span>Email</span><span>GitHub</span><span>LinkedIn</span></div>
+      <div class="kl5-fc"><img src="knight-and-luna/favicon.svg" alt="" width="14" height="14">© 2026 Shugmi Shumunov · ShugKnight24</div></div></div>
+      <figcaption>Site footer: the emblem where the old scene used to be</figcaption></figure><figure class="kl5-app"><div class="kl5-stage"><div class="kl5-tees">
+      <div class="kl5-tee"><svg viewBox="0 0 220 240" aria-hidden="true"><path d="M62 14L92 4C100 18 120 18 128 4L158 14L196 50L172 78L156 64V232H64V64L48 78L24 50Z" fill="#141B3A"/></svg><div class="kl5-chest"><img src="knight-and-luna/mark-mono.svg" alt="Crest print" class="kl5-inv"></div><span>FRONT</span></div>
+      <div class="kl5-tee"><svg viewBox="0 0 220 240" aria-hidden="true"><path d="M62 14L92 4C100 18 120 18 128 4L158 14L196 50L172 78L156 64V232H64V64L48 78L24 50Z" fill="#141B3A"/></svg><div class="kl5-back"><img src="knight-and-luna/emblem-mono.svg" alt="Emblem print" class="kl5-gold"></div><span>BACK</span></div></div></div>
+      <figcaption>Gym tee: one colour crest on the chest, emblem on the back</figcaption></figure><figure class="kl5-app"><div class="kl5-stage"><div class="kl5-phone"><div class="kl5-scr">
+      <div class="kl5-time">6:02</div>
+      <div class="kl5-icons">
+        <div class="kl5-ic"><img src="knight-and-luna/favicon-luna.svg" alt="Sir Luna app icon"><span>Earn It</span></div>
+        <div class="kl5-ic"><img src="knight-and-luna/favicon.svg" alt="Helm app icon"><span>Shug</span></div>
+        <div class="kl5-ic"><i style="background:#3A3F52"></i><span>Clock</span></div>
+        <div class="kl5-ic"><i style="background:#2F6E4F"></i><span>Maps</span></div>
+      </div>
+      <div class="kl5-widget"><img src="knight-and-luna/mark.svg" alt="Crest"><div><b>Lower A</b><span>Squat 5×5. Luna's watching.</span></div></div>
+      </div></div></div>
+      <figcaption>Phone: Sir Luna as the training app icon, crest in a widget</figcaption></figure></div>
+<div class="kl5-files"><h4>public/brand/knight-and-luna/</h4><div><code>emblem.svg</code><code>emblem-light.svg</code><code>emblem-mono.svg</code><code>mark.svg</code><code>mark-light.svg</code><code>mark-mono.svg</code><code>wordmark-dark.svg</code><code>wordmark-light.svg</code><code>wordmark-mono.svg</code><code>lockup-dark.svg</code><code>lockup-light.svg</code><code>favicon.svg</code><code>favicon-luna.svg</code></div></div>
+</section>
+<section class="dir r5p" id="plain">
+<style>
+.r5p .p-hero{display:flex;align-items:center;justify-content:center;gap:clamp(24px,6vw,80px);flex-wrap:wrap;min-height:280px}
+.r5p .p-mk{width:120px;height:auto}
+.r5p .p-lock{width:min(560px,100%);height:auto}
+.r5p .tile img{display:block;width:100%;height:150px;object-fit:contain}
+.r5p .tile.wide img{height:120px;margin:14px 0}
+.r5p .tile.stack img{height:170px}
+@media (min-width:1100px){.r5p .tile.w3{grid-column:span 3}}
+.r5p .resume{width:100%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:22px 22px 26px;border-radius:4px}
+.r5p .rs-top img{display:block;width:78%;height:auto}
+.r5p .rs-contact{font:10.5px/1.4 ui-sans-serif,-apple-system,sans-serif;color:#6E6B66;margin:12px 0 16px;padding-bottom:12px;border-bottom:1px solid #15171C}
+.r5p .rs-h{font:600 9.5px ui-sans-serif,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2F4FB5;margin:12px 0 7px}
+.r5p .rs-l{height:6px;background:#E7E4DE;border-radius:3px;margin:5px 0}
+.r5p .w90{width:90%}.r5p .w70{width:70%}.r5p .w80{width:80%}.r5p .w60{width:60%}.r5p .w75{width:75%}
+.r5p .li{width:100%;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.1);position:relative}
+.r5p .li-banner{background:#15171C;height:112px;display:flex;flex-direction:row;gap:0;align-items:flex-start;justify-content:flex-end;padding:24px 20px 0}
+.r5p .li-banner img{display:block;width:50%;height:auto}
+.r5p .li-av{position:absolute;left:16px;top:66px;width:86px;height:86px;border-radius:50%;background:#F6F4EF;border:4px solid #fff;display:flex;align-items:center;justify-content:center}
+.r5p .li-av img{display:block;width:44px;height:auto}
+.r5p .li-body{padding:48px 16px 18px}
+.r5p .li-body b{display:block;font-size:17px;margin-bottom:8px}
+.r5p .cards{display:flex;flex-direction:column;gap:14px;align-items:center}
+.r5p .bc{width:252px;height:144px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.14);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.r5p .bc.front{background:#F6F4EF}
+.r5p .bc.front img{display:block;width:46px;height:auto}
+.r5p .bc.back{background:#15171C;gap:10px}
+.r5p .bc.back img{display:block;width:74%;height:auto}
+.r5p .bc.back small{font:8.5px ui-sans-serif,-apple-system,sans-serif;letter-spacing:.08em;color:#8FA6F0}
+.r5p .favsizes img{display:block;margin:0 auto}
+</style>
+  <header class="dir-h"><span class="num">02</span><div><h2>Plain</h2><p class="idea">The name and a woven SS signet. Nothing else on the line. For resumes, LinkedIn and client work.</p></div></header>
+  <div class="hero" style="background:#F6F4EF;color:#15171C"><div class="p-hero">
+    <img class="p-mk" src="plain/mark-light.svg" alt="SS signet">
+    <img class="p-lock" src="plain/lockup-light.svg" alt="Shugmi Shumunov lockup">
+  </div></div>
+  <div class="why"><div class="cols3">
+    <div><h4>Idea</h4><p>Round 4 kept, with the descriptor line removed. The lockup is now just the signet, a thin cobalt rule and the name. With one line of type, the signet can be larger and carry more of the personality.</p></div>
+    <div><h4>Type</h4><p>Instrument Serif, upright, for the name, set slightly tight. The signet uses the italic cut of the same family, so the pair reads as one voice: a formal name and a looser, more personal initial.</p></div>
+    <div><h4>Signet</h4><p>Two italic S shapes, woven. The second S passes over the first at the spine and tucks behind its lower curve, like two links of a chain. The cuts are real gaps, so it works on any ground and in one colour. The favicon keeps one S and the cobalt full stop.</p></div>
+  </div></div>
+  <h3>System</h3>
+  <div class="grid sys">
+    <figure class="tile" style="background:#F6F4EF;color:#111214"><img src="plain/mark-light.svg" alt="SS signet on light"><figcaption>mark-light.svg</figcaption></figure>
+    <figure class="tile" style="background:#15171C;color:#F3F1EC"><img src="plain/mark.svg" alt="SS signet on dark"><figcaption>mark.svg</figcaption></figure>
+    <figure class="tile" style="background:#E8E4DC;color:#111214"><img src="plain/mark-mono.svg" alt="SS signet, one colour"><figcaption>mark-mono.svg (currentColor)</figcaption></figure>
+    <figure class="tile stack" style="background:#F6F4EF;color:#111214"><img src="plain/lockup-stacked-light.svg" alt="Stacked lockup on light"><figcaption>lockup-stacked-light.svg</figcaption></figure>
+    <figure class="tile stack" style="background:#15171C;color:#F3F1EC"><img src="plain/lockup-stacked-dark.svg" alt="Stacked lockup on dark"><figcaption>lockup-stacked-dark.svg</figcaption></figure>
+    <figure class="tile wide w3" style="background:#F6F4EF;color:#111214"><img src="plain/lockup-light.svg" alt="Lockup on light"><figcaption>lockup-light.svg</figcaption></figure>
+    <figure class="tile wide" style="background:#F6F4EF;color:#111214"><img src="plain/wordmark-light.svg" alt="Wordmark on light"><figcaption>wordmark-light.svg</figcaption></figure>
+    <figure class="tile wide w3" style="background:#15171C;color:#F3F1EC"><img src="plain/lockup-dark.svg" alt="Lockup on dark"><figcaption>lockup-dark.svg</figcaption></figure>
+    <figure class="tile wide" style="background:#15171C;color:#F3F1EC"><img src="plain/wordmark-dark.svg" alt="Wordmark on dark"><figcaption>wordmark-dark.svg</figcaption></figure>
+    <figure class="tile wide w3" style="background:#E8E4DC;color:#111214"><img src="plain/lockup-mono.svg" alt="Lockup, one colour"><figcaption>lockup-mono.svg (currentColor)</figcaption></figure>
+    <figure class="tile wide" style="background:#E8E4DC;color:#111214"><img src="plain/wordmark-mono.svg" alt="Wordmark, one colour"><figcaption>wordmark-mono.svg (currentColor)</figcaption></figure>
+  </div>
+  <div class="two">
+    <div><h3>Palette</h3><div class="swatches">
+      <div class="sw"><span style="background:#15171C"></span><b>Ink</b><code>#15171C</code><small>type, marks</small></div>
+      <div class="sw"><span style="background:#F6F4EF"></span><b>Paper</b><code>#F6F4EF</code><small>ground, type on dark</small></div>
+      <div class="sw"><span style="background:#6E6B66"></span><b>Stone</b><code>#6E6B66</code><small>secondary text</small></div>
+      <div class="sw"><span style="background:#2F4FB5"></span><b>Cobalt</b><code>#2F4FB5</code><small>rule, links</small></div>
+      <div class="sw"><span style="background:#8FA6F0"></span><b>Cobalt, dark</b><code>#8FA6F0</code><small>rule and dot on dark</small></div>
+    </div></div>
+    <div><h3>Favicon</h3><div class="favs">
+      <div class="favsizes">
+        <figure><img src="plain/favicon.svg" width="16" height="16" alt=""><figcaption>16px</figcaption></figure>
+        <figure><img src="plain/favicon.svg" width="32" height="32" alt=""><figcaption>32px</figcaption></figure>
+        <figure><img src="plain/favicon.svg" width="64" height="64" alt=""><figcaption>64px</figcaption></figure>
+      </div>
+      <div class="tabs">
+        <div class="tab"><img src="plain/favicon.svg" width="16" height="16" alt=""><span>Shugmi Shumunov</span><i>×</i></div>
+        <div class="tab dark"><img src="plain/favicon.svg" width="16" height="16" alt=""><span>Shugmi Shumunov</span><i>×</i></div>
+      </div>
+    </div></div>
+  </div>
+  <h3>In use</h3>
+  <div class="grid apps">
+    <figure class="app"><div class="app-stage"><div class="resume">
+      <div class="rs-top"><img src="plain/lockup-light.svg" alt="Resume header lockup"></div>
+      <div class="rs-contact">github.com/ShugKnight24 &nbsp;·&nbsp; linkedin.com/in/shugmishumunov</div>
+      <div class="rs-h">Experience</div><div class="rs-l w90"></div><div class="rs-l w70"></div><div class="rs-l w80"></div>
+      <div class="rs-h">Projects</div><div class="rs-l w60"></div><div class="rs-l w75"></div>
+    </div></div><figcaption>Resume header</figcaption></figure>
+    <figure class="app"><div class="app-stage"><div class="li">
+      <div class="li-banner"><img src="plain/wordmark-dark.svg" alt="LinkedIn banner wordmark"></div>
+      <div class="li-av"><img src="plain/mark-light.svg" alt="Avatar signet"></div>
+      <div class="li-body"><b>Shugmi Shumunov</b><div class="rs-l w70"></div><div class="rs-l w60"></div></div>
+    </div></div><figcaption>LinkedIn banner and avatar</figcaption></figure>
+    <figure class="app"><div class="app-stage"><div class="cards">
+      <div class="bc front"><img src="plain/mark-light.svg" alt="Card front signet"></div>
+      <div class="bc back"><img src="plain/wordmark-dark.svg" alt="Card back wordmark"><small>github.com/ShugKnight24</small></div>
+    </div></div><figcaption>Business card, front and back</figcaption></figure>
+  </div>
+  <div class="files"><h4>public/brand/plain/</h4><div><code>mark.svg</code><code>mark-light.svg</code><code>mark-mono.svg</code><code>wordmark-dark.svg</code><code>wordmark-light.svg</code><code>wordmark-mono.svg</code><code>lockup-dark.svg</code><code>lockup-light.svg</code><code>lockup-mono.svg</code><code>lockup-stacked-dark.svg</code><code>lockup-stacked-light.svg</code><code>favicon.svg</code></div></div>
+</section>
+<footer class="foot">Round 5 · all marks are outlined vectors (no live text, no raster) from OFL fonts: Young Serif, Big Shoulders, Instrument Serif. Rounds 1 to 4 live in experiments/brand.</footer>
+</div></body></html>

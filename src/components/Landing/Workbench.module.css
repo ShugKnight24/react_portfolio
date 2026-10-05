@@ -1,0 +1,711 @@
+.workbench {
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1rem, 4vw, 3rem);
+}
+
+.intro {
+  max-width: 1320px;
+  margin: 0 auto clamp(1.25rem, 3vw, 2rem);
+}
+
+.title {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--w-text);
+}
+
+.lede {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--w-muted);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Frame and scene palette ---------- */
+
+.frame {
+  max-width: 1320px;
+  margin: 0 auto;
+  container: bench / inline-size;
+}
+
+.stage {
+  --s-ink: #030405;
+  --s-wall: #0f1115;
+  --s-wall-lo: #0a0b0e;
+  --s-floor: #0c0d10;
+  --s-silhouette: #05060a;
+  --s-frame: #1c1f25;
+  --s-accent: var(--w-accent, #ff8a2a);
+  --s-accent-hi: var(--w-accent-hi, #ffb067);
+  --s-accent-deep: color-mix(in srgb, var(--s-accent) 62%, #000);
+  --s-chrome: var(--w-accent-2, #c9d1dc);
+  --s-chrome-lo: color-mix(in srgb, var(--s-chrome) 50%, #000);
+  --s-wood-dark: #1a120c;
+  --s-wood: #2b1e14;
+  --s-wood-lit: #5a3718;
+  --s-board: #17130f;
+  --s-metal: #2a2f37;
+  --s-metal-hi: #4a515c;
+  --s-metal-lo: #1a1d22;
+  --s-bezel: #0a0b0e;
+  --s-screen: #07080b;
+  --s-bat: #9a6b3c;
+  --s-helmet: color-mix(in srgb, var(--s-accent) 78%, #000);
+  --s-helmet-lo: color-mix(in srgb, var(--s-accent) 40%, #000);
+  --s-bed: #22252c;
+  --s-bed-hi: #353a45;
+  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  font-family: var(--font-family-mono);
+}
+
+.scene {
+  display: none;
+}
+
+.lampLight {
+  mix-blend-mode: screen;
+}
+
+.deckRing {
+  animation: ring 3.6s ease-in-out infinite;
+}
+
+.steam {
+  animation: steam 4s ease-in-out infinite;
+}
+
+.twinkle {
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+@keyframes ring {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes steam {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.35;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes twinkle {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ---------- Monitor: at bat plus the prompt ---------- */
+
+.monitor {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--w-radius, 14px);
+  background: var(--s-screen);
+  box-shadow:
+    0 0 0 8px var(--s-bezel),
+    0 0 0 9px var(--w-line);
+  margin: 9px 9px 0.5rem;
+}
+
+.plate {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.5rem 1rem;
+  padding: 1rem 1.1rem 0.9rem;
+  border-bottom: 1px solid var(--w-line);
+  background: radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--s-accent) 12%, transparent), transparent 60%);
+}
+
+.plateInner {
+  min-width: 0;
+}
+
+.position {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--s-accent);
+}
+
+.liveDot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--s-accent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--s-accent) 60%, transparent);
+  animation: live 2s ease-out infinite;
+}
+
+@keyframes live {
+  70%,
+  100% {
+    box-shadow: 0 0 0 0.5em transparent;
+  }
+}
+
+.plateTitle {
+  margin: 0.3rem 0 0.2rem;
+  font-family: var(--w-body);
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--w-text);
+  text-wrap: balance;
+}
+
+.plateStatus {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--w-muted);
+  text-wrap: pretty;
+}
+
+.swing {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  padding: 0.6em 1em;
+  border: 0;
+  border-radius: 999px;
+  background: var(--s-accent);
+  color: var(--w-on-accent, #170a00);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 180ms var(--spring),
+    background-color 180ms ease;
+}
+
+.swing:hover {
+  background: var(--s-accent-hi);
+  transform: translateY(-1px);
+}
+
+.swing:active {
+  transform: scale(0.97);
+}
+
+.terminal {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0.8rem 1.1rem 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+.log {
+  height: 6.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.log p {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.in {
+  color: var(--w-text);
+}
+
+.out {
+  color: var(--w-muted);
+}
+
+.err {
+  color: var(--w-accent-hi, var(--w-accent));
+}
+
+.prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.promptLabel {
+  flex: none;
+  color: var(--s-accent);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.15rem 0;
+  border: 0;
+  background: none;
+  color: var(--w-text);
+  font: inherit;
+  font-size: max(16px, 1em);
+  caret-color: var(--s-accent);
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.prompt:focus-within {
+  box-shadow: 0 1px 0 var(--s-accent);
+}
+
+.hint {
+  margin: 0.45rem 0 0;
+  font-size: 0.6875rem;
+  color: color-mix(in srgb, var(--w-muted) 80%, transparent);
+}
+
+/* ---------- Lineup cards ---------- */
+
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0.7rem 2.75rem 0.7rem 1rem;
+  border: 0;
+  border-radius: calc(var(--w-radius, 14px) - 4px);
+  background: var(--w-surface);
+  box-shadow: inset 0 0 0 1px var(--w-line);
+  color: var(--w-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 220ms var(--spring),
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.card::after {
+  content: '↑';
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  translate: 0 -50%;
+  color: var(--s-accent);
+  opacity: 0.6;
+  transition:
+    opacity 180ms ease,
+    transform 220ms var(--spring);
+}
+
+.card:hover {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--s-accent) 55%, transparent),
+    0 0 22px -6px color-mix(in srgb, var(--s-accent) 55%, transparent);
+}
+
+.card:hover::after {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card:focus-visible,
+.swing:focus-visible {
+  outline: 2px solid var(--s-accent);
+  outline-offset: 3px;
+}
+
+.cardInner {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-family: var(--w-body);
+  font-size: 1rem;
+  font-weight: 620;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.cardMeta {
+  font-size: 0.75rem;
+  color: var(--w-muted);
+}
+
+.deckCard .position::before,
+.holeCard .position::before {
+  content: '';
+  width: 1.1em;
+  height: 0.45em;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+
+.holeCard .position {
+  color: var(--s-chrome);
+}
+
+.holeCard .position::before {
+  border-style: dashed;
+}
+
+.benchCard .position {
+  color: var(--w-muted);
+}
+
+.bench {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.benchTitle {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--w-muted);
+}
+
+.benchList {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- The flight to the plate ---------- */
+
+.ghost {
+  position: absolute;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background: var(--w-surface-2);
+  box-shadow:
+    inset 0 0 0 1.5px var(--s-accent),
+    0 0 28px -4px color-mix(in srgb, var(--s-accent) 60%, transparent);
+  pointer-events: none;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.ghostTitle {
+  font-family: var(--w-body);
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: var(--w-text);
+  text-align: center;
+}
+
+.enter {
+  animation: slotIn 460ms var(--spring) both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+.plateInner.enter {
+  animation-name: plateIn;
+  animation-duration: 520ms;
+}
+
+@keyframes slotIn {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+}
+
+@keyframes plateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+}
+
+/* ---------- Stacked, but wide enough for pairs ---------- */
+
+@container bench (min-width: 600px) and (max-width: 939px) {
+  .stage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .monitor,
+  .bench {
+    grid-column: 1 / -1;
+  }
+
+  .benchList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Illustrated layout: the desk in the workshop ---------- */
+
+@container bench (min-width: 940px) {
+  .stage {
+    display: block;
+    aspect-ratio: 1400 / 800;
+    border-radius: calc(var(--w-radius, 14px) + 4px);
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px var(--w-line);
+  }
+
+  .scene {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .monitor,
+  .deck,
+  .hole,
+  .bench {
+    position: absolute;
+    left: var(--slot-x);
+    top: var(--slot-y);
+    width: var(--slot-w);
+    height: var(--slot-h);
+    margin: 0;
+  }
+
+  .monitor {
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.04);
+  }
+
+  .plate {
+    padding: 1.4cqi 1.6cqi 1.1cqi;
+  }
+
+  .position {
+    font-size: clamp(0.625rem, 0.78cqi, 0.75rem);
+  }
+
+  .plateTitle {
+    font-size: clamp(1.25rem, 2.3cqi, 2rem);
+  }
+
+  .plateStatus {
+    font-size: clamp(0.75rem, 0.95cqi, 0.875rem);
+  }
+
+  .swing {
+    font-size: clamp(0.75rem, 0.95cqi, 0.875rem);
+  }
+
+  .terminal {
+    flex: 1;
+    padding: 1cqi 1.6cqi 0.9cqi;
+    font-size: clamp(0.6875rem, 0.92cqi, 0.8125rem);
+  }
+
+  .log {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+  }
+
+  .hint {
+    font-size: clamp(0.625rem, 0.75cqi, 0.6875rem);
+  }
+
+  .plateStatus {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  /* the painted rings on the floor already say it */
+  .deckCard .position::before,
+  .holeCard .position::before {
+    display: none;
+  }
+
+  .holeCard .position {
+    letter-spacing: 0.06em;
+  }
+
+  .card {
+    padding: 0.9cqi 1cqi;
+  }
+
+  .card::after {
+    display: none;
+  }
+
+  .deckCard {
+    border-radius: 4px;
+    background: var(--s-screen);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.05);
+  }
+
+  .deckCard .cardInner {
+    align-content: end;
+    height: 100%;
+  }
+
+  .deckCard .cardTitle {
+    font-size: clamp(0.8125rem, 1.25cqi, 1.1rem);
+  }
+
+  .deckCard .cardMeta,
+  .benchCard .cardMeta {
+    font-size: clamp(0.625rem, 0.8cqi, 0.75rem);
+  }
+
+  .holeCard {
+    padding: 0.6cqi 0.7cqi;
+    border-radius: 3px;
+    background: var(--s-screen);
+  }
+
+  .holeCard .cardTitle {
+    font-size: clamp(0.6875rem, 0.95cqi, 0.875rem);
+  }
+
+  .holeCard .cardMeta {
+    display: none;
+  }
+
+  .deckCard:hover,
+  .holeCard:hover {
+    transform: translateY(-2px);
+  }
+
+  .bench {
+    grid-template-rows: auto 1fr;
+    gap: 0.8cqi;
+  }
+
+  .benchTitle {
+    justify-self: start;
+    padding: 0.25em 0.7em;
+    border-radius: 4px;
+    background: var(--s-wood-dark);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.06);
+    font-size: clamp(0.625rem, 0.78cqi, 0.75rem);
+    color: var(--w-text);
+  }
+
+  .benchList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 1cqi 1.2cqi;
+  }
+
+  /* each bench card hangs from a peg */
+  .benchCard {
+    padding-top: 1.2cqi;
+    background: color-mix(in srgb, var(--w-surface-2) 92%, transparent);
+    box-shadow:
+      inset 0 0 0 1px var(--w-line),
+      0 6px 14px -8px #000;
+  }
+
+  .benchCard::before {
+    content: '';
+    position: absolute;
+    top: 0.45cqi;
+    left: 50%;
+    width: 0.6cqi;
+    height: 0.6cqi;
+    translate: -50% 0;
+    border-radius: 50%;
+    background: var(--s-ink);
+    box-shadow: 0 0 0 2px var(--s-metal-hi);
+  }
+
+  .benchCard .cardTitle {
+    font-size: clamp(0.75rem, 1.05cqi, 0.9375rem);
+  }
+
+  .benchCard:hover {
+    transform: rotate(-1.5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deckRing,
+  .steam,
+  .twinkle,
+  .liveDot,
+  .enter {
+    animation: none;
+  }
+
+  .card,
+  .card::after,
+  .swing {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:active,
+  .swing:hover,
+  .swing:active {
+    transform: none;
+  }
+}
+
+/* smaller desks: keep the log readable, the hint stays for screen readers */
+@container bench (min-width: 940px) and (max-width: 1149px) {
+  .hint {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .plateStatus {
+    -webkit-line-clamp: 1;
+  }
+}

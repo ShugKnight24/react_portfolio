@@ -4,13 +4,14 @@ import { NavProps } from '../../types/layout';
 import { trackPageEvent } from '../Analytics/analyticsUtils';
 import { navLinks } from './routes';
 
-export const Nav: FC<NavProps> = ({ toggleDrawer }) => {
+export const Nav: FC<NavProps> = ({ label = 'Main Navigation', toggleDrawer }) => {
   return (
-    <nav className="nav">
+    <nav className="nav" aria-label={label}>
       {navLinks.map((link, index) => (
         <NavLink
           key={index}
           to={link.path}
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           onClick={() => {
             if (toggleDrawer) {
               toggleDrawer();

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, Ref } from 'react';
 
 export interface ContentInterface {
   children: ReactNode;
@@ -6,7 +6,9 @@ export interface ContentInterface {
 
 export interface DrawerInterface {
   children: ReactNode;
+  id: string;
   isVisible: boolean;
+  ref?: Ref<HTMLDivElement>;
   title: string;
 }
 
@@ -20,5 +22,6 @@ export interface LayoutInterface {
 }
 
 export interface NavProps {
+  label?: string;
   toggleDrawer?: () => void;
 }
