@@ -1,5 +1,15 @@
 /* General Styles & Resets */
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400..600&family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Press+Start+2P&display=swap');
+
+/* A local monospace sized to Geist Mono's advance and line height, so mono labels wrap the
+   same before and after the web font swaps in (otherwise PageHero meta rows reflow: CLS) */
+@font-face {
+  font-family: 'Geist Mono Fallback';
+  src: local('Menlo'), local('Consolas'), local('DejaVu Sans Mono'), local('Courier New');
+  size-adjust: 99.6%;
+  ascent-override: 100%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
 
 *,
 *::before,

@@ -32,7 +32,7 @@
   /* Typography */
   --font-family-theme: 'Geist', 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-family: var(--font-family-theme);
-  --font-family-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  --font-family-mono: 'Geist Mono', 'Geist Mono Fallback', 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
   --font-family-display: 'Geist', 'Inter', sans-serif;
   --font-mono: var(--font-family-mono);
 

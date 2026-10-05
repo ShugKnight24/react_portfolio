@@ -1,4 +1,5 @@
 /* Central Global Stylesheet - Pure Native CSS (No Sass) */
+@import './normalize.css';
 @import './variables.css';
 @import './themes.css';
 @import './base.css';
