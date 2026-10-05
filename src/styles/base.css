@@ -309,3 +309,10 @@ a.skip-link:focus-visible {
   min-height: 100vh;
   min-height: 100svh;
 }
+
+/* Decorative loops pause once their section is scrolled away (see usePauseOffscreen) */
+[data-offscreen] *,
+[data-offscreen] *::before,
+[data-offscreen] *::after {
+  animation-play-state: paused !important;
+}

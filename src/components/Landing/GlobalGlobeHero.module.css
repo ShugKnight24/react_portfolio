@@ -294,3 +294,9 @@
     display: none;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .liveBlip {
+    animation: none;
+  }
+}

@@ -115,7 +115,10 @@ export function initGlobeOrchestrator(container: HTMLElement): GlobeController {
 
   let resizeObserver: ResizeObserver | null = null;
   if (typeof ResizeObserver !== 'undefined') {
-    resizeObserver = new ResizeObserver(() => handleResize());
+    resizeObserver = new ResizeObserver(() => {
+      handleResize();
+      wake();
+    });
     resizeObserver.observe(container);
   }
   window.addEventListener('resize', handleResize);
@@ -153,22 +156,42 @@ export function initGlobeOrchestrator(container: HTMLElement): GlobeController {
     interaction,
   ];
 
-  // 7. Animation Loop
+  // 7. Animation Loop. Frames only run while the globe is on screen and the tab is visible.
+  // Under reduced motion nothing drifts on its own, so frames run only for a short while
+  // after the visitor interacts (drag, pill, toggle) and then the loop sleeps.
   let animId = 0;
   let running = true;
   let isVisible = true;
+  let awakeUntil = performance.now() + 4000;
+
+  function schedule() {
+    if (!running || animId || !isVisible || document.hidden) return;
+    animId = requestAnimationFrame(animate);
+  }
 
   function animate(time: number) {
+    animId = 0;
     if (!running) return;
-    animId = requestAnimationFrame(animate);
-    if (!isVisible) return;
 
     for (let i = 0; i < allModules.length; i++) {
       allModules[i].update(time);
     }
     renderer.render(scene, camera);
+
+    if (!reducedMotion || performance.now() < awakeUntil) schedule();
   }
-  animId = requestAnimationFrame(animate);
+
+  function wake() {
+    awakeUntil = performance.now() + 4000;
+    schedule();
+  }
+
+  schedule();
+
+  const onVisibilityChange = () => schedule();
+  document.addEventListener('visibilitychange', onVisibilityChange);
+  const wakeEvents = ['pointerdown', 'pointermove', 'wheel', 'touchstart'] as const;
+  if (reducedMotion) wakeEvents.forEach((type) => canvas.addEventListener(type, wake, { passive: true }));
 
   // 8. Intersection Observer to save GPU when offscreen
   let intersectionObserver: IntersectionObserver | null = null;
@@ -176,6 +199,7 @@ export function initGlobeOrchestrator(container: HTMLElement): GlobeController {
     intersectionObserver = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
+        if (isVisible) wake();
       },
       { threshold: 0.05 }
     );
@@ -185,10 +209,12 @@ export function initGlobeOrchestrator(container: HTMLElement): GlobeController {
   return {
     focusLocation(lat: number, lon: number, onComplete?: () => void) {
       interaction.focusLocation(lat, lon, onComplete);
+      wake();
     },
     toggleAutoRotate() {
       const next = !interaction.getAutoRotate();
       interaction.setAutoRotate(next);
+      wake();
       return next;
     },
     getAutoRotate() {
@@ -197,6 +223,7 @@ export function initGlobeOrchestrator(container: HTMLElement): GlobeController {
     toggleLabels() {
       const next = !interaction.getLabelsVisible();
       interaction.setLabelsVisible(next);
+      wake();
       return next;
     },
     getLabelsVisible() {
@@ -205,6 +232,7 @@ export function initGlobeOrchestrator(container: HTMLElement): GlobeController {
     toggleUniverseMode() {
       const next = !interaction.getUniverseMode();
       interaction.setUniverseMode(next);
+      wake();
       return next;
     },
     getUniverseMode() {
@@ -213,10 +241,13 @@ export function initGlobeOrchestrator(container: HTMLElement): GlobeController {
     updateTheme(theme: GlobeTheme) {
       ctx.t = theme;
       allModules.forEach((m) => m.updateColors?.(theme));
+      wake();
     },
     destroy() {
       running = false;
       cancelAnimationFrame(animId);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      wakeEvents.forEach((type) => canvas.removeEventListener(type, wake));
       window.removeEventListener('resize', handleResize);
       if (resizeObserver) resizeObserver.disconnect();
       if (intersectionObserver) intersectionObserver.disconnect();

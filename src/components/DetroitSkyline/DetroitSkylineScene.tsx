@@ -1369,8 +1369,39 @@ export const DetroitSkylineScene: FC = () => {
     let animId = 0;
     let lastFlickerTime = 0;
 
+    // Frames run only while the scene is on screen and the tab is visible. Under reduced
+    // motion the city holds still and only renders for a few seconds after a preset,
+    // landmark or resize change, so the camera can ease to its new spot.
+    const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    let inView = true;
+    let awakeUntil = performance.now() + 3000;
+    const schedule = () => {
+      if (animId || !inView || document.hidden) return;
+      lastTime = performance.now();
+      animId = requestAnimationFrame(animate);
+    };
+    const wake = () => {
+      awakeUntil = performance.now() + 3000;
+      schedule();
+    };
+    const onVisibilityChange = () => schedule();
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    const io =
+      typeof IntersectionObserver === 'undefined'
+        ? null
+        : new IntersectionObserver(
+            ([entry]) => {
+              inView = entry.isIntersecting;
+              if (inView) wake();
+            },
+            { threshold: 0.02 }
+          );
+    io?.observe(container);
+    window.addEventListener('resize', wake);
+
     setTargetTimeRef.current = (t: number) => {
       targetTime = t;
+      wake();
     };
 
     // Landmark focus: camera target eases toward the selected landmark
@@ -1389,6 +1420,7 @@ export const DetroitSkylineScene: FC = () => {
       focus.camX = f.camX ?? f.x;
       focus.camY = f.camY ?? 2.5;
       focusPulse = 1;
+      wake();
     };
 
     function animateWater(geo: any, baseY: Float32Array, offX: number, offZ: number, t0: number) {
@@ -1408,7 +1440,10 @@ export const DetroitSkylineScene: FC = () => {
     }
 
     function animate(time: number) {
-      animId = requestAnimationFrame(animate);
+      animId = 0;
+      if ((!reducedMotion || time < awakeUntil) && inView && !document.hidden) {
+        animId = requestAnimationFrame(animate);
+      }
       const dt = Math.min((time - lastTime) * 0.001, 0.1);
       lastTime = time;
       const t0 = time * 0.001;
@@ -1666,10 +1701,14 @@ export const DetroitSkylineScene: FC = () => {
 
       renderer.render(scene, camera);
     }
-    animId = requestAnimationFrame(animate);
+    schedule();
 
     return () => {
       cancelAnimationFrame(animId);
+      animId = -1;
+      io?.disconnect();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.removeEventListener('resize', wake);
       window.removeEventListener('resize', resize);
       const disposed = new Set<any>();
       scene.traverse((obj: any) => {

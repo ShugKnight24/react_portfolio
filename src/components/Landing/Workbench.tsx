@@ -2,6 +2,7 @@ import { CSSProperties, FC, useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeProvider';
 import { NATIVE_THEME } from '../../data/themes';
+import { usePauseOffscreen } from '../../utils/usePauseOffscreen';
 import {
   Project,
   findProject,
@@ -91,6 +92,8 @@ export const Workbench: FC = () => {
   const nextId = useRef(1);
   const stageRef = useRef<HTMLDivElement>(null);
   const plateRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  usePauseOffscreen(sectionRef);
 
   const [atBat, onDeck, inHole, ...bench] = lineup;
 
@@ -182,7 +185,7 @@ export const Workbench: FC = () => {
   );
 
   return (
-    <section className={styles.workbench} aria-labelledby="workbench-title">
+    <section ref={sectionRef} className={styles.workbench} aria-labelledby="workbench-title">
       <div className={styles.intro}>
         <h2 id="workbench-title" className={styles.title}>
           On the bench

@@ -265,3 +265,9 @@
     max-width: none;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .liveIndicator {
+    animation: none;
+  }
+}

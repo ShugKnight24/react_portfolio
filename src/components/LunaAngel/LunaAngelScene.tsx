@@ -1,4 +1,5 @@
 import { FC, KeyboardEvent, useEffect, useRef, useState } from 'react';
+import { usePauseOffscreen } from '../../utils/usePauseOffscreen';
 import styles from './LunaAngelScene.module.css';
 
 interface HeartParticle {
@@ -825,6 +826,8 @@ const TreatLuna: FC = () => (
 );
 
 export const LunaAngelScene: FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  usePauseOffscreen(sectionRef);
   const [treatsCount, setTreatsCount] = useState<number>(42);
   const [quoteIndex, setQuoteIndex] = useState<number>(0);
   const [isExcited, setIsExcited] = useState<boolean>(false);
@@ -914,7 +917,7 @@ export const LunaAngelScene: FC = () => {
   const poseClass = (p: Pose) => `${styles.pose} ${pose === p ? styles.poseActive : ''}`;
 
   return (
-    <section className={styles.lunaSceneSection} aria-labelledby="luna-heading">
+    <section ref={sectionRef} className={styles.lunaSceneSection} aria-labelledby="luna-heading">
       <div className={styles.sceneContainer}>
         <div className={styles.copyColumn}>
           <p className={styles.eyebrow}>In loving memory</p>
