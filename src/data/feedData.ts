@@ -57,8 +57,8 @@ export const postsArray: FeedPost[] = [
     artist: 'Overwerk',
     song: 'House',
     youtubeInfo: {
-      videoId: 'X1T8kJzN3nA',
-      videoLink: 'https://www.youtube.com/watch?v=wojvjhONprE',
+      videoId: 'A-rbIv0rNfE',
+      videoLink: 'https://www.youtube.com/watch?v=A-rbIv0rNfE',
     },
   },
   {
@@ -115,8 +115,8 @@ export const postsArray: FeedPost[] = [
       The only winning move is not to play.
     `,
     youtubeInfo: {
-      videoId: 'NHWjgp-s1lE',
-      videoLink: 'https://www.youtube.com/watch?v=NHWjgp-s1lE',
+      videoId: 'UlixDkUgLZM',
+      videoLink: 'https://www.youtube.com/watch?v=UlixDkUgLZM',
     },
   },
   {
@@ -129,10 +129,6 @@ export const postsArray: FeedPost[] = [
     artist: 'Our Last Night',
     song: 'Surrender the Defeat',
     album: 'Selective Hearing',
-    youtubeInfo: {
-      videoId: 'pXhW1PzP-oA',
-      videoLink: 'https://www.youtube.com/watch?v=pXhW1PzP-oA',
-    },
   },
   {
     id: 46,
@@ -236,10 +232,6 @@ export const postsArray: FeedPost[] = [
     artist: 'Our Last Night',
     song: 'Runaway (Galantis Cover)',
     album: 'Selective Hearing',
-    youtubeInfo: {
-      videoId: '6YdBnrpn0Dw',
-      videoLink: 'https://www.youtube.com/watch?v=6YdBnrpn0Dw',
-    },
   },
   {
     id: 33,
@@ -574,8 +566,8 @@ export const postsArray: FeedPost[] = [
     `,
     artist: 'Syama Pedersen',
     youtubeInfo: {
-      videoId: 'azVeFAETUyM',
-      videoLink: 'https://www.youtube.com/watch?v=azVeFAETUyM',
+      videoId: 'IAPc0UdhQQA',
+      videoLink: 'https://www.youtube.com/watch?v=IAPc0UdhQQA',
     },
   },
   {
