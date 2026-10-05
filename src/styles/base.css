@@ -228,6 +228,11 @@ pre {
   border-radius: var(--border-radius);
 }
 
+/* <picture> only picks a source; let its <img> lay out as if it were the direct child */
+picture {
+  display: contents;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

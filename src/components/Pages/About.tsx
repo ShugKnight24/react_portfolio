@@ -27,7 +27,8 @@ const vigilPhotoIds = [
 
 const lunaPhotos: VigilPhoto[] = vigilPhotoIds.flatMap((id) => {
   const photo = photosBy('luna').find((p) => p.id === id);
-  return photo ? [{ src: photo.src, alt: photo.alt, caption: photo.caption }] : [];
+  // The collage tiles are small, so the 900px thumbs are plenty
+  return photo ? [{ src: photo.thumb, alt: photo.alt, caption: photo.caption }] : [];
 });
 
 export const About: FC = () => (

@@ -1,5 +1,5 @@
 import { CSSProperties, FC, memo, useEffect, useMemo, useRef, useState } from 'react';
-import { Photo } from '../../data/photos';
+import { Photo, webp } from '../../data/photos';
 import {
   clamp,
   DRIFT,
@@ -182,7 +182,7 @@ const Polaroid: FC<{ photo: Photo; n: number; total: number; lazy?: boolean }> =
   lazy = true,
 }) => {
   const video = photo.kind === 'video';
-  const still = photo.poster ?? photo.thumb;
+  const still = webp(photo.poster ?? photo.thumb);
   const date = formatDate(photo.date);
   return (
     <>
@@ -710,7 +710,7 @@ const MovingMemories: FC<{ memories: Photo[]; className: string }> = ({
                   <div className={styles.frame}>
                     <img
                       className={styles.media}
-                      data-src={photo.poster ?? photo.thumb}
+                      data-src={webp(photo.poster ?? photo.thumb)}
                       alt=""
                       width={photo.width}
                       height={photo.height}

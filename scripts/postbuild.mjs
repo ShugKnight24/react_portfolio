@@ -14,7 +14,11 @@ const { site, routes } = JSON.parse(
 // Old URLs that render the About & Contact page
 const aliases = { '/about': '/aboutcontact', '/contact': '/aboutcontact' };
 
-const html = readFileSync(new URL('index.html', buildDir), 'utf8');
+// Home's LCP preload (and its comment) only belongs on the home page
+const html = readFileSync(new URL('index.html', buildDir), 'utf8').replace(
+  /\s*<!--[^>]*data-home-only[\s\S]*?-->\s*<link[^>]*data-home-only[^>]*>/,
+  ''
+);
 writeFileSync(new URL('404.html', buildDir), html);
 
 const escape = (value) =>

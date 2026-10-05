@@ -29,7 +29,21 @@ export const AboutContact: FC = () => {
         lede="Shugmi Shumunov. Full stack engineer in Detroit, fond of small teams, heavy lifts and long walks with good dogs."
         aside={
           <figure className="mc-still mc-still--tilt-right mc-still--hero">
-            <img src="/img/shug_bpak.jpg" alt="Shugmi Shumunov with bodybuilder Ben Pakulski" />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/img/shug_bpak-600.webp 600w, /img/shug_bpak-1000.webp 1000w"
+                sizes="(max-width: 900px) 16rem, 22rem"
+              />
+              <img
+                src="/img/shug_bpak.jpg"
+                alt="Shugmi Shumunov with bodybuilder Ben Pakulski"
+                width={2880}
+                height={3840}
+                fetchPriority="high"
+                decoding="async"
+              />
+            </picture>
             <figcaption>
               Standing next to bodybuilder{' '}
               <a href="https://www.benpakulski.com" target="_blank" rel="noopener noreferrer">

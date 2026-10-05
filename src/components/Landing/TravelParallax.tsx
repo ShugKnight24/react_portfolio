@@ -1,5 +1,5 @@
 import { CSSProperties, FC, useEffect, useMemo, useRef, useState } from 'react';
-import { Photo } from '../../data/photos';
+import { Photo, webp } from '../../data/photos';
 import {
   along,
   CARD_PATTERN,
@@ -911,7 +911,7 @@ const MovingJourney: FC<{ journey: ChapterWithPhotos[]; className: string }> = (
                     key={photo.id}
                     className={styles.card}
                     data-sprite="card"
-                    data-src={photo.thumb}
+                    data-src={webp(photo.thumb)}
                     style={cardStyle(photo)}
                   >
                     <div className={styles.frame}>
@@ -1087,14 +1087,17 @@ const StillJourney: FC<{ journey: ChapterWithPhotos[]; className: string }> = ({
                   style={cardStyle(photo, { '--tilt': `${j % 2 ? 1.2 : -1.2}deg` })}
                 >
                   <div className={styles.frame}>
-                    <img
-                      src={photo.thumb}
-                      alt={photo.alt}
-                      width={photo.width}
-                      height={photo.height}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <picture>
+                      <source type="image/webp" srcSet={webp(photo.thumb)} />
+                      <img
+                        src={photo.thumb}
+                        alt={photo.alt}
+                        width={photo.width}
+                        height={photo.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                   </div>
                   {photo.caption && (
                     <figcaption className={styles.caption}>

@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Photo } from '../../data/photos';
+import { Photo, webp } from '../../data/photos';
 import styles from './Gallery.module.css';
 
 interface GalleryProps {
@@ -131,20 +131,25 @@ export const Gallery: FC<GalleryProps> = ({ photos, label = 'Photo' }) => {
                   onClick={(e) => openLightbox(index, e.currentTarget)}
                   aria-label={`${isVideo ? 'Play clip' : 'Open photo'} ${index + 1}: ${photo.alt}`}
                 >
-                  <img
-                    src={photo.thumb}
-                    srcSet={
-                      isVideo
-                        ? undefined
-                        : `${photo.thumb} ${thumbWidth(photo)}w, ${photo.src} ${photo.width}w`
-                    }
-                    sizes={isVideo ? undefined : GRID_SIZES}
-                    width={photo.width}
-                    height={photo.height}
-                    alt=""
-                    loading={index < 3 ? 'eager' : 'lazy'}
-                    decoding="async"
-                  />
+                  <picture>
+                    {/* Browsers with WebP get the lighter thumb; the rest keep the JPEG set */}
+                    <source type="image/webp" srcSet={webp(photo.thumb)} />
+                    <img
+                      src={photo.thumb}
+                      srcSet={
+                        isVideo
+                          ? undefined
+                          : `${photo.thumb} ${thumbWidth(photo)}w, ${photo.src} ${photo.width}w`
+                      }
+                      sizes={isVideo ? undefined : GRID_SIZES}
+                      width={photo.width}
+                      height={photo.height}
+                      alt=""
+                      loading={index < 3 ? 'eager' : 'lazy'}
+                      fetchPriority={index < 2 ? 'high' : undefined}
+                      decoding="async"
+                    />
+                  </picture>
                   {isVideo && (
                     <span className={styles.badge} aria-hidden="true">
                       {Icons.play}

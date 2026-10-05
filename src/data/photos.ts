@@ -26,6 +26,9 @@ export const photoCategories: { id: PhotoCategory; label: string }[] = [
 
 const base = '/img/photos';
 
+/** WebP twin of a thumb or poster (scripts/optimize_images.py makes them); originals stay JPEG */
+export const webp = (path: string) => path.replace(/\.jpg$/, '.webp');
+
 const img = (
   category: PhotoCategory,
   id: string,

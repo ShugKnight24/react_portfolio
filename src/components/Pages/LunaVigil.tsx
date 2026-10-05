@@ -1,4 +1,5 @@
 import { CSSProperties, FC } from 'react';
+import { webp } from '../../data/photos';
 import styles from './LunaVigil.module.css';
 
 export interface VigilPhoto {
@@ -103,7 +104,10 @@ export const LunaVigil: FC<LunaVigilProps> = ({
               style={{ '--c': c, '--r': r, '--mc': mc, '--mr': mr } as CSSProperties}
             >
               <figure>
-                <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+                <picture>
+                  <source type="image/webp" srcSet={webp(photo.src)} />
+                  <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+                </picture>
                 {photo.caption && <figcaption>{photo.caption}</figcaption>}
               </figure>
             </li>
