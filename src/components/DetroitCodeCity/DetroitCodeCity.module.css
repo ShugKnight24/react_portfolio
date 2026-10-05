@@ -1,0 +1,342 @@
+.detroitCodeCity {
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(5, 10, 20, 0.95) 0%,
+    rgba(10, 15, 30, 0.98) 50%,
+    rgba(5, 12, 25, 0.95) 100%
+  );
+  padding: var(--space-16) var(--space-4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-2xl);
+  margin: var(--space-8);
+
+  :global(.scene-container) {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    aspect-ratio: 3/1;
+
+    :global(.matrix-rain-container) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      clip-path: inset(0 0 0 58%);
+      z-index: 10;
+
+      :global(.matrix-column) {
+        position: absolute;
+        top: -120%;
+        color: #00ff41;
+        font-family: var(--font-family-mono);
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1.1;
+        text-shadow: 0 0 8px #00ff41, 0 0 20px rgba(0, 255, 65, 0.3);
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        letter-spacing: 3px;
+        white-space: nowrap;
+        opacity: 0;
+      }
+    }
+  }
+
+  :global(.scene-svg) {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    /* Initial hidden states */
+    :global(.era-industrial),
+    :global(.era-transformation),
+    :global(.era-digital) {
+      opacity: 0;
+    }
+
+    :global(.spark) { opacity: 0; }
+    :global(.bin) { opacity: 0; }
+
+    :global(.circuit-path) {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+
+    :global(.node) {
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    :global(.city-reveal) {
+      opacity: 0;
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    }
+
+    :global(.floating-code) text { opacity: 0; }
+    :global(.michigan-map) { opacity: 0; }
+  }
+
+  /* Active animations when scrolled into view */
+  &.visible {
+    :global(.scene-svg) {
+      :global(.era-industrial) { animation: detroitFadeIn 1s ease forwards; }
+      :global(.era-transformation) { animation: detroitFadeIn 1s ease 0.5s forwards; }
+      :global(.era-digital) { animation: detroitFadeIn 1s ease 1s forwards; }
+      :global(.michigan-map) { animation: detroitFadeIn 2s ease 1.2s forwards; }
+
+      /* Industrial animations */
+      :global(.smoke) {
+        animation: smokeRise 3.5s infinite ease-out;
+        &:global(.delay-1) { animation-delay: 0.8s; }
+        &:global(.delay-2) { animation-delay: 1.6s; }
+        &:global(.delay-3) { animation-delay: 1.2s; }
+      }
+
+      :global(.gear-rotate) { animation: gearRotate 8s infinite linear; }
+      :global(.gear-rotate-reverse) { animation: gearRotateReverse 5.5s infinite linear; }
+
+      :global(.chassis) {
+        animation: conveyorMove 5s infinite linear;
+        &:global(.c2) { animation-delay: 1.7s; }
+        &:global(.c3) { animation-delay: 3.4s; }
+      }
+
+      /* Transformation animations */
+      :global(.spark) {
+        animation: sparkFlash 1.5s infinite;
+        &:global(.s2) { animation-delay: 0.25s; }
+        &:global(.s3) { animation-delay: 0.6s; }
+        &:global(.s4) { animation-delay: 0.9s; }
+        &:global(.s5) { animation-delay: 1.2s; }
+      }
+
+      :global(.circuit-path) {
+        animation: drawCircuit 2s ease 1.2s forwards;
+        &:global(.p2) { animation-delay: 1.6s; }
+        &:global(.p3) { animation-delay: 2s; }
+      }
+
+      :global(.node) {
+        animation: popNode 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.2s forwards;
+        &:global(.n2) { animation-delay: 2.8s; }
+      }
+
+      :global(.bin) {
+        animation: binaryStream 3s infinite linear;
+        &:global(.b1) { animation-delay: 0.4s; }
+        &:global(.b2) { animation-delay: 1s; }
+        &:global(.b3) { animation-delay: 1.6s; }
+        &:global(.b4) { animation-delay: 2.2s; }
+        &:global(.b5) { animation-delay: 2.8s; }
+      }
+
+      /* Digital city animations */
+      :global(.city-reveal) { animation: codeReveal 2.5s ease 2s forwards; }
+
+      :global(.windows) rect {
+        animation: circuitGlow 3s infinite alternate;
+        &:nth-child(1) { animation-delay: 0.3s; }
+        &:nth-child(2) { animation-delay: 0.6s; }
+        &:nth-child(3) { animation-delay: 0.9s; }
+        &:nth-child(4) { animation-delay: 1.2s; }
+        &:nth-child(5) { animation-delay: 1.5s; }
+        &:nth-child(6) { animation-delay: 1.8s; }
+        &:nth-child(7) { animation-delay: 2.1s; }
+        &:nth-child(8) { animation-delay: 2.4s; }
+        &:nth-child(9) { animation-delay: 2.7s; }
+        &:nth-child(10) { animation-delay: 3.0s; }
+        &:nth-child(11) { animation-delay: 3.3s; }
+        &:nth-child(12) { animation-delay: 3.6s; }
+      }
+
+      :global(.floating-code) text {
+        &:global(.f1) {
+          animation: floatCode 4s infinite ease-in-out 3.5s, detroitFadeIn 1s ease 3.2s forwards;
+        }
+        &:global(.f2) {
+          animation: floatCode 4s infinite ease-in-out 4s, detroitFadeIn 1s ease 3.4s forwards;
+        }
+        &:global(.f3) {
+          animation: floatCode 4s infinite ease-in-out 4.5s, detroitFadeIn 1s ease 3.6s forwards;
+        }
+        &:global(.f4) {
+          animation: floatCode 4s infinite ease-in-out 5s, detroitFadeIn 1s ease 3.8s forwards;
+        }
+        &:global(.f5) {
+          animation: floatCode 4s infinite ease-in-out 5.5s, detroitFadeIn 1s ease 4s forwards;
+        }
+      }
+    }
+
+    :global(.matrix-column) {
+      animation: matrixRain linear infinite, matrixFlicker 0.15s infinite alternate;
+    }
+  }
+}
+
+/* Keyframes */
+@keyframes detroitFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes smokeRise {
+  0% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-20px) scale(1.4); opacity: 0.3; }
+  100% { transform: translateY(-45px) scale(2.2); opacity: 0; }
+}
+
+@keyframes gearRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gearRotateReverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes conveyorMove {
+  0% { transform: translateX(-80px); opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(180px); opacity: 0; }
+}
+
+@keyframes sparkFlash {
+  0%, 100% { opacity: 0; transform: scale(0.3); }
+  40% { opacity: 1; transform: scale(1.5); }
+  60% { opacity: 0.8; transform: scale(1); }
+}
+
+@keyframes drawCircuit {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes popNode {
+  to { transform: scale(1); }
+}
+
+@keyframes binaryStream {
+  0% { transform: translateY(20px); opacity: 0; }
+  30% { opacity: 0.8; }
+  70% { opacity: 0.6; }
+  100% { transform: translateY(-50px); opacity: 0; }
+}
+
+@keyframes matrixRain {
+  0% { top: -120%; opacity: 0; }
+  5% { opacity: 0.6; }
+  85% { opacity: 0.8; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes matrixFlicker {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@keyframes codeReveal {
+  0% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    opacity: 0;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
+@keyframes circuitGlow {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; filter: drop-shadow(0 0 6px var(--color-primary)); }
+}
+
+@keyframes floatCode {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Light mode adjustments */
+:global([data-theme='light']) .detroitCodeCity {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 25, 50, 0.92) 0%,
+    rgba(20, 30, 60, 0.95) 50%,
+    rgba(15, 25, 50, 0.92) 100%
+  );
+}
+
+/* Dark mode enhancements */
+:global([data-theme='dark']) .detroitCodeCity {
+  :global(.matrix-column) {
+    text-shadow: 0 0 10px #00ff41, 0 0 30px rgba(0, 255, 65, 0.5);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .detroitCodeCity {
+    padding: var(--space-12) var(--space-2);
+
+    :global(.scene-container) {
+      aspect-ratio: 2.5/1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .detroitCodeCity {
+    padding: var(--space-8) var(--space-2);
+    margin: var(--space-4);
+
+    :global(.scene-container) {
+      aspect-ratio: 2/1;
+    }
+
+    :global(.matrix-rain-container) :global(.matrix-column) {
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .detroitCodeCity :global(.scene-container) {
+    aspect-ratio: 1.5/1;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .detroitCodeCity {
+    :global(.era-industrial),
+    :global(.era-transform),
+    :global(.era-digital),
+    :global(.circuit-path),
+    :global(.circuit-node),
+    :global(.skyline-silhouettes),
+    :global(.mi-map),
+    :global(.floating-code-container),
+    :global(.smoke-particle),
+    :global(.gear),
+    :global(.gear-reverse),
+    :global(.conveyor-part),
+    :global(.welding-spark),
+    :global(.binary-stream text),
+    :global(.circuit-window),
+    :global(.matrix-column) {
+      animation: none !important;
+      opacity: 1 !important;
+      stroke-dashoffset: 0 !important;
+      clip-path: none !important;
+      transform: none !important;
+    }
+  }
+}
